@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+            <html lang='fr'>
+            <head>
+                <title>Puits Ramoloss - 2e ss. - Pokémon par zone - Gen 2</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen2.1774893396.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_gold.css' />
+                <script>
+                    init_style('gen2');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/fr'>Retour au menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/pokemon_gen2/catch_locations/slowpoke_well_b2' >
+                            <span lang='en'>English version</span>
+                            <img src='/lyra-website-backup/views/images/us-uk_flag.png' alt='Drapeau anglais/américain' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra a un site web sur</h1>
+    <h2>Pokémon Gen 2</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/fr/pokemon_gen2/full_guide'>Guide complet</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen2/pokedex_tracker'>Pokédex perso</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen2/catch_locations'>Pokémon par zone</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen2/pokemon_info'>Recherche par filtre</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen2/extra_info'>Infos supplémentaires</a>
+    <button id='settings_link'>Préférences</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex perso</h1>
+                <ul>
+                    <li>
+                <p>Pokédex affiché : </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>Pokédex National</option><option value='regional_dex'>Or, Argent et Cristal</option><option value='only_new_dex'>Nouveaux Pokémon</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Ajouter une étape supplémentaire</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Afficher le nombre de Pokémon obtenus</p>
+            </li><li>
+                <p>Sprites utilisés : </p>
+                <select id='select_pokemon_sprites'><option value='gold_sprites'>Or</option><option value='silver_sprites'>Argent</option><option value='crystal_sprites'>Cristal</option><option value='crystal_anim_sprites'>Cristal (Animés)</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Mini Pokédex</p>
+            </li><li>
+                <p>Nom des boites : </p>
+                <select id='select_box_names'><option value='boxes_order'>Numéro de boite</option><option value='boxes_firstlast'>Premier et dernier Pokémon</option><option value='boxes_hidden'>Masquer les noms</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon par zone</h1>
+                <ul>
+                    <li>
+                <p>Filtrer par version : </p>
+                <select id='select_version_filter'><option value='pref_none'>Toutes</option><option value='pref_gold'>Or</option><option value='pref_silver'>Argent</option><option value='pref_crystal'>Cristal</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Masquer la Canne et Super Canne</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Recherche par filtre</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignorer les Pokémon déjà attrapés</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Couleurs du site web</h1>
+                <ul>
+                    <li>
+                <p>Thème de couleurs : </p>
+                <select id='select_color_theme'><optgroup label='1re génération'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Rouge</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Bleu</option></optgroup><optgroup label='2e génération'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Or</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Argent</option></optgroup><optgroup label='3e génération'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Émeraude</option></optgroup><optgroup label='4e génération'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamant</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Perle</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Données de la Gen 2</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Exporter</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Importer</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen2_settings from '/lyra-website-backup/scripts/pokemon/gen2/gen2_settings.1763926670.js';
+            const current_settings = new gen2_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('fr'); 
+            </script>
+            <main>
+                <h1>Génération 2 - Pokémon par zone</h1>
+            <section id='catch_locations'>
+                <div id='select_section'><div id='location_select' class='select_menu'>
+                <span>Zone à afficher :</span>
+                <select>
+                    <option value=''  disabled hidden>Choisissez une zone</option>
+                    <optgroup label='Routes'><option value='route_01' >Route 1</option><option value='route_02' >Route 2</option><option value='route_03' >Route 3</option><option value='route_04' >Route 4</option><option value='route_05' >Route 5</option><option value='route_06' >Route 6</option><option value='route_07' >Route 7</option><option value='route_08' >Route 8</option><option value='route_09' >Route 9</option><option value='route_10' >Route 10</option><option value='route_11' >Route 11</option><option value='route_12' >Route 12</option><option value='route_13' >Route 13</option><option value='route_14' >Route 14</option><option value='route_15' >Route 15</option><option value='route_16' >Route 16</option><option value='route_17' >Route 17</option><option value='route_18' >Route 18</option><option value='route_19' >Route 19</option><option value='route_20' >Route 20</option><option value='route_21' >Route 21</option><option value='route_22' >Route 22</option><option value='route_24' >Route 24</option><option value='route_25' >Route 25</option><option value='route_26' >Route 26</option><option value='route_27' >Route 27</option><option value='route_28' >Route 28</option><option value='route_29' >Route 29</option><option value='route_30' >Route 30</option><option value='route_31' >Route 31</option><option value='route_32' >Route 32</option><option value='route_33' >Route 33</option><option value='route_34' >Route 34</option><option value='route_35' >Route 35</option><option value='route_36' >Route 36</option><option value='route_37' >Route 37</option><option value='route_38' >Route 38</option><option value='route_39' >Route 39</option><option value='route_40' >Route 40</option><option value='route_41' >Route 41</option><option value='route_42' >Route 42</option><option value='route_43' >Route 43</option><option value='route_44' >Route 44</option><option value='route_45' >Route 45</option><option value='route_46' >Route 46</option></optgroup>
+                        <optgroup label='Forêts'><option value='ilex_forest' >Bois aux Chênes</option><option value='lake_of_rage' >Lac Colère</option><option value='national_park' >Parc Naturel</option><option value='national_park_contest' >Parc Naturel - Concours</option></optgroup>
+                        <optgroup label='Grottes'><option value='dark_cave_r31' >Antre Noire - Route 31</option><option value='dark_cave_r45' >Antre Noire - Route 45</option><option value='diglett_cave' >Cave Taupiqueur</option><option value='dragon_den' >Antre du Dragon</option><option value='ice_path_1' >Route de Glace - RdC</option><option value='ice_path_b1' >Route de Glace - 1er ss.</option><option value='ice_path_b2' >Route de Glace - 2e ss.</option><option value='ice_path_b3' >Route de Glace - 3e ss.</option><option value='mt_moon' >Mont Sélénite</option><option value='mt_mortar_1' >Mont Creuset - RdC</option><option value='mt_mortar_2' >Mont Creuset - 1er ét.</option><option value='mt_mortar_b1' >Mont Creuset - 1er ss.</option><option value='mt_mortar_ent' >Mont Creuset - Entrée</option><option value='mt_silver_1' >Mont Argenté - RdC</option><option value='mt_silver_2' >Mont Argenté - 1er ét.</option><option value='mt_silver_cham' >Mont Argenté - Salles d'objet</option><option value='mt_silver_ext' >Mont Argenté - Extérieur</option><option value='mt_silver_sum' >Mont Argenté - Sommet</option><option value='rock_tunnel_1' >Grotte - RdC</option><option value='rock_tunnel_b1' >Grotte - 1er ss.</option><option value='ruins_of_alph_ext' >Ruines d'Alpha - Extérieur</option><option value='ruins_of_alph_int' >Ruines d'Alpha - Intérieur</option><option value='slowpoke_well_b1' >Puits Ramoloss - 1er ss.</option><option value='slowpoke_well_b2' selected>Puits Ramoloss - 2e ss.</option><option value='tohjo_falls' >Chutes Tohjo</option><option value='union_cave_1' >Caves Jumelles - RdC</option><option value='union_cave_b1' >Caves Jumelles - 1er ss.</option><option value='union_cave_b2' >Caves Jumelles - 2e ss.</option><option value='victory_road' >Route Victoire</option><option value='whirl_islands_1' >Tourb'Îles - RdC</option><option value='whirl_islands_b1' >Tourb'Îles - 1er ss.</option><option value='whirl_islands_b2' >Tourb'Îles - 2e ss.</option><option value='whirl_islands_b3' >Tourb'Îles - 3e ss.</option></optgroup>
+                        <optgroup label='Bâtiments'><option value='bell_tower' >Tour Ferraille</option><option value='burned_tower_1' >Tour Cendrée - RdC</option><option value='burned_tower_b1' >Tour Cendrée - 1er ss.</option><option value='cerulean_gym' >Arène d'Azuria</option><option value='power_plant' >Centrale</option><option value='sprout_tower' >Tour Chétiflor</option><option value='team_rocket_hq' >Repaire Rocket</option></optgroup>
+                        <optgroup label='Villes'><option value='blackthorn_city' >Ébènelle</option><option value='celadon_city' >Céladopole</option><option value='cerulean_city' >Azuria</option><option value='cherrygrove_city' >Ville Griotte</option><option value='cianwood_city' >Irisia</option><option value='cinnabar_island' >Cramois'Île </option><option value='ecruteak_city' >Rosalia</option><option value='fuchsia_city' >Parmanie</option><option value='goldenrod_city' >Doublonville</option><option value='new_bark_town' >Bourg Geon</option><option value='olivine_city' >Oliville</option><option value='olivine_city_harbor' >Oliville - Port</option><option value='pallet_town' >Bourg Palette</option><option value='pewter_city' >Argenta</option><option value='vermilion_city' >Carmin sur Mer</option><option value='vermilion_city_harbor' >Carmin sur Mer - Port</option><option value='violet_city' >Mauville</option><option value='viridian_city' >Jadielle</option></optgroup>
+                        <optgroup label='Autres'><option value='headbutt_a' >Arbre Coup d'Boule A</option><option value='headbutt_b' >Arbre Coup d'Boule B</option><option value='headbutt_c1' >Arbre Coup d'Boule C1</option><option value='headbutt_c2' >Arbre Coup d'Boule C2</option><option value='headbutt_c3' >Arbre Coup d'Boule C3</option><option value='headbutt_c4' >Arbre Coup d'Boule C4</option><option value='headbutt_c5' >Arbre Coup d'Boule C5</option><option value='headbutt_c6' >Arbre Coup d'Boule C6</option></optgroup>
+                </select>
+                <script type='module'>
+                    import select_reload from '/lyra-website-backup/scripts/functions/select_reload.1715012545.js';
+                    
+                    document.querySelector('#location_select').addEventListener('change', (event) => select_reload('/lyra-website-backup/fr/pokemon_gen2/catch_locations', event));
+                </script>
+            </div></div><div id='current_location'>
+                    <a href='/lyra-website-backup/fr/pokemon_gen2/catch_locations/slowpoke_well_b1'>←</a>
+                    <p>Puits Ramoloss - 2e ss.</p>
+                    <a href='/lyra-website-backup/fr/pokemon_gen2/catch_locations/tohjo_falls'>→</a>
+                    <script type='module'>
+                        import locations_keynav from '/lyra-website-backup/scripts/functions/pokemon/locations_keynav.1720872089.js';
+                        
+                        locations_keynav('/lyra-website-backup/fr/pokemon_gen2/catch_locations/slowpoke_well_b1', '/lyra-website-backup/fr/pokemon_gen2/catch_locations/tohjo_falls');
+                    </script>
+                </div>
+                 <div id='location_detail'><div>
+                        <h2 class='gold'>Version Or</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Habitat / </span>Méthode</th>
+                            <th class='col_level'>Niveau</th>
+                            <th colspan='3'>Taux</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_41.png' 
+                                alt='Nosferapti sprite gen 2' />
+                                <span class='pokemon_name'>Nosferapti</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>19-23</td>
+                        <td colspan='3' class='col_rate_colspan' >80 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_79.png' 
+                                alt='Ramoloss sprite gen 2' />
+                                <span class='pokemon_name'>Ramoloss</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>21-23</td>
+                        <td colspan='3' class='col_rate_colspan' >15 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_42.png' 
+                                alt='Nosferalto sprite gen 2' />
+                                <span class='pokemon_name'>Nosferalto</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>23</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='surfing'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_79.png' 
+                                alt='Ramoloss sprite gen 2' />
+                                <span class='pokemon_name'>Ramoloss</span>
+                            </div>
+                        </td>
+                        <td>Surf</td>
+                        <td>15-24</td>
+                        <td colspan='3' class='col_rate_colspan' >90 %</td>
+                    </tr>
+                
+                    <tr class='surfing'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_80.png' 
+                                alt='Flagadoss sprite gen 2' />
+                                <span class='pokemon_name'>Flagadoss</span>
+                            </div>
+                        </td>
+                        <td>Surf</td>
+                        <td>20-25</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                    <tr class='fishing_old'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_129.png' 
+                                alt='Magicarpe sprite gen 2' />
+                                <span class='pokemon_name'>Magicarpe</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Super Canne</td>
+                        <td>10</td>
+                        <td colspan='3' class='col_rate_colspan' >85 %</td>
+                    </tr>
+                
+                    <tr class='fishing_old'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_118.png' 
+                                alt='Poissirène sprite gen 2' />
+                                <span class='pokemon_name'>Poissirène</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Super Canne</td>
+                        <td>10</td>
+                        <td colspan='3' class='col_rate_colspan' >15 %</td>
+                    </tr>
+                
+                    <tr class='fishing_good'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_118.png' 
+                                alt='Poissirène sprite gen 2' />
+                                <span class='pokemon_name'>Poissirène</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Canne</td>
+                        <td>20</td>
+                        <td colspan='3' class='col_rate_colspan' >65 %</td>
+                    </tr>
+                
+                    <tr class='fishing_good'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_129.png' 
+                                alt='Magicarpe sprite gen 2' />
+                                <span class='pokemon_name'>Magicarpe</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Canne</td>
+                        <td>20</td>
+                        <td colspan='3' class='col_rate_colspan' >35 %</td>
+                    </tr>
+                
+                    <tr class='fishing_super'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_118.png' 
+                                alt='Poissirène sprite gen 2' />
+                                <span class='pokemon_name'>Poissirène</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Méga Canne</td>
+                        <td>40</td>
+                        <td colspan='3' class='col_rate_colspan' >70 %</td>
+                    </tr>
+                
+                    <tr class='fishing_super'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_129.png' 
+                                alt='Magicarpe sprite gen 2' />
+                                <span class='pokemon_name'>Magicarpe</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Méga Canne</td>
+                        <td>40</td>
+                        <td colspan='3' class='col_rate_colspan' >20 %</td>
+                    </tr>
+                
+                    <tr class='fishing_super'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_119.png' 
+                                alt='Poissoroy sprite gen 2' />
+                                <span class='pokemon_name'>Poissoroy</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Méga Canne</td>
+                        <td>40</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>Toutes les rencontres de cette zone sont cachées par vos paramètres actuels.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div><div>
+                        <h2 class='silver'>Version Argent</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Habitat / </span>Méthode</th>
+                            <th class='col_level'>Niveau</th>
+                            <th colspan='3'>Taux</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_41.png' 
+                                alt='Nosferapti sprite gen 2' />
+                                <span class='pokemon_name'>Nosferapti</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>19-23</td>
+                        <td colspan='3' class='col_rate_colspan' >80 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_79.png' 
+                                alt='Ramoloss sprite gen 2' />
+                                <span class='pokemon_name'>Ramoloss</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>21-23</td>
+                        <td colspan='3' class='col_rate_colspan' >15 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_42.png' 
+                                alt='Nosferalto sprite gen 2' />
+                                <span class='pokemon_name'>Nosferalto</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>23</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='surfing'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_79.png' 
+                                alt='Ramoloss sprite gen 2' />
+                                <span class='pokemon_name'>Ramoloss</span>
+                            </div>
+                        </td>
+                        <td>Surf</td>
+                        <td>15-24</td>
+                        <td colspan='3' class='col_rate_colspan' >90 %</td>
+                    </tr>
+                
+                    <tr class='surfing'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_80.png' 
+                                alt='Flagadoss sprite gen 2' />
+                                <span class='pokemon_name'>Flagadoss</span>
+                            </div>
+                        </td>
+                        <td>Surf</td>
+                        <td>20-25</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                    <tr class='fishing_old'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_129.png' 
+                                alt='Magicarpe sprite gen 2' />
+                                <span class='pokemon_name'>Magicarpe</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Super Canne</td>
+                        <td>10</td>
+                        <td colspan='3' class='col_rate_colspan' >85 %</td>
+                    </tr>
+                
+                    <tr class='fishing_old'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_118.png' 
+                                alt='Poissirène sprite gen 2' />
+                                <span class='pokemon_name'>Poissirène</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Super Canne</td>
+                        <td>10</td>
+                        <td colspan='3' class='col_rate_colspan' >15 %</td>
+                    </tr>
+                
+                    <tr class='fishing_good'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_118.png' 
+                                alt='Poissirène sprite gen 2' />
+                                <span class='pokemon_name'>Poissirène</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Canne</td>
+                        <td>20</td>
+                        <td colspan='3' class='col_rate_colspan' >65 %</td>
+                    </tr>
+                
+                    <tr class='fishing_good'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_129.png' 
+                                alt='Magicarpe sprite gen 2' />
+                                <span class='pokemon_name'>Magicarpe</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Canne</td>
+                        <td>20</td>
+                        <td colspan='3' class='col_rate_colspan' >35 %</td>
+                    </tr>
+                
+                    <tr class='fishing_super'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_118.png' 
+                                alt='Poissirène sprite gen 2' />
+                                <span class='pokemon_name'>Poissirène</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Méga Canne</td>
+                        <td>40</td>
+                        <td colspan='3' class='col_rate_colspan' >70 %</td>
+                    </tr>
+                
+                    <tr class='fishing_super'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_129.png' 
+                                alt='Magicarpe sprite gen 2' />
+                                <span class='pokemon_name'>Magicarpe</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Méga Canne</td>
+                        <td>40</td>
+                        <td colspan='3' class='col_rate_colspan' >20 %</td>
+                    </tr>
+                
+                    <tr class='fishing_super'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_119.png' 
+                                alt='Poissoroy sprite gen 2' />
+                                <span class='pokemon_name'>Poissoroy</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Méga Canne</td>
+                        <td>40</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>Toutes les rencontres de cette zone sont cachées par vos paramètres actuels.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div><div>
+                        <h2 class='crystal'>Version Cristal</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Habitat / </span>Méthode</th>
+                            <th class='col_level'>Niveau</th>
+                            <th colspan='3'>Taux</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_41.png' 
+                                alt='Nosferapti sprite gen 2' />
+                                <span class='pokemon_name'>Nosferapti</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>19-23</td>
+                        <td colspan='3' class='col_rate_colspan' >80 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_79.png' 
+                                alt='Ramoloss sprite gen 2' />
+                                <span class='pokemon_name'>Ramoloss</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>21-23</td>
+                        <td colspan='3' class='col_rate_colspan' >15 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_42.png' 
+                                alt='Nosferalto sprite gen 2' />
+                                <span class='pokemon_name'>Nosferalto</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>23</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='surfing'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_79.png' 
+                                alt='Ramoloss sprite gen 2' />
+                                <span class='pokemon_name'>Ramoloss</span>
+                            </div>
+                        </td>
+                        <td>Surf</td>
+                        <td>15-24</td>
+                        <td colspan='3' class='col_rate_colspan' >90 %</td>
+                    </tr>
+                
+                    <tr class='surfing'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_80.png' 
+                                alt='Flagadoss sprite gen 2' />
+                                <span class='pokemon_name'>Flagadoss</span>
+                            </div>
+                        </td>
+                        <td>Surf</td>
+                        <td>20-25</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                    <tr class='fishing_old'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_129.png' 
+                                alt='Magicarpe sprite gen 2' />
+                                <span class='pokemon_name'>Magicarpe</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Super Canne</td>
+                        <td>10</td>
+                        <td colspan='3' class='col_rate_colspan' >85 %</td>
+                    </tr>
+                
+                    <tr class='fishing_old'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_118.png' 
+                                alt='Poissirène sprite gen 2' />
+                                <span class='pokemon_name'>Poissirène</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Super Canne</td>
+                        <td>10</td>
+                        <td colspan='3' class='col_rate_colspan' >15 %</td>
+                    </tr>
+                
+                    <tr class='fishing_good'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_118.png' 
+                                alt='Poissirène sprite gen 2' />
+                                <span class='pokemon_name'>Poissirène</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Canne</td>
+                        <td>20</td>
+                        <td colspan='3' class='col_rate_colspan' >65 %</td>
+                    </tr>
+                
+                    <tr class='fishing_good'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_129.png' 
+                                alt='Magicarpe sprite gen 2' />
+                                <span class='pokemon_name'>Magicarpe</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Canne</td>
+                        <td>20</td>
+                        <td colspan='3' class='col_rate_colspan' >35 %</td>
+                    </tr>
+                
+                    <tr class='fishing_super'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_118.png' 
+                                alt='Poissirène sprite gen 2' />
+                                <span class='pokemon_name'>Poissirène</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Méga Canne</td>
+                        <td>40</td>
+                        <td colspan='3' class='col_rate_colspan' >70 %</td>
+                    </tr>
+                
+                    <tr class='fishing_super'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_129.png' 
+                                alt='Magicarpe sprite gen 2' />
+                                <span class='pokemon_name'>Magicarpe</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Méga Canne</td>
+                        <td>40</td>
+                        <td colspan='3' class='col_rate_colspan' >20 %</td>
+                    </tr>
+                
+                    <tr class='fishing_super'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_119.png' 
+                                alt='Poissoroy sprite gen 2' />
+                                <span class='pokemon_name'>Poissoroy</span>
+                            </div>
+                        </td>
+                        <td>Pêche<br />Méga Canne</td>
+                        <td>40</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>Toutes les rencontres de cette zone sont cachées par vos paramètres actuels.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div></div></section>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Sauvegarde de pr&eacute;servation du site <strong>Lyra a un site web</strong>. Site, design et contenu originaux par <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon et tous les &eacute;l&eacute;ments associ&eacute;s sont des marques de Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

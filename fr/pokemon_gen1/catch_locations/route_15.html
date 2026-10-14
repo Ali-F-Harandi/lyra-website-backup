@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+            <html lang='fr'>
+            <head>
+                <title>Route 15 - Pokémon par zone - Gen 1</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen1.1774893396.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_red.css' />
+                <script>
+                    init_style('gen1');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/fr'>Retour au menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/pokemon_gen1/catch_locations/route_15' >
+                            <span lang='en'>English version</span>
+                            <img src='/lyra-website-backup/views/images/us-uk_flag.png' alt='Drapeau anglais/américain' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra a un site web sur</h1>
+    <h2>Pokémon Gen 1</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/fr/pokemon_gen1/full_guide'>Guide complet</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen1/pokedex_tracker'>Pokédex perso</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen1/catch_locations'>Pokémon par zone</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen1/pokemon_info'>Recherche par filtre</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen1/extra_info'>Infos supplémentaires</a>
+    <button id='settings_link'>Préférences</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex perso</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Ajouter une étape supplémentaire</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Afficher le nombre de Pokémon obtenus</p>
+            </li><li>
+                <p>Sprites utilisés : </p>
+                <select id='select_pokemon_sprites'><option value='rg_sprites'>Rouge et Vert</option><option value='rb_sprites'>Rouge et Bleu</option><option value='y_sprites'>Jaune</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Mini Pokédex</p>
+            </li><li>
+                <p>Nom des boites : </p>
+                <select id='select_box_names'><option value='boxes_order'>Numéro de boite</option><option value='boxes_firstlast'>Premier et dernier Pokémon</option><option value='boxes_hidden'>Masquer les noms</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Guide Complet</h1>
+                <ul>
+                    <li>
+                <p>Version du guide : </p>
+                <select id='select_guide_version'><option value='red_guide'>Rouge</option><option value='blue_guide'>Bleu</option><option value='yellow_guide'>Jaune</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon par zone</h1>
+                <ul>
+                    <li>
+                <p>Filtrer par version : </p>
+                <select id='select_version_filter'><option value='pref_none'>Toutes</option><option value='pref_red'>Rouge</option><option value='pref_blue'>Bleu</option><option value='pref_yellow'>Jaune</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Masquer la Canne et Super Canne</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Recherche par filtre</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignorer les Pokémon déjà attrapés</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Couleurs du site web</h1>
+                <ul>
+                    <li>
+                <p>Thème de couleurs : </p>
+                <select id='select_color_theme'><optgroup label='1re génération'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Rouge</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Bleu</option></optgroup><optgroup label='2e génération'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Or</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Argent</option></optgroup><optgroup label='3e génération'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Émeraude</option></optgroup><optgroup label='4e génération'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamant</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Perle</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Données de la Gen 1</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Exporter</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Importer</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen1_settings from '/lyra-website-backup/scripts/pokemon/gen1/gen1_settings.1774893378.js';
+            const current_settings = new gen1_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_guide_version(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('fr'); 
+            </script>
+            <main>
+                <h1>Génération 1 - Pokémon par zone</h1>
+            <section id='catch_locations'>
+                <div id='select_section'><div id='location_select' class='select_menu'>
+                <span>Zone à afficher :</span>
+                <select>
+                    <option value=''  disabled hidden>Choisissez une zone</option>
+                    <optgroup label='Routes'><option value='route_01' >Route 1</option><option value='route_02' >Route 2</option><option value='route_03' >Route 3</option><option value='route_04' >Route 4</option><option value='route_05' >Route 5</option><option value='route_06' >Route 6</option><option value='route_07' >Route 7</option><option value='route_08' >Route 8</option><option value='route_09' >Route 9</option><option value='route_10' >Route 10</option><option value='route_11' >Route 11</option><option value='route_12' >Route 12</option><option value='route_13' >Route 13</option><option value='route_14' >Route 14</option><option value='route_15' selected>Route 15</option><option value='route_16' >Route 16</option><option value='route_17' >Route 17</option><option value='route_18' >Route 18</option><option value='route_19' >Route 19</option><option value='route_20' >Route 20</option><option value='route_21' >Route 21</option><option value='route_22' >Route 22</option><option value='route_23' >Route 23</option><option value='route_24' >Route 24</option><option value='route_25' >Route 25</option></optgroup>
+                        <optgroup label='Forêts'><option value='viridian_forest' >Forêt de Jade</option></optgroup>
+                        <optgroup label='Grottes'><option value='cerulean_cave_1' >Caverne Azurée - RdC</option><option value='cerulean_cave_2' >Caverne Azurée - 1er ét.</option><option value='cerulean_cave_b1' >Caverne Azurée - 1er ss.</option><option value='diglett' >Cave Taupiqueur</option><option value='mt_moon_1' >Mont Sélénite - RdC</option><option value='mt_moon_b1' >Mont Sélénite - 1er ss.</option><option value='mt_moon_b2' >Mont Sélénite - 2e ss.</option><option value='rock_tunnel_1' >Grotte - 1er ét.</option><option value='rock_tunnel_b1' >Grotte - 1er ss.</option><option value='seafoam_islands_1' >Îles Écume - RdC</option><option value='seafoam_islands_B1' >Îles Écume - 1er ss.</option><option value='seafoam_islands_B2' >Îles Écume - 2e ss.</option><option value='seafoam_islands_B3' >Îles Écume - 3e ss.</option><option value='seafoam_islands_B4' >Îles Écume - 4e ss.</option><option value='victory_road_1' >Route Victoire - RdC</option><option value='victory_road_2' >Route Victoire - 1er ét.</option><option value='victory_road_3' >Route Victoire - 2e ét.</option></optgroup>
+                        <optgroup label='Parc Safari'><option value='safari_area_0' >Parc Safari - Entrée</option><option value='safari_area_1' >Parc Safari - Zone Est</option><option value='safari_area_2' >Parc Safari - Zone Nord</option><option value='safari_area_3' >Parc Safari - Zone Ouest</option></optgroup>
+                        <optgroup label='Villes'><option value='celadon_city' >Céladopole</option><option value='cerulean_city' >Azuria</option><option value='cinnabar_island' >Cramois'Île</option><option value='fuchsia_city' >Parmanie</option><option value='pallet_town' >Bourg Palette</option><option value='saffron_city' >Safrania</option><option value='vermilion_city' >Carmin sur Mer</option><option value='viridian_city' >Jadielle</option></optgroup>
+                        <optgroup label='Bâtiments'><option value='cerulean_gym' >Arène d'Azuria</option><option value='pokemon_mansion_1' >Manoir Pokémon - RdC</option><option value='pokemon_mansion_2' >Manoir Pokémon - 1er ét.</option><option value='pokemon_mansion_3' >Manoir Pokémon - 2e ét.</option><option value='pokemon_mansion_b1' >Manoir Pokémon - 1er ss.</option><option value='pokemon_tower_3' >Tour Pokémon - 2e ét.</option><option value='pokemon_tower_4' >Tour Pokémon - 3e ét.</option><option value='pokemon_tower_5' >Tour Pokémon - 4e ét.</option><option value='pokemon_tower_6' >Tour Pokémon - 5e ét.</option><option value='pokemon_tower_7' >Tour Pokémon - 6e ét.</option><option value='power_plant' >Centrale</option><option value='underground_path' >Souterrain (5-6)</option></optgroup>
+                </select>
+                <script type='module'>
+                    import select_reload from '/lyra-website-backup/scripts/functions/select_reload.1715012545.js';
+                    
+                    document.querySelector('#location_select').addEventListener('change', (event) => select_reload('/lyra-website-backup/fr/pokemon_gen1/catch_locations', event));
+                </script>
+            </div></div><div id='current_location'>
+                    <a href='/lyra-website-backup/fr/pokemon_gen1/catch_locations/route_14'>←</a>
+                    <p>Route 15</p>
+                    <a href='/lyra-website-backup/fr/pokemon_gen1/catch_locations/route_16'>→</a>
+                    <script type='module'>
+                        import locations_keynav from '/lyra-website-backup/scripts/functions/pokemon/locations_keynav.1720872089.js';
+                        
+                        locations_keynav('/lyra-website-backup/fr/pokemon_gen1/catch_locations/route_14', '/lyra-website-backup/fr/pokemon_gen1/catch_locations/route_16');
+                    </script>
+                </div>
+                 <div id='location_detail'><div>
+                        <h2 class='red'>Version Rouge</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Habitat / </span>Méthode</th>
+                            <th class='col_level'>Niveau</th>
+                            <th colspan='3'>Taux</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_43.png' 
+                                alt='Mystherbe sprite gen 1' />
+                                <span class='pokemon_name'>Mystherbe</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>22, 24, 26</td>
+                        <td colspan='3' class='col_rate_colspan' >35 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_48.png' 
+                                alt='Mimitoss sprite gen 1' />
+                                <span class='pokemon_name'>Mimitoss</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>26, 28</td>
+                        <td colspan='3' class='col_rate_colspan' >20 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_132.png' 
+                                alt='Métamorph sprite gen 1' />
+                                <span class='pokemon_name'>Métamorph</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>26</td>
+                        <td colspan='3' class='col_rate_colspan' >20 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_16.png' 
+                                alt='Roucool sprite gen 1' />
+                                <span class='pokemon_name'>Roucool</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>23</td>
+                        <td colspan='3' class='col_rate_colspan' >15 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_17.png' 
+                                alt='Roucoups sprite gen 1' />
+                                <span class='pokemon_name'>Roucoups</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>28, 30</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_44.png' 
+                                alt='Ortide sprite gen 1' />
+                                <span class='pokemon_name'>Ortide</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>30</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>Toutes les rencontres de cette zone sont cachées par vos paramètres actuels.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div><div>
+                        <h2 class='blue'>Version Bleue</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Habitat / </span>Méthode</th>
+                            <th class='col_level'>Niveau</th>
+                            <th colspan='3'>Taux</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_69.png' 
+                                alt='Chétiflor sprite gen 1' />
+                                <span class='pokemon_name'>Chétiflor</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>22, 24, 26</td>
+                        <td colspan='3' class='col_rate_colspan' >35 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_48.png' 
+                                alt='Mimitoss sprite gen 1' />
+                                <span class='pokemon_name'>Mimitoss</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>26, 28</td>
+                        <td colspan='3' class='col_rate_colspan' >20 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_132.png' 
+                                alt='Métamorph sprite gen 1' />
+                                <span class='pokemon_name'>Métamorph</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>26</td>
+                        <td colspan='3' class='col_rate_colspan' >20 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_16.png' 
+                                alt='Roucool sprite gen 1' />
+                                <span class='pokemon_name'>Roucool</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>23</td>
+                        <td colspan='3' class='col_rate_colspan' >15 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_17.png' 
+                                alt='Roucoups sprite gen 1' />
+                                <span class='pokemon_name'>Roucoups</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>28, 30</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_70.png' 
+                                alt='Boustiflor sprite gen 1' />
+                                <span class='pokemon_name'>Boustiflor</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>30</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>Toutes les rencontres de cette zone sont cachées par vos paramètres actuels.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div><div>
+                        <h2 class='yellow'>Version Jaune</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Habitat / </span>Méthode</th>
+                            <th class='col_level'>Niveau</th>
+                            <th colspan='3'>Taux</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_y/sprite_43.png' 
+                                alt='Mystherbe sprite gen 1' />
+                                <span class='pokemon_name'>Mystherbe</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>26, 28</td>
+                        <td colspan='3' class='col_rate_colspan' >30 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_y/sprite_69.png' 
+                                alt='Chétiflor sprite gen 1' />
+                                <span class='pokemon_name'>Chétiflor</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>26, 28</td>
+                        <td colspan='3' class='col_rate_colspan' >30 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_y/sprite_48.png' 
+                                alt='Mimitoss sprite gen 1' />
+                                <span class='pokemon_name'>Mimitoss</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>24, 27</td>
+                        <td colspan='3' class='col_rate_colspan' >19 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_y/sprite_17.png' 
+                                alt='Roucoups sprite gen 1' />
+                                <span class='pokemon_name'>Roucoups</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>32</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_y/sprite_44.png' 
+                                alt='Ortide sprite gen 1' />
+                                <span class='pokemon_name'>Ortide</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>30</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_y/sprite_70.png' 
+                                alt='Boustiflor sprite gen 1' />
+                                <span class='pokemon_name'>Boustiflor</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>30</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_y/sprite_49.png' 
+                                alt='Aéromite sprite gen 1' />
+                                <span class='pokemon_name'>Aéromite</span>
+                            </div>
+                        </td>
+                        <td>Hautes herbes</td>
+                        <td>30</td>
+                        <td colspan='3' class='col_rate_colspan' >1 %</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>Toutes les rencontres de cette zone sont cachées par vos paramètres actuels.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div></div></section>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Sauvegarde de pr&eacute;servation du site <strong>Lyra a un site web</strong>. Site, design et contenu originaux par <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon et tous les &eacute;l&eacute;ments associ&eacute;s sont des marques de Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

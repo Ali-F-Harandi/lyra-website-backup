@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <title>Seafoam Islands - B1F - Catch locations - Gen 1</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen1.1774893396.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_red.css' />
+                <script>
+                    init_style('gen1');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/'>Return to main menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/fr/pokemon_gen1/catch_locations/seafoam_islands_B1' >
+                            <span lang='fr'>Version française</span>
+                            <img src='/lyra-website-backup/views/images/french_flag.png' alt='French flag' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra made a website about</h1>
+    <h2>Pokémon Gen 1</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/pokemon_gen1/full_guide'>Full Guide</a>
+    <a href='/lyra-website-backup/pokemon_gen1/pokedex_tracker'>Pokédex tracker</a>
+    <a href='/lyra-website-backup/pokemon_gen1/catch_locations'>Catch locations</a>
+    <a href='/lyra-website-backup/pokemon_gen1/pokemon_info'>Pokémon info</a>
+    <a href='/lyra-website-backup/pokemon_gen1/extra_info'>Extra info</a>
+    <button id='settings_link'>Settings</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex tracker</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Add extra step to capture</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Display current progress</p>
+            </li><li>
+                <p>Pokemon sprites used: </p>
+                <select id='select_pokemon_sprites'><option value='rg_sprites'>Red & Green</option><option value='rb_sprites'>Red & Blue</option><option value='y_sprites'>Yellow</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Small Pokémon sprites</p>
+            </li><li>
+                <p>Box labels: </p>
+                <select id='select_box_names'><option value='boxes_order'>Box number</option><option value='boxes_firstlast'>First & last Pokémon</option><option value='boxes_hidden'>Hide labels</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Full Guide</h1>
+                <ul>
+                    <li>
+                <p>Guide version: </p>
+                <select id='select_guide_version'><option value='red_guide'>Red</option><option value='blue_guide'>Blue</option><option value='yellow_guide'>Yellow</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Catch locations</h1>
+                <ul>
+                    <li>
+                <p>Filter by version: </p>
+                <select id='select_version_filter'><option value='pref_none'>All</option><option value='pref_red'>Red</option><option value='pref_blue'>Blue</option><option value='pref_yellow'>Yellow</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Hide Old Rod and Good Rod data</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon info</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignore info of caught Pokémon</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Website colors</h1>
+                <ul>
+                    <li>
+                <p>Color theme: </p>
+                <select id='select_color_theme'><optgroup label='Gen 1'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Red</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Blue</option></optgroup><optgroup label='Gen 2'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Gold</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Silver</option></optgroup><optgroup label='Gen 3'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Emerald</option></optgroup><optgroup label='Gen 4'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamond</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Pearl</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Gen 1 data management</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Export</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Import</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen1_settings from '/lyra-website-backup/scripts/pokemon/gen1/gen1_settings.1774893378.js';
+            const current_settings = new gen1_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_guide_version(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('en'); 
+            </script>
+            <main>
+                <h1>Generation 1 - Catch locations</h1>
+            <section id='catch_locations'>
+                <div id='select_section'><div id='location_select' class='select_menu'>
+                <span>Location to display:</span>
+                <select>
+                    <option value=''  disabled hidden>Select location</option>
+                    <optgroup label='Routes'><option value='route_01' >Route 1</option><option value='route_02' >Route 2</option><option value='route_03' >Route 3</option><option value='route_04' >Route 4</option><option value='route_05' >Route 5</option><option value='route_06' >Route 6</option><option value='route_07' >Route 7</option><option value='route_08' >Route 8</option><option value='route_09' >Route 9</option><option value='route_10' >Route 10</option><option value='route_11' >Route 11</option><option value='route_12' >Route 12</option><option value='route_13' >Route 13</option><option value='route_14' >Route 14</option><option value='route_15' >Route 15</option><option value='route_16' >Route 16</option><option value='route_17' >Route 17</option><option value='route_18' >Route 18</option><option value='route_19' >Route 19</option><option value='route_20' >Route 20</option><option value='route_21' >Route 21</option><option value='route_22' >Route 22</option><option value='route_23' >Route 23</option><option value='route_24' >Route 24</option><option value='route_25' >Route 25</option></optgroup>
+                        <optgroup label='Forests'><option value='viridian_forest' >Viridian Forest</option></optgroup>
+                        <optgroup label='Caves'><option value='cerulean_cave_1' >Cerulean Cave - 1F</option><option value='cerulean_cave_2' >Cerulean Cave - 2F</option><option value='cerulean_cave_b1' >Cerulean Cave - B1F</option><option value='diglett' >Diglett's Cave</option><option value='mt_moon_1' >Mt. Moon - 1F</option><option value='mt_moon_b1' >Mt. Moon - B1F</option><option value='mt_moon_b2' >Mt. Moon - B2F</option><option value='rock_tunnel_1' >Rock Tunnel - 1F</option><option value='rock_tunnel_b1' >Rock Tunnel - B1F</option><option value='seafoam_islands_1' >Seafoam Islands - 1F</option><option value='seafoam_islands_B1' selected>Seafoam Islands - B1F</option><option value='seafoam_islands_B2' >Seafoam Islands - B2F</option><option value='seafoam_islands_B3' >Seafoam Islands - B3F</option><option value='seafoam_islands_B4' >Seafoam Islands - B4F</option><option value='victory_road_1' >Victory Road - 1F</option><option value='victory_road_2' >Victory Road - 2F</option><option value='victory_road_3' >Victory Road - 3F</option></optgroup>
+                        <optgroup label='Safari Zone'><option value='safari_area_0' >Safari Zone - Center Area</option><option value='safari_area_1' >Safari Zone - Area 1 (east)</option><option value='safari_area_2' >Safari Zone - Area 2 (north)</option><option value='safari_area_3' >Safari Zone - Area 3 (west)</option></optgroup>
+                        <optgroup label='Towns'><option value='celadon_city' >Celadon City</option><option value='cerulean_city' >Cerulean City</option><option value='cinnabar_island' >Cinnabar Island</option><option value='fuchsia_city' >Fuchsia City</option><option value='pallet_town' >Pallet Town</option><option value='saffron_city' >Saffron City</option><option value='vermilion_city' >Vermilion City</option><option value='viridian_city' >Viridian City</option></optgroup>
+                        <optgroup label='Buildings'><option value='cerulean_gym' >Cerulean Gym</option><option value='pokemon_mansion_1' >Pokémon Mansion - 1F</option><option value='pokemon_mansion_2' >Pokémon Mansion - 2F</option><option value='pokemon_mansion_3' >Pokémon Mansion - 3F</option><option value='pokemon_mansion_b1' >Pokémon Mansion - B1F</option><option value='pokemon_tower_3' >Pokémon Tower - 3F</option><option value='pokemon_tower_4' >Pokémon Tower - 4F</option><option value='pokemon_tower_5' >Pokémon Tower - 5F</option><option value='pokemon_tower_6' >Pokémon Tower - 6F</option><option value='pokemon_tower_7' >Pokémon Tower - 7F</option><option value='power_plant' >Power Plant</option><option value='underground_path' >Underground Path (5-6)</option></optgroup>
+                </select>
+                <script type='module'>
+                    import select_reload from '/lyra-website-backup/scripts/functions/select_reload.1715012545.js';
+                    
+                    document.querySelector('#location_select').addEventListener('change', (event) => select_reload('/lyra-website-backup/pokemon_gen1/catch_locations', event));
+                </script>
+            </div></div><div id='current_location'>
+                    <a href='/lyra-website-backup/pokemon_gen1/catch_locations/seafoam_islands_1'>←</a>
+                    <p>Seafoam Islands - B1F</p>
+                    <a href='/lyra-website-backup/pokemon_gen1/catch_locations/seafoam_islands_B2'>→</a>
+                    <script type='module'>
+                        import locations_keynav from '/lyra-website-backup/scripts/functions/pokemon/locations_keynav.1720872089.js';
+                        
+                        locations_keynav('/lyra-website-backup/pokemon_gen1/catch_locations/seafoam_islands_1', '/lyra-website-backup/pokemon_gen1/catch_locations/seafoam_islands_B2');
+                    </script>
+                </div>
+                 <div id='location_detail'><div>
+                        <h2 class='red'>Red Version</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Location / </span>Method</th>
+                            <th class='col_level'>Level</th>
+                            <th colspan='3'>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_116.png' 
+                                alt='Horsea sprite gen 1' />
+                                <span class='pokemon_name'>Horsea</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>30, 32</td>
+                        <td colspan='3' class='col_rate_colspan' >30%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_120.png' 
+                                alt='Staryu sprite gen 1' />
+                                <span class='pokemon_name'>Staryu</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>30</td>
+                        <td colspan='3' class='col_rate_colspan' >20%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_79.png' 
+                                alt='Slowpoke sprite gen 1' />
+                                <span class='pokemon_name'>Slowpoke</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>28, 30</td>
+                        <td colspan='3' class='col_rate_colspan' >15%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_86.png' 
+                                alt='Seel sprite gen 1' />
+                                <span class='pokemon_name'>Seel</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>28, 30</td>
+                        <td colspan='3' class='col_rate_colspan' >15%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_90.png' 
+                                alt='Shellder sprite gen 1' />
+                                <span class='pokemon_name'>Shellder</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>32</td>
+                        <td colspan='3' class='col_rate_colspan' >15%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_87.png' 
+                                alt='Dewgong sprite gen 1' />
+                                <span class='pokemon_name'>Dewgong</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>38</td>
+                        <td colspan='3' class='col_rate_colspan' >4%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_117.png' 
+                                alt='Seadra sprite gen 1' />
+                                <span class='pokemon_name'>Seadra</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>37</td>
+                        <td colspan='3' class='col_rate_colspan' >1%</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>All potential Pokémon encounters are being filtered out by your current settings.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div><div>
+                        <h2 class='blue'>Blue Version</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Location / </span>Method</th>
+                            <th class='col_level'>Level</th>
+                            <th colspan='3'>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_98.png' 
+                                alt='Krabby sprite gen 1' />
+                                <span class='pokemon_name'>Krabby</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>30, 32</td>
+                        <td colspan='3' class='col_rate_colspan' >30%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_90.png' 
+                                alt='Shellder sprite gen 1' />
+                                <span class='pokemon_name'>Shellder</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>30</td>
+                        <td colspan='3' class='col_rate_colspan' >20%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_54.png' 
+                                alt='Psyduck sprite gen 1' />
+                                <span class='pokemon_name'>Psyduck</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>28, 30</td>
+                        <td colspan='3' class='col_rate_colspan' >15%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_86.png' 
+                                alt='Seel sprite gen 1' />
+                                <span class='pokemon_name'>Seel</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>28, 30</td>
+                        <td colspan='3' class='col_rate_colspan' >15%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_120.png' 
+                                alt='Staryu sprite gen 1' />
+                                <span class='pokemon_name'>Staryu</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>32</td>
+                        <td colspan='3' class='col_rate_colspan' >15%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_87.png' 
+                                alt='Dewgong sprite gen 1' />
+                                <span class='pokemon_name'>Dewgong</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>38</td>
+                        <td colspan='3' class='col_rate_colspan' >4%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_99.png' 
+                                alt='Kingler sprite gen 1' />
+                                <span class='pokemon_name'>Kingler</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>37</td>
+                        <td colspan='3' class='col_rate_colspan' >1%</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>All potential Pokémon encounters are being filtered out by your current settings.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div><div>
+                        <h2 class='yellow'>Yellow Version</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Location / </span>Method</th>
+                            <th class='col_level'>Level</th>
+                            <th colspan='3'>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_y/sprite_41.png' 
+                                alt='Zubat sprite gen 1' />
+                                <span class='pokemon_name'>Zubat</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>18, 27, 36</td>
+                        <td colspan='3' class='col_rate_colspan' >40%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_y/sprite_98.png' 
+                                alt='Krabby sprite gen 1' />
+                                <span class='pokemon_name'>Krabby</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>26, 28</td>
+                        <td colspan='3' class='col_rate_colspan' >30%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_y/sprite_42.png' 
+                                alt='Golbat sprite gen 1' />
+                                <span class='pokemon_name'>Golbat</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>27</td>
+                        <td colspan='3' class='col_rate_colspan' >10%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_y/sprite_79.png' 
+                                alt='Slowpoke sprite gen 1' />
+                                <span class='pokemon_name'>Slowpoke</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>29</td>
+                        <td colspan='3' class='col_rate_colspan' >10%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_y/sprite_86.png' 
+                                alt='Seel sprite gen 1' />
+                                <span class='pokemon_name'>Seel</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>22, 26</td>
+                        <td colspan='3' class='col_rate_colspan' >5%</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_y/sprite_99.png' 
+                                alt='Kingler sprite gen 1' />
+                                <span class='pokemon_name'>Kingler</span>
+                            </div>
+                        </td>
+                        <td>Cave</td>
+                        <td>28</td>
+                        <td colspan='3' class='col_rate_colspan' >5%</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>All potential Pokémon encounters are being filtered out by your current settings.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div></div></section>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Fan preservation backup of <strong>Lyra made a website</strong>. Original website, design and content by <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon and all related assets are trademarks of Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

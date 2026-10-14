@@ -1,0 +1,19 @@
+html {
+    /* main color */
+    --main_a: #E5E4E2;
+    --dark_a: #C6C4C0;
+    --text_a: #11100F;
+
+    /* highlight color */
+    --main_b: #F3F3F2;
+    --dark_b: #B0B0AA;
+    --text_b: #11100F;
+
+    /* accent color */
+    --main_c: #434446;
+    --light_c: #939497;
+    --text_c: #FFFFFF;
+
+    /* opposite version color */
+    --main_opposite: #917723;
+}

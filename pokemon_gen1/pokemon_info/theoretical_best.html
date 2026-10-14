@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <title>Theoretical best location according to the database - Pokémon info - Gen 1</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen1.1774893396.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_red.css' />
+                <script>
+                    init_style('gen1');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/'>Return to main menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/fr/pokemon_gen1/pokemon_info/theoretical_best' >
+                            <span lang='fr'>Version française</span>
+                            <img src='/lyra-website-backup/views/images/french_flag.png' alt='French flag' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra made a website about</h1>
+    <h2>Pokémon Gen 1</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/pokemon_gen1/full_guide'>Full Guide</a>
+    <a href='/lyra-website-backup/pokemon_gen1/pokedex_tracker'>Pokédex tracker</a>
+    <a href='/lyra-website-backup/pokemon_gen1/catch_locations'>Catch locations</a>
+    <a href='/lyra-website-backup/pokemon_gen1/pokemon_info'>Pokémon info</a>
+    <a href='/lyra-website-backup/pokemon_gen1/extra_info'>Extra info</a>
+    <button id='settings_link'>Settings</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex tracker</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Add extra step to capture</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Display current progress</p>
+            </li><li>
+                <p>Pokemon sprites used: </p>
+                <select id='select_pokemon_sprites'><option value='rg_sprites'>Red & Green</option><option value='rb_sprites'>Red & Blue</option><option value='y_sprites'>Yellow</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Small Pokémon sprites</p>
+            </li><li>
+                <p>Box labels: </p>
+                <select id='select_box_names'><option value='boxes_order'>Box number</option><option value='boxes_firstlast'>First & last Pokémon</option><option value='boxes_hidden'>Hide labels</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Full Guide</h1>
+                <ul>
+                    <li>
+                <p>Guide version: </p>
+                <select id='select_guide_version'><option value='red_guide'>Red</option><option value='blue_guide'>Blue</option><option value='yellow_guide'>Yellow</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Catch locations</h1>
+                <ul>
+                    <li>
+                <p>Filter by version: </p>
+                <select id='select_version_filter'><option value='pref_none'>All</option><option value='pref_red'>Red</option><option value='pref_blue'>Blue</option><option value='pref_yellow'>Yellow</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Hide Old Rod and Good Rod data</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon info</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignore info of caught Pokémon</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Website colors</h1>
+                <ul>
+                    <li>
+                <p>Color theme: </p>
+                <select id='select_color_theme'><optgroup label='Gen 1'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Red</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Blue</option></optgroup><optgroup label='Gen 2'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Gold</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Silver</option></optgroup><optgroup label='Gen 3'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Emerald</option></optgroup><optgroup label='Gen 4'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamond</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Pearl</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Gen 1 data management</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Export</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Import</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen1_settings from '/lyra-website-backup/scripts/pokemon/gen1/gen1_settings.1774893378.js';
+            const current_settings = new gen1_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_guide_version(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('en'); 
+            </script>
+            <main>
+                <h1>Generation 1 - Pokémon info</h1>
+            <div id='select_pokemon_filter' class='select_menu'>
+                <span>Displayed list:</span>
+                <select>
+                    
+                    <option value='all_methods' >All methods</option><option value='catch' >Pokémon catch locations only</option><option value='single_or_safari' >Pokémon exclusively catchable in the Safari Zone</option><option value='one_way' >Pokémon only obtainable through a single method</option><option value='evolutions' >Pokémon only obtainable through level up evolution</option><option value='ingame_trades' >List of in-game trades</option><option value='trade' >Pokémon only obtainable via trades</option><option value='stones' >Pokémon using evolution stones</option><option value='version_specific' >Version-exclusive Pokémon</option><option value='common' >Very common Pokémon (encounter rate >= 40%)</option><option value='theoretical_best' selected>Theoretical best location according to the database</option>
+                </select>
+                <script type='module'>
+                    import select_reload from '/lyra-website-backup/scripts/functions/select_reload.1715012545.js';
+                    
+                    document.querySelector('#select_pokemon_filter').addEventListener('change', (event) => select_reload('/lyra-website-backup/pokemon_gen1/pokemon_info', event));
+                </script>
+            </div>
+            <section id='pokemon_info_extra'>
+                <span>Quick search:</span>
+                <input type='text' id='name_search_input' maxlength='15' />
+            </section>
+            <section id='pokemon_info' class='theoretical_best'>
+                <div id='pkmn_1' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 1</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_1.png'
+                    alt='Bulbasaur sprite gen 1' />
+                    <p class='pokemon_name'>Bulbasaur</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pallet Town - Starter</span>
+                </p>
+            </div><div id='pkmn_2'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 2</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_2.png'
+                    alt='Ivysaur sprite gen 1' />
+                    <p class='pokemon_name'>Ivysaur</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 16</span>
+                </p>
+            </div><div id='pkmn_3'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 3</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_3.png'
+                    alt='Venusaur sprite gen 1' />
+                    <p class='pokemon_name'>Venusaur</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 32</span>
+                </p>
+            </div><div id='pkmn_4' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 4</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_4.png'
+                    alt='Charmander sprite gen 1' />
+                    <p class='pokemon_name'>Charmander</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pallet Town - Starter</span>
+                </p>
+            </div><div id='pkmn_5'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 5</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_5.png'
+                    alt='Charmeleon sprite gen 1' />
+                    <p class='pokemon_name'>Charmeleon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 16</span>
+                </p>
+            </div><div id='pkmn_6'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 6</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_6.png'
+                    alt='Charizard sprite gen 1' />
+                    <p class='pokemon_name'>Charizard</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 36</span>
+                </p>
+            </div><div id='pkmn_7' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 7</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_7.png'
+                    alt='Squirtle sprite gen 1' />
+                    <p class='pokemon_name'>Squirtle</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pallet Town - Starter</span>
+                </p>
+            </div><div id='pkmn_8'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 8</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_8.png'
+                    alt='Wartortle sprite gen 1' />
+                    <p class='pokemon_name'>Wartortle</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 16</span>
+                </p>
+            </div><div id='pkmn_9'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 9</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_9.png'
+                    alt='Blastoise sprite gen 1' />
+                    <p class='pokemon_name'>Blastoise</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 36</span>
+                </p>
+            </div><div id='pkmn_10' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 10</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_10.png'
+                    alt='Caterpie sprite gen 1' />
+                    <p class='pokemon_name'>Caterpie</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Viridian Forest - 50%</span>
+                </p>
+            </div><div id='pkmn_11' class='blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 11</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_11.png'
+                    alt='Metapod sprite gen 1' />
+                    <p class='pokemon_name'>Metapod</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Viridian Forest - 40%</span>
+                </p>
+            </div><div id='pkmn_12'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 12</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_12.png'
+                    alt='Butterfree sprite gen 1' />
+                    <p class='pokemon_name'>Butterfree</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 10</span>
+                </p>
+            </div><div id='pkmn_13' class='red' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 13</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_13.png'
+                    alt='Weedle sprite gen 1' />
+                    <p class='pokemon_name'>Weedle</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Viridian Forest - 45%</span>
+                </p>
+            </div><div id='pkmn_14' class='red' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 14</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_14.png'
+                    alt='Kakuna sprite gen 1' />
+                    <p class='pokemon_name'>Kakuna</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Viridian Forest - 40%</span>
+                </p>
+            </div><div id='pkmn_15'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 15</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_15.png'
+                    alt='Beedrill sprite gen 1' />
+                    <p class='pokemon_name'>Beedrill</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 10</span>
+                </p>
+            </div><div id='pkmn_16' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 16</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_16.png'
+                    alt='Pidgey sprite gen 1' />
+                    <p class='pokemon_name'>Pidgey</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 1 - 70%</span>
+                </p>
+            </div><div id='pkmn_17' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 17</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_17.png'
+                    alt='Pidgeotto sprite gen 1' />
+                    <p class='pokemon_name'>Pidgeotto</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 13 - 15%</span>
+                </p>
+            </div><div id='pkmn_18'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 18</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_18.png'
+                    alt='Pidgeot sprite gen 1' />
+                    <p class='pokemon_name'>Pidgeot</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 36</span>
+                </p>
+            </div><div id='pkmn_19' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 19</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_19.png'
+                    alt='Rattata sprite gen 1' />
+                    <p class='pokemon_name'>Rattata</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 1 - 50%</span>
+                </p>
+            </div><div id='pkmn_20' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 20</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_20.png'
+                    alt='Raticate sprite gen 1' />
+                    <p class='pokemon_name'>Raticate</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pokémon Mansion - B1F - 40%</span>
+                </p>
+            </div><div id='pkmn_21' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 21</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_21.png'
+                    alt='Spearow sprite gen 1' />
+                    <p class='pokemon_name'>Spearow</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 3 - 55%</span>
+                </p>
+            </div><div id='pkmn_22' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 22</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_22.png'
+                    alt='Fearow sprite gen 1' />
+                    <p class='pokemon_name'>Fearow</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 17 - 25%</span>
+                </p>
+            </div><div id='pkmn_23' class='red' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 23</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_23.png'
+                    alt='Ekans sprite gen 1' />
+                    <p class='pokemon_name'>Ekans</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 11 - 40%</span>
+                </p>
+            </div><div id='pkmn_24' class='red' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 24</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_24.png'
+                    alt='Arbok sprite gen 1' />
+                    <p class='pokemon_name'>Arbok</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - 1F - 10%</span>
+                </p>
+            </div><div id='pkmn_25' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 25</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_25.png'
+                    alt='Pikachu sprite gen 1' />
+                    <p class='pokemon_name'>Pikachu</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Power Plant - 25%</span>
+                </p>
+            </div><div id='pkmn_26' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 26</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_26.png'
+                    alt='Raichu sprite gen 1' />
+                    <p class='pokemon_name'>Raichu</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - B1F - 10%</span>
+                </p>
+            </div><div id='pkmn_27' class='blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 27</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_27.png'
+                    alt='Sandshrew sprite gen 1' />
+                    <p class='pokemon_name'>Sandshrew</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 11 - 40%</span>
+                </p>
+            </div><div id='pkmn_28' class='blue_yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 28</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_28.png'
+                    alt='Sandslash sprite gen 1' />
+                    <p class='pokemon_name'>Sandslash</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - 1F - 10%</span>
+                </p>
+            </div><div id='pkmn_29' class='blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 29</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_29.png'
+                    alt='Nidoran♀ sprite gen 1' />
+                    <p class='pokemon_name'>Nidoran♀</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 22 - 40%</span>
+                </p>
+            </div><div id='pkmn_30' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 30</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_30.png'
+                    alt='Nidorina sprite gen 1' />
+                    <p class='pokemon_name'>Nidorina</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 23 - 30%</span>
+                </p>
+            </div><div id='pkmn_31'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 31</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_31.png'
+                    alt='Nidoqueen sprite gen 1' />
+                    <p class='pokemon_name'>Nidoqueen</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Moon Stone - Nidorina</span>
+                </p>
+            </div><div id='pkmn_32' class='red' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 32</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_32.png'
+                    alt='Nidoran♂ sprite gen 1' />
+                    <p class='pokemon_name'>Nidoran♂</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 22 - 40%</span>
+                </p>
+            </div><div id='pkmn_33' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 33</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_33.png'
+                    alt='Nidorino sprite gen 1' />
+                    <p class='pokemon_name'>Nidorino</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 23 - 30%</span>
+                </p>
+            </div><div id='pkmn_34'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 34</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_34.png'
+                    alt='Nidoking sprite gen 1' />
+                    <p class='pokemon_name'>Nidoking</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Moon Stone - Nidorino</span>
+                </p>
+            </div><div id='pkmn_35' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 35</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_35.png'
+                    alt='Clefairy sprite gen 1' />
+                    <p class='pokemon_name'>Clefairy</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Mt. Moon - B2F - 10%</span>
+                </p>
+            </div><div id='pkmn_36'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 36</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_36.png'
+                    alt='Clefable sprite gen 1' />
+                    <p class='pokemon_name'>Clefable</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Moon Stone - Clefairy</span>
+                </p>
+            </div><div id='pkmn_37' class='blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 37</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_37.png'
+                    alt='Vulpix sprite gen 1' />
+                    <p class='pokemon_name'>Vulpix</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 8 - 20%</span>
+                </p>
+            </div><div id='pkmn_38'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 38</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_38.png'
+                    alt='Ninetales sprite gen 1' />
+                    <p class='pokemon_name'>Ninetales</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Fire Stone - Vulpix</span>
+                </p>
+            </div><div id='pkmn_39' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 39</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_39.png'
+                    alt='Jigglypuff sprite gen 1' />
+                    <p class='pokemon_name'>Jigglypuff</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 3 - 10%</span>
+                </p>
+            </div><div id='pkmn_40' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 40</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_40.png'
+                    alt='Wigglytuff sprite gen 1' />
+                    <p class='pokemon_name'>Wigglytuff</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - 2F - 5%</span>
+                </p>
+            </div><div id='pkmn_41' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 41</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_41.png'
+                    alt='Zubat sprite gen 1' />
+                    <p class='pokemon_name'>Zubat</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Mt. Moon - 1F - 79%</span>
+                </p>
+            </div><div id='pkmn_42' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 42</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_42.png'
+                    alt='Golbat sprite gen 1' />
+                    <p class='pokemon_name'>Golbat</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - 1F - 40%</span>
+                </p>
+            </div><div id='pkmn_43' class='red' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 43</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_43.png'
+                    alt='Oddish sprite gen 1' />
+                    <p class='pokemon_name'>Oddish</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 5 - 35%</span>
+                </p>
+            </div><div id='pkmn_44' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 44</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_44.png'
+                    alt='Gloom sprite gen 1' />
+                    <p class='pokemon_name'>Gloom</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - 1F - 10%</span>
+                </p>
+            </div><div id='pkmn_45'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 45</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_45.png'
+                    alt='Vileplume sprite gen 1' />
+                    <p class='pokemon_name'>Vileplume</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Leaf Stone - Gloom</span>
+                </p>
+            </div><div id='pkmn_46' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 46</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_46.png'
+                    alt='Paras sprite gen 1' />
+                    <p class='pokemon_name'>Paras</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Safari Zone - Area 1 (east) - 15%</span>
+                </p>
+            </div><div id='pkmn_47' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 47</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_47.png'
+                    alt='Parasect sprite gen 1' />
+                    <p class='pokemon_name'>Parasect</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Safari Zone - Center Area - 15%</span>
+                </p>
+            </div><div id='pkmn_48' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 48</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_48.png'
+                    alt='Venonat sprite gen 1' />
+                    <p class='pokemon_name'>Venonat</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 12 - 20%</span>
+                </p>
+            </div><div id='pkmn_49' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 49</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_49.png'
+                    alt='Venomoth sprite gen 1' />
+                    <p class='pokemon_name'>Venomoth</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - 2F - 20%</span>
+                </p>
+            </div><div id='pkmn_50'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 50</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_50.png'
+                    alt='Diglett sprite gen 1' />
+                    <p class='pokemon_name'>Diglett</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Diglett's Cave - 95%</span>
+                </p>
+            </div><div id='pkmn_51'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 51</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_51.png'
+                    alt='Dugtrio sprite gen 1' />
+                    <p class='pokemon_name'>Dugtrio</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Diglett's Cave - 5%</span>
+                </p>
+            </div><div id='pkmn_52' class='blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 52</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_52.png'
+                    alt='Meowth sprite gen 1' />
+                    <p class='pokemon_name'>Meowth</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 7 - 30%</span>
+                </p>
+            </div><div id='pkmn_53' class='blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 53</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_53.png'
+                    alt='Persian sprite gen 1' />
+                    <p class='pokemon_name'>Persian</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 28</span>
+                </p>
+            </div><div id='pkmn_54' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 54</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_54.png'
+                    alt='Psyduck sprite gen 1' />
+                    <p class='pokemon_name'>Psyduck</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 6 - 95%</span>
+                </p>
+            </div><div id='pkmn_55' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 55</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_55.png'
+                    alt='Golduck sprite gen 1' />
+                    <p class='pokemon_name'>Golduck</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 6 - 5%</span>
+                </p>
+            </div><div id='pkmn_56' class='red' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 56</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_56.png'
+                    alt='Mankey sprite gen 1' />
+                    <p class='pokemon_name'>Mankey</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 7 - 30%</span>
+                </p>
+            </div><div id='pkmn_57' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 57</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_57.png'
+                    alt='Primeape sprite gen 1' />
+                    <p class='pokemon_name'>Primeape</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 23 - 5%</span>
+                </p>
+            </div><div id='pkmn_58' class='red' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 58</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_58.png'
+                    alt='Growlithe sprite gen 1' />
+                    <p class='pokemon_name'>Growlithe</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 8 - 20%</span>
+                </p>
+            </div><div id='pkmn_59'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 59</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_59.png'
+                    alt='Arcanine sprite gen 1' />
+                    <p class='pokemon_name'>Arcanine</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Fire Stone - Growlithe</span>
+                </p>
+            </div><div id='pkmn_60' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 60</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_60.png'
+                    alt='Poliwag sprite gen 1' />
+                    <p class='pokemon_name'>Poliwag</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Viridian City - 100%</span>
+                </p>
+            </div><div id='pkmn_61' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 61</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_61.png'
+                    alt='Poliwhirl sprite gen 1' />
+                    <p class='pokemon_name'>Poliwhirl</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 10 - 50%</span>
+                </p>
+            </div><div id='pkmn_62'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 62</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_62.png'
+                    alt='Poliwrath sprite gen 1' />
+                    <p class='pokemon_name'>Poliwrath</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Water Stone - Poliwhirl</span>
+                </p>
+            </div><div id='pkmn_63' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 63</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_63.png'
+                    alt='Abra sprite gen 1' />
+                    <p class='pokemon_name'>Abra</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 7 - 25%</span>
+                </p>
+            </div><div id='pkmn_64' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 64</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_64.png'
+                    alt='Kadabra sprite gen 1' />
+                    <p class='pokemon_name'>Kadabra</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - 2F - 15%</span>
+                </p>
+            </div><div id='pkmn_65'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 65</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_65.png'
+                    alt='Alakazam sprite gen 1' />
+                    <p class='pokemon_name'>Alakazam</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Trading - Kadabra</span>
+                </p>
+            </div><div id='pkmn_66' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 66</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_66.png'
+                    alt='Machop sprite gen 1' />
+                    <p class='pokemon_name'>Machop</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Rock Tunnel - B1F - 20%</span>
+                </p>
+            </div><div id='pkmn_67' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 67</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_67.png'
+                    alt='Machoke sprite gen 1' />
+                    <p class='pokemon_name'>Machoke</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Victory Road - 3F - 10%</span>
+                </p>
+            </div><div id='pkmn_68'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 68</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_68.png'
+                    alt='Machamp sprite gen 1' />
+                    <p class='pokemon_name'>Machamp</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Trading - Machoke</span>
+                </p>
+            </div><div id='pkmn_69' class='blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 69</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_69.png'
+                    alt='Bellsprout sprite gen 1' />
+                    <p class='pokemon_name'>Bellsprout</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 5 - 35%</span>
+                </p>
+            </div><div id='pkmn_70' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 70</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_70.png'
+                    alt='Weepinbell sprite gen 1' />
+                    <p class='pokemon_name'>Weepinbell</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - 1F - 10%</span>
+                </p>
+            </div><div id='pkmn_71'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 71</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_71.png'
+                    alt='Victreebel sprite gen 1' />
+                    <p class='pokemon_name'>Victreebel</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Leaf Stone - Weepinbell</span>
+                </p>
+            </div><div id='pkmn_72'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 72</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_72.png'
+                    alt='Tentacool sprite gen 1' />
+                    <p class='pokemon_name'>Tentacool</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 19 - 100%</span>
+                </p>
+            </div><div id='pkmn_73' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 73</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_73.png'
+                    alt='Tentacruel sprite gen 1' />
+                    <p class='pokemon_name'>Tentacruel</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 20 - 40%</span>
+                </p>
+            </div><div id='pkmn_74' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 74</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_74.png'
+                    alt='Geodude sprite gen 1' />
+                    <p class='pokemon_name'>Geodude</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Victory Road - 1F - 65%</span>
+                </p>
+            </div><div id='pkmn_75' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 75</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_75.png'
+                    alt='Graveler sprite gen 1' />
+                    <p class='pokemon_name'>Graveler</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - 1F - 15%</span>
+                </p>
+            </div><div id='pkmn_76'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 76</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_76.png'
+                    alt='Golem sprite gen 1' />
+                    <p class='pokemon_name'>Golem</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Trading - Graveler</span>
+                </p>
+            </div><div id='pkmn_77' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 77</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_77.png'
+                    alt='Ponyta sprite gen 1' />
+                    <p class='pokemon_name'>Ponyta</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pokémon Mansion - 1F - 40%</span>
+                </p>
+            </div><div id='pkmn_78'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 78</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_78.png'
+                    alt='Rapidash sprite gen 1' />
+                    <p class='pokemon_name'>Rapidash</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 40</span>
+                </p>
+            </div><div id='pkmn_79' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 79</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_79.png'
+                    alt='Slowpoke sprite gen 1' />
+                    <p class='pokemon_name'>Slowpoke</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 12 - 95%</span>
+                </p>
+            </div><div id='pkmn_80' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 80</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_80.png'
+                    alt='Slowbro sprite gen 1' />
+                    <p class='pokemon_name'>Slowbro</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 23 - 25%</span>
+                </p>
+            </div><div id='pkmn_81' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 81</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_81.png'
+                    alt='Magnemite sprite gen 1' />
+                    <p class='pokemon_name'>Magnemite</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 10 - 50%</span>
+                </p>
+            </div><div id='pkmn_82' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 82</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_82.png'
+                    alt='Magneton sprite gen 1' />
+                    <p class='pokemon_name'>Magneton</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Power Plant - 20%</span>
+                </p>
+            </div><div id='pkmn_83' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 83</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_83.png'
+                    alt='Farfetch'd sprite gen 1' />
+                    <p class='pokemon_name'>Farfetch'd</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 12 - 5%</span>
+                </p>
+            </div><div id='pkmn_84' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 84</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_84.png'
+                    alt='Doduo sprite gen 1' />
+                    <p class='pokemon_name'>Doduo</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 17 - 50%</span>
+                </p>
+            </div><div id='pkmn_85' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 85</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_85.png'
+                    alt='Dodrio sprite gen 1' />
+                    <p class='pokemon_name'>Dodrio</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - 2F - 20%</span>
+                </p>
+            </div><div id='pkmn_86' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 86</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_86.png'
+                    alt='Seel sprite gen 1' />
+                    <p class='pokemon_name'>Seel</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Seafoam Islands - B2F - 35%</span>
+                </p>
+            </div><div id='pkmn_87' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 87</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_87.png'
+                    alt='Dewgong sprite gen 1' />
+                    <p class='pokemon_name'>Dewgong</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Seafoam Islands - B3F - 5%</span>
+                </p>
+            </div><div id='pkmn_88' class='blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 88</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_88.png'
+                    alt='Grimer sprite gen 1' />
+                    <p class='pokemon_name'>Grimer</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pokémon Mansion - B1F - 50%</span>
+                </p>
+            </div><div id='pkmn_89' class='blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 89</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_89.png'
+                    alt='Muk sprite gen 1' />
+                    <p class='pokemon_name'>Muk</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pokémon Mansion - 3F - 15%</span>
+                </p>
+            </div><div id='pkmn_90' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 90</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_90.png'
+                    alt='Shellder sprite gen 1' />
+                    <p class='pokemon_name'>Shellder</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 18 - 60%</span>
+                </p>
+            </div><div id='pkmn_91'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 91</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_91.png'
+                    alt='Cloyster sprite gen 1' />
+                    <p class='pokemon_name'>Cloyster</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Water Stone - Shellder</span>
+                </p>
+            </div><div id='pkmn_92' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 92</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_92.png'
+                    alt='Gastly sprite gen 1' />
+                    <p class='pokemon_name'>Gastly</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pokémon Tower - 3F - 95%</span>
+                </p>
+            </div><div id='pkmn_93' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 93</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_93.png'
+                    alt='Haunter sprite gen 1' />
+                    <p class='pokemon_name'>Haunter</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pokémon Tower - 7F - 15%</span>
+                </p>
+            </div><div id='pkmn_94'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 94</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_94.png'
+                    alt='Gengar sprite gen 1' />
+                    <p class='pokemon_name'>Gengar</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Trading - Haunter</span>
+                </p>
+            </div><div id='pkmn_95' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 95</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_95.png'
+                    alt='Onix sprite gen 1' />
+                    <p class='pokemon_name'>Onix</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Victory Road - 1F - 30%</span>
+                </p>
+            </div><div id='pkmn_96' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 96</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_96.png'
+                    alt='Drowzee sprite gen 1' />
+                    <p class='pokemon_name'>Drowzee</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 11 - 25%</span>
+                </p>
+            </div><div id='pkmn_97' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 97</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_97.png'
+                    alt='Hypno sprite gen 1' />
+                    <p class='pokemon_name'>Hypno</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - 1F - 20%</span>
+                </p>
+            </div><div id='pkmn_98' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 98</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_98.png'
+                    alt='Krabby sprite gen 1' />
+                    <p class='pokemon_name'>Krabby</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 10 - 70%</span>
+                </p>
+            </div><div id='pkmn_99' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 99</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_99.png'
+                    alt='Kingler sprite gen 1' />
+                    <p class='pokemon_name'>Kingler</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 25 - 30%</span>
+                </p>
+            </div><div id='pkmn_100' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 100</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_100.png'
+                    alt='Voltorb sprite gen 1' />
+                    <p class='pokemon_name'>Voltorb</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 10 - 40%</span>
+                </p>
+            </div><div id='pkmn_101' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 101</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_101.png'
+                    alt='Electrode sprite gen 1' />
+                    <p class='pokemon_name'>Electrode</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - B1F - 15%</span>
+                </p>
+            </div><div id='pkmn_102' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 102</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_102.png'
+                    alt='Exeggcute sprite gen 1' />
+                    <p class='pokemon_name'>Exeggcute</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Safari Zone - Center Area - 20%</span>
+                </p>
+            </div><div id='pkmn_103'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 103</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_103.png'
+                    alt='Exeggutor sprite gen 1' />
+                    <p class='pokemon_name'>Exeggutor</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Leaf Stone - Exeggcute</span>
+                </p>
+            </div><div id='pkmn_104' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 104</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_104.png'
+                    alt='Cubone sprite gen 1' />
+                    <p class='pokemon_name'>Cubone</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Safari Zone - Area 1 (east) - 10%</span>
+                </p>
+            </div><div id='pkmn_105' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 105</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_105.png'
+                    alt='Marowak sprite gen 1' />
+                    <p class='pokemon_name'>Marowak</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - B1F - 20%</span>
+                </p>
+            </div><div id='pkmn_106'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 106</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_106.png'
+                    alt='Hitmonlee sprite gen 1' />
+                    <p class='pokemon_name'>Hitmonlee</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Saffron City - Gift</span>
+                </p>
+            </div><div id='pkmn_107'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 107</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_107.png'
+                    alt='Hitmonchan sprite gen 1' />
+                    <p class='pokemon_name'>Hitmonchan</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Saffron City - Gift</span>
+                </p>
+            </div><div id='pkmn_108' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 108</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_108.png'
+                    alt='Lickitung sprite gen 1' />
+                    <p class='pokemon_name'>Lickitung</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - B1F - 5%</span>
+                </p>
+            </div><div id='pkmn_109' class='red' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 109</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_109.png'
+                    alt='Koffing sprite gen 1' />
+                    <p class='pokemon_name'>Koffing</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pokémon Mansion - B1F - 50%</span>
+                </p>
+            </div><div id='pkmn_110' class='red' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 110</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_110.png'
+                    alt='Weezing sprite gen 1' />
+                    <p class='pokemon_name'>Weezing</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pokémon Mansion - 3F - 15%</span>
+                </p>
+            </div><div id='pkmn_111' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 111</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_111.png'
+                    alt='Rhyhorn sprite gen 1' />
+                    <p class='pokemon_name'>Rhyhorn</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Safari Zone - Center Area - 20%</span>
+                </p>
+            </div><div id='pkmn_112' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 112</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_112.png'
+                    alt='Rhydon sprite gen 1' />
+                    <p class='pokemon_name'>Rhydon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - B1F - 20%</span>
+                </p>
+            </div><div id='pkmn_113' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 113</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_113.png'
+                    alt='Chansey sprite gen 1' />
+                    <p class='pokemon_name'>Chansey</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - B1F - 10%</span>
+                </p>
+            </div><div id='pkmn_114' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 114</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_114.png'
+                    alt='Tangela sprite gen 1' />
+                    <p class='pokemon_name'>Tangela</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 21 - 10%</span>
+                </p>
+            </div><div id='pkmn_115' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 115</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_115.png'
+                    alt='Kangaskhan sprite gen 1' />
+                    <p class='pokemon_name'>Kangaskhan</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Safari Zone - Area 2 (north) - 15%</span>
+                </p>
+            </div><div id='pkmn_116' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 116</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_116.png'
+                    alt='Horsea sprite gen 1' />
+                    <p class='pokemon_name'>Horsea</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 12 - 70%</span>
+                </p>
+            </div><div id='pkmn_117' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 117</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_117.png'
+                    alt='Seadra sprite gen 1' />
+                    <p class='pokemon_name'>Seadra</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 12 - 30%</span>
+                </p>
+            </div><div id='pkmn_118' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 118</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_118.png'
+                    alt='Goldeen sprite gen 1' />
+                    <p class='pokemon_name'>Goldeen</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 6 - 100%</span>
+                </p>
+            </div><div id='pkmn_119' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 119</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_119.png'
+                    alt='Seaking sprite gen 1' />
+                    <p class='pokemon_name'>Seaking</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - 1F - 60%</span>
+                </p>
+            </div><div id='pkmn_120' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 120</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_120.png'
+                    alt='Staryu sprite gen 1' />
+                    <p class='pokemon_name'>Staryu</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cinnabar Island - 60%</span>
+                </p>
+            </div><div id='pkmn_121'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 121</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_121.png'
+                    alt='Starmie sprite gen 1' />
+                    <p class='pokemon_name'>Starmie</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Water Stone - Staryu</span>
+                </p>
+            </div><div id='pkmn_122' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 122</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_122.png'
+                    alt='Mr. Mime sprite gen 1' />
+                    <p class='pokemon_name'>Mr. Mime</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 2 - Trading Abra</span>
+                </p>
+            </div><div id='pkmn_123' class='red' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 123</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_123.png'
+                    alt='Scyther sprite gen 1' />
+                    <p class='pokemon_name'>Scyther</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Safari Zone - Center Area - 4%</span>
+                </p>
+            </div><div id='pkmn_124' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 124</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_124.png'
+                    alt='Jynx sprite gen 1' />
+                    <p class='pokemon_name'>Jynx</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean City - Trading Poliwhirl</span>
+                </p>
+            </div><div id='pkmn_125' class='red' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 125</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_125.png'
+                    alt='Electabuzz sprite gen 1' />
+                    <p class='pokemon_name'>Electabuzz</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Power Plant - 5%</span>
+                </p>
+            </div><div id='pkmn_126' class='blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 126</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_126.png'
+                    alt='Magmar sprite gen 1' />
+                    <p class='pokemon_name'>Magmar</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pokémon Mansion - 3F - 10%</span>
+                </p>
+            </div><div id='pkmn_127' class='blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 127</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_127.png'
+                    alt='Pinsir sprite gen 1' />
+                    <p class='pokemon_name'>Pinsir</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Safari Zone - Center Area - 4%</span>
+                </p>
+            </div><div id='pkmn_128' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 128</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_128.png'
+                    alt='Tauros sprite gen 1' />
+                    <p class='pokemon_name'>Tauros</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Safari Zone - Area 1 (east) - 10%</span>
+                </p>
+            </div><div id='pkmn_129'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 129</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_129.png'
+                    alt='Magikarp sprite gen 1' />
+                    <p class='pokemon_name'>Magikarp</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 6 - 100%</span>
+                </p>
+            </div><div id='pkmn_130' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 130</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_130.png'
+                    alt='Gyarados sprite gen 1' />
+                    <p class='pokemon_name'>Gyarados</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Fuchsia City - 10%</span>
+                </p>
+            </div><div id='pkmn_131'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 131</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_131.png'
+                    alt='Lapras sprite gen 1' />
+                    <p class='pokemon_name'>Lapras</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Saffron City - Gift</span>
+                </p>
+            </div><div id='pkmn_132' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 132</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_132.png'
+                    alt='Ditto sprite gen 1' />
+                    <p class='pokemon_name'>Ditto</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 23 - 35%</span>
+                </p>
+            </div><div id='pkmn_133'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 133</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_133.png'
+                    alt='Eevee sprite gen 1' />
+                    <p class='pokemon_name'>Eevee</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Celadon City - Gift</span>
+                </p>
+            </div><div id='pkmn_134'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 134</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_134.png'
+                    alt='Vaporeon sprite gen 1' />
+                    <p class='pokemon_name'>Vaporeon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Water Stone - Eevee</span>
+                </p>
+            </div><div id='pkmn_135'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 135</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_135.png'
+                    alt='Jolteon sprite gen 1' />
+                    <p class='pokemon_name'>Jolteon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Thunderstone - Eevee</span>
+                </p>
+            </div><div id='pkmn_136'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 136</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_136.png'
+                    alt='Flareon sprite gen 1' />
+                    <p class='pokemon_name'>Flareon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Fire Stone - Eevee</span>
+                </p>
+            </div><div id='pkmn_137' class='blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 137</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_137.png'
+                    alt='Porygon sprite gen 1' />
+                    <p class='pokemon_name'>Porygon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Celadon City - 6500 coins</span>
+                </p>
+            </div><div id='pkmn_138'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 138</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_138.png'
+                    alt='Omanyte sprite gen 1' />
+                    <p class='pokemon_name'>Omanyte</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cinnabar Island - Helix Fossil</span>
+                </p>
+            </div><div id='pkmn_139'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 139</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_139.png'
+                    alt='Omastar sprite gen 1' />
+                    <p class='pokemon_name'>Omastar</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 40</span>
+                </p>
+            </div><div id='pkmn_140'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 140</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_140.png'
+                    alt='Kabuto sprite gen 1' />
+                    <p class='pokemon_name'>Kabuto</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cinnabar Island - Dome Fossil</span>
+                </p>
+            </div><div id='pkmn_141'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 141</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_141.png'
+                    alt='Kabutops sprite gen 1' />
+                    <p class='pokemon_name'>Kabutops</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 40</span>
+                </p>
+            </div><div id='pkmn_142'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 142</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_142.png'
+                    alt='Aerodactyl sprite gen 1' />
+                    <p class='pokemon_name'>Aerodactyl</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cinnabar Island - Old Amber</span>
+                </p>
+            </div><div id='pkmn_143'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 143</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_143.png'
+                    alt='Snorlax sprite gen 1' />
+                    <p class='pokemon_name'>Snorlax</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 12 - Unique</span>
+                </p>
+            </div><div id='pkmn_144'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 144</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_144.png'
+                    alt='Articuno sprite gen 1' />
+                    <p class='pokemon_name'>Articuno</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Seafoam Islands - B4F - Unique</span>
+                </p>
+            </div><div id='pkmn_145'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 145</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_145.png'
+                    alt='Zapdos sprite gen 1' />
+                    <p class='pokemon_name'>Zapdos</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Power Plant - Unique</span>
+                </p>
+            </div><div id='pkmn_146'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 146</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_146.png'
+                    alt='Moltres sprite gen 1' />
+                    <p class='pokemon_name'>Moltres</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Victory Road - 2F - Unique</span>
+                </p>
+            </div><div id='pkmn_147' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 147</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_147.png'
+                    alt='Dratini sprite gen 1' />
+                    <p class='pokemon_name'>Dratini</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Safari Zone - Center Area - 25%</span>
+                </p>
+            </div><div id='pkmn_148' class='yellow' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 148</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_148.png'
+                    alt='Dragonair sprite gen 1' />
+                    <p class='pokemon_name'>Dragonair</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Safari Zone - Center Area - 10%</span>
+                </p>
+            </div><div id='pkmn_149'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 149</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_149.png'
+                    alt='Dragonite sprite gen 1' />
+                    <p class='pokemon_name'>Dragonite</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 55</span>
+                </p>
+            </div><div id='pkmn_150'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 150</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_150.png'
+                    alt='Mewtwo sprite gen 1' />
+                    <p class='pokemon_name'>Mewtwo</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cerulean Cave - B1F - Unique</span>
+                </p>
+            </div><div id='pkmn_151'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 151</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_151.png'
+                    alt='Mew sprite gen 1' />
+                    <p class='pokemon_name'>Mew</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cheat - Trainer-Fly glitch</span>
+                </p>
+            </div>
+                <p id='empty_search_message' class='hidden'>Found no Pokémon with the searched name or number.</p>
+                <p id='empty_caught_message' class='hidden'>No Pokémon are displayed since they are all caught. Turn off the <i>"Ignore info of caught Pokémon"</i> setting to see Pokémon info.</p>
+            </section><script type='module'>
+                import name_search from '/lyra-website-backup/scripts/functions/pokemon/name_search.1726619881.js';
+                        
+                name_search();
+            </script>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Fan preservation backup of <strong>Lyra made a website</strong>. Original website, design and content by <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon and all related assets are trademarks of Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

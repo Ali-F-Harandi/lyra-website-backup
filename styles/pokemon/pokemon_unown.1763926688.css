@@ -1,0 +1,53 @@
+@import url("/lyra-website-backup/styles/pokemon/pokemon.css");
+
+body {
+    background-image: url("/lyra-website-backup/views/pokemon/unown/images/background_unown.png");
+}
+
+/* pokemon sprite */
+.pokemon_card.gen2 img {
+    margin: 3px auto 6px;
+    width: 56px;
+    height: 56px;
+}
+
+.pokemon_card.gen3 img {
+    margin: 1px auto 0;
+    width: 64px;
+    height: 64px;
+}
+
+.pokemon_card.gen4 img {
+    margin: 0 auto;
+    width: 66px;
+    height: 66px;
+}
+
+/* info table */
+#unown_info_2_4,
+#unown_info_3 {
+    margin-top: 20px;
+}
+
+#unown_info_2_4 td,
+#unown_info_3 td {
+    text-align: center;
+}
+
+#unown_info_3 td:nth-child(4) {
+    text-align: left;
+}
+
+#unown_info_2_4 td:nth-child(4),
+#unown_info_2_4 td:nth-child(5) {
+    color: var(--main_c);
+    background-color: var(--main_c);
+    cursor: help;
+    user-select: none;
+}
+
+#unown_info_2_4 td:nth-child(4):hover,
+#unown_info_2_4 td:nth-child(5):hover {
+    color: inherit;
+    background-color: var(--text_c);
+}

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+            <html lang='fr'>
+            <head>
+                <title>Mont Braise - Tunnels (Sommet) - Pokémon par zone - Gen 3</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen3.1774893397.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_emerald.css' />
+                <script>
+                    init_style('gen3');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/fr'>Retour au menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/pokemon_gen3/catch_locations/mt_ember_summit_1' >
+                            <span lang='en'>English version</span>
+                            <img src='/lyra-website-backup/views/images/us-uk_flag.png' alt='Drapeau anglais/américain' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra a un site web sur</h1>
+    <h2>Pokémon Gen 3</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/fr/pokemon_gen3/full_guide'>Guide complet</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen3/pokedex_tracker'>Pokédex perso</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen3/catch_locations'>Pokémon par zone</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen3/pokemon_info'>Recherche par filtre</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen3/extra_info'>Infos supplémentaires</a>
+    <button id='settings_link'>Préférences</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex perso</h1>
+                <ul>
+                    <li>
+                <p>Pokédex affiché : </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>Pokédex National</option><option value='ruby_sapphire_emerald_dex'>Rubis, Saphir et Émeraude</option><option value='firered_leafgreen_dex'>Rouge Feu et Vert Feuille</option><option value='only_new_dex'>Nouveaux Pokémon</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Ajouter une étape supplémentaire</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Afficher le nombre de Pokémon obtenus</p>
+            </li><li>
+                <p>Sprites utilisés : </p>
+                <select id='select_pokemon_sprites'><option value='rs_sprites'>Rubis et Saphir</option><option value='frlg_sprites'>Rouge Feu et Vert Feuille</option><option value='emerald_sprites'>Émeraude</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Mini Pokédex</p>
+            </li><li>
+                <p>Nom des boites : </p>
+                <select id='select_box_names'><option value='boxes_order'>Numéro de boite</option><option value='boxes_firstlast'>Premier et dernier Pokémon</option><option value='boxes_hidden'>Masquer les noms</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon par zone</h1>
+                <ul>
+                    <li>
+                <p>Filtrer par version : </p>
+                <select id='select_version_filter'><option value='pref_none'>Toutes</option><option value='pref_ruby'>Rubis</option><option value='pref_sapphire'>Saphir</option><option value='pref_emerald'>Émeraude</option><option value='pref_firered'>Rouge Feu</option><option value='pref_leafgreen'>Vert Feuille</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Masquer la Canne et Super Canne</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Recherche par filtre</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignorer les Pokémon déjà attrapés</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Couleurs du site web</h1>
+                <ul>
+                    <li>
+                <p>Thème de couleurs : </p>
+                <select id='select_color_theme'><optgroup label='1re génération'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Rouge</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Bleu</option></optgroup><optgroup label='2e génération'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Or</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Argent</option></optgroup><optgroup label='3e génération'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Émeraude</option></optgroup><optgroup label='4e génération'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamant</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Perle</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Données de la Gen 3</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Exporter</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Importer</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen3_settings from '/lyra-website-backup/scripts/pokemon/gen3/gen3_settings.1763926674.js';
+            const current_settings = new gen3_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('fr'); 
+            </script>
+            <main>
+                <h1>Génération 3 - Pokémon par zone</h1>
+            <section id='catch_locations'>
+                <div id='select_section'><div id='firered_leafgreen_select' class='select_menu'>
+                <span>Rouge Feu, Vert Feuille :</span>
+                <select>
+                    <option value=''  disabled hidden>Choisissez une zone</option>
+                    <optgroup label='Routes'><option value='route_001' >Route 1</option><option value='route_002' >Route 2</option><option value='route_003' >Route 3</option><option value='route_004' >Route 4</option><option value='route_005' >Route 5</option><option value='route_006' >Route 6</option><option value='route_007' >Route 7</option><option value='route_008' >Route 8</option><option value='route_009' >Route 9</option><option value='route_010' >Route 10</option><option value='route_011' >Route 11</option><option value='route_012' >Route 12</option><option value='route_013' >Route 13</option><option value='route_014' >Route 14</option><option value='route_015' >Route 15</option><option value='route_016' >Route 16</option><option value='route_017' >Route 17</option><option value='route_018' >Route 18</option><option value='route_019' >Route 19</option><option value='route_020' >Route 20</option><option value='route_021' >Route 21</option><option value='route_022' >Route 22</option><option value='route_023' >Route 23</option><option value='route_024' >Route 24</option><option value='route_025' >Route 25</option></optgroup>
+                        <optgroup label='Forêts'><option value='viridian_forest' >Forêt de Jade</option></optgroup>
+                        <optgroup label='Grottes'><option value='cerulean_cave_1f' >Caverne Azurée - RdC</option><option value='cerulean_cave_2f' >Caverne Azurée - 1er ét.</option><option value='cerulean_cave_b1f' >Caverne Azurée - 1er ss.</option><option value='diglett_cave' >Cave Taupiqueur</option><option value='mt_moon_1f' >Mont Sélénite - RdC</option><option value='mt_moon_b1f' >Mont Sélénite - 1er ss.</option><option value='mt_moon_b2f' >Mont Sélénite - 2e ss.</option><option value='rock_tunnel_1f' >Grotte - 1er ét.</option><option value='rock_tunnel_b1f' >Grotte - 1er ss.</option><option value='seafoam_islands_1f' >Îles Écume - RdC</option><option value='seafoam_islands_b1f' >Îles Écume - 1er ss.</option><option value='seafoam_islands_b2f' >Îles Écume - 2e ss.</option><option value='seafoam_islands_b3f' >Îles Écume - 3e ss.</option><option value='seafoam_islands_b4f' >Îles Écume - 4e ss.</option><option value='victory_road_1f_kanto' >Route Victoire Kanto - RdC & 2e ét.</option><option value='victory_road_2f_kanto' >Route Victoire Kanto - 1er ét.</option></optgroup>
+                        <optgroup label='Parc Safari'><option value='safari_zone_0_kanto' >Parc Safari Kanto - Entrée</option><option value='safari_zone_1_kanto' >Parc Safari Kanto - Zone Est</option><option value='safari_zone_2_kanto' >Parc Safari Kanto - Zone Nord</option><option value='safari_zone_3_kanto' >Parc Safari Kanto - Zone Ouest</option></optgroup>
+                        <optgroup label='Bâtiments'><option value='pokemon_mansion_1f' >Manoir Pokémon - RdC à 2e ét.</option><option value='pokemon_mansion_b1f' >Manoir Pokémon - 1er ss.</option><option value='pokemon_tower_3f' >Tour Pokémon - 2e ét.</option><option value='pokemon_tower_4f_5f' >Tour Pokémon - 3e & 4e ét.</option><option value='pokemon_tower_6f' >Tour Pokémon - 5e ét.</option><option value='pokemon_tower_7f' >Tour Pokémon - 6e ét.</option><option value='power_plant' >Centrale</option><option value='underground_path' >Souterrain (5-6)</option></optgroup>
+                        <optgroup label='Villes et Villages'><option value='celadon_city' >Céladopole</option><option value='cerulean_city' >Azuria</option><option value='cinnabar_island' >Cramois'Île</option><option value='fuchsia_city' >Parmanie</option><option value='pallet_town' >Bourg Palette</option><option value='saffron_city' >Safrania</option><option value='vermilion_city' >Carmin sur Mer</option><option value='vermilion_city_harbor' >Carmin sur Mer - Port</option><option value='viridian_city' >Jadielle</option></optgroup>
+                        <optgroup label='Îles Sevii - Île 1'><option value='kindle_road' >Route Tison</option><option value='mt_ember_ext' >Mont Braise - Extérieur</option><option value='mt_ember_ruby_1f' >Mont Braise - RdC (Rubis)</option><option value='mt_ember_ruby_b1f' >Mont Braise - 1er & 5e ss. (Rubis)</option><option value='mt_ember_ruby_b2f' >Mont Braise - 2e & 4e ss. (Rubis)</option><option value='mt_ember_ruby_b3f' >Mont Braise - 3e ss. (Rubis)</option><option value='mt_ember_summit_1' selected>Mont Braise - Tunnels (Sommet)</option><option value='mt_ember_summit_2' >Mont Braise - Caverne principale (Sommet)</option><option value='mt_ember_summit_3' >Mont Braise - Sommet</option><option value='one_island' >Île 1</option><option value='treasure_beach' >Plage Trésor</option></optgroup>
+                        <optgroup label='Îles Sevii - Île 2'><option value='cape_brink' >Cap Falaise</option></optgroup>
+                        <optgroup label='Îles Sevii - Île 3'><option value='berry_forest' >Bois Baies</option><option value='bond_bridge' >Pont du Lien</option><option value='three_isle_port' >Port Île 3</option></optgroup>
+                        <optgroup label='Îles Sevii - Île 4'><option value='four_island' >Île 4</option><option value='icefall_cave_0_entrance' >Grotte de Glace - Entrée</option><option value='icefall_cave_1' >Grotte de Glace - RdC & 1er ss.</option><option value='icefall_cave_2_cove' >Grotte de Glace - Crique</option></optgroup>
+                        <optgroup label='Îles Sevii - Île 5'><option value='five_island' >Île 5</option><option value='five_isle_meadow' >Pré Île 5</option><option value='lost_cave' >Grotte Perdue</option><option value='lost_cave_room' >Grotte Perdue - Salle d'objet</option><option value='memorial_pillar' >Mémorial</option><option value='resort_gorgeous' >Camp de Vacances</option><option value='water_labyrinth' >Labyrinthe d'O</option></optgroup>
+                        <optgroup label='Îles Sevii - Île 6'><option value='altering_cave_frlg' >Grotte Métamo</option><option value='green_path' >Chemin Vert</option><option value='outcast_island' >Île du Lointain</option><option value='pattern_bush' >Forbuissons</option><option value='ruin_valley' >Vallée Ruine</option><option value='water_path' >Agualcanal</option></optgroup>
+                        <optgroup label='Îles Sevii - Île 7'><option value='canyon_entrance' >Entrée du Canyon</option><option value='sevault_canyon' >Canyon Sesor</option><option value='tanoby_chambers' >Chambres Tanoby</option><option value='tanoby_ruins' >Ruines Tanoby</option><option value='trainer_tower' >Tour Dresseurs</option></optgroup>
+                        <optgroup label='Évènements et Rencontres uniques'><option value='birth_island_frlg' >Île Aurore</option><option value='navel_rock_frlg' >Roc Nombri</option></optgroup>
+                </select>
+                <script type='module'>
+                    import select_reload from '/lyra-website-backup/scripts/functions/select_reload.1715012545.js';
+                    
+                    document.querySelector('#firered_leafgreen_select').addEventListener('change', (event) => select_reload('/lyra-website-backup/fr/pokemon_gen3/catch_locations', event));
+                </script>
+            </div><div id='ruby_sapphire_emerald_select' class='select_menu'>
+                <span>Rubis, Saphir, Émeraude :</span>
+                <select>
+                    <option value='' selected disabled hidden>Choisissez une zone</option>
+                    <optgroup label='Routes'><option value='route_101' >Route 101</option><option value='route_102' >Route 102</option><option value='route_103' >Route 103</option><option value='route_104' >Route 104</option><option value='route_105' >Route 105</option><option value='route_106' >Route 106</option><option value='route_107' >Route 107</option><option value='route_108' >Route 108</option><option value='route_109' >Route 109</option><option value='route_110' >Route 110</option><option value='route_111' >Route 111</option><option value='route_112' >Route 112</option><option value='route_113' >Route 113</option><option value='route_114' >Route 114</option><option value='route_115' >Route 115</option><option value='route_116' >Route 116</option><option value='route_117' >Route 117</option><option value='route_118' >Route 118</option><option value='route_119' >Route 119</option><option value='route_120' >Route 120</option><option value='route_121' >Route 121</option><option value='route_122' >Route 122</option><option value='route_123' >Route 123</option><option value='route_124' >Route 124</option><option value='route_125' >Route 125</option><option value='route_126' >Route 126</option><option value='route_127' >Route 127</option><option value='route_128' >Route 128</option><option value='route_129' >Route 129</option><option value='route_130' >Route 130</option><option value='route_131' >Route 131</option><option value='route_132' >Route 132</option><option value='route_133' >Route 133</option><option value='route_134' >Route 134</option></optgroup>
+                        <optgroup label='Forêts'><option value='petalburg_woods' >Bois Clémenti</option></optgroup>
+                        <optgroup label='Grottes'><option value='altering_cave_rse' >Grotte Métamo</option><option value='artisan_cave' >Grotte Atelier</option><option value='cave_of_origin' >Grotte Origine</option><option value='cave_of_origin_entrance' >Grotte Origine - Entrée</option><option value='desert_underpass' >Voie du Désert</option><option value='fiery_path' >Chemin Ardent</option><option value='granite_cave_1f' >Grotte Granite - RdC</option><option value='granite_cave_b1f' >Grotte Granite - 1er ss.</option><option value='granite_cave_b2f' >Grotte Granite - 2e ss.</option><option value='granite_cave_room' >Grotte Granite - Salle de Pierre Rochard</option><option value='meteor_falls_1' >Site Météore - Première zone</option><option value='meteor_falls_2' >Site Météore - Deuxième zone et sous-sol</option><option value='meteor_falls_3' >Site Météore - Grotte confinée</option><option value='meteor_falls_4' >Site Météore - Grotte de Pierre Rochard</option><option value='mt_pyre_exterior' >Mont Mémoria - Extérieur</option><option value='mt_pyre_interior_1f' >Mont Mémoria - RdC à 2e ét.</option><option value='mt_pyre_interior_4f' >Mont Mémoria</option><option value='mt_pyre_summit' >Mont Mémoria - Sommet</option><option value='rusturf_tunnel' >Tunnel Mérazon</option><option value='seafloor_cavern' >Caverne Fondmer</option><option value='shoal_cave' >Grotte Tréfonds</option><option value='shoal_cave_ice' >Grotte Tréfonds - Étage glacé</option><option value='victory_road_1f_hoenn' >Route Victoire Hoenn - RdC</option><option value='victory_road_b1f_hoenn' >Route Victoire Hoenn - 1er ss.</option><option value='victory_road_b2f_hoenn' >Route Victoire Hoenn - 2e ss.</option></optgroup>
+                        <optgroup label='Parc Safari'><option value='safari_zone_1_hoenn' >Parc Safari Hoenn - Zone 1 (Entrée)</option><option value='safari_zone_2_hoenn' >Parc Safari Hoenn - Zone 2 (Ouest)</option><option value='safari_zone_3_hoenn' >Parc Safari Hoenn - Zone 3 (Nord-ouest)</option><option value='safari_zone_4_hoenn' >Parc Safari Hoenn - Zone 4 (Nord)</option><option value='safari_zone_5_hoenn' >Parc Safari Hoenn - Zone 5 (Est)</option><option value='safari_zone_6_hoenn' >Parc Safari Hoenn - Zone 6 (Nord-est)</option></optgroup>
+                        <optgroup label='Bâtiments'><option value='abandoned_ship' >Épave</option><option value='aqua_hideout' >Planque Aqua</option><option value='magma_hideout' >Planque Magma</option><option value='mirage_tower' >Tour Mirage</option><option value='new_mauville' >New Lavandia</option><option value='new_mauville_entrance' >New Lavandia - Entrée</option><option value='sky_pillar_1f' >Pilier Céleste - RdC</option><option value='sky_pillar_3f' >Pilier Céleste - 2e ét.</option><option value='sky_pillar_5f' >Pilier Céleste - 4e ét.</option><option value='sky_pillar_6f' >Pilier Céleste - 5e ét.</option></optgroup>
+                        <optgroup label='Villes et Villages'><option value='dewford_town' >Village Myokara</option><option value='ever_grande_city' >Éternara</option><option value='fortree_city' >Cimetronelle</option><option value='lavaridge_town' >Vermilava</option><option value='lilycove_city' >Nénucrique</option><option value='littleroot_town' >Bourg-en-Vol</option><option value='mossdeep_city' >Algatia</option><option value='pacifidlog_town' >Pacifiville</option><option value='petalburg_city' >Clémenti-ville</option><option value='rustboro_city' >Mérouville</option><option value='slateport_city' >Poivressel</option><option value='sootopolis_city' >Atalanopolis</option></optgroup>
+                        <optgroup label='Évènements et Rencontres uniques'><option value='ancient_tomb' >Tombeau Antique</option><option value='birth_island_rse' >Île Aurore</option><option value='desert_ruins' >Ruines Désert</option><option value='faraway_island' >Île Lointaine</option><option value='island_cave' >Grotte Island</option><option value='marine_cave' >Grotte Marine</option><option value='navel_rock_rse' >Roc Nombri</option><option value='southern_island' >Île du Sud</option><option value='terra_cave' >Grotte Terra</option></optgroup>
+                        <optgroup label='Autre'><option value='battle_frontier' >Zone de Combat</option><option value='jagged_pass' >Sentier Sinuroc</option><option value='mirage_island' >Île Mirage</option><option value='underwater' >Fond marin</option></optgroup>
+                </select>
+                <script type='module'>
+                    import select_reload from '/lyra-website-backup/scripts/functions/select_reload.1715012545.js';
+                    
+                    document.querySelector('#ruby_sapphire_emerald_select').addEventListener('change', (event) => select_reload('/lyra-website-backup/fr/pokemon_gen3/catch_locations', event));
+                </script>
+            </div><div id='colosseum_xd_select' class='select_menu'>
+                <span>Colosseum, XD : Le Souffle des Ténèbres :</span>
+                <select>
+                    <option value='' selected disabled hidden>Choisissez une zone</option>
+                    <optgroup label='Pokémon Colosseum'><option value='colo_agate_village' >Samaragd</option><option value='colo_deep_colosseum' >Colosseum Targare</option><option value='colo_miror_b_hideout' >Repaire Bouledisco</option><option value='colo_misc' >Pokémon Colosseum</option><option value='colo_mt_battle' >Mont Bataille</option><option value='colo_outskirt_stand' >Station Service</option><option value='colo_phenac_city' >Phénacit</option><option value='colo_pyrite_bldg' >Immeuble de Pyrite</option><option value='colo_pyrite_cave' >Cavernes de Pyrite</option><option value='colo_pyrite_town' >Pyrite</option><option value='colo_realgam_tower' >Tour Titanite</option><option value='colo_shadow_pkmn_lab' >Labo Pokémon Obscurs</option><option value='colo_snagem_hideout' >Repaire Team Snatch</option><option value='colo_the_under' >Suerebe</option><option value='colo_the_under_subway' >Métro de Suerebe</option><option value='colo_tower_colosseum' >Colosseum Titanite</option></optgroup>
+                        <optgroup label='Pokémon XD : Le Souffle des Ténèbres'><option value='xd_cipher_key_lair' >Repaire Ombre</option><option value='xd_cipher_lab' >Labo Ombre</option><option value='xd_citadark_isle' >Île Ténébra</option><option value='xd_gateon_port' >Port Amarrée</option><option value='xd_onbs' >ONBS</option><option value='xd_outskirt_stand' >Station Service</option><option value='xd_phenac_city' >Phénacit</option><option value='xd_phenac_stadium' >Colisée de Phénacit</option><option value='xd_pokemon_hq_lab' >Laboratoire Pokémon</option><option value='xd_poke_spot_cave' >Poké Place Grotte</option><option value='xd_poke_spot_oasis' >Poké Place Oasis</option><option value='xd_poke_spot_rock' >Poké Place Roche</option><option value='xd_prestige_center' >Centre de Formation Pokémon</option></optgroup>
+                </select>
+                <script type='module'>
+                    import select_reload from '/lyra-website-backup/scripts/functions/select_reload.1715012545.js';
+                    
+                    document.querySelector('#colosseum_xd_select').addEventListener('change', (event) => select_reload('/lyra-website-backup/fr/pokemon_gen3/catch_locations', event));
+                </script>
+            </div></div><div id='current_location'>
+                    <a href='/lyra-website-backup/fr/pokemon_gen3/catch_locations/mt_ember_ruby_b3f'>←</a>
+                    <p>Mont Braise - Tunnels (Sommet)</p>
+                    <a href='/lyra-website-backup/fr/pokemon_gen3/catch_locations/mt_ember_summit_2'>→</a>
+                    <script type='module'>
+                        import locations_keynav from '/lyra-website-backup/scripts/functions/pokemon/locations_keynav.1720872089.js';
+                        
+                        locations_keynav('/lyra-website-backup/fr/pokemon_gen3/catch_locations/mt_ember_ruby_b3f', '/lyra-website-backup/fr/pokemon_gen3/catch_locations/mt_ember_summit_2');
+                    </script>
+                </div>
+                 <div id='location_detail'><div>
+                        <h2 class='firered'>Version Rouge Feu</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Habitat / </span>Méthode</th>
+                            <th class='col_level'>Niveau</th>
+                            <th colspan='3'>Taux</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_frlg/sprite_66.png' 
+                                alt='Machoc sprite gen 3' />
+                                <span class='pokemon_name'>Machoc</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>31, 33, 35, 37, 39</td>
+                        <td colspan='3' class='col_rate_colspan' >50 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_frlg/sprite_74.png' 
+                                alt='Racaillou sprite gen 3' />
+                                <span class='pokemon_name'>Racaillou</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>29, 31, 33, 35, 37</td>
+                        <td colspan='3' class='col_rate_colspan' >50 %</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>Toutes les rencontres de cette zone sont cachées par vos paramètres actuels.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div><div>
+                        <h2 class='leafgreen'>Version Vert Feuille</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Habitat / </span>Méthode</th>
+                            <th class='col_level'>Niveau</th>
+                            <th colspan='3'>Taux</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_frlg/sprite_66.png' 
+                                alt='Machoc sprite gen 3' />
+                                <span class='pokemon_name'>Machoc</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>31, 33, 35, 37, 39</td>
+                        <td colspan='3' class='col_rate_colspan' >50 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_frlg/sprite_74.png' 
+                                alt='Racaillou sprite gen 3' />
+                                <span class='pokemon_name'>Racaillou</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>29, 31, 33, 35, 37</td>
+                        <td colspan='3' class='col_rate_colspan' >50 %</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>Toutes les rencontres de cette zone sont cachées par vos paramètres actuels.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div></div></section>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Sauvegarde de pr&eacute;servation du site <strong>Lyra a un site web</strong>. Site, design et contenu originaux par <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon et tous les &eacute;l&eacute;ments associ&eacute;s sont des marques de Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <title>Locations from Emerald only - Pokémon info - Gen 3</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen3.1774893397.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_emerald.css' />
+                <script>
+                    init_style('gen3');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/'>Return to main menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/fr/pokemon_gen3/pokemon_info/emerald_only' >
+                            <span lang='fr'>Version française</span>
+                            <img src='/lyra-website-backup/views/images/french_flag.png' alt='French flag' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra made a website about</h1>
+    <h2>Pokémon Gen 3</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/pokemon_gen3/full_guide'>Full Guide</a>
+    <a href='/lyra-website-backup/pokemon_gen3/pokedex_tracker'>Pokédex tracker</a>
+    <a href='/lyra-website-backup/pokemon_gen3/catch_locations'>Catch locations</a>
+    <a href='/lyra-website-backup/pokemon_gen3/pokemon_info'>Pokémon info</a>
+    <a href='/lyra-website-backup/pokemon_gen3/extra_info'>Extra info</a>
+    <button id='settings_link'>Settings</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex tracker</h1>
+                <ul>
+                    <li>
+                <p>Pokédex displayed: </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>National Pokédex</option><option value='ruby_sapphire_emerald_dex'>Ruby, Sapphire & Emerald</option><option value='firered_leafgreen_dex'>FireRed & LeafGreen</option><option value='only_new_dex'>New Pokémon only</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Add extra step to capture</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Display current progress</p>
+            </li><li>
+                <p>Pokemon sprites used: </p>
+                <select id='select_pokemon_sprites'><option value='rs_sprites'>Ruby & Sapphire</option><option value='frlg_sprites'>FireRed & LeafGreen</option><option value='emerald_sprites'>Emerald</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Small Pokémon sprites</p>
+            </li><li>
+                <p>Box labels: </p>
+                <select id='select_box_names'><option value='boxes_order'>Box number</option><option value='boxes_firstlast'>First & last Pokémon</option><option value='boxes_hidden'>Hide labels</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Catch locations</h1>
+                <ul>
+                    <li>
+                <p>Filter by version: </p>
+                <select id='select_version_filter'><option value='pref_none'>All</option><option value='pref_ruby'>Ruby</option><option value='pref_sapphire'>Sapphire</option><option value='pref_emerald'>Emerald</option><option value='pref_firered'>FireRed</option><option value='pref_leafgreen'>LeafGreen</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Hide Old Rod and Good Rod data</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon info</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignore info of caught Pokémon</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Website colors</h1>
+                <ul>
+                    <li>
+                <p>Color theme: </p>
+                <select id='select_color_theme'><optgroup label='Gen 1'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Red</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Blue</option></optgroup><optgroup label='Gen 2'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Gold</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Silver</option></optgroup><optgroup label='Gen 3'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Emerald</option></optgroup><optgroup label='Gen 4'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamond</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Pearl</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Gen 3 data management</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Export</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Import</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen3_settings from '/lyra-website-backup/scripts/pokemon/gen3/gen3_settings.1763926674.js';
+            const current_settings = new gen3_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('en'); 
+            </script>
+            <main>
+                <h1>Generation 3 - Pokémon info</h1>
+            <div id='select_pokemon_filter' class='select_menu'>
+                <span>Displayed list:</span>
+                <select>
+                    
+                    <option value='all_methods' >All methods (GBA + GC)</option><option value='gba' >All methods (GBA)</option><option value='gamecube' >All methods (GC)</option><option value='ruby_only' >Locations from Ruby only</option><option value='sapphire_only' >Locations from Sapphire only</option><option value='emerald_only' selected>Locations from Emerald only</option><option value='firered_only' >Locations from FireRed only</option><option value='leafgreen_only' >Locations from LeafGreen only</option><option value='one_way' >Pokémon only obtainable through a single method</option><option value='theoretical_best' >Theoretical best location according to the database</option>
+                </select>
+                <script type='module'>
+                    import select_reload from '/lyra-website-backup/scripts/functions/select_reload.1715012545.js';
+                    
+                    document.querySelector('#select_pokemon_filter').addEventListener('change', (event) => select_reload('/lyra-website-backup/pokemon_gen3/pokemon_info', event));
+                </script>
+            </div>
+            <section id='pokemon_info_extra'>
+                <span>Quick search:</span>
+                <input type='text' id='name_search_input' maxlength='15' />
+            </section>
+            <section id='pokemon_info' class='emerald_only'>
+                <div id='pkmn_25' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 25</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_25.png'
+                    alt='Pikachu sprite gen 3' />
+                    <p class='pokemon_name'>Pikachu</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 1 (Entrance) - 5%<br /></span><span>Hoenn Safari Zone - Area 2 (West) - 5%</span>
+                </p>
+            </div><div id='pkmn_27' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 27</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_27.png'
+                    alt='Sandshrew sprite gen 3' />
+                    <p class='pokemon_name'>Sandshrew</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Mirage Tower - 50%<br /></span><span>Route 111 - 35%</span>
+                </p>
+            </div><div id='pkmn_37' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 37</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_37.png'
+                    alt='Vulpix sprite gen 3' />
+                    <p class='pokemon_name'>Vulpix</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Mt. Pyre - Exterior - 30%</span>
+                </p>
+            </div><div id='pkmn_39' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 39</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_39.png'
+                    alt='Jigglypuff sprite gen 3' />
+                    <p class='pokemon_name'>Jigglypuff</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 115 - 10%</span>
+                </p>
+            </div><div id='pkmn_41' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 41</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_41.png'
+                    alt='Zubat sprite gen 3' />
+                    <p class='pokemon_name'>Zubat</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Altering Cave - 100%<br /></span><span>Cave of Origin - Entrance - 90%<br /></span><span>Seafloor Cavern - 90%<br /></span><span>Meteor Falls - First area - 90%<br /></span><span>Meteor Falls - First area - 80%<br /></span><span>Cave of Origin - 60%<br /></span><span>Shoal Cave - 45%<br /></span><span>Shoal Cave - Ice room - 40%<br /></span><span>Seafloor Cavern - 35%<br /></span><span>Granite Cave - 1F - 30%<br /></span><span>Granite Cave - B1F - 30%<br /></span><span>Granite Cave - B2F - 30%<br /></span><span>Granite Cave - Steven's room - 30%<br /></span><span>Shoal Cave - 30%<br /></span><span>Hoenn Victory Road - 1F - 10%</span>
+                </p>
+            </div><div id='pkmn_42' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 42</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_42.png'
+                    alt='Golbat sprite gen 3' />
+                    <p class='pokemon_name'>Golbat</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Victory Road - B2F - 100%<br /></span><span>Meteor Falls - Second area & basement - 90%<br /></span><span>Meteor Falls - Small chamber - 90%<br /></span><span>Meteor Falls - Second area & basement - 65%<br /></span><span>Meteor Falls - Steven's cave - 65%<br /></span><span>Meteor Falls - Small chamber - 50%<br /></span><span>Hoenn Victory Road - B1F - 35%<br /></span><span>Hoenn Victory Road - B2F - 35%<br /></span><span>Sky Pillar - 1F - 30%<br /></span><span>Sky Pillar - 3F - 30%<br /></span><span>Sky Pillar - 5F - 30%<br /></span><span>Hoenn Victory Road - 1F - 25%<br /></span><span>Cave of Origin - 10%<br /></span><span>Cave of Origin - Entrance - 10%<br /></span><span>Seafloor Cavern - 10%<br /></span><span>Shoal Cave - 5%<br /></span><span>Shoal Cave - Ice room - 5%<br /></span><span>Seafloor Cavern - 5%</span>
+                </p>
+            </div><div id='pkmn_43' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 43</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_43.png'
+                    alt='Oddish sprite gen 3' />
+                    <p class='pokemon_name'>Oddish</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 117 - 40%<br /></span><span>Hoenn Safari Zone - Area 1 (Entrance) - 40%<br /></span><span>Hoenn Safari Zone - Area 2 (West) - 40%<br /></span><span>Hoenn Safari Zone - Area 3 (Northwest) - 30%<br /></span><span>Hoenn Safari Zone - Area 4 (North) - 30%<br /></span><span>Route 119 - 30%<br /></span><span>Route 120 - 25%<br /></span><span>Route 121 - 15%<br /></span><span>Route 123 - 15%<br /></span><span>Route 110 - 10%</span>
+                </p>
+            </div><div id='pkmn_44' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 44</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_44.png'
+                    alt='Gloom sprite gen 3' />
+                    <p class='pokemon_name'>Gloom</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 3 (Northwest) - 15%<br /></span><span>Hoenn Safari Zone - Area 4 (North) - 15%<br /></span><span>Route 121 - 5%<br /></span><span>Route 123 - 5%<br /></span><span>Hoenn Safari Zone - Area 1 (Entrance) - 5%<br /></span><span>Hoenn Safari Zone - Area 2 (West) - 5%</span>
+                </p>
+            </div><div id='pkmn_52' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 52</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_52.png'
+                    alt='Meowth sprite gen 3' />
+                    <p class='pokemon_name'>Meowth</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Battle Frontier - Trading Skitty</span>
+                </p>
+            </div><div id='pkmn_54' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 54</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_54.png'
+                    alt='Psyduck sprite gen 3' />
+                    <p class='pokemon_name'>Psyduck</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 2 (West) - 100%<br /></span><span>Hoenn Safari Zone - Area 3 (Northwest) - 95%</span>
+                </p>
+            </div><div id='pkmn_55' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 55</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_55.png'
+                    alt='Golduck sprite gen 3' />
+                    <p class='pokemon_name'>Golduck</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 3 (Northwest) - 5%</span>
+                </p>
+            </div><div id='pkmn_63' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 63</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_63.png'
+                    alt='Abra sprite gen 3' />
+                    <p class='pokemon_name'>Abra</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 116 - 10%<br /></span><span>Granite Cave - 1F - 10%<br /></span><span>Granite Cave - B1F - 10%<br /></span><span>Granite Cave - B2F - 10%<br /></span><span>Granite Cave - Steven's room - 10%</span>
+                </p>
+            </div><div id='pkmn_66' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 66</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_66.png'
+                    alt='Machop sprite gen 3' />
+                    <p class='pokemon_name'>Machop</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Jagged Pass - 25%<br /></span><span>Fiery Path - 15%</span>
+                </p>
+            </div><div id='pkmn_72' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 72</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_72.png'
+                    alt='Tentacool sprite gen 3' />
+                    <p class='pokemon_name'>Tentacool</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Abandoned Ship - 99%<br /></span><span>Abandoned Ship - 80%<br /></span><span>Route 103 - 60%<br /></span><span>Route 105 - 60%<br /></span><span>Route 106 - 60%<br /></span><span>Route 107 - 60%<br /></span><span>Route 108 - 60%<br /></span><span>Route 109 - 60%<br /></span><span>Route 110 - 60%<br /></span><span>Route 115 - 60%<br /></span><span>Route 118 - 60%<br /></span><span>Route 119 - 60%<br /></span><span>Route 121 - 60%<br /></span><span>Route 122 - 60%<br /></span><span>Route 123 - 60%<br /></span><span>Route 124 - 60%<br /></span><span>Route 125 - 60%<br /></span><span>Route 126 - 60%<br /></span><span>Route 127 - 60%<br /></span><span>Route 128 - 60%<br /></span><span>Route 129 - 60%<br /></span><span>Route 130 - 60%<br /></span><span>Route 131 - 60%<br /></span><span>Route 132 - 60%<br /></span><span>Route 133 - 60%<br /></span><span>Route 134 - 60%<br /></span><span>Seafloor Cavern - 60%<br /></span><span>Shoal Cave - 60%<br /></span><span>Dewford Town - 60%<br /></span><span>Ever Grande City - 60%<br /></span><span>Lilycove City - 60%<br /></span><span>Mossdeep City - 60%<br /></span><span>Pacifidlog Town - 60%<br /></span><span>Slateport City - 60%<br /></span><span>Abandoned Ship - 40%<br /></span><span>Route 103 - 30%<br /></span><span>Route 105 - 30%<br /></span><span>Route 106 - 30%<br /></span><span>Route 107 - 30%<br /></span><span>Route 108 - 30%<br /></span><span>Route 109 - 30%<br /></span><span>Route 110 - 30%<br /></span><span>Route 115 - 30%<br /></span><span>Route 118 - 30%<br /></span><span>Route 119 - 30%<br /></span><span>Route 121 - 30%<br /></span><span>Route 122 - 30%<br /></span><span>Route 123 - 30%<br /></span><span>Route 124 - 30%<br /></span><span>Route 125 - 30%<br /></span><span>Route 126 - 30%<br /></span><span>Route 127 - 30%<br /></span><span>Route 128 - 30%<br /></span><span>Route 129 - 30%<br /></span><span>Route 130 - 30%<br /></span><span>Route 131 - 30%<br /></span><span>Route 132 - 30%<br /></span><span>Route 133 - 30%<br /></span><span>Route 134 - 30%<br /></span><span>Seafloor Cavern - 30%<br /></span><span>Shoal Cave - 30%<br /></span><span>Abandoned Ship - 30%<br /></span><span>Dewford Town - 30%<br /></span><span>Ever Grande City - 30%<br /></span><span>Lilycove City - 30%<br /></span><span>Mossdeep City - 30%<br /></span><span>Pacifidlog Town - 30%<br /></span><span>Slateport City - 30%<br /></span><span>Sootopolis City - 30%<br /></span><span>Route 103 - 20%<br /></span><span>Route 105 - 20%<br /></span><span>Route 106 - 20%<br /></span><span>Route 107 - 20%<br /></span><span>Route 108 - 20%<br /></span><span>Route 109 - 20%<br /></span><span>Route 110 - 20%<br /></span><span>Route 115 - 20%<br /></span><span>Route 118 - 20%<br /></span><span>Route 119 - 20%<br /></span><span>Route 121 - 20%<br /></span><span>Route 122 - 20%<br /></span><span>Route 123 - 20%<br /></span><span>Route 124 - 20%<br /></span><span>Route 125 - 20%<br /></span><span>Route 126 - 20%<br /></span><span>Route 127 - 20%<br /></span><span>Route 129 - 20%<br /></span><span>Route 130 - 20%<br /></span><span>Route 131 - 20%<br /></span><span>Route 132 - 20%<br /></span><span>Route 133 - 20%<br /></span><span>Route 134 - 20%<br /></span><span>Seafloor Cavern - 20%<br /></span><span>Shoal Cave - 20%<br /></span><span>Dewford Town - 20%<br /></span><span>Lilycove City - 20%<br /></span><span>Mossdeep City - 20%<br /></span><span>Pacifidlog Town - 20%<br /></span><span>Slateport City - 20%</span>
+                </p>
+            </div><div id='pkmn_73' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 73</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_73.png'
+                    alt='Tentacruel sprite gen 3' />
+                    <p class='pokemon_name'>Tentacruel</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Abandoned Ship - 20%<br /></span><span>Abandoned Ship - 1%</span>
+                </p>
+            </div><div id='pkmn_74' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 74</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_74.png'
+                    alt='Geodude sprite gen 3' />
+                    <p class='pokemon_name'>Geodude</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 111 - 100%<br /></span><span>Route 114 - 100%<br /></span><span>Hoenn Safari Zone - Area 4 (North) - 100%<br /></span><span>Granite Cave - B2F - 70%<br /></span><span>Hoenn Victory Road - B1F - 30%<br /></span><span>Granite Cave - 1F - 10%</span>
+                </p>
+            </div><div id='pkmn_75' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 75</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_75.png'
+                    alt='Graveler sprite gen 3' />
+                    <p class='pokemon_name'>Graveler</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Victory Road - B1F - 70%</span>
+                </p>
+            </div><div id='pkmn_81' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 81</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_81.png'
+                    alt='Magnemite sprite gen 3' />
+                    <p class='pokemon_name'>Magnemite</p>
+                </div>
+                <p class='catch_data'>
+                    <span>New Mauville - Entrance - 50%<br /></span><span>New Mauville - 49%</span>
+                </p>
+            </div><div id='pkmn_82' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 82</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_82.png'
+                    alt='Magneton sprite gen 3' />
+                    <p class='pokemon_name'>Magneton</p>
+                </div>
+                <p class='catch_data'>
+                    <span>New Mauville - 1%</span>
+                </p>
+            </div><div id='pkmn_84' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 84</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_84.png'
+                    alt='Doduo sprite gen 3' />
+                    <p class='pokemon_name'>Doduo</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 3 (Northwest) - 15%<br /></span><span>Hoenn Safari Zone - Area 1 (Entrance) - 10%<br /></span><span>Hoenn Safari Zone - Area 2 (West) - 10%</span>
+                </p>
+            </div><div id='pkmn_85' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 85</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_85.png'
+                    alt='Dodrio sprite gen 3' />
+                    <p class='pokemon_name'>Dodrio</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 3 (Northwest) - 5%</span>
+                </p>
+            </div><div id='pkmn_88' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 88</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_88.png'
+                    alt='Grimer sprite gen 3' />
+                    <p class='pokemon_name'>Grimer</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Fiery Path - 2%</span>
+                </p>
+            </div><div id='pkmn_100' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 100</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_100.png'
+                    alt='Voltorb sprite gen 3' />
+                    <p class='pokemon_name'>Voltorb</p>
+                </div>
+                <p class='catch_data'>
+                    <span>New Mauville - Entrance - 50%<br /></span><span>New Mauville - 49%<br /></span><span>New Mauville - Fake item</span>
+                </p>
+            </div><div id='pkmn_101' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 101</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_101.png'
+                    alt='Electrode sprite gen 3' />
+                    <p class='pokemon_name'>Electrode</p>
+                </div>
+                <p class='catch_data'>
+                    <span>New Mauville - 1%<br /></span><span>Aqua Hideout - Fake item</span>
+                </p>
+            </div><div id='pkmn_109' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 109</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_109.png'
+                    alt='Koffing sprite gen 3' />
+                    <p class='pokemon_name'>Koffing</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Fiery Path - 25%</span>
+                </p>
+            </div><div id='pkmn_111' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 111</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_111.png'
+                    alt='Rhyhorn sprite gen 3' />
+                    <p class='pokemon_name'>Rhyhorn</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 3 (Northwest) - 30%</span>
+                </p>
+            </div><div id='pkmn_116' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 116</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_116.png'
+                    alt='Horsea sprite gen 3' />
+                    <p class='pokemon_name'>Horsea</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 132 - 15%<br /></span><span>Route 133 - 15%<br /></span><span>Route 134 - 15%<br /></span><span>Pacifidlog Town - Trading Bagon</span>
+                </p>
+            </div><div id='pkmn_118' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 118</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_118.png'
+                    alt='Goldeen sprite gen 3' />
+                    <p class='pokemon_name'>Goldeen</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 2 (West) - 80%<br /></span><span>Hoenn Safari Zone - Area 3 (Northwest) - 80%<br /></span><span>Hoenn Safari Zone - Area 2 (West) - 40%<br /></span><span>Hoenn Safari Zone - Area 3 (Northwest) - 40%<br /></span><span>Hoenn Safari Zone - Area 5 (East) - 40%<br /></span><span>Route 102 - 30%<br /></span><span>Route 111 - 30%<br /></span><span>Route 114 - 30%<br /></span><span>Route 117 - 30%<br /></span><span>Route 120 - 30%<br /></span><span>Meteor Falls - First area - 30%<br /></span><span>Meteor Falls - Second area & basement - 30%<br /></span><span>Meteor Falls - Small chamber - 30%<br /></span><span>Hoenn Victory Road - B2F - 30%<br /></span><span>Hoenn Safari Zone - Area 2 (West) - 30%<br /></span><span>Hoenn Safari Zone - Area 3 (Northwest) - 30%<br /></span><span>Hoenn Safari Zone - Area 5 (East) - 30%<br /></span><span>Petalburg City - 30%<br /></span><span>Route 102 - 20%<br /></span><span>Route 111 - 20%<br /></span><span>Route 114 - 20%<br /></span><span>Route 117 - 20%<br /></span><span>Route 120 - 20%<br /></span><span>Meteor Falls - First area - 20%<br /></span><span>Meteor Falls - Second area & basement - 20%<br /></span><span>Meteor Falls - Small chamber - 20%<br /></span><span>Hoenn Victory Road - B2F - 20%<br /></span><span>Hoenn Safari Zone - Area 5 (East) - 20%<br /></span><span>Petalburg City - 20%<br /></span><span>Route 102 - 1%<br /></span><span>Route 111 - 1%<br /></span><span>Route 114 - 1%<br /></span><span>Route 117 - 1%<br /></span><span>Route 120 - 1%</span>
+                </p>
+            </div><div id='pkmn_119' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 119</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_119.png'
+                    alt='Seaking sprite gen 3' />
+                    <p class='pokemon_name'>Seaking</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 2 (West) - 20%<br /></span><span>Hoenn Safari Zone - Area 3 (Northwest) - 20%</span>
+                </p>
+            </div><div id='pkmn_120' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 120</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_120.png'
+                    alt='Staryu sprite gen 3' />
+                    <p class='pokemon_name'>Staryu</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Lilycove City - 15%</span>
+                </p>
+            </div><div id='pkmn_127' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 127</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_127.png'
+                    alt='Pinsir sprite gen 3' />
+                    <p class='pokemon_name'>Pinsir</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 3 (Northwest) - 5%</span>
+                </p>
+            </div><div id='pkmn_129' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 129</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_129.png'
+                    alt='Magikarp sprite gen 3' />
+                    <p class='pokemon_name'>Magikarp</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Sootopolis City - 100%<br /></span><span>Route 104 - 100%<br /></span><span>Sootopolis City - 80%<br /></span><span>Route 102 - 70%<br /></span><span>Route 103 - 70%<br /></span><span>Route 105 - 70%<br /></span><span>Route 106 - 70%<br /></span><span>Route 107 - 70%<br /></span><span>Route 108 - 70%<br /></span><span>Route 109 - 70%<br /></span><span>Route 110 - 70%<br /></span><span>Route 111 - 70%<br /></span><span>Route 114 - 70%<br /></span><span>Route 115 - 70%<br /></span><span>Route 117 - 70%<br /></span><span>Route 118 - 70%<br /></span><span>Route 119 - 70%<br /></span><span>Route 120 - 70%<br /></span><span>Route 121 - 70%<br /></span><span>Route 122 - 70%<br /></span><span>Route 123 - 70%<br /></span><span>Route 124 - 70%<br /></span><span>Route 125 - 70%<br /></span><span>Route 126 - 70%<br /></span><span>Route 127 - 70%<br /></span><span>Route 128 - 70%<br /></span><span>Route 129 - 70%<br /></span><span>Route 130 - 70%<br /></span><span>Route 131 - 70%<br /></span><span>Route 132 - 70%<br /></span><span>Route 133 - 70%<br /></span><span>Route 134 - 70%<br /></span><span>Meteor Falls - First area - 70%<br /></span><span>Meteor Falls - Second area & basement - 70%<br /></span><span>Meteor Falls - Small chamber - 70%<br /></span><span>Seafloor Cavern - 70%<br /></span><span>Shoal Cave - 70%<br /></span><span>Hoenn Victory Road - B2F - 70%<br /></span><span>Hoenn Safari Zone - Area 2 (West) - 70%<br /></span><span>Hoenn Safari Zone - Area 3 (Northwest) - 70%<br /></span><span>Hoenn Safari Zone - Area 5 (East) - 70%<br /></span><span>Abandoned Ship - 70%<br /></span><span>Dewford Town - 70%<br /></span><span>Ever Grande City - 70%<br /></span><span>Lilycove City - 70%<br /></span><span>Mossdeep City - 70%<br /></span><span>Pacifidlog Town - 70%<br /></span><span>Petalburg City - 70%<br /></span><span>Slateport City - 70%<br /></span><span>Sootopolis City - 70%<br /></span><span>Route 102 - 60%<br /></span><span>Route 103 - 60%<br /></span><span>Route 105 - 60%<br /></span><span>Route 106 - 60%<br /></span><span>Route 107 - 60%<br /></span><span>Route 108 - 60%<br /></span><span>Route 109 - 60%<br /></span><span>Route 110 - 60%<br /></span><span>Route 111 - 60%<br /></span><span>Route 114 - 60%<br /></span><span>Route 115 - 60%<br /></span><span>Route 117 - 60%<br /></span><span>Route 118 - 60%<br /></span><span>Route 119 - 60%<br /></span><span>Route 120 - 60%<br /></span><span>Route 121 - 60%<br /></span><span>Route 122 - 60%<br /></span><span>Route 123 - 60%<br /></span><span>Route 124 - 60%<br /></span><span>Route 125 - 60%<br /></span><span>Route 126 - 60%<br /></span><span>Route 127 - 60%<br /></span><span>Route 128 - 60%<br /></span><span>Route 129 - 60%<br /></span><span>Route 130 - 60%<br /></span><span>Route 131 - 60%<br /></span><span>Route 132 - 60%<br /></span><span>Route 133 - 60%<br /></span><span>Route 134 - 60%<br /></span><span>Meteor Falls - First area - 60%<br /></span><span>Meteor Falls - Second area & basement - 60%<br /></span><span>Meteor Falls - Small chamber - 60%<br /></span><span>Seafloor Cavern - 60%<br /></span><span>Shoal Cave - 60%<br /></span><span>Hoenn Victory Road - B2F - 60%<br /></span><span>Hoenn Safari Zone - Area 2 (West) - 60%<br /></span><span>Hoenn Safari Zone - Area 3 (Northwest) - 60%<br /></span><span>Hoenn Safari Zone - Area 5 (East) - 60%<br /></span><span>Abandoned Ship - 60%<br /></span><span>Dewford Town - 60%<br /></span><span>Ever Grande City - 60%<br /></span><span>Lilycove City - 60%<br /></span><span>Mossdeep City - 60%<br /></span><span>Pacifidlog Town - 60%<br /></span><span>Petalburg City - 60%<br /></span><span>Slateport City - 60%</span>
+                </p>
+            </div><div id='pkmn_130' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 130</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_130.png'
+                    alt='Gyarados sprite gen 3' />
+                    <p class='pokemon_name'>Gyarados</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Sootopolis City - 20%</span>
+                </p>
+            </div><div id='pkmn_132' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 132</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_132.png'
+                    alt='Ditto sprite gen 3' />
+                    <p class='pokemon_name'>Ditto</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Desert Underpass - 50%</span>
+                </p>
+            </div><div id='pkmn_151' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 151</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_151.png'
+                    alt='Mew sprite gen 3' />
+                    <p class='pokemon_name'>Mew</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Faraway Island - Old Sea Map event</span>
+                </p>
+            </div><div id='pkmn_152' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 152</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_152.png'
+                    alt='Chikorita sprite gen 3' />
+                    <p class='pokemon_name'>Chikorita</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Littleroot Town - Gift (Hoenn Dex complete)</span>
+                </p>
+            </div><div id='pkmn_153' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 153</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_153.png'
+                    alt='Bayleef sprite gen 3' />
+                    <p class='pokemon_name'>Bayleef</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 16</span>
+                </p>
+            </div><div id='pkmn_154' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 154</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_154.png'
+                    alt='Meganium sprite gen 3' />
+                    <p class='pokemon_name'>Meganium</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 32</span>
+                </p>
+            </div><div id='pkmn_155' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 155</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_155.png'
+                    alt='Cyndaquil sprite gen 3' />
+                    <p class='pokemon_name'>Cyndaquil</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Littleroot Town - Gift (Hoenn Dex complete)</span>
+                </p>
+            </div><div id='pkmn_156' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 156</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_156.png'
+                    alt='Quilava sprite gen 3' />
+                    <p class='pokemon_name'>Quilava</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 14</span>
+                </p>
+            </div><div id='pkmn_157' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 157</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_157.png'
+                    alt='Typhlosion sprite gen 3' />
+                    <p class='pokemon_name'>Typhlosion</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 36</span>
+                </p>
+            </div><div id='pkmn_158' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 158</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_158.png'
+                    alt='Totodile sprite gen 3' />
+                    <p class='pokemon_name'>Totodile</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Littleroot Town - Gift (Hoenn Dex complete)</span>
+                </p>
+            </div><div id='pkmn_159' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 159</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_159.png'
+                    alt='Croconaw sprite gen 3' />
+                    <p class='pokemon_name'>Croconaw</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 18</span>
+                </p>
+            </div><div id='pkmn_160' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 160</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_160.png'
+                    alt='Feraligatr sprite gen 3' />
+                    <p class='pokemon_name'>Feraligatr</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 30</span>
+                </p>
+            </div><div id='pkmn_163' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 163</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_163.png'
+                    alt='Hoothoot sprite gen 3' />
+                    <p class='pokemon_name'>Hoothoot</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 5 (East) - 5%<br /></span><span>Hoenn Safari Zone - Area 6 (Northeast) - 5%</span>
+                </p>
+            </div><div id='pkmn_164' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 164</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_164.png'
+                    alt='Noctowl sprite gen 3' />
+                    <p class='pokemon_name'>Noctowl</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 20</span>
+                </p>
+            </div><div id='pkmn_165' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 165</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_165.png'
+                    alt='Ledyba sprite gen 3' />
+                    <p class='pokemon_name'>Ledyba</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 6 (Northeast) - 10%</span>
+                </p>
+            </div><div id='pkmn_167' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 167</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_167.png'
+                    alt='Spinarak sprite gen 3' />
+                    <p class='pokemon_name'>Spinarak</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 5 (East) - 10%</span>
+                </p>
+            </div><div id='pkmn_170' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 170</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_170.png'
+                    alt='Chinchou sprite gen 3' />
+                    <p class='pokemon_name'>Chinchou</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Underwater - 30%</span>
+                </p>
+            </div><div id='pkmn_177' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 177</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_177.png'
+                    alt='Natu sprite gen 3' />
+                    <p class='pokemon_name'>Natu</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 4 (North) - 15%<br /></span><span>Hoenn Safari Zone - Area 1 (Entrance) - 10%<br /></span><span>Hoenn Safari Zone - Area 2 (West) - 10%</span>
+                </p>
+            </div><div id='pkmn_178' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 178</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_178.png'
+                    alt='Xatu sprite gen 3' />
+                    <p class='pokemon_name'>Xatu</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 4 (North) - 5%</span>
+                </p>
+            </div><div id='pkmn_179' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 179</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_179.png'
+                    alt='Mareep sprite gen 3' />
+                    <p class='pokemon_name'>Mareep</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 5 (East) - 30%</span>
+                </p>
+            </div><div id='pkmn_180' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 180</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_180.png'
+                    alt='Flaaffy sprite gen 3' />
+                    <p class='pokemon_name'>Flaaffy</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 15</span>
+                </p>
+            </div><div id='pkmn_181' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 181</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_181.png'
+                    alt='Ampharos sprite gen 3' />
+                    <p class='pokemon_name'>Ampharos</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 30</span>
+                </p>
+            </div><div id='pkmn_183' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 183</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_183.png'
+                    alt='Marill sprite gen 3' />
+                    <p class='pokemon_name'>Marill</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Petalburg City - 100%<br /></span><span>Route 102 - 99%<br /></span><span>Route 111 - 99%<br /></span><span>Route 114 - 99%<br /></span><span>Route 117 - 99%<br /></span><span>Route 120 - 99%<br /></span><span>Hoenn Safari Zone - Area 5 (East) - 39%<br /></span><span>Route 112 - 25%<br /></span><span>Route 104 - 20%<br /></span><span>Route 120 - 15%<br /></span><span>Route 117 - 10%</span>
+                </p>
+            </div><div id='pkmn_185' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 185</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_185.png'
+                    alt='Sudowoodo sprite gen 3' />
+                    <p class='pokemon_name'>Sudowoodo</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Battle Frontier - Unique</span>
+                </p>
+            </div><div id='pkmn_190' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 190</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_190.png'
+                    alt='Aipom sprite gen 3' />
+                    <p class='pokemon_name'>Aipom</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 6 (Northeast) - 30%<br /></span><span>Hoenn Safari Zone - Area 5 (East) - 10%</span>
+                </p>
+            </div><div id='pkmn_191' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 191</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_191.png'
+                    alt='Sunkern sprite gen 3' />
+                    <p class='pokemon_name'>Sunkern</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 5 (East) - 30%<br /></span><span>Hoenn Safari Zone - Area 6 (Northeast) - 10%</span>
+                </p>
+            </div><div id='pkmn_192' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 192</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_192.png'
+                    alt='Sunflora sprite gen 3' />
+                    <p class='pokemon_name'>Sunflora</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Sun Stone - Sunkern</span>
+                </p>
+            </div><div id='pkmn_194' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 194</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_194.png'
+                    alt='Wooper sprite gen 3' />
+                    <p class='pokemon_name'>Wooper</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 5 (East) - 60%</span>
+                </p>
+            </div><div id='pkmn_195' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 195</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_195.png'
+                    alt='Quagsire sprite gen 3' />
+                    <p class='pokemon_name'>Quagsire</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 5 (East) - 1%</span>
+                </p>
+            </div><div id='pkmn_202' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 202</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_202.png'
+                    alt='Wobbuffet sprite gen 3' />
+                    <p class='pokemon_name'>Wobbuffet</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 1 (Entrance) - 10%<br /></span><span>Hoenn Safari Zone - Area 2 (West) - 10%</span>
+                </p>
+            </div><div id='pkmn_203' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 203</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_203.png'
+                    alt='Girafarig sprite gen 3' />
+                    <p class='pokemon_name'>Girafarig</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 1 (Entrance) - 20%<br /></span><span>Hoenn Safari Zone - Area 2 (West) - 20%</span>
+                </p>
+            </div><div id='pkmn_204' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 204</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_204.png'
+                    alt='Pineco sprite gen 3' />
+                    <p class='pokemon_name'>Pineco</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 6 (Northeast) - 5%</span>
+                </p>
+            </div><div id='pkmn_205' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 205</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_205.png'
+                    alt='Forretress sprite gen 3' />
+                    <p class='pokemon_name'>Forretress</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 31</span>
+                </p>
+            </div><div id='pkmn_207' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 207</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_207.png'
+                    alt='Gligar sprite gen 3' />
+                    <p class='pokemon_name'>Gligar</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 5 (East) - 5%</span>
+                </p>
+            </div><div id='pkmn_209' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 209</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_209.png'
+                    alt='Snubbull sprite gen 3' />
+                    <p class='pokemon_name'>Snubbull</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 5 (East) - 5%</span>
+                </p>
+            </div><div id='pkmn_210' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 210</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_210.png'
+                    alt='Granbull sprite gen 3' />
+                    <p class='pokemon_name'>Granbull</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 23</span>
+                </p>
+            </div><div id='pkmn_213' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 213</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_213.png'
+                    alt='Shuckle sprite gen 3' />
+                    <p class='pokemon_name'>Shuckle</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 6 (Northeast) - 100%</span>
+                </p>
+            </div><div id='pkmn_214' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 214</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_214.png'
+                    alt='Heracross sprite gen 3' />
+                    <p class='pokemon_name'>Heracross</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 4 (North) - 5%</span>
+                </p>
+            </div><div id='pkmn_216' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 216</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_216.png'
+                    alt='Teddiursa sprite gen 3' />
+                    <p class='pokemon_name'>Teddiursa</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 6 (Northeast) - 30%</span>
+                </p>
+            </div><div id='pkmn_217' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 217</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_217.png'
+                    alt='Ursaring sprite gen 3' />
+                    <p class='pokemon_name'>Ursaring</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 30</span>
+                </p>
+            </div><div id='pkmn_218' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 218</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_218.png'
+                    alt='Slugma sprite gen 3' />
+                    <p class='pokemon_name'>Slugma</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 113 - 25%<br /></span><span>Fiery Path - 10%</span>
+                </p>
+            </div><div id='pkmn_222' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 222</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_222.png'
+                    alt='Corsola sprite gen 3' />
+                    <p class='pokemon_name'>Corsola</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 128 - 15%<br /></span><span>Ever Grande City - 15%</span>
+                </p>
+            </div><div id='pkmn_223' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 223</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_223.png'
+                    alt='Remoraid sprite gen 3' />
+                    <p class='pokemon_name'>Remoraid</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 5 (East) - 59%<br /></span><span>Hoenn Safari Zone - Area 5 (East) - 20%</span>
+                </p>
+            </div><div id='pkmn_224' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 224</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_224.png'
+                    alt='Octillery sprite gen 3' />
+                    <p class='pokemon_name'>Octillery</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 5 (East) - 1%</span>
+                </p>
+            </div><div id='pkmn_227' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 227</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_227.png'
+                    alt='Skarmory sprite gen 3' />
+                    <p class='pokemon_name'>Skarmory</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 113 - 5%</span>
+                </p>
+            </div><div id='pkmn_228' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 228</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_228.png'
+                    alt='Houndour sprite gen 3' />
+                    <p class='pokemon_name'>Houndour</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 6 (Northeast) - 5%</span>
+                </p>
+            </div><div id='pkmn_229' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 229</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_229.png'
+                    alt='Houndoom sprite gen 3' />
+                    <p class='pokemon_name'>Houndoom</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 24</span>
+                </p>
+            </div><div id='pkmn_231' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 231</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_231.png'
+                    alt='Phanpy sprite gen 3' />
+                    <p class='pokemon_name'>Phanpy</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 4 (North) - 30%</span>
+                </p>
+            </div><div id='pkmn_234' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 234</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_234.png'
+                    alt='Stantler sprite gen 3' />
+                    <p class='pokemon_name'>Stantler</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 5 (East) - 5%</span>
+                </p>
+            </div><div id='pkmn_235' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 235</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_235.png'
+                    alt='Smeargle sprite gen 3' />
+                    <p class='pokemon_name'>Smeargle</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Artisan Cave - 100%</span>
+                </p>
+            </div><div id='pkmn_241' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 241</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_241.png'
+                    alt='Miltank sprite gen 3' />
+                    <p class='pokemon_name'>Miltank</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Safari Zone - Area 6 (Northeast) - 5%</span>
+                </p>
+            </div><div id='pkmn_249' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 249</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_249.png'
+                    alt='Lugia sprite gen 3' />
+                    <p class='pokemon_name'>Lugia</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Navel Rock - MysticTicket event</span>
+                </p>
+            </div><div id='pkmn_250' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 250</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_250.png'
+                    alt='Ho-Oh sprite gen 3' />
+                    <p class='pokemon_name'>Ho-Oh</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Navel Rock - MysticTicket event</span>
+                </p>
+            </div><div id='pkmn_252' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 252</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_252.png'
+                    alt='Treecko sprite gen 3' />
+                    <p class='pokemon_name'>Treecko</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 101 - Starter</span>
+                </p>
+            </div><div id='pkmn_255' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 255</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_255.png'
+                    alt='Torchic sprite gen 3' />
+                    <p class='pokemon_name'>Torchic</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 101 - Starter</span>
+                </p>
+            </div><div id='pkmn_258' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 258</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_258.png'
+                    alt='Mudkip sprite gen 3' />
+                    <p class='pokemon_name'>Mudkip</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 101 - Starter</span>
+                </p>
+            </div><div id='pkmn_261' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 261</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_261.png'
+                    alt='Poochyena sprite gen 3' />
+                    <p class='pokemon_name'>Poochyena</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 103 - 60%<br /></span><span>Route 101 - 45%<br /></span><span>Route 104 - 40%<br /></span><span>Route 102 - 30%<br /></span><span>Route 117 - 30%<br /></span><span>Petalburg Woods - 30%<br /></span><span>Route 116 - 28%<br /></span><span>Route 110 - 20%<br /></span><span>Route 121 - 20%<br /></span><span>Route 123 - 20%<br /></span><span>Route 120 - 20%</span>
+                </p>
+            </div><div id='pkmn_262' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 262</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_262.png'
+                    alt='Mightyena sprite gen 3' />
+                    <p class='pokemon_name'>Mightyena</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 120 - 30%<br /></span><span>Route 121 - 20%<br /></span><span>Route 123 - 20%</span>
+                </p>
+            </div><div id='pkmn_263' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 263</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_263.png'
+                    alt='Zigzagoon sprite gen 3' />
+                    <p class='pokemon_name'>Zigzagoon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 118 - 30%<br /></span><span>Route 119 - 30%<br /></span><span>Route 103 - 20%<br /></span><span>Route 102 - 15%<br /></span><span>Route 101 - 10%</span>
+                </p>
+            </div><div id='pkmn_264' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 264</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_264.png'
+                    alt='Linoone sprite gen 3' />
+                    <p class='pokemon_name'>Linoone</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 119 - 30%<br /></span><span>Route 118 - 10%</span>
+                </p>
+            </div><div id='pkmn_265' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 265</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_265.png'
+                    alt='Wurmple sprite gen 3' />
+                    <p class='pokemon_name'>Wurmple</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 101 - 45%<br /></span><span>Route 102 - 30%<br /></span><span>Petalburg Woods - 25%<br /></span><span>Route 104 - 20%</span>
+                </p>
+            </div><div id='pkmn_266' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 266</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_266.png'
+                    alt='Silcoon sprite gen 3' />
+                    <p class='pokemon_name'>Silcoon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Petalburg Woods - 10%</span>
+                </p>
+            </div><div id='pkmn_268' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 268</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_268.png'
+                    alt='Cascoon sprite gen 3' />
+                    <p class='pokemon_name'>Cascoon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Petalburg Woods - 10%</span>
+                </p>
+            </div><div id='pkmn_270' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 270</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_270.png'
+                    alt='Lotad sprite gen 3' />
+                    <p class='pokemon_name'>Lotad</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 114 - 30%<br /></span><span>Route 102 - 20%</span>
+                </p>
+            </div><div id='pkmn_271' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 271</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_271.png'
+                    alt='Lombre sprite gen 3' />
+                    <p class='pokemon_name'>Lombre</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 114 - 20%</span>
+                </p>
+            </div><div id='pkmn_273' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 273</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_273.png'
+                    alt='Seedot sprite gen 3' />
+                    <p class='pokemon_name'>Seedot</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 102 - 1%<br /></span><span>Route 117 - 1%<br /></span><span>Route 120 - 1%<br /></span><span>Rustboro City - Trading Ralts</span>
+                </p>
+            </div><div id='pkmn_274' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 274</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_274.png'
+                    alt='Nuzleaf sprite gen 3' />
+                    <p class='pokemon_name'>Nuzleaf</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 114 - 1%</span>
+                </p>
+            </div><div id='pkmn_276' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 276</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_276.png'
+                    alt='Taillow sprite gen 3' />
+                    <p class='pokemon_name'>Taillow</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 115 - 40%<br /></span><span>Route 116 - 20%<br /></span><span>Route 104 - 10%<br /></span><span>Petalburg Woods - 5%</span>
+                </p>
+            </div><div id='pkmn_277' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 277</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_277.png'
+                    alt='Swellow sprite gen 3' />
+                    <p class='pokemon_name'>Swellow</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 115 - 10%</span>
+                </p>
+            </div><div id='pkmn_278' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 278</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_278.png'
+                    alt='Wingull sprite gen 3' />
+                    <p class='pokemon_name'>Wingull</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 104 - 95%<br /></span><span>Route 103 - 35%<br /></span><span>Route 105 - 35%<br /></span><span>Route 106 - 35%<br /></span><span>Route 107 - 35%<br /></span><span>Route 108 - 35%<br /></span><span>Route 109 - 35%<br /></span><span>Route 110 - 35%<br /></span><span>Route 115 - 35%<br /></span><span>Route 118 - 35%<br /></span><span>Route 119 - 35%<br /></span><span>Route 121 - 35%<br /></span><span>Route 122 - 35%<br /></span><span>Route 123 - 35%<br /></span><span>Route 124 - 35%<br /></span><span>Route 125 - 35%<br /></span><span>Route 126 - 35%<br /></span><span>Route 127 - 35%<br /></span><span>Route 128 - 35%<br /></span><span>Route 129 - 35%<br /></span><span>Route 130 - 35%<br /></span><span>Route 131 - 35%<br /></span><span>Route 132 - 35%<br /></span><span>Route 133 - 35%<br /></span><span>Route 134 - 35%<br /></span><span>Dewford Town - 35%<br /></span><span>Ever Grande City - 35%<br /></span><span>Lilycove City - 35%<br /></span><span>Mossdeep City - 35%<br /></span><span>Pacifidlog Town - 35%<br /></span><span>Slateport City - 35%<br /></span><span>Route 103 - 20%<br /></span><span>Route 118 - 19%<br /></span><span>Route 104 - 10%<br /></span><span>Route 115 - 10%<br /></span><span>Mt. Pyre - Exterior - 10%<br /></span><span>Route 121 - 9%<br /></span><span>Route 123 - 9%<br /></span><span>Route 110 - 8%</span>
+                </p>
+            </div><div id='pkmn_279' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 279</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_279.png'
+                    alt='Pelipper sprite gen 3' />
+                    <p class='pokemon_name'>Pelipper</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 103 - 5%<br /></span><span>Route 104 - 5%<br /></span><span>Route 105 - 5%<br /></span><span>Route 106 - 5%<br /></span><span>Route 107 - 5%<br /></span><span>Route 108 - 5%<br /></span><span>Route 109 - 5%<br /></span><span>Route 110 - 5%<br /></span><span>Route 115 - 5%<br /></span><span>Route 118 - 5%<br /></span><span>Route 119 - 5%<br /></span><span>Route 121 - 5%<br /></span><span>Route 122 - 5%<br /></span><span>Route 123 - 5%<br /></span><span>Route 124 - 5%<br /></span><span>Route 125 - 5%<br /></span><span>Route 126 - 5%<br /></span><span>Route 127 - 5%<br /></span><span>Route 128 - 5%<br /></span><span>Route 130 - 5%<br /></span><span>Route 131 - 5%<br /></span><span>Route 132 - 5%<br /></span><span>Route 133 - 5%<br /></span><span>Route 134 - 5%<br /></span><span>Dewford Town - 5%<br /></span><span>Ever Grande City - 5%<br /></span><span>Lilycove City - 5%<br /></span><span>Mossdeep City - 5%<br /></span><span>Pacifidlog Town - 5%<br /></span><span>Slateport City - 5%<br /></span><span>Route 129 - 4%</span>
+                </p>
+            </div><div id='pkmn_280' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 280</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_280.png'
+                    alt='Ralts sprite gen 3' />
+                    <p class='pokemon_name'>Ralts</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 102 - 4%</span>
+                </p>
+            </div><div id='pkmn_285' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 285</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_285.png'
+                    alt='Shroomish sprite gen 3' />
+                    <p class='pokemon_name'>Shroomish</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Petalburg Woods - 15%</span>
+                </p>
+            </div><div id='pkmn_287' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 287</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_287.png'
+                    alt='Slakoth sprite gen 3' />
+                    <p class='pokemon_name'>Slakoth</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Petalburg Woods - 5%</span>
+                </p>
+            </div><div id='pkmn_290' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 290</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_290.png'
+                    alt='Nincada sprite gen 3' />
+                    <p class='pokemon_name'>Nincada</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 116 - 20%</span>
+                </p>
+            </div><div id='pkmn_293' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 293</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_293.png'
+                    alt='Whismur sprite gen 3' />
+                    <p class='pokemon_name'>Whismur</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Rusturf Tunnel - 100%<br /></span><span>Desert Underpass - 34%<br /></span><span>Route 116 - 20%<br /></span><span>Hoenn Victory Road - 1F - 5%</span>
+                </p>
+            </div><div id='pkmn_294' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 294</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_294.png'
+                    alt='Loudred sprite gen 3' />
+                    <p class='pokemon_name'>Loudred</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Desert Underpass - 16%<br /></span><span>Hoenn Victory Road - 1F - 10%</span>
+                </p>
+            </div><div id='pkmn_296' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 296</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_296.png'
+                    alt='Makuhita sprite gen 3' />
+                    <p class='pokemon_name'>Makuhita</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Granite Cave - 1F - 50%<br /></span><span>Granite Cave - Steven's room - 50%<br /></span><span>Granite Cave - B1F - 10%<br /></span><span>Hoenn Victory Road - 1F - 10%</span>
+                </p>
+            </div><div id='pkmn_297' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 297</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_297.png'
+                    alt='Hariyama sprite gen 3' />
+                    <p class='pokemon_name'>Hariyama</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Victory Road - B1F - 35%<br /></span><span>Hoenn Victory Road - 1F - 25%</span>
+                </p>
+            </div><div id='pkmn_299' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 299</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_299.png'
+                    alt='Nosepass sprite gen 3' />
+                    <p class='pokemon_name'>Nosepass</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Granite Cave - B2F - 30%</span>
+                </p>
+            </div><div id='pkmn_300' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 300</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_300.png'
+                    alt='Skitty sprite gen 3' />
+                    <p class='pokemon_name'>Skitty</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 116 - 2%</span>
+                </p>
+            </div><div id='pkmn_302' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 302</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_302.png'
+                    alt='Sableye sprite gen 3' />
+                    <p class='pokemon_name'>Sableye</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Victory Road - B2F - 35%<br /></span><span>Cave of Origin - 30%<br /></span><span>Sky Pillar - 1F - 30%<br /></span><span>Sky Pillar - 3F - 30%<br /></span><span>Sky Pillar - 5F - 30%<br /></span><span>Granite Cave - B2F - 20%<br /></span><span>Granite Cave - B1F - 10%</span>
+                </p>
+            </div><div id='pkmn_303' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 303</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_303.png'
+                    alt='Mawile sprite gen 3' />
+                    <p class='pokemon_name'>Mawile</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Victory Road - B1F - 5%<br /></span><span>Hoenn Victory Road - B2F - 5%</span>
+                </p>
+            </div><div id='pkmn_304' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 304</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_304.png'
+                    alt='Aron sprite gen 3' />
+                    <p class='pokemon_name'>Aron</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Granite Cave - B1F - 40%<br /></span><span>Granite Cave - B2F - 40%<br /></span><span>Granite Cave - Steven's room - 10%<br /></span><span>Hoenn Victory Road - 1F - 5%</span>
+                </p>
+            </div><div id='pkmn_305' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 305</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_305.png'
+                    alt='Lairon sprite gen 3' />
+                    <p class='pokemon_name'>Lairon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Hoenn Victory Road - B1F - 25%<br /></span><span>Hoenn Victory Road - B2F - 25%<br /></span><span>Hoenn Victory Road - 1F - 10%</span>
+                </p>
+            </div><div id='pkmn_309' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 309</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_309.png'
+                    alt='Electrike sprite gen 3' />
+                    <p class='pokemon_name'>Electrike</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 110 - 30%<br /></span><span>Route 118 - 30%</span>
+                </p>
+            </div><div id='pkmn_310' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 310</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_310.png'
+                    alt='Manectric sprite gen 3' />
+                    <p class='pokemon_name'>Manectric</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 118 - 10%</span>
+                </p>
+            </div><div id='pkmn_311' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 311</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_311.png'
+                    alt='Plusle sprite gen 3' />
+                    <p class='pokemon_name'>Plusle</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 110 - 2%<br /></span><span>Fortree City - Trading Volbeat</span>
+                </p>
+            </div><div id='pkmn_312' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 312</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_312.png'
+                    alt='Minun sprite gen 3' />
+                    <p class='pokemon_name'>Minun</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 110 - 15%</span>
+                </p>
+            </div><div id='pkmn_313' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 313</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_313.png'
+                    alt='Volbeat sprite gen 3' />
+                    <p class='pokemon_name'>Volbeat</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 117 - 1%</span>
+                </p>
+            </div><div id='pkmn_314' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 314</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_314.png'
+                    alt='Illumise sprite gen 3' />
+                    <p class='pokemon_name'>Illumise</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 117 - 18%</span>
+                </p>
+            </div><div id='pkmn_316' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 316</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_316.png'
+                    alt='Gulpin sprite gen 3' />
+                    <p class='pokemon_name'>Gulpin</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 110 - 15%</span>
+                </p>
+            </div><div id='pkmn_318' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 318</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_318.png'
+                    alt='Carvanha sprite gen 3' />
+                    <p class='pokemon_name'>Carvanha</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 119 - 100%<br /></span><span>Route 118 - 60%<br /></span><span>Route 118 - 20%<br /></span><span>Route 119 - 20%</span>
+                </p>
+            </div><div id='pkmn_319' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 319</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_319.png'
+                    alt='Sharpedo sprite gen 3' />
+                    <p class='pokemon_name'>Sharpedo</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 103 - 40%<br /></span><span>Route 118 - 40%<br /></span><span>Route 122 - 40%<br /></span><span>Route 124 - 40%<br /></span><span>Route 125 - 40%<br /></span><span>Route 126 - 40%<br /></span><span>Route 127 - 40%<br /></span><span>Route 129 - 40%<br /></span><span>Route 130 - 40%<br /></span><span>Route 131 - 40%<br /></span><span>Route 132 - 40%<br /></span><span>Route 133 - 40%<br /></span><span>Route 134 - 40%<br /></span><span>Mossdeep City - 40%<br /></span><span>Pacifidlog Town - 40%</span>
+                </p>
+            </div><div id='pkmn_320' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 320</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_320.png'
+                    alt='Wailmer sprite gen 3' />
+                    <p class='pokemon_name'>Wailmer</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 105 - 100%<br /></span><span>Route 106 - 100%<br /></span><span>Route 107 - 100%<br /></span><span>Route 108 - 100%<br /></span><span>Route 109 - 100%<br /></span><span>Route 110 - 100%<br /></span><span>Route 115 - 100%<br /></span><span>Route 121 - 100%<br /></span><span>Route 123 - 100%<br /></span><span>Seafloor Cavern - 100%<br /></span><span>Shoal Cave - 100%<br /></span><span>Dewford Town - 100%<br /></span><span>Slateport City - 100%<br /></span><span>Lilycove City - 85%<br /></span><span>Route 103 - 60%<br /></span><span>Route 122 - 60%<br /></span><span>Route 124 - 60%<br /></span><span>Route 125 - 60%<br /></span><span>Route 126 - 60%<br /></span><span>Route 127 - 60%<br /></span><span>Route 129 - 60%<br /></span><span>Route 130 - 60%<br /></span><span>Route 131 - 60%<br /></span><span>Mossdeep City - 60%<br /></span><span>Pacifidlog Town - 60%<br /></span><span>Route 128 - 45%<br /></span><span>Route 132 - 45%<br /></span><span>Route 133 - 45%<br /></span><span>Route 134 - 45%<br /></span><span>Ever Grande City - 45%<br /></span><span>Route 103 - 20%<br /></span><span>Route 105 - 20%<br /></span><span>Route 106 - 20%<br /></span><span>Route 107 - 20%<br /></span><span>Route 108 - 20%<br /></span><span>Route 109 - 20%<br /></span><span>Route 110 - 20%<br /></span><span>Route 115 - 20%<br /></span><span>Route 121 - 20%<br /></span><span>Route 122 - 20%<br /></span><span>Route 123 - 20%<br /></span><span>Route 124 - 20%<br /></span><span>Route 125 - 20%<br /></span><span>Route 126 - 20%<br /></span><span>Route 127 - 20%<br /></span><span>Route 128 - 20%<br /></span><span>Route 129 - 20%<br /></span><span>Route 130 - 20%<br /></span><span>Route 131 - 20%<br /></span><span>Route 132 - 20%<br /></span><span>Route 133 - 20%<br /></span><span>Route 134 - 20%<br /></span><span>Seafloor Cavern - 20%<br /></span><span>Shoal Cave - 20%<br /></span><span>Dewford Town - 20%<br /></span><span>Ever Grande City - 20%<br /></span><span>Lilycove City - 20%<br /></span><span>Mossdeep City - 20%<br /></span><span>Pacifidlog Town - 20%<br /></span><span>Slateport City - 20%</span>
+                </p>
+            </div><div id='pkmn_321' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 321</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_321.png'
+                    alt='Wailord sprite gen 3' />
+                    <p class='pokemon_name'>Wailord</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 129 - 1%</span>
+                </p>
+            </div><div id='pkmn_322' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 322</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_322.png'
+                    alt='Numel sprite gen 3' />
+                    <p class='pokemon_name'>Numel</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 112 - 75%<br /></span><span>Jagged Pass - 55%<br /></span><span>Fiery Path - 30%</span>
+                </p>
+            </div><div id='pkmn_324' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 324</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_324.png'
+                    alt='Torkoal sprite gen 3' />
+                    <p class='pokemon_name'>Torkoal</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Fiery Path - 18%</span>
+                </p>
+            </div><div id='pkmn_325' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 325</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_325.png'
+                    alt='Spoink sprite gen 3' />
+                    <p class='pokemon_name'>Spoink</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Jagged Pass - 20%</span>
+                </p>
+            </div><div id='pkmn_327' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 327</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_327.png'
+                    alt='Spinda sprite gen 3' />
+                    <p class='pokemon_name'>Spinda</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 113 - 70%</span>
+                </p>
+            </div><div id='pkmn_328' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 328</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_328.png'
+                    alt='Trapinch sprite gen 3' />
+                    <p class='pokemon_name'>Trapinch</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Mirage Tower - 50%<br /></span><span>Route 111 - 35%</span>
+                </p>
+            </div><div id='pkmn_331' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 331</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_331.png'
+                    alt='Cacnea sprite gen 3' />
+                    <p class='pokemon_name'>Cacnea</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 111 - 6%</span>
+                </p>
+            </div><div id='pkmn_333' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 333</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_333.png'
+                    alt='Swablu sprite gen 3' />
+                    <p class='pokemon_name'>Swablu</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 114 - 40%<br /></span><span>Route 115 - 30%</span>
+                </p>
+            </div><div id='pkmn_334' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 334</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_334.png'
+                    alt='Altaria sprite gen 3' />
+                    <p class='pokemon_name'>Altaria</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Sky Pillar - 5F - 6%</span>
+                </p>
+            </div><div id='pkmn_336' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 336</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_336.png'
+                    alt='Seviper sprite gen 3' />
+                    <p class='pokemon_name'>Seviper</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 114 - 9%</span>
+                </p>
+            </div><div id='pkmn_338' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 338</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_338.png'
+                    alt='Solrock sprite gen 3' />
+                    <p class='pokemon_name'>Solrock</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Meteor Falls - Second area & basement - 35%<br /></span><span>Meteor Falls - Steven's cave - 35%<br /></span><span>Meteor Falls - Small chamber - 25%<br /></span><span>Meteor Falls - First area - 20%<br /></span><span>Meteor Falls - First area - 10%<br /></span><span>Meteor Falls - Second area & basement - 10%<br /></span><span>Meteor Falls - Small chamber - 10%</span>
+                </p>
+            </div><div id='pkmn_339' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 339</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_339.png'
+                    alt='Barboach sprite gen 3' />
+                    <p class='pokemon_name'>Barboach</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 111 - 100%<br /></span><span>Route 114 - 100%<br /></span><span>Route 120 - 100%<br /></span><span>Meteor Falls - First area - 100%<br /></span><span>Meteor Falls - Second area & basement - 80%<br /></span><span>Meteor Falls - Small chamber - 80%<br /></span><span>Hoenn Victory Road - B2F - 80%<br /></span><span>Route 111 - 20%<br /></span><span>Route 114 - 20%<br /></span><span>Route 120 - 20%<br /></span><span>Meteor Falls - First area - 20%<br /></span><span>Meteor Falls - Second area & basement - 20%<br /></span><span>Meteor Falls - Small chamber - 20%<br /></span><span>Hoenn Victory Road - B2F - 20%</span>
+                </p>
+            </div><div id='pkmn_340' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 340</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_340.png'
+                    alt='Whiscash sprite gen 3' />
+                    <p class='pokemon_name'>Whiscash</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Meteor Falls - Second area & basement - 20%<br /></span><span>Meteor Falls - Small chamber - 20%<br /></span><span>Hoenn Victory Road - B2F - 20%</span>
+                </p>
+            </div><div id='pkmn_341' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 341</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_341.png'
+                    alt='Corphish sprite gen 3' />
+                    <p class='pokemon_name'>Corphish</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 102 - 100%<br /></span><span>Route 117 - 100%<br /></span><span>Petalburg City - 100%<br /></span><span>Route 102 - 20%<br /></span><span>Route 117 - 20%<br /></span><span>Petalburg City - 20%</span>
+                </p>
+            </div><div id='pkmn_343' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 343</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_343.png'
+                    alt='Baltoy sprite gen 3' />
+                    <p class='pokemon_name'>Baltoy</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 111 - 24%</span>
+                </p>
+            </div><div id='pkmn_344' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 344</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_344.png'
+                    alt='Claydol sprite gen 3' />
+                    <p class='pokemon_name'>Claydol</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Sky Pillar - 1F - 25%<br /></span><span>Sky Pillar - 3F - 25%<br /></span><span>Sky Pillar - 5F - 19%</span>
+                </p>
+            </div><div id='pkmn_345' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 345</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_345.png'
+                    alt='Lileep sprite gen 3' />
+                    <p class='pokemon_name'>Lileep</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Rustboro City - Root Fossil</span>
+                </p>
+            </div><div id='pkmn_347' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 347</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_347.png'
+                    alt='Anorith sprite gen 3' />
+                    <p class='pokemon_name'>Anorith</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Rustboro City - Claw Fossil</span>
+                </p>
+            </div><div id='pkmn_349' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 349</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_349.png'
+                    alt='Feebas sprite gen 3' />
+                    <p class='pokemon_name'>Feebas</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 119 - 50%</span>
+                </p>
+            </div><div id='pkmn_351' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 351</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_351.png'
+                    alt='Castform sprite gen 3' />
+                    <p class='pokemon_name'>Castform</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 119 - Gift</span>
+                </p>
+            </div><div id='pkmn_352' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 352</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_352.png'
+                    alt='Kecleon sprite gen 3' />
+                    <p class='pokemon_name'>Kecleon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 118 - 1%<br /></span><span>Route 121 - 1%<br /></span><span>Route 123 - 1%<br /></span><span>Route 119 - 1%<br /></span><span>Route 120 - 1%<br /></span><span>Route 119 - Unique<br /></span><span>Route 120 - Unique</span>
+                </p>
+            </div><div id='pkmn_353' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 353</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_353.png'
+                    alt='Shuppet sprite gen 3' />
+                    <p class='pokemon_name'>Shuppet</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Mt. Pyre - 1F to 3F - 100%<br /></span><span>Mt. Pyre - 4F to 6F - 90%<br /></span><span>Mt. Pyre - Summit - 85%<br /></span><span>Mt. Pyre - Exterior - 60%<br /></span><span>Route 121 - 30%<br /></span><span>Route 123 - 30%</span>
+                </p>
+            </div><div id='pkmn_354' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 354</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_354.png'
+                    alt='Banette sprite gen 3' />
+                    <p class='pokemon_name'>Banette</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Sky Pillar - 1F - 15%<br /></span><span>Sky Pillar - 3F - 15%<br /></span><span>Sky Pillar - 5F - 15%</span>
+                </p>
+            </div><div id='pkmn_355' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 355</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_355.png'
+                    alt='Duskull sprite gen 3' />
+                    <p class='pokemon_name'>Duskull</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Mt. Pyre - Summit - 13%<br /></span><span>Mt. Pyre - 4F to 6F - 10%</span>
+                </p>
+            </div><div id='pkmn_357' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 357</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_357.png'
+                    alt='Tropius sprite gen 3' />
+                    <p class='pokemon_name'>Tropius</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 119 - 9%</span>
+                </p>
+            </div><div id='pkmn_358' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 358</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_358.png'
+                    alt='Chimecho sprite gen 3' />
+                    <p class='pokemon_name'>Chimecho</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Mt. Pyre - Summit - 2%</span>
+                </p>
+            </div><div id='pkmn_359' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 359</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_359.png'
+                    alt='Absol sprite gen 3' />
+                    <p class='pokemon_name'>Absol</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 120 - 8%</span>
+                </p>
+            </div><div id='pkmn_360' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 360</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_360.png'
+                    alt='Wynaut sprite gen 3' />
+                    <p class='pokemon_name'>Wynaut</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 130 - 100%<br /></span><span>Mirage Island - 100%<br /></span><span>Lavaridge Town - Gift</span>
+                </p>
+            </div><div id='pkmn_361' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 361</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_361.png'
+                    alt='Snorunt sprite gen 3' />
+                    <p class='pokemon_name'>Snorunt</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Shoal Cave - Ice room - 10%</span>
+                </p>
+            </div><div id='pkmn_363' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 363</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_363.png'
+                    alt='Spheal sprite gen 3' />
+                    <p class='pokemon_name'>Spheal</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Shoal Cave - 50%<br /></span><span>Shoal Cave - Ice room - 45%<br /></span><span>Shoal Cave - 10%</span>
+                </p>
+            </div><div id='pkmn_366' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 366</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_366.png'
+                    alt='Clamperl sprite gen 3' />
+                    <p class='pokemon_name'>Clamperl</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Underwater - 65%</span>
+                </p>
+            </div><div id='pkmn_369' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 369</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_369.png'
+                    alt='Relicanth sprite gen 3' />
+                    <p class='pokemon_name'>Relicanth</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Underwater - 5%</span>
+                </p>
+            </div><div id='pkmn_370' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 370</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_370.png'
+                    alt='Luvdisc sprite gen 3' />
+                    <p class='pokemon_name'>Luvdisc</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 128 - 40%<br /></span><span>Ever Grande City - 40%<br /></span><span>Route 128 - 20%<br /></span><span>Ever Grande City - 20%</span>
+                </p>
+            </div><div id='pkmn_371' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 371</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_371.png'
+                    alt='Bagon sprite gen 3' />
+                    <p class='pokemon_name'>Bagon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Meteor Falls - Small chamber - 25%</span>
+                </p>
+            </div><div id='pkmn_374' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 374</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_374.png'
+                    alt='Beldum sprite gen 3' />
+                    <p class='pokemon_name'>Beldum</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Mossdeep City - Gift (after Hall of Fame)</span>
+                </p>
+            </div><div id='pkmn_377' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 377</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_377.png'
+                    alt='Regirock sprite gen 3' />
+                    <p class='pokemon_name'>Regirock</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Desert Ruins - Unique</span>
+                </p>
+            </div><div id='pkmn_378' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 378</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_378.png'
+                    alt='Regice sprite gen 3' />
+                    <p class='pokemon_name'>Regice</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Island Cave - Unique</span>
+                </p>
+            </div><div id='pkmn_379' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 379</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_379.png'
+                    alt='Registeel sprite gen 3' />
+                    <p class='pokemon_name'>Registeel</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Ancient Tomb - Unique</span>
+                </p>
+            </div><div id='pkmn_380' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 380</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_380.png'
+                    alt='Latias sprite gen 3' />
+                    <p class='pokemon_name'>Latias</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Southern Island - Eon Ticket event<br /></span><span>Roaming Hoenn - After Hall of Fame</span>
+                </p>
+            </div><div id='pkmn_381' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 381</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_381.png'
+                    alt='Latios sprite gen 3' />
+                    <p class='pokemon_name'>Latios</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Southern Island - Eon Ticket event<br /></span><span>Roaming Hoenn - After Hall of Fame</span>
+                </p>
+            </div><div id='pkmn_382' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 382</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_382.png'
+                    alt='Kyogre sprite gen 3' />
+                    <p class='pokemon_name'>Kyogre</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Marine Cave - Unique</span>
+                </p>
+            </div><div id='pkmn_383' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 383</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_383.png'
+                    alt='Groudon sprite gen 3' />
+                    <p class='pokemon_name'>Groudon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Terra Cave - Unique</span>
+                </p>
+            </div><div id='pkmn_384' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 384</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_384.png'
+                    alt='Rayquaza sprite gen 3' />
+                    <p class='pokemon_name'>Rayquaza</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Sky Pillar - 6F - Unique</span>
+                </p>
+            </div><div id='pkmn_386' class='emerald' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 386</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_386.png'
+                    alt='Deoxys sprite gen 3' />
+                    <p class='pokemon_name'>Deoxys</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Birth Island - AuroraTicket event</span>
+                </p>
+            </div>
+                <p id='empty_search_message' class='hidden'>Found no Pokémon with the searched name or number.</p>
+                <p id='empty_caught_message' class='hidden'>No Pokémon are displayed since they are all caught. Turn off the <i>"Ignore info of caught Pokémon"</i> setting to see Pokémon info.</p>
+            </section><script type='module'>
+                import name_search from '/lyra-website-backup/scripts/functions/pokemon/name_search.1726619881.js';
+                        
+                name_search();
+            </script>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Fan preservation backup of <strong>Lyra made a website</strong>. Original website, design and content by <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon and all related assets are trademarks of Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

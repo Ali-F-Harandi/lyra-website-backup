@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <title>List of in-game trades - Pokémon info - Gen 2</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen2.1774893396.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_gold.css' />
+                <script>
+                    init_style('gen2');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/'>Return to main menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/fr/pokemon_gen2/pokemon_info/ingame_trades' >
+                            <span lang='fr'>Version française</span>
+                            <img src='/lyra-website-backup/views/images/french_flag.png' alt='French flag' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra made a website about</h1>
+    <h2>Pokémon Gen 2</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/pokemon_gen2/full_guide'>Full Guide</a>
+    <a href='/lyra-website-backup/pokemon_gen2/pokedex_tracker'>Pokédex tracker</a>
+    <a href='/lyra-website-backup/pokemon_gen2/catch_locations'>Catch locations</a>
+    <a href='/lyra-website-backup/pokemon_gen2/pokemon_info'>Pokémon info</a>
+    <a href='/lyra-website-backup/pokemon_gen2/extra_info'>Extra info</a>
+    <button id='settings_link'>Settings</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex tracker</h1>
+                <ul>
+                    <li>
+                <p>Pokédex displayed: </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>National Pokédex</option><option value='regional_dex'>Gold, Silver & Crystal</option><option value='only_new_dex'>New Pokémon only</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Add extra step to capture</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Display current progress</p>
+            </li><li>
+                <p>Pokemon sprites used: </p>
+                <select id='select_pokemon_sprites'><option value='gold_sprites'>Gold</option><option value='silver_sprites'>Silver</option><option value='crystal_sprites'>Crystal</option><option value='crystal_anim_sprites'>Cristal (Animated)</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Small Pokémon sprites</p>
+            </li><li>
+                <p>Box labels: </p>
+                <select id='select_box_names'><option value='boxes_order'>Box number</option><option value='boxes_firstlast'>First & last Pokémon</option><option value='boxes_hidden'>Hide labels</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Catch locations</h1>
+                <ul>
+                    <li>
+                <p>Filter by version: </p>
+                <select id='select_version_filter'><option value='pref_none'>All</option><option value='pref_gold'>Gold</option><option value='pref_silver'>Silver</option><option value='pref_crystal'>Crystal</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Hide Old Rod and Good Rod data</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon info</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignore info of caught Pokémon</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Website colors</h1>
+                <ul>
+                    <li>
+                <p>Color theme: </p>
+                <select id='select_color_theme'><optgroup label='Gen 1'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Red</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Blue</option></optgroup><optgroup label='Gen 2'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Gold</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Silver</option></optgroup><optgroup label='Gen 3'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Emerald</option></optgroup><optgroup label='Gen 4'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamond</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Pearl</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Gen 2 data management</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Export</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Import</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen2_settings from '/lyra-website-backup/scripts/pokemon/gen2/gen2_settings.1763926670.js';
+            const current_settings = new gen2_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('en'); 
+            </script>
+            <main>
+                <h1>Generation 2 - Pokémon info</h1>
+            <div id='select_pokemon_filter' class='select_menu'>
+                <span>Displayed list:</span>
+                <select>
+                    
+                    <option value='all_methods' >All methods (without Crystal)</option><option value='all_methods_crystal' >All methods (including Crystal)</option><option value='morning' >Morning Pokémon only</option><option value='day' >Day Pokémon only</option><option value='night' >Night Pokémon only</option><option value='ingame_trades' selected>List of in-game trades</option><option value='via_trades' >Pokémon only obtainable via trades</option><option value='one_way' >Pokémon only obtainable through a single method</option><option value='egg_only' >Pokémon only obtainable via eggs</option><option value='friendship_only' >Pokémon only obtainable via high friendship</option><option value='version_specific' >Version-exclusive Pokémon</option><option value='not_in_gen2' >Pokémon unobtainable in Gen 2</option><option value='theoretical_best' >Theoretical best location according to the database</option>
+                </select>
+                <script type='module'>
+                    import select_reload from '/lyra-website-backup/scripts/functions/select_reload.1715012545.js';
+                    
+                    document.querySelector('#select_pokemon_filter').addEventListener('change', (event) => select_reload('/lyra-website-backup/pokemon_gen2/pokemon_info', event));
+                </script>
+            </div>
+            <section id='pokemon_info_extra'>
+                <span>Quick search:</span>
+                <input type='text' id='name_search_input' maxlength='15' />
+            </section>
+            <section id='pokemon_info' class='ingame_trades'>
+                <div id='pkmn_66'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 66</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_66.png'
+                    alt='Machop sprite gen 2' />
+                    <p class='pokemon_name'>Machop</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='crystal' >Goldenrod City - Trading Abra<br /></span><span class='gold_silver' >Goldenrod City - Trading Drowzee</span>
+                </p>
+            </div><div id='pkmn_78' class='gold_silver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 78</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_78.png'
+                    alt='Rapidash sprite gen 2' />
+                    <p class='pokemon_name'>Rapidash</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pewter City - Trading Gloom</span>
+                </p>
+            </div><div id='pkmn_82' class='crystal' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 82</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_82.png'
+                    alt='Magneton sprite gen 2' />
+                    <p class='pokemon_name'>Magneton</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Power Plant - Trading Dugtrio</span>
+                </p>
+            </div><div id='pkmn_85' class='crystal' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 85</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_85.png'
+                    alt='Dodrio sprite gen 2' />
+                    <p class='pokemon_name'>Dodrio</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Blackthorn City - Trading Dragonair♀</span>
+                </p>
+            </div><div id='pkmn_95'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 95</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_95.png'
+                    alt='Onix sprite gen 2' />
+                    <p class='pokemon_name'>Onix</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Violet City - Trading Bellsprout</span>
+                </p>
+            </div><div id='pkmn_100'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 100</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_100.png'
+                    alt='Voltorb sprite gen 2' />
+                    <p class='pokemon_name'>Voltorb</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Olivine City - Trading Krabby</span>
+                </p>
+            </div><div id='pkmn_112' class='gold_silver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 112</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_112.png'
+                    alt='Rhydon sprite gen 2' />
+                    <p class='pokemon_name'>Rhydon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Blackthorn City - Trading Dragonair♀</span>
+                </p>
+            </div><div id='pkmn_142'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 142</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_142.png'
+                    alt='Aerodactyl sprite gen 2' />
+                    <p class='pokemon_name'>Aerodactyl</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route 14 - Trading Chansey</span>
+                </p>
+            </div><div id='pkmn_178' class='crystal' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 178</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_178.png'
+                    alt='Xatu sprite gen 2' />
+                    <p class='pokemon_name'>Xatu</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pewter City - Trading Hunter</span>
+                </p>
+            </div>
+                <p id='empty_search_message' class='hidden'>Found no Pokémon with the searched name or number.</p>
+                <p id='empty_caught_message' class='hidden'>No Pokémon are displayed since they are all caught. Turn off the <i>"Ignore info of caught Pokémon"</i> setting to see Pokémon info.</p>
+            </section><script type='module'>
+                import name_search from '/lyra-website-backup/scripts/functions/pokemon/name_search.1726619881.js';
+                        
+                name_search();
+            </script>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Fan preservation backup of <strong>Lyra made a website</strong>. Original website, design and content by <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon and all related assets are trademarks of Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

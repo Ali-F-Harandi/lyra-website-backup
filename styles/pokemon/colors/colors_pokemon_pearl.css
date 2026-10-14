@@ -1,0 +1,15 @@
+html {
+    --main_a: #EBE0E8;
+    --dark_a: #D0B4C8;
+    --text_a: #000000;
+
+    --main_b: #F7F2F6;
+    --dark_b: #EBE0E8;
+    --text_b: #000000;
+
+    --main_c: #A85D90;
+    --light_c: #E0C5D8;
+    --text_c: #FFFFFF;
+
+    --main_opposite: #A85D90;
+}

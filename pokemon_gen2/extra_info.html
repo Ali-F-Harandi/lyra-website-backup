@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <title>Extra info - Gen 2</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen2.1774893396.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_gold.css' />
+                <script>
+                    init_style('gen2');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/'>Return to main menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/fr/pokemon_gen2/extra_info' >
+                            <span lang='fr'>Version française</span>
+                            <img src='/lyra-website-backup/views/images/french_flag.png' alt='French flag' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra made a website about</h1>
+    <h2>Pokémon Gen 2</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/pokemon_gen2/full_guide'>Full Guide</a>
+    <a href='/lyra-website-backup/pokemon_gen2/pokedex_tracker'>Pokédex tracker</a>
+    <a href='/lyra-website-backup/pokemon_gen2/catch_locations'>Catch locations</a>
+    <a href='/lyra-website-backup/pokemon_gen2/pokemon_info'>Pokémon info</a>
+    <a href='/lyra-website-backup/pokemon_gen2/extra_info'>Extra info</a>
+    <button id='settings_link'>Settings</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex tracker</h1>
+                <ul>
+                    <li>
+                <p>Pokédex displayed: </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>National Pokédex</option><option value='regional_dex'>Gold, Silver & Crystal</option><option value='only_new_dex'>New Pokémon only</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Add extra step to capture</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Display current progress</p>
+            </li><li>
+                <p>Pokemon sprites used: </p>
+                <select id='select_pokemon_sprites'><option value='gold_sprites'>Gold</option><option value='silver_sprites'>Silver</option><option value='crystal_sprites'>Crystal</option><option value='crystal_anim_sprites'>Cristal (Animated)</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Small Pokémon sprites</p>
+            </li><li>
+                <p>Box labels: </p>
+                <select id='select_box_names'><option value='boxes_order'>Box number</option><option value='boxes_firstlast'>First & last Pokémon</option><option value='boxes_hidden'>Hide labels</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Catch locations</h1>
+                <ul>
+                    <li>
+                <p>Filter by version: </p>
+                <select id='select_version_filter'><option value='pref_none'>All</option><option value='pref_gold'>Gold</option><option value='pref_silver'>Silver</option><option value='pref_crystal'>Crystal</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Hide Old Rod and Good Rod data</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon info</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignore info of caught Pokémon</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Website colors</h1>
+                <ul>
+                    <li>
+                <p>Color theme: </p>
+                <select id='select_color_theme'><optgroup label='Gen 1'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Red</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Blue</option></optgroup><optgroup label='Gen 2'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Gold</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Silver</option></optgroup><optgroup label='Gen 3'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Emerald</option></optgroup><optgroup label='Gen 4'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamond</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Pearl</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Gen 2 data management</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Export</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Import</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen2_settings from '/lyra-website-backup/scripts/pokemon/gen2/gen2_settings.1763926670.js';
+            const current_settings = new gen2_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('en'); 
+            </script>
+            <main>
+                <h1>Extra info</h1>
+
+<h2>Gen 2 catching mechanics</h2>
+<article>
+    <p>Pokémon Gen 2 streamlined the capture process and made it into something a lot more direct and easy to understand for the player. As such, the mechanics can be separated into 3 categories (<strong>Balls</strong>, <strong>Status</strong>, and <strong>HP</strong>) with each increasing the catch chance in different ways. It is important to note, however, that because a lot of bugs are present in the formulas used, some intended changes have no effect. The parts affected by such glitches are indicated. Finally, most of the data used is taken from the <a href="https://www.dragonflycave.com/mechanics/gen-ii-capturing" target="_blank">Gen II Capture Mechanics</a> article on <em>The Cave of Dragonflies</em>.</p>
+    
+    <h3>Balls</h3>
+    <p>Every Pokémon species has a fixed catch rate indicating how easily they can be caught. The lower the catch rate, the harder they are to capture. That catch rate is then increased depending on the Ball used. You can ask Kurt in <span class='h_loc'>Azalea Town</span> to turn <span class='h_item'>Apricorns</span> found on <span class='h_loc'>Route 37</span>, <span class='h_loc'>42</span> and <span class='h_loc'>Azalea Town</span> into special Balls. These special Balls have specific requirements that, if fulfilled, increase the catch rate significantly ; the catch rate is unchanged (x1) if unfulfilled. You can only pick up one of each <span class='h_item'>Apricorn</span> per day and the Ball-making process takes one day as well. In <strong><span class='gold'>Gold</span></strong> and <strong><span class='silver'>Silver</span></strong>, you can only give 1 <span class='h_item'>Apricorn</span> at a time, whereas in <strong><span class='crystal'>Crystal</span></strong>, you can give all your <span class='h_item'>Apricorns</span> of the same color at once.</p>
+    
+    <table id='gen2_balls'>
+        <tr>
+            <th>Ball</th>
+            <th>How to obtain it</th>
+            <th>Catch rate increase</th>
+        </tr>
+        <tr>
+            <td><strong>Poké Ball</strong></td>
+            <td>Purchased</td>
+            <td rowspan='2' >Rate x 1</td>
+        </tr>
+        <tr>
+            <td><strong>Moon Ball</strong><br /><em>(glitched)</em></td>
+            <td><span class='h_item'>Yellow Apricorn</span><br />(<span class="h_loc">Route 42</span>)</td>
+        </tr>
+        <tr>
+            <td><strong>Friend Ball</strong></td>
+            <td><span class='h_item'>Green Apricorn</span><br />(<span class="h_loc">Route 42</span>)</td>
+            <td>Rate x 1, sets caught Pokémon's Friendship to 200 instead of 70</td>
+        </tr>
+        <tr>
+            <td><strong>Great Ball</strong></td>
+            <td>Purchased</td>
+            <td rowspan='2' >Rate x 1.5</td>
+        </tr>
+        <tr>
+            <td><strong>Park Ball</strong></td>
+            <td>Bug-Catching Contest</td>
+        </tr>
+        <tr>
+            <td><strong>Ultra Ball</strong></td>
+            <td>Purchased</td>
+            <td>Rate x 2</td>
+        </tr>
+        <tr>
+            <td><strong>Lure Ball</strong></td>
+            <td><span class='h_item'>Blue Apricorn</span><br />(<span class="h_loc">Route 37</span>)</td>
+            <td>Rate x 3 when fishing</td>
+        </tr>
+        <tr>
+            <td><strong>Fast Ball</strong><br /><em>(glitched)</em></td>
+            <td><span class='h_item'>White Apricorn</span><br />(<span class="h_loc">Azalea Town</span>)</td>
+            <td>Rate x 4 if wild Pokémon is <span class='h_pkmn'>Magnemite</span>, <span class='h_pkmn'>Grimer</span> or <span class='h_pkmn'>Tangela</span></td>
+        </tr>
+        <tr>
+            <td><strong>Heavy Ball</strong></td>
+            <td><span class='h_item'>Black Apricorn</span><br />(<span class="h_loc">Route 37</span>)</td>
+            <td>
+                Rate + 40 if wild Pokémon weight > 409.6 kg / 903.0 lbs<br />
+                Rate + 30 if wild Pokémon weight > 307.2 kg / 677.3 lbs<br />
+                Rate + 20 if wild Pokémon weight > 204.8 kg / 451.5 lbs<br />
+                Rate unchanged if wild Pokémon weight > 102.4 kg / 225.8 lbs<br />
+                Rate - 20 otherwise
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Level Ball</strong><br /><em>(glitched)</em></td>
+            <td><span class='h_item'>Red Apricorn</span><br />(<span class="h_loc">Route 37</span>)</td>
+            <td>
+                Rate x 8 if player Pokémon level > 4 x wild Pokémon level<br />
+                Rate x 4 if player Pokémon level > 2 x wild Pokémon level<br />
+                Rate x 2 if player Pokémon level > wild Pokémon level<br />
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Love Ball</strong><br /><em>(glitched)</em></td>
+            <td><span class='h_item'>Pink Apricorn</span><br />(<span class="h_loc">Route 42</span>)</td>
+            <td>Rate x 8 if player Pokémon and wild Pokémon are the same species and sex</td>
+        </tr>
+        <tr>
+            <td><strong>Master Ball</strong></td>
+            <td>Part of the story</td>
+            <td>Automatic success</td>
+        </tr>
+    </table>
+    
+    <h3>Statuses</h3>
+    <p>
+        Some status effects can increase your final catch chance. Because the change is added at the end of the calculation, the increase is flat. There are only 2 statuses that increase the probability of a successful capture: <strong>Sleep</strong> and <strong>Freeze</strong>, with a 3.91% catch chance increase.
+    </p>
+    
+    <h3>Hit Points</h3>
+    <p>
+        In Gen 2, lowering a wild Pokémon's HP increases the probability to catch a Pokémon significantly. The formula is based on the difference between max HP and current HP and is linear, which means any damage dealt increases catch chance by roughly the same amount. At 1 HP, you almost triple the base chance of capturing a Pokémon (without taking other factors into account).
+    </p>
+    
+    <h3>List of glitches</h3>
+    <ul>
+        <li>The <strong>Moon Ball</strong> multiplies by 4 the catch rate of Pokémon who evolve using <span class='h_item'>Burn Heal</span> instead of <span class='h_item'>Moon Stone</span>.</li>
+        <li>The <strong>Fast Ball</strong> was supposed to increase the catch rate of all Pokémon that can flee, taken from <em>3 different tables</em> (10% chance to flee, 50% chance to flee, always flees). It instead increases the catch rate of the <em>first 3 Pokémon from the first table</em> (<span class='h_pkmn'>Magnemite</span>, <span class='h_pkmn'>Grimer</span> and <span class='h_pkmn'>Tangela</span>).</li>
+        <li>In <strong><span class='crystal'>Crystal</span></strong>, the <strong>Heavy Ball</strong> misinterprets junk data, leading to wrongly increasing the catch rate of <span class='h_pkmn'>Kadabra</span>, <span class='h_pkmn'>Tauros</span> and <span class='h_pkmn'>Sunflora</span> by 40.</li>
+        <li>The <strong>Level Ball</strong> ignores the catching formula, nullifying any catching chance changes from <strong>Status</strong> and <strong>HP</strong>.</li>
+        <li>The <strong>Love Ball</strong> requires the player Pokémon be the <em>same species</em> as the wild Pokémon, which is not clearly stated in the game, but working as intended. It also requires both Pokémon be of the <em>same sex</em>, which is clearly not working as intended.</li>
+        <li>While the <strong>Burn</strong>, <strong>Poison</strong> and <strong>Paralysis</strong> statuses were supposed to increase the final catch chance by 5/256 (as opposed to the 10/256 for <strong>Sleep</strong> and <strong>Freeze</strong>), their associated check always fails, thus they have no effet on catch chance.</li>
+    </ul>
+    
+    <h3>Catching strategy</h3>
+    <p>
+        As the general mechanics are simpler, so is the strategy used to catch Pokémon efficiently:
+    </p>
+    <ul>
+        <li><strong>Hit Points:</strong> Lowering a Pokémon's HP is always worth it and the most important. Use of the new move <span class='h_move'>False Swipe</span> is strongly recommended, as it cannot KO the target.</li>
+        <li><strong>Statuses:</strong> Putting a wild Pokémon to sleep is a flat 3.91% catch chance increase. Always make rare or legendary Pokémon sleep if possible. Against common Pokémon, the increase is marginal enough that you can ignore putting it to sleep. The best sleeping move is <span class='h_move'>Spore</span> (100% chance) but there are other moves such as <span class='h_move'>Lovely Kiss</span> and <span class='h_move'>Sleep Powder</span> (75% chance), <span class='h_move'>Hypnosis</span> (60% chance) or <span class='h_move'>Sing</span> (55% chance).</li>
+        <li><strong>Balls:</strong> Always use an <span class='h_item'>Ultra Ball</span> if possible. In order to save money, you can use a <span class='h_item'>Great Ball</span> or <span class='h_item'>Poké Ball</span> on more common Pokémon, as long as you lower their HP. There are only 4 Pokémon on which using a special Ball is worth it: <span class='h_pkmn'>Lugia</span> (<span class='h_item'>Heavy Ball</span>, x7.67 catch rate increase), <span class='h_pkmn'>Snorlax</span> (<span class='h_item'>Heavy Ball</span>, x2.6 catch rate increase), <span class='h_pkmn'>Golbat</span> and <span class='h_pkmn'>Chansey</span> (<span class='h_item'>Friend Ball</span>, starting Friendship set to 200).</li>
+        <li><strong>Extra:</strong> To prevent Pokémon from fleeing (like the Legendary Beasts), using a fast Pokémon with the move <span class='h_move'>Mean Look</span> is best.</li>
+    </ul>
+</article>
+
+<h2>Extra tricks</h2>
+<article>
+    <h3>Breeding</h3>
+    <p>The probability of obtaining <strong>Pokémon Eggs</strong> is dependent on the <strong>species</strong> and the <strong>original trainer</strong>, and is rolled <strong>every 256 steps</strong>. In Gen 2 however, it is more difficult to get Eggs, as the probability goes from 31.25% with Pokémon from the same species and different trainers to 3.91% with Pokémon from different species and the same trainer. As you will probably use a <span class='h_pkmn'>Ditto</span> to breed Pokémon, it is recommended that the <span class='h_pkmn'>Ditto</span> be from <strong>another trainer</strong> to increase your chance of obtaining an Egg to <strong>11.72%</strong>.</p>
+    <h3>Experience boost</h3>
+    <p>Using a Pokémon from <strong>different trainer</strong> grants a <strong>boost</strong> in combat equivalent to <strong>50%</strong> of the gained experience. Since there are a lot of Pokémon to evolve as part of a Living Pokédex, catching Pokémon in a different version than the one used to level up Pokémon is a tremendous help for Pokémon who evolve at a level <strong>higher than 30</strong> with a <strong>slow experience curve</strong>. Note that the missing experience needs to be significant enough to make up for the time lost trading.</p>
+    <h3>Repel trick</h3>
+    <p>The items <span class='h_item'>Repel</span> and <span class='h_item'>Max Repel</span> prevent random encounters from happening for Pokémon of a <strong>lower level than your first not-fainted Pokémon</strong>. Using one of these items while having the first active Pokémon be of a specific level can prevent specific Pokémon while retaining the ability to encounter ones of the <strong>same or higher level</strong>. A very useful trick to increase the encounter chance of rare Pokémon such as <span class='h_pkmn'>Chansey</span> or the roaming Legendary Beasts.</p>
+</article>
+
+<h2>Key items locations</h2>
+<article>
+    <h3>Rare Candies</h3>
+    <ul>
+        <li><span class='h_loc'>Route 27</span> - Southeast of <span class='h_loc'>Tohjo Falls</span></li>
+        <li><span class='h_loc'>Route 28</span> - <em>(Hidden)</em> Northeast corner</li>
+        <li><span class='h_loc'>Route 34</span> - <em>(Hidden)</em> Fenced western area, north of the trees</li>
+        <li><span class='h_loc'>Violet City</span> - Across the eastern lake</li>
+        <li><span class='h_loc'>Bell Tower</span> - 5F, in front of the central pillar</li>
+        <li><span class='h_loc'>Glitter Lighthouse</span> - 5F, east of the outer room</li>
+        <li><span class='h_loc'>Whirl Islands</span> - <em>(Hidden)</em> B1F northeast, northeast of upper ladder</li>
+        <li><span class='h_loc'>Mt. Mortar</span> - 2F, southwest corner</li>
+        <li><span class='h_loc'>Lake of Rage</span> - End of western path, inaccessible on Wednesdays</li>
+        <li><span class='h_loc'>Vermilion City</span> - Given by the Pokémon Fan Club Chairman</li>
+        <li><span class='h_loc'>Cinnabar Island</span> - <em>(Hidden)</em> North of the island</li>
+    </ul>
+    
+    <h3>HMs and important TMs</h3>
+    <ul>
+        <li><span class='h_item'>HM 01 (Cut)</span> - <span class='h_loc'>Ilex Forest</span></li>
+        <li><span class='h_item'>HM 02 (Fly)</span> - <span class='h_loc'>Cianwood City</span></li>
+        <li><span class='h_item'>HM 03 (Surf)</span> - <span class='h_loc'>Ecruteak City</span></li>
+        <li><span class='h_item'>HM 04 (Strength)</span> - <span class='h_loc'>Olivine City</span></li>
+        <li><span class='h_item'>HM 05 (Flash)</span> - <span class='h_loc'>Sprout Tower</span></li>
+        <li><span class='h_item'>HM 06 (Whirlpool)</span> - <span class='h_loc'>Team Rocket's Hideout</span></li>
+        <li><span class='h_item'>HM 07 (Waterfall)</span> - <span class='h_loc'>Ice Path</span></li>
+        <li><span class='h_item'>TM 02 (Headbutt)</span> - <span class='h_loc'>Ilex Forest → Goldenrod Department Store</span></li>
+        <li><span class='h_item'>TM 08 (Rock Smash)</span> - <span class='h_loc'>Route 36 → Goldenrod Department Store</span></li>
+    </ul>
+    
+    <h3>Fishing rods</h3>
+    <ul>
+        <li><span class="h_item">Old Rod</span> - <span class="h_loc">Route 32</span></li>
+        <li><span class="h_item">Good Rod</span> - <span class="h_loc">Olivine City</span></li>
+        <li><span class="h_item">Super Rod</span> - <span class="h_loc">Route 12</span></li>
+    </ul>
+</article>
+
+<h2>Swarms</h2>
+<article>
+    <p>The <strong>Mass Outbreak</strong> mechanic (also called <strong>Swarms</strong>) was introduced in Gen 2. Throughout the world, there are 6 extremely rare Pokémon. These Pokémon only appear in a <strong>single area</strong> (except for Qwilfish, appearing in 3 areas) and have a <strong>1% encounter rate</strong> (except for Qwilfish and Remoraid, with 10%). Randomly every day, a trainer can call to warn you of a <strong>swarm of Pokémon</strong>, which means one of the 6 Pokémon now has an increased catch rate. In order for the trainer to call, you must have their number registered in the <span class='h_item'>Pokégear</span>. Only a single swarm can happen per day, and each swarm lasts until midnight.</p>
+    
+    <table id='gen2_swarms'>
+        <tr>
+            <th>Pokémon</th>
+            <th>Location</th>
+            <th>New rate</th>
+            <th>Swarm notifier</th>
+            <th>In Crystal</th>
+        </tr>
+        <tr>
+            <td class='pkmn_cell'>
+                <img src="/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_183.png" alt="Marill sprite gen 2">
+                Marill
+            </td>
+            <td><a href='/lyra-website-backup/pokemon_gen2/catch_locations/mt_mortar_ent'>Mt. Mortar (entrance)</a></td>
+            <td>40%</td>
+            <td>Hiker Parry (<span class='h_loc'>Route 45</span>)</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td class='pkmn_cell'>
+                <img src="/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_193.png" alt="Yanma sprite gen 2">
+                Yanma
+            </td>
+            <td><a href='/lyra-website-backup/pokemon_gen2/catch_locations/route_35'>Route 35</a></td>
+            <td>30%</td>
+            <td>Bug Catcher Arnie (<span class='h_loc'>Route 35</span>)</td>
+            <td><span class='crystal'>Yes</span></td>
+        </tr>
+        <tr>
+            <td class='pkmn_cell'>
+                <img src="/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_206.png" alt="Dunsparce sprite gen 2">
+                Dunsparce
+            </td>
+            <td><a href='/lyra-website-backup/pokemon_gen2/catch_locations/dark_cave_r31'>Dark Cave (Route 31)</a></td>
+            <td>40%</td>
+            <td>Hiker Anthony (<span class='h_loc'>Route 33</span>)</td>
+            <td><span class='crystal'>Yes</span></td>
+        </tr>
+        <tr>
+            <td class='pkmn_cell'>
+                <img src="/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_209.png" alt="Snubbull sprite gen 2">
+                Snubbull
+            </td>
+            <td><a href='/lyra-website-backup/pokemon_gen2/catch_locations/route_38'>Route 38</a></td>
+            <td>30%</td>
+            <td>Schoolboy Chad (<span class='h_loc'>Route 38</span>)</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td class='pkmn_cell'>
+                <img src="/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_211.png" alt="Qwilfish sprite gen 2">
+                Qwilfish
+            </td>
+            <td><a href='/lyra-website-backup/pokemon_gen2/catch_locations/route_32'>Route 32</a></td>
+            <td>100%</td>
+            <td>Fisher Ralph (<span class='h_loc'>Route 32</span>)</td>
+            <td><span class='crystal'>Yes</span></td>
+        </tr>
+        <tr>
+            <td class='pkmn_cell'>
+                <img src="/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_223.png" alt="Remoraid sprite gen 2">
+                Remoraid
+            </td>
+            <td><a href='/lyra-website-backup/pokemon_gen2/catch_locations/route_44'>Route 44</a></td>
+            <td>100%</td>
+            <td>Fisher Wilton (<span class='h_loc'>Route 44</span>)</td>
+            <td>No</td>
+        </tr>
+    </table>
+</article>
+
+<h2>Headbutt trees</h2>
+<article>
+
+    <p>In <strong><span class='gold'>Gold</span></strong> and <strong><span class='silver'>Silver</span></strong>, there are 2 categories of trees you can Headbutt, depending on your current location. Each category will always have the same encounter table, regardless of the area. In <strong><span class='crystal'>Crystal</span></strong>, the number of categories was increased to 6, with some categories only being accessible in a single area. For ease of access, all the Headbutt tree categories are in their own group in the <a href='/lyra-website-backup/pokemon_gen2/catch_locations'>catch locations</a> page, with the C category being <strong><span class='crystal'>Crystal-exclusive</span></strong>.</p>
+    <ul>
+        <li><strong>Headbutt tree A</strong> - <span class='h_loc'>Azalea Town</span>, <span class='h_loc'>Ilex Forest</span>, <span class='h_loc'>Lake of Rage</span>, <span class='h_loc'>Route 26</span>, <span class='h_loc'>27</span>, <span class='h_loc'>34</span>, <span class='h_loc'>35</span>, <span class='h_loc'>36</span>, <span class='h_loc'>37</span>, <span class='h_loc'>38</span>, <span class='h_loc'>39</span></li>
+        <li><strong>Headbutt tree B</strong> - <span class='h_loc'>Route 29</span>, <span class='h_loc'>30</span>, <span class='h_loc'>31</span>, <span class='h_loc'>32</span>, <span class='h_loc'>33</span>, <span class='h_loc'>42</span>, <span class='h_loc'>43</span>, <span class='h_loc'>44</span></li>
+        <li><strong><span class='crystal'>Headbutt tree C1</span></strong> - <span class='h_loc'>Azalea Town</span>, <span class='h_loc'>Route 33</span>, <span class='h_loc'>42</span></li>
+        <li><strong><span class='crystal'>Headbutt tree C2</span></strong> - <span class='h_loc'>Ilex Forest</span></li>
+        <li><strong><span class='crystal'>Headbutt tree C3</span></strong> - <span class='h_loc'>Lake of Rage</span>, <span class='h_loc'>Route 43</span></li>
+        <li><strong><span class='crystal'>Headbutt tree C4</span></strong> - <span class='h_loc'>Route 26</span>, <span class='h_loc'>27</span>, <span class='h_loc'>32</span></li>
+        <li><strong><span class='crystal'>Headbutt tree C5</span></strong> - <span class='h_loc'>Route 29</span>, <span class='h_loc'>30</span>, <span class='h_loc'>31</span>, <span class='h_loc'>34</span>, <span class='h_loc'>35</span>, <span class='h_loc'>36</span>, <span class='h_loc'>37</span>, <span class='h_loc'>38</span>, <span class='h_loc'>39</span></li>
+        <li><strong><span class='crystal'>Headbutt tree C6</span></strong> - <span class='h_loc'>Route 44</span></li>
+    </ul>
+    <p>Each category has 2 distinct tree rarities. The rarity of each tree is calculated based on your Trainer ID. Here is the link to a <a href='http://37.97.147.73/Headbutt%20Grid.htm' target='_blank'>Headbutt Grid tool</a> which allows you to determine the rarity of each tree by inputting your own ID.</p>
+</article>
+
+<h2>Day-specific events</h2>
+<article>
+    <p>While there are a lot of events unique to each day of the week, here is the list of the ones relevant to the Living Pokédex challenge:</p>
+    
+    <h3>Bug-Catching Contest</h3>
+    <ul>
+        <li>Every <strong>Tuesday</strong>, <strong>Thursday</strong> and <strong>Saturday</strong>, you can enter the Bug-Catching Contest in the <span class='h_loc'>National Park</span>.</li>
+        <li>The goal is to catch the best Pokémon in the park. Only one Pokémon can be presented, and this Pokémon can be kept after the contest.</li>
+        <li>The first place reward is a <span class='h_item'>Sun Stone</span> ; it is the only way to obtain it.</li>
+        <li>Score is determined by a lot of factors, including stats and current HP. To get the best chance at winning, catch either a <span class='h_pkmn'>Scyther</span> or <span class='h_pkmn'>Pinsir</span> (preferably level 14) without damaging it while making sure Cooltrainer Nick is not participating (you can find him on the west side of the park).</li>
+    </ul>
+    <h3>Friendship</h3>
+    <ul>
+        <li>The Pokémon Salon in <span class='h_loc'>Goldenrod Tunnel</span> is open every day, except on <strong>Mondays</strong>.</li>
+        <li>Every day <strong>between 3 and 4 PM</strong>, Daisy Oak in <span class='h_loc'>Pallet Town</span> offers to groom one of your Pokémon.</li>
+        <li>In <span class='h_loc'>Goldenrod City</span>, in a house north of the Bike Shop, a woman can check the current Friendship value of the first Pokémon in the party. In order to evolve via Friendship, the value of the Pokémon needs to be 220, which corresponds to the message "I get the feeling that it really trusts you." (value between 200 and 249).</li>
+    </ul>
+    <h3>Other</h3>
+    <ul>
+        <li>Every <strong>Monday</strong>, between 8 PM and 4 AM the next day, a <span class='h_item'>Moon Stone</span> can be obtained in the <span class='h_loc'>Mt. Moon Square</span>.</li>
+        <li>Every <strong>Friday</strong>, a unique <span class='h_pkmn'>Lapras</span> appears in the water in <span class='h_loc'>Union Cave B2F</span>.</li>
+    </ul>
+</article>
+
+<h2><a id='extra_stones'>Evolution stones</a></h2>
+<article>
+    <p>Stones required to evolve Pokémon are a lot more difficult to obtain in Gen 2:</p>
+
+    <ul>
+        <li><span class='h_item'>Element Stones:</span> On <span class='h_loc'>Route 25</span>, Bill's grandfather gives you one stone of each type (and an <span class='h_item'>Everstone</span>) if you show him specific Pokémon.</li>
+        <li><span class='h_item'>Moon Stone:</span> You get one every Monday if you visit the <span class='h_loc'>Mt. Moon Square</span> between 8 PM and 4 AM.</li>
+        <li><span class='h_item'>Sun Stone:</span> You need to place first in the <strong>Bug-Catching Contest</strong>.</li>
+    </ul>
+    <p>Because the main way to get <span class='h_item'>Element Stones</span> was through Mystery Gift (a system using the GBC's infrared port), it is only possible to obtain one of each type in-game. <strong><span class='crystal'>Crystal</span></strong> introduced stones being given as victory rewards from specific trainers.</p>
+    <p>Still, because getting stones is so difficult and random, the only consistent way to evolve Pokémon in Gen 2 using stones is to temporarily trade them with a Gen 1 version, buy the required stone from the <span class='h_loc'>Celadon Department Store</span> and use it.</p>
+</article>
+
+<h2>Obtaining Celebi</h2>
+<article>
+    <p>The Mythical Pokémon <span class='h_pkmn'>Celebi</span> is only obtainable in <strong><span class='crystal'>Crystal</span></strong> and is tied to a unique event which starts upon <strong>exiting</strong> the <span class='h_loc'>Goldenrod City Pokémon Center</span>. How to trigger the event is different between the Virtual Console version or the cartridge.</p>
+
+    <ul>
+        <li><strong>Virtual Console:</strong> The event becomes available once entering the <strong>Hall of Fame</strong>.</li>
+        <li><strong>Cartridge:</strong> The event was only available in Japan, yet has been localized. It is possible to unlock the event at any time by enabling the GameShark code <strong>010B3CBE</strong>, saving then disabling the code.</li>
+    </ul>
+</article>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Fan preservation backup of <strong>Lyra made a website</strong>. Original website, design and content by <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon and all related assets are trademarks of Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

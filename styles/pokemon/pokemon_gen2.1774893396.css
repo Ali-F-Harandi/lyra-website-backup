@@ -1,0 +1,58 @@
+@import url("/lyra-website-backup/styles/pokemon/pokemon.css");
+
+body {
+    background-image: url("/lyra-website-backup/views/pokemon/gen2/images/background_gen2.png");
+}
+
+/* pokemon sprite */
+.pokemon_card img {
+    margin: 3px auto 6px;
+    width: 56px;
+    height: 56px;
+}
+
+#pokedex.small .pokemon_card {
+    padding: 3px;
+}
+
+#pokedex.small img {
+    width: 46px;
+    height: 46px;
+}
+
+/* Pokédex small boxes */
+#pokedex {
+    --box_columns: 4;
+}
+
+/* extra info */
+/* special balls */
+#gen2_balls tr td:nth-child(1) {
+    text-align: center;
+}
+
+/* swarms */
+#gen2_swarms tr td:nth-child(1) {
+    padding: 3px 12px 3px 3px;
+}
+
+#gen2_swarms tr td:nth-child(3) {
+    text-align: center;
+}
+
+#gen2_swarms tr td:nth-child(5) .crystal {
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 660px) {
+    #gen2_swarms tr td:nth-child(1) {
+        text-align: center;
+        display: table-cell;
+        padding: 3px;
+    }
+    
+    #gen2_swarms tr td:nth-child(1) img {
+        display: none;
+    }
+}

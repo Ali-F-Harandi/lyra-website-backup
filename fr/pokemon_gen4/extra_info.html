@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+            <html lang='fr'>
+            <head>
+                <title>Infos supplémentaires - Gen 4</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen4.1774893397.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_diamond.css' />
+                <script>
+                    init_style('gen4');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/'>Return to main menu</a>
+                    </div>
+
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/' >
+                            <span lang='en'>English version</span>
+                            <img src='/lyra-website-backup/views/images/us-uk_flag.png' alt='Drapeau anglais/américain' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra a un site web sur</h1>
+    <h2>Pokémon Gen 4</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/fr/pokemon_gen4/full_guide'>Guide complet</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen4/pokedex_tracker'>Pokédex perso</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen4/catch_locations'>Pokémon par zone</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen4/pokemon_info'>Recherche par filtre</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen4/extra_info'>Infos supplémentaires</a>
+    <button id='settings_link'>Préférences</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex perso</h1>
+                <ul>
+                    <li>
+                <p>Pokédex affiché : </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>Pokédex National</option><option value='diamond_pearl_dex'>Diamant et Perle</option><option value='platinum_dex'>Platine</option><option value='heartgold_soulsilver_dex'>Or HeartGold et Argent SoulSilver</option><option value='only_new_dex'>Nouveaux Pokémon</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Ajouter une étape supplémentaire</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Afficher le nombre de Pokémon obtenus</p>
+            </li><li>
+                <p>Sprites utilisés : </p>
+                <select id='select_pokemon_sprites'><option value='dp_sprites'>Diamant et Perle</option><option value='plat_sprites'>Platine</option><option value='hgss_sprites'>Or HeartGold et Argent SoulSilver</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Mini Pokédex</p>
+            </li><li>
+                <p>Nom des boites : </p>
+                <select id='select_box_names'><option value='boxes_order'>Numéro de boite</option><option value='boxes_firstlast'>Premier et dernier Pokémon</option><option value='boxes_hidden'>Masquer les noms</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon par zone</h1>
+                <ul>
+                    <li>
+                <p>Filtrer par version : </p>
+                <select id='select_version_filter'><option value='pref_none'>Toutes</option><option value='pref_diamond'>Diamant</option><option value='pref_pearl'>Perle</option><option value='pref_platinum'>Platine</option><option value='pref_heartgold'>Or HeartGold</option><option value='pref_soulsilver'>Argent SoulSilver</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Masquer la Canne et Super Canne</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Recherche par filtre</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignorer les Pokémon déjà attrapés</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Couleurs du site web</h1>
+                <ul>
+                    <li>
+                <p>Thème de couleurs : </p>
+                <select id='select_color_theme'><optgroup label='4e génération'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamant</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Perle</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Données de la Gen 4</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Exporter</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Importer</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+
+            import gen4_settings from '/lyra-website-backup/scripts/pokemon/gen4/gen4_settings.1763927568.js';
+            const current_settings = new gen4_settings();
+
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('fr');
+            </script>
+<main>
+                <h1>Infos supplémentaires</h1>
+
+
+<h2>Stratégie de capture Gen 4</h2>
+<article>
+    <h3>Points de vie et statuts</h3>
+    <p>La formule de capture est identique à la Gen 3 à quelques détails près. Afin d'avoir les meilleures chances de capture réussie, les points de vie du Pokémon doivent être <strong>le plus proche possible de 1</strong> et son statut <strong>Endormi</strong> ou <strong>Gelé</strong>.</p>
+
+    <p>La capacité <span class="h_move">Faux-Chage</span> ne peut pas mettre K.O. un Pokémon, tandis que <span class="h_move">Spore</span> endort un Pokémon à 100 %. Les lignes d'évolution de <span class="h_pkmn">Parasecte</span> et <span class="h_pkmn">Brexec</span> restent les options classiques, mais la Gen 4 donne aussi accès à <span class="h_pkmn">Gallame</span> et à <span class="h_pkmn">Queulorior</span>, qui peut apprendre les deux capacités.</p>
+
+    <h3>Poké Balls</h3>
+    <p>Chaque Ball a un multiplicateur différent utilisé dans la formule de capture, avec parfois une condition à remplir. La grande nouveauté de la Gen 4 est la <span class="h_item">Sombre Ball</span>, qui égale l'<span class="h_item">Hyper Ball</span> dans les grottes et de nuit. Voici la liste des <span class="h_item">Poké Balls</span> les plus utiles :</p>
+    <table>
+        <tr>
+            <th>Ball</th>
+            <th>Multiplicateur</th>
+            <th>Condition</th>
+        </tr>
+        <tr>
+            <td><span class="h_item">Rapide Ball</span></td>
+            <td>x4 à x1</td>
+            <td>Lancée <strong>au premier tour</strong> de la rencontre <em>(multiplicateur x1 au tour 11)</em></td>
+        </tr>
+        <tr>
+            <td><span class="h_item">Sombre Ball</span></td>
+            <td>x3,5</td>
+            <td>Dans les <strong>grottes</strong> ou <strong>la nuit</strong> <em>(nouveauté Gen 4)</em></td>
+        </tr>
+        <tr>
+            <td><span class="h_item">Hyper Ball</span></td>
+            <td>x2</td>
+            <td><strong>N/A</strong></td>
+        </tr>
+        <tr>
+            <td><span class="h_item">Filet Ball</span></td>
+            <td>x3</td>
+            <td>Pokémon de type <strong>Eau</strong> ou <strong>Insecte</strong></td>
+        </tr>
+        <tr>
+            <td><span class="h_item">Faiblo Ball</span></td>
+            <td>x3,9 à x1</td>
+            <td>Pokémon de <strong>bas niveau</strong> <em>(multiplicateur x2,1 au niveau 19)</em></td>
+        </tr>
+        <tr>
+            <td><span class="h_item">Bis Ball</span></td>
+            <td>x3</td>
+            <td>Pokémon <strong>déjà attrapé</strong> dans le Pokédex</td>
+        </tr>
+        <tr>
+            <td><span class="h_item">Chrono Ball</span></td>
+            <td>x1 à x4</td>
+            <td>Gagne en puissance <strong>tous les 10 tours</strong> <em>(multiplicateur x2 au tour 30)</em></td>
+        </tr>
+        <tr>
+            <td><span class="h_item">Balls Apicot</span></td>
+            <td>x1 à x4</td>
+            <td>Or HeartGold et Argent SoulSilver uniquement, façonnées par <strong>Fargas</strong> : Rapide, Niveau, Appât, Amour, Miam, Lune et Lourde Ball, chacune avec sa condition</td>
+        </tr>
+    </table>
+
+    <h3>Capacités utiles</h3>
+    <table>
+        <tr>
+            <th>Capacité</th>
+            <th>Effet</th>
+            <th>Pokémon</th>
+        </tr>
+        <tr>
+            <td><strong>Corps Ardent</strong> / <strong>Armure Magma</strong></td>
+            <td>Les œufs éclosent deux fois plus vite <em>(tête d'équipe, tous les jeux Gen 4)</em></td>
+            <td><span class="h_pkmn">Magmar</span>, <span class="h_pkmn">Limagma</span>, <span class="h_pkmn">Camerupt</span>, <span class="h_pkmn">Magby</span></td>
+        </tr>
+        <tr>
+            <td><strong>Glue</strong> / <strong>Ventouse</strong></td>
+            <td>Les tentatives de pêche réussissent toujours <em>(tête d'équipe)</em></td>
+            <td><span class="h_pkmn">Gloupti</span>, <span class="h_pkmn">Avaltout</span>, <span class="h_pkmn">Octillery</span>, <span class="h_pkmn">Lilia</span>, <span class="h_pkmn">Vacilys</span></td>
+        </tr>
+        <tr>
+            <td><strong>Ramassage</strong></td>
+            <td>Peut obtenir un objet tenu aléatoire après un combat</td>
+            <td><span class="h_pkmn">Miaouss</span>, <span class="h_pkmn">Capumain</span>, <span class="h_pkmn">Teddiursa</span>, <span class="h_pkmn">Phanpy</span>, <span class="h_pkmn">Zigzaton</span>, <span class="h_pkmn">Linéon</span>, <span class="h_pkmn">Pachirisu</span>, <span class="h_pkmn">Capidextre</span></td>
+        </tr>
+        <tr>
+            <td><strong>Œil Composé</strong></td>
+            <td>Les Pokémon sauvages tiennent plus souvent des objets <em>(tête d'équipe)</em></td>
+            <td><span class="h_pkmn">Papilusion</span>, <span class="h_pkmn">Mimitoss</span>, <span class="h_pkmn">Yanma</span>, <span class="h_pkmn">Ningale</span>, <span class="h_pkmn">Pomdepik</span>, <span class="h_pkmn">Charmillon</span>, <span class="h_pkmn">Papilord</span></td>
+        </tr>
+    </table>
+</article>
+
+<h2>Transfert depuis la Gen 3 - le Parc des Amis</h2>
+<article>
+    <p>Sept Pokémon sont absents de tous les jeux Gen 4 : <span class="h_pkmn">Mew</span>, <span class="h_pkmn">Celebi</span>, <span class="h_pkmn">Regirock</span>, <span class="h_pkmn">Regice</span>, <span class="h_pkmn">Registeel</span>, <span class="h_pkmn">Jirachi</span> et <span class="h_pkmn">Deoxys</span>. Ils doivent tous être attrapés dans les jeux Gen 3 puis transférés via le <span class='h_loc'>Parc des Amis</span>, situé sur la <span class='h_loc'>Route 221</span> (débloqué avec le Pokédex National).</p>
+
+    <ul>
+        <li>Le transfert demande une cartouche Game Boy Advance dans le <strong>port GBA</strong> de la Nintendo DS, avec les Pokémon à migrer stockés dans le PC. Six Pokémon peuvent être migrés par cartouche toutes les 24 heures.</li>
+        <li>Une fois migrés, les Pokémon sont attrapés lors d'une <strong>Course de Capture</strong> spéciale dans le Parc des Amis même, avec des <span class="h_item">Parc Ball</span> qui n'échouent jamais. Un seul essai par Pokémon est autorisé, prévoyez donc un Pokémon avec <span class="h_move">Faux-Chage</span> et une capacité de sommeil.</li>
+        <li>Le <a href='/lyra-website-backup/fr/pokemon_gen3/full_guide'>guide Gen 3</a> de ce site détaille comment obtenir chacun de ces sept Pokémon, y compris ceux d'évènement, avant de les transférer.</li>
+    </ul>
+</article>
+
+<h2>Mécaniques de rencontre spéciales</h2>
+<article>
+    <h3>Poké Radar</h3>
+    <p>Le <span class="h_item">Poké Radar</span> est donné par le Professeur Sorbier après avoir complété le Pokédex de Sinnoh. Après 50 pas de recharge, son utilisation dans les hautes herbes chaîne des rencontres d'espèces autrement impossibles à attraper, comme <span class="h_pkmn">Nidoran♀</span>, <span class="h_pkmn">Excelangue</span> ou <span class="h_pkmn">Nirondelle</span> selon la route. Chaîner un même Pokémon augmente aussi les chances de rencontre chromatique.</p>
+
+    <h3>Arbres à miel</h3>
+    <p>Badigeonner un arbre de <span class="h_item">Miel</span> (acheté au <span class='h_loc'>Pré Floraville</span>) attire un Pokémon après 6 à 24 heures réelles. Les 21 arbres à miel de Sinnoh partagent la plupart de leurs espèces, mais quatre arbres spéciaux par partie peuvent aussi attirer <span class="h_pkmn">Goinfrex</span>.</p>
+
+    <h3>Nuées quotidiennes</h3>
+    <p>Une fois le Pokédex National obtenu, la <span class='h_loc'>maison d'Aurore</span> (Route 201) dans Diamant, Perle et Platine, ou la radio du <span class='h_loc'>Professeur Chen</span> dans Or HeartGold et Argent SoulSilver, annonce une <strong>nuée</strong> quotidienne : une route commune accueille temporairement une espèce rare.</p>
+
+    <h3>Rencontres par port GBA</h3>
+    <p>Avec une cartouche Gen 3 dans le port GBA de la DS, plusieurs routes de Sinnoh gagnent des emplacements de rencontre dédiés à ce jeu : <span class="h_pkmn">Caninos</span> apparaît sur la <span class='h_loc'>Route 201</span> avec Rouge Feu insérée, <span class="h_pkmn">Nénupiot</span> avec Saphir, et ainsi de suite.</p>
+
+    <h3>Chansons radio</h3>
+    <p>Dans Or HeartGold et Argent SoulSilver, syntoniser la radio sur la station <strong>Chanson de Hoenn</strong> ou <strong>Chanson de Sinnoh</strong> en marchant dans les hautes herbes ajoute des emplacements de rencontre temporaires, amenant des espèces comme <span class="h_pkmn">Skitty</span>, <span class="h_pkmn">Draby</span> ou <span class="h_pkmn">Mustébouée</span> dans les routes de Johto et de Kanto.</p>
+
+    <h3>Objets du Parc Safari</h3>
+    <p>Le <span class='h_loc'>Parc Safari de Johto</span> personnalisable place les espèces selon la zone et le nombre d'objets déposés. La page Pokémon par zone liste chaque condition : <span class="h_pkmn">Griknot</span> demande par exemple des objets de la Plage Rocheuse, et <span class="h_pkmn">Qulbutoké</span> apparaît la nuit avec des objets du Pic.</p>
+</article>
+
+<h2>Pokémon d'évènement</h2>
+<article>
+    <p>Quatre Pokémon ne sont disponibles que par évènement en Gen 4. Les légendaires <span class="h_pkmn">Darkrai</span> (Carte Membre, <span class='h_loc'>Île Nouvellelune</span>), <span class="h_pkmn">Shaymin</span> (Lettre de Chen, <span class='h_loc'>Paradis Fleuri</span>) et <span class="h_pkmn">Arceus</span> (Flûte Azurée, <span class='h_loc'>Salle Originelle</span>) requièrent chacun leur objet distribué via la CWF Nintendo. Les serveurs officiels étant fermés depuis longtemps, les serveurs DNS privés qui émulent les anciennes distributions sont désormais la méthode standard ; la même astuce sert aussi pour les œufs de mission Ranger de <span class="h_pkmn">Manaphy</span>. <span class="h_pkmn">Phione</span> éclot simplement des œufs de <span class="h_pkmn">Manaphy</span>, un accouplement avec un <span class="h_item">Métamorph</span> couvre donc les deux entrées.</p>
+
+    <p>Or HeartGold et Argent SoulSilver comportent aussi les <span class='h_loc'>Ruines Sinjoh</span> : y amener un <span class="h_pkmn">Arceus</span> distribué permet de créer un dragon légendaire au choix de niveau 1 (<span class="h_pkmn">Dialga</span>, <span class="h_pkmn">Palkia</span> ou <span class="h_pkmn">Giratina</span>), ce qui est une seconde copie bien pratique pour les échanges.</p>
+</article>
+
+<h2>Fossiles</h2>
+<article>
+    <p>Dans Diamant, Perle et Platine, le <span class='h_loc'>Musée Minier de Charbourg</span> régénère tous les fossiles déterrés dans le <span class='h_loc'>Souterrain de Sinnoh</span> : les fossiles <span class="h_item">Crâne</span> et <span class="h_item">Armure</span> (Kranidos et Dinoclier) plus les cinq anciens. Or HeartGold et Argent SoulSilver régénèrent les fossiles <span class="h_item">Nautile</span>, <span class="h_item">Dôme</span> et <span class="h_item">Vieil Ambre</span> au <span class='h_loc'>Musée des Sciences d'Argenta</span>.</p>
+</article>
+
+<h2>À propos de cette section Gen 4</h2>
+<article>
+    <p>Les pages Gen 4 de cette archive ont été complétées par le responsable de la sauvegarde, à partir de la base de données ouverte <a href='https://pokeapi.co/'>PokéAPI</a> pour les tables de rencontre et les données d'obtention. Le reste du site (Gens 1 à 3) est le travail original de <a href='https://www.youtube.com/@Lyra'>Lyra</a> — tout le mérite du concept, du design et des données lui revient.</p>
+</article>
+
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Sauvegarde de pr&eacute;servation du site <strong>Lyra a un site web</strong>. Site, design et contenu originaux par <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon et tous les &eacute;l&eacute;ments associ&eacute;s sont des marques de Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

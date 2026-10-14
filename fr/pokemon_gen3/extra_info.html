@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+            <html lang='fr'>
+            <head>
+                <title>Infos supplémentaires - Gen 3</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen3.1774893397.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_emerald.css' />
+                <script>
+                    init_style('gen3');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/fr'>Retour au menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/pokemon_gen3/extra_info' >
+                            <span lang='en'>English version</span>
+                            <img src='/lyra-website-backup/views/images/us-uk_flag.png' alt='Drapeau anglais/américain' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra a un site web sur</h1>
+    <h2>Pokémon Gen 3</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/fr/pokemon_gen3/full_guide'>Guide complet</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen3/pokedex_tracker'>Pokédex perso</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen3/catch_locations'>Pokémon par zone</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen3/pokemon_info'>Recherche par filtre</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen3/extra_info'>Infos supplémentaires</a>
+    <button id='settings_link'>Préférences</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex perso</h1>
+                <ul>
+                    <li>
+                <p>Pokédex affiché : </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>Pokédex National</option><option value='ruby_sapphire_emerald_dex'>Rubis, Saphir et Émeraude</option><option value='firered_leafgreen_dex'>Rouge Feu et Vert Feuille</option><option value='only_new_dex'>Nouveaux Pokémon</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Ajouter une étape supplémentaire</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Afficher le nombre de Pokémon obtenus</p>
+            </li><li>
+                <p>Sprites utilisés : </p>
+                <select id='select_pokemon_sprites'><option value='rs_sprites'>Rubis et Saphir</option><option value='frlg_sprites'>Rouge Feu et Vert Feuille</option><option value='emerald_sprites'>Émeraude</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Mini Pokédex</p>
+            </li><li>
+                <p>Nom des boites : </p>
+                <select id='select_box_names'><option value='boxes_order'>Numéro de boite</option><option value='boxes_firstlast'>Premier et dernier Pokémon</option><option value='boxes_hidden'>Masquer les noms</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon par zone</h1>
+                <ul>
+                    <li>
+                <p>Filtrer par version : </p>
+                <select id='select_version_filter'><option value='pref_none'>Toutes</option><option value='pref_ruby'>Rubis</option><option value='pref_sapphire'>Saphir</option><option value='pref_emerald'>Émeraude</option><option value='pref_firered'>Rouge Feu</option><option value='pref_leafgreen'>Vert Feuille</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Masquer la Canne et Super Canne</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Recherche par filtre</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignorer les Pokémon déjà attrapés</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Couleurs du site web</h1>
+                <ul>
+                    <li>
+                <p>Thème de couleurs : </p>
+                <select id='select_color_theme'><optgroup label='1re génération'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Rouge</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Bleu</option></optgroup><optgroup label='2e génération'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Or</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Argent</option></optgroup><optgroup label='3e génération'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Émeraude</option></optgroup><optgroup label='4e génération'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamant</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Perle</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Données de la Gen 3</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Exporter</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Importer</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen3_settings from '/lyra-website-backup/scripts/pokemon/gen3/gen3_settings.1763926674.js';
+            const current_settings = new gen3_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('fr'); 
+            </script>
+            <main>
+                <h1>Extra info</h1>
+
+<h2>Stratégie de capture Gen 3</h2>
+<article>
+    <h3>Points de vie et statuts</h3>
+    <p>La formule de capture dans la Gen 3 Pokémon est entièrement refaite par rapport aux Gens 1 et 2, et est maintenant simple à comprendre. Pour les meilleures chances de capture d'un Pokémon, ses points de vie doivent être <strong>le plus proche de 1 PV que possible</strong> et son statut <strong>Endormi</strong> ou <strong>Gelé</strong>.</p>
+
+    <p>L'attaque <span class="h_move">Faux-Chage</span> ne peut pas mettre K.O. un Pokémon, tandis que <span class="h_move">Spore</span> a 100 % de chance de l'endormir. Dans la Gen 3, seuls les familles d'évolution de <span class="h_pkmn">Parasect</span> et de <span class="h_pkmn">Chapignon</span> peuvent apprendre <strong>les deux capacités en même temps</strong>. Faux-Chage ne peut être appris que par reproduction, puisqu'aucun des Pokémon ne l'obtient naturellement. De plus, Chapignong n'apprend pas Spore et doit connaitre la capacité <strong>avant</strong> d'évolution. Heureusement, <span class="h_pkmn">Balignon</span> disponible dans <span class="xd">Pokémon XD</span> connait déjà Faux-Chage lorsque purifié, et ne demande qu'à être monté au niveau 54 pour apprendre Spore.</p>
+
+    <h3>Poké Balls</h3>
+    <p>Le troisième facteur déterminant lors d'une capture est le type de <span class="h_item">Poké Ball</span> utilisé. Chaque Ball a un facteur spécifique utilisé dans la formule de capture, avec parfois une condition à respecter, et n'est pas disponible dans toutes les versions. La meilleure Ball à utiliser dépend de la situation. Voici la liste de toutes les <span class="h_item">Poké Balls</span> les plus utiles:</p>
+
+    <table id="gen3_balls">
+        <tr>
+            <th>Ball</th>
+            <th>Facteur</th>
+            <th>Condition</th>
+        </tr>
+        <tr>
+            <td><div><img src="/lyra-website-backup/views/pokemon/gen3/images/balls/ultra_ball_xd.png" alt="Hyper Ball XD" /><span class="h_item">Hyper Ball</span></div></td>
+            <td>x 2</td>
+            <td><strong>—</strong></td>
+        </tr>
+        <tr>
+            <td><div><img src="/lyra-website-backup/views/pokemon/gen3/images/balls/net_ball_xd.png" alt="Filet Ball XD" /><span class="h_item">Filet Ball</span></div></td>
+            <td>x 3</td>
+            <td>Pokémon de type <strong>Eau</strong> ou <strong>Insecte</strong></td>
+        </tr>
+        <tr>
+            <td><div><img src="/lyra-website-backup/views/pokemon/gen3/images/balls/timer_ball_xd.png" alt="Chrono Ball XD" /><span class="h_item">Chrono Ball</span></div></td>
+            <td>x 1 à x 4</td>
+            <td>Monte en efficacité <strong>chaque tour</strong> (+ 0,1 par tour) <em>(x 2,1 durant le tour 12)</em></td>
+        </tr>
+        <tr>
+            <td><div><img src="/lyra-website-backup/views/pokemon/gen3/images/balls/nest_ball_xd.png" alt="Faiblo Ball XD" /><span class="h_item">Faiblo Ball</span></div></td>
+            <td>x 3,9 à x 1</td>
+            <td>Pokémon de <strong>bas niveau</strong> <em>(x 2,1 au niveau 19)</em></td>
+        </tr>
+        <tr>
+            <td><div><img src="/lyra-website-backup/views/pokemon/gen3/images/balls/repeat_ball_xd.png" alt="Bis Ball XD" /><span class="h_item">Bis Ball</span></div></td>
+            <td>x 3</td>
+            <td>Pokémon <strong>déjà capturé</strong> dans le Pokédex</td>
+        </tr>
+        <tr>
+            <td><div><img src="/lyra-website-backup/views/pokemon/gen3/images/balls/dive_ball_xd.png" alt="Scuba Ball XD" /><span class="h_item">Scuba Ball</span></div></td>
+            <td>x 3,5</td>
+            <td>Utilisé dans le <span class="h_loc">Fond marin</span></td>
+        </tr>
+        <tr>
+            <td><div><img src="/lyra-website-backup/views/pokemon/gen3/images/balls/luxury_ball_xd.png" alt="Luxe Ball XD" /><span class="h_item">Luxe Ball</span></div></td>
+            <td>x 1</td>
+            <td>Tout gain d'amitié est <strong>augmenté de 1</strong></td>
+        </tr>
+    </table>
+</article>
+
+<h2>Talents utiles</h2>
+<article>
+    <p>Fraichement introduits dans la Gen 3, les <strong>Talents</strong> (appelés <strong>Capacités spéciales</strong> dans cette génération) sont des <strong>pouvoirs passifs</strong> ayant un <strong>effet unique</strong>. Puisque certains de ces Talents se révèlent être très utiles dans la quête d'un Pokédex Vivant, voici la liste des meilleurs. Il est important de noter, cependant, que <strong>certains effets ne sont actifs que dans <span class="emerald">Pokémon Émeraude</span></strong>.</p>
+
+    <table id="gen3_abilities">
+        <tr>
+            <th>Talent</th>
+            <th>Effet</th>
+            <th>Pokémon</th>
+            <th>Émeraude seul</th>
+        </tr>
+        <tr>
+            <td><strong>Corps Ardent</strong></td>
+            <td rowspan="2">Éclosion plus rapide</td>
+            <td><span class="h_pkmn">Magmar</span>, <span class="h_pkmn">Limagma</span>, <span class="h_pkmn">Volcaropod</span>, <span class="h_pkmn">Magby</span></td>
+            <td rowspan="2"><span class="emerald">Oui</span></td>
+        </tr>
+        <tr>
+            <td><strong>Armumagma</strong></td>
+            <td><span class="h_pkmn">Limagma</span>, <span class="h_pkmn">Volcaropod</span>, <span class="h_pkmn">Camérupt</span></td>
+        </tr>
+        <tr>
+            <td><strong>Glue</strong></td>
+            <td rowspan="2">Pêche plus efficace<br /><i>(si le Pokémon est en tête de groupe)</i></td>
+            <td><span class="h_pkmn">Tadmorv</span>, <span class="h_pkmn">Grotadmorv</span>, <span class="h_pkmn">Gloupti</span>, <span class="h_pkmn">Avaltout</span></td>
+            <td rowspan="2"><span class="emerald">Oui</span></td>
+        </tr>
+        <tr>
+            <td><strong>Ventouse</strong></td>
+            <td><span class="h_pkmn">Octillery</span>, <span class="h_pkmn">Lilia</span>, <span class="h_pkmn">Vacilys</span></td>
+        </tr>
+        <tr>
+            <td><strong>Ramassage</strong></td>
+            <td>Peut obtenir un objet tenu aléatoire après combat<br /><i>(meilleur dans <span class="ruby">Rubis</span> and <span class="sapphire">Saphir</span>)</i></td>
+            <td><span class="h_pkmn">Miaouss</span>, <span class="h_pkmn">Capumain</span>, <span class="h_pkmn">Teddiursa</span>, <span class="h_pkmn">Phanpy</span>, <span class="h_pkmn">Zigzaton</span>, <span class="h_pkmn">Linéon</span></td>
+            <td>Non</td>
+        </tr>
+        <tr>
+            <td><strong>Moiteur</strong></td>
+            <td>Empêche l'auto-destruction</td>
+            <td><span class="h_pkmn">Psykokwak</span>, <span class="h_pkmn">Akwakwak</span>, <span class="h_pkmn">Ptitard</span>, <span class="h_pkmn">Têtarte</span>, <span class="h_pkmn">Tartard</span>, <span class="h_pkmn">Tarpaud</span>, <span class="h_pkmn">Axoloto</span>, <span class="h_pkmn">Maraiste</span></td>
+            <td>Non</td>
+        </tr>
+    </table>
+</article>
+
+<h2>Récompenses de capture dans Rouge Feu et Vert Feuille</h2>
+<article>
+    <p>Afin d'encourager les joueurs <strong>à attraper différents Pokémon</strong> et non pas simplement se battle, les versions Gen 1 récompensent les dresseurs ayant capturé 10, 30 et 50 Pokémon dans le Pokédex. Des récompenses supplémentaires ont été ajoutées dans <span class='firered'>Rouge Feu</span> et <span class='leafgreen'>Vert Feuille</span>, parmi lesquelles <strong>certains objets importants</strong>. Puisque ceux-ci sont <strong>de facto obligatoires</strong> pour compléter un Pokédex Vivant, voici où ils se trouvent:</p>
+    <table>
+        <tr>
+            <th>Zone</th>
+            <th>PNJ</th>
+            <th>Condition</th>
+            <th>Récompense</th>
+        </tr>
+        <tr>
+            <td><span class='h_loc'>Route 2</span></td>
+            <td>Assistant du Prof. Chen dans le bâtiment de transition</td>
+            <td><strong>10</strong> Pokémon capturés</td>
+            <td><span class='h_item'>CS Flash</span></td>
+        </tr>
+        <tr>
+            <td><span class='h_loc'>Route 10</span></td>
+            <td>Assistant du Prof. Chen dans le Centre Pokémon</td>
+            <td><strong>20</strong> Pokémon capturés</td>
+            <td><span class='h_item'>Pierre Stase</span></td>
+        </tr>
+        <tr>
+            <td><span class='h_loc'>Route 11</span></td>
+            <td>Assistant du Prof. Chen dans le bâtiment de transition</td>
+            <td><strong>30</strong> Pokémon capturés</td>
+            <td><span class='h_item'>Cherch'Objet</span></td>
+        </tr>
+        <tr>
+            <td><span class='h_loc'>Route 16</span></td>
+            <td>Assistant du Prof. Chen dans le bâtiment de transition</td>
+            <td><strong>40</strong> Pokémon capturés</td>
+            <td><span class='h_item'>Pièce Rune</span></td>
+        </tr>
+        <tr>
+            <td><span class='h_loc'>Route 15</span></td>
+            <td>Assistant du Prof. Chen dans le bâtiment de transition</td>
+            <td><strong>50</strong> Pokémon capturés</td>
+            <td><span class='h_item'>Multi Exp</span></td>
+        </tr>
+        <tr>
+            <td><span class='h_loc'>Labo Pokémon du Prof. Chen</span></td>
+            <td>Professeur Chen</td>
+            <td><strong>60</strong> Pokémon capturés</td>
+            <td><span class='h_item'>Pokédex National</span></td>
+        </tr>
+    </table>
+</article>
+
+<h2>Obtenir Celebi en Europe / Amérique du Nord</h2>
+<article>
+    <p>Il n'existe en théorie aucun moyen d'attraper <span class="h_pkmn">Celebi</span> dans les versions européennes ou nord-américaines. Heureusement, Celebi est disponible dans la version japonaise du disque bonus de Colosseum. Afin d'obtenir le Pokémon Mythique, une sauvegarde japonaise de Pokémon Colosseum avec <strong>tous les Pokémon Obscurs purifiés</strong> est nécessaire. Ce qui laisse aux joueurs non-japonais 3 manière illégitimes d'obtenir le tant convoité Pokémon:</p>
+
+    <ul>
+        <li><strong>Purifier les 48 Pokémon Obscurs dans la version japonaise de Colosseum</strong> - Ceci permet le transfert avec le disque bonus japonais. Cette methode requiert la version japonaise de Colosseum et de l'un des jeux GBA nécessaire au transfert, ainsi qu'une GameCube japonaise. La GameBoy Advance n'est pas zonée et les Pokémon peuvent être échangés librement entre les régions.</li>
+        <li><strong>Purifier les 48 Pokémon Obscurs dans n'importe quelle version de Colosseum et pirate le disque bonus japonais</strong> - Certaines personnes ont trouvé le moyen de modifier la région vérifiée par le disque bonus de Colosseum afin d'obtenir le Pokémon sur des sauvegardes d'autres régions. Tous les détails sont disponibles sur <a href="https://gbatemp.net/threads/finally-hack-for-japanese-colosseum-bonus-disc-for-us-games.253401/">ce site (en anglais)</a>.</li>
+    </ul>
+</article>
+
+<h2>Les îles d'évènements</h2>
+<article>
+    <p>Il existe plusieurs îles accueillant des évènements dans la Gen 3. Les graphismes peuvent changer entre les versions, mais le contenu reste le même. Il est possible d'obtenir les tickets d'évènements ou accéder directement à chaque zone en utilisant des bugs, en trichant ou en utilisant des copies de cartouches d'évènements. Par soucis de confort, voici la liste de toutes les îles et leurs évènements liés:</p>
+
+    <table>
+        <tr>
+            <th>Version</th>
+            <th>Ticket</th>
+            <th>Île</th>
+            <th>Pokémon disponible</th>
+        </tr>
+        <tr>
+            <td><span class="ruby">Rubis</span> - <span class="sapphire">Saphir</span> - <span class="emerald">Émeraude</span></td>
+            <td><span class="h_item">Passe Éon</span></td>
+            <td><span class="h_loc">Île du Sud</span></td>
+            <td><span class="h_pkmn">Latias</span> ou <span class="h_pkmn">Latios</span></td>
+        </tr>
+        <tr>
+            <td><span class="firered">Rouge Feu</span> - <span class="leafgreen">Vert Feuille</span> - <span class="emerald">Émeraude</span></td>
+            <td><span class="h_item">Ticketmystik</span></td>
+            <td><span class="h_loc">Roc Nombri</span></td>
+            <td><span class="h_pkmn">Lugia</span> et <span class="h_pkmn">Ho-Oh</span></td>
+        </tr>
+        <tr>
+            <td><span class="firered">Rouge Feu</span> - <span class="leafgreen">Vert Feuille</span> - <span class="emerald">Émeraude</span></td>
+            <td><span class="h_item">Ticketaurora</span></td>
+            <td><span class="h_loc">Île Aurore</span></td>
+            <td><span class="h_pkmn">Deoxys</span></td>
+        </tr>
+        <tr>
+            <td><span class="emerald">Émeraude</span></td>
+            <td><span class="h_item">Vieille Carte</span></td>
+            <td><span class="h_loc">Île Lointaine</span></td>
+            <td><span class="h_pkmn">Mew</span></td>
+        </tr>
+    </table>
+</article>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Sauvegarde de pr&eacute;servation du site <strong>Lyra a un site web</strong>. Site, design et contenu originaux par <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon et tous les &eacute;l&eacute;ments associ&eacute;s sont des marques de Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

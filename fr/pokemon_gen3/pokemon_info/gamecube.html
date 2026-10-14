@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+            <html lang='fr'>
+            <head>
+                <title>Tous les Pokémon (GC) - Recherche par filtre - Gen 3</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen3.1774893397.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_emerald.css' />
+                <script>
+                    init_style('gen3');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/fr'>Retour au menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/pokemon_gen3/pokemon_info/gamecube' >
+                            <span lang='en'>English version</span>
+                            <img src='/lyra-website-backup/views/images/us-uk_flag.png' alt='Drapeau anglais/américain' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra a un site web sur</h1>
+    <h2>Pokémon Gen 3</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/fr/pokemon_gen3/full_guide'>Guide complet</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen3/pokedex_tracker'>Pokédex perso</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen3/catch_locations'>Pokémon par zone</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen3/pokemon_info'>Recherche par filtre</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen3/extra_info'>Infos supplémentaires</a>
+    <button id='settings_link'>Préférences</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex perso</h1>
+                <ul>
+                    <li>
+                <p>Pokédex affiché : </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>Pokédex National</option><option value='ruby_sapphire_emerald_dex'>Rubis, Saphir et Émeraude</option><option value='firered_leafgreen_dex'>Rouge Feu et Vert Feuille</option><option value='only_new_dex'>Nouveaux Pokémon</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Ajouter une étape supplémentaire</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Afficher le nombre de Pokémon obtenus</p>
+            </li><li>
+                <p>Sprites utilisés : </p>
+                <select id='select_pokemon_sprites'><option value='rs_sprites'>Rubis et Saphir</option><option value='frlg_sprites'>Rouge Feu et Vert Feuille</option><option value='emerald_sprites'>Émeraude</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Mini Pokédex</p>
+            </li><li>
+                <p>Nom des boites : </p>
+                <select id='select_box_names'><option value='boxes_order'>Numéro de boite</option><option value='boxes_firstlast'>Premier et dernier Pokémon</option><option value='boxes_hidden'>Masquer les noms</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon par zone</h1>
+                <ul>
+                    <li>
+                <p>Filtrer par version : </p>
+                <select id='select_version_filter'><option value='pref_none'>Toutes</option><option value='pref_ruby'>Rubis</option><option value='pref_sapphire'>Saphir</option><option value='pref_emerald'>Émeraude</option><option value='pref_firered'>Rouge Feu</option><option value='pref_leafgreen'>Vert Feuille</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Masquer la Canne et Super Canne</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Recherche par filtre</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignorer les Pokémon déjà attrapés</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Couleurs du site web</h1>
+                <ul>
+                    <li>
+                <p>Thème de couleurs : </p>
+                <select id='select_color_theme'><optgroup label='1re génération'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Rouge</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Bleu</option></optgroup><optgroup label='2e génération'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Or</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Argent</option></optgroup><optgroup label='3e génération'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Émeraude</option></optgroup><optgroup label='4e génération'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamant</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Perle</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Données de la Gen 3</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Exporter</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Importer</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen3_settings from '/lyra-website-backup/scripts/pokemon/gen3/gen3_settings.1763926674.js';
+            const current_settings = new gen3_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('fr'); 
+            </script>
+            <main>
+                <h1>Génération 3 - Recherche par filtre</h1>
+            <div id='select_pokemon_filter' class='select_menu'>
+                <span>Filtre affiché :</span>
+                <select>
+                    
+                    <option value='all_methods' >Tous les Pokémon (GBA + GC)</option><option value='gba' >Tous les Pokémon (GBA)</option><option value='gamecube' selected>Tous les Pokémon (GC)</option><option value='ruby_only' >Information de Rubis uniquement</option><option value='sapphire_only' >Information de Saphir uniquement</option><option value='emerald_only' >Information d'Émeraude uniquement</option><option value='firered_only' >Information de Rouge Feu uniquement</option><option value='leafgreen_only' >Information de Vert Feuille uniquement</option><option value='one_way' >Pokémon n'ayant qu'un seul moyen d'obtention</option><option value='theoretical_best' >Meilleur moyen d'obtention selon la base de données</option>
+                </select>
+                <script type='module'>
+                    import select_reload from '/lyra-website-backup/scripts/functions/select_reload.1715012545.js';
+                    
+                    document.querySelector('#select_pokemon_filter').addEventListener('change', (event) => select_reload('/lyra-website-backup/fr/pokemon_gen3/pokemon_info', event));
+                </script>
+            </div>
+            <section id='pokemon_info_extra'>
+                <span>Recherche rapide :</span>
+                <input type='text' id='name_search_input' maxlength='15' />
+            </section>
+            <section id='pokemon_info' class='gamecube'>
+                <div id='pkmn_12' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 12</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_12.png'
+                    alt='Papilusion sprite gen 3' />
+                    <p class='pokemon_name'>Papilusion</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Ombre - Guer. Ombre Bettina</span>
+                </p>
+            </div><div id='pkmn_15' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 15</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_15.png'
+                    alt='Dardargnan sprite gen 3' />
+                    <p class='pokemon_name'>Dardargnan</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Ombre - Guer. Ombre Gaël</span>
+                </p>
+            </div><div id='pkmn_17' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 17</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_17.png'
+                    alt='Roucoups sprite gen 3' />
+                    <p class='pokemon_name'>Roucoups</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Ombre - Guer. Ombre Gaël</span>
+                </p>
+            </div><div id='pkmn_20' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 20</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_20.png'
+                    alt='Rattatac sprite gen 3' />
+                    <p class='pokemon_name'>Rattatac</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Guer. Ombre Olivier</span>
+                </p>
+            </div><div id='pkmn_21' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 21</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_21.png'
+                    alt='Piafabec sprite gen 3' />
+                    <p class='pokemon_name'>Piafabec</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Colisée de Phénacit - Guer. Ombre Lavinia</span>
+                </p>
+            </div><div id='pkmn_24' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 24</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_24.png'
+                    alt='Arbok sprite gen 3' />
+                    <p class='pokemon_name'>Arbok</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Ombre - Guer. Ombre Rolf</span>
+                </p>
+            </div><div id='pkmn_27' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 27</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_27.png'
+                    alt='Sabelette sprite gen 3' />
+                    <p class='pokemon_name'>Sabelette</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Poké Place Roche - 50%</span>
+                </p>
+            </div><div id='pkmn_37' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 37</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_37.png'
+                    alt='Goupix sprite gen 3' />
+                    <p class='pokemon_name'>Goupix</p>
+                </div>
+                <p class='catch_data'>
+                    <span>ONBS - Guer. Ombre Clothilde</span>
+                </p>
+            </div><div id='pkmn_41' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 41</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_41.png'
+                    alt='Nosferapti sprite gen 3' />
+                    <p class='pokemon_name'>Nosferapti</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Poké Place Grotte - 50%</span>
+                </p>
+            </div><div id='pkmn_46' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 46</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_46.png'
+                    alt='Paras sprite gen 3' />
+                    <p class='pokemon_name'>Paras</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Ombre - Guer. Ombre Zoran</span>
+                </p>
+            </div><div id='pkmn_49' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 49</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_49.png'
+                    alt='Aéromite sprite gen 3' />
+                    <p class='pokemon_name'>Aéromite</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Ombre - Guer. Ombre Albin</span>
+                </p>
+            </div><div id='pkmn_51' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 51</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_51.png'
+                    alt='Triopikeur sprite gen 3' />
+                    <p class='pokemon_name'>Triopikeur</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Guer. Ombre Scott</span>
+                </p>
+            </div><div id='pkmn_52' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 52</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_52.png'
+                    alt='Miaouss sprite gen 3' />
+                    <p class='pokemon_name'>Miaouss</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Centre de Formation Pokémon - Guer. Ombre Okan</span>
+                </p>
+            </div><div id='pkmn_55' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 55</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_55.png'
+                    alt='Akwakwak sprite gen 3' />
+                    <p class='pokemon_name'>Akwakwak</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Navigateur Ombre Flavien</span>
+                </p>
+            </div><div id='pkmn_57' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 57</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_57.png'
+                    alt='Colossinge sprite gen 3' />
+                    <p class='pokemon_name'>Colossinge</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Ombre - Admin Ombre Donozor</span>
+                </p>
+            </div><div id='pkmn_58' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 58</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_58.png'
+                    alt='Caninos sprite gen 3' />
+                    <p class='pokemon_name'>Caninos</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Ombre - Guer. Ombre Zoran</span>
+                </p>
+            </div><div id='pkmn_62' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 62</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_62.png'
+                    alt='Tartard sprite gen 3' />
+                    <p class='pokemon_name'>Tartard</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Admin Ombre Donozor</span>
+                </p>
+            </div><div id='pkmn_70' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 70</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_70.png'
+                    alt='Boustiflor sprite gen 3' />
+                    <p class='pokemon_name'>Boustiflor</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Ombre - Guer. Ombre Albin</span>
+                </p>
+            </div><div id='pkmn_78' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 78</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_78.png'
+                    alt='Galopa sprite gen 3' />
+                    <p class='pokemon_name'>Galopa</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Guer. Ombre Koé</span>
+                </p>
+            </div><div id='pkmn_82' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 82</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_82.png'
+                    alt='Magnéton sprite gen 3' />
+                    <p class='pokemon_name'>Magnéton</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Ombre - Guer. Ombre Timo</span>
+                </p>
+            </div><div id='pkmn_83' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 83</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_83.png'
+                    alt='Canarticho sprite gen 3' />
+                    <p class='pokemon_name'>Canarticho</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Admin Ombre Angéline</span>
+                </p>
+            </div><div id='pkmn_85' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 85</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_85.png'
+                    alt='Dodrio sprite gen 3' />
+                    <p class='pokemon_name'>Dodrio</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Guer. Ombre Olivier</span>
+                </p>
+            </div><div id='pkmn_86' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 86</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_86.png'
+                    alt='Otaria sprite gen 3' />
+                    <p class='pokemon_name'>Otaria</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Colisée de Phénacit - Guer. Ombre Frédéric</span>
+                </p>
+            </div><div id='pkmn_88' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 88</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_88.png'
+                    alt='Tadmorv sprite gen 3' />
+                    <p class='pokemon_name'>Tadmorv</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Colisée de Phénacit - Guer. Ombre Lilian</span>
+                </p>
+            </div><div id='pkmn_90' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 90</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_90.png'
+                    alt='Kokiyas sprite gen 3' />
+                    <p class='pokemon_name'>Kokiyas</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Ombre - Guer. Ombre Soufian</span>
+                </p>
+            </div><div id='pkmn_97' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 97</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_97.png'
+                    alt='Hypnomade sprite gen 3' />
+                    <p class='pokemon_name'>Hypnomade</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Ombre - Admin Ombre Donozor</span>
+                </p>
+            </div><div id='pkmn_100' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 100</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_100.png'
+                    alt='Voltorbe sprite gen 3' />
+                    <p class='pokemon_name'>Voltorbe</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Poké Place Grotte - Nomade Bouledisco</span>
+                </p>
+            </div><div id='pkmn_103' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 103</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_103.png'
+                    alt='Noadkoko sprite gen 3' />
+                    <p class='pokemon_name'>Noadkoko</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Grand Maître
+Malafid</span>
+                </p>
+            </div><div id='pkmn_105' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 105</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_105.png'
+                    alt='Ossatueur sprite gen 3' />
+                    <p class='pokemon_name'>Ossatueur</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Admin Ombre Eudes</span>
+                </p>
+            </div><div id='pkmn_106' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 106</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_106.png'
+                    alt='Kicklee sprite gen 3' />
+                    <p class='pokemon_name'>Kicklee</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Guer. Ombre Petro</span>
+                </p>
+            </div><div id='pkmn_107' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 107</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_107.png'
+                    alt='Tygnon sprite gen 3' />
+                    <p class='pokemon_name'>Tygnon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Guer. Ombre Karbon</span>
+                </p>
+            </div><div id='pkmn_108' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 108</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_108.png'
+                    alt='Excelangue sprite gen 3' />
+                    <p class='pokemon_name'>Excelangue</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Guer. Ombre Dorian</span>
+                </p>
+            </div><div id='pkmn_112' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 112</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_112.png'
+                    alt='Rhinoféros sprite gen 3' />
+                    <p class='pokemon_name'>Rhinoféros</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Grand Maître
+Malafid</span>
+                </p>
+            </div><div id='pkmn_113' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 113</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_113.png'
+                    alt='Leveinard sprite gen 3' />
+                    <p class='pokemon_name'>Leveinard</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Guer. Ombre Léonora</span>
+                </p>
+            </div><div id='pkmn_114' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 114</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_114.png'
+                    alt='Saquedeneu sprite gen 3' />
+                    <p class='pokemon_name'>Saquedeneu</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Ombre - Guer. Ombre Bettina</span>
+                </p>
+            </div><div id='pkmn_115' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 115</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_115.png'
+                    alt='Kangourex sprite gen 3' />
+                    <p class='pokemon_name'>Kangourex</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Guer. Ombre Ralf</span>
+                </p>
+            </div><div id='pkmn_121' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 121</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_121.png'
+                    alt='Staross sprite gen 3' />
+                    <p class='pokemon_name'>Staross</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Admin Ombre Vamper</span>
+                </p>
+            </div><div id='pkmn_122' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 122</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_122.png'
+                    alt='M. Mime sprite gen 3' />
+                    <p class='pokemon_name'>M. Mime</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Admin Ombre Donozor</span>
+                </p>
+            </div><div id='pkmn_123' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 123</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_123.png'
+                    alt='Insécateur sprite gen 3' />
+                    <p class='pokemon_name'>Insécateur</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Guer. Ombre Léonora</span>
+                </p>
+            </div><div id='pkmn_125' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 125</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_125.png'
+                    alt='Élektek sprite gen 3' />
+                    <p class='pokemon_name'>Élektek</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Admin Ombre Artus</span>
+                </p>
+            </div><div id='pkmn_126' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 126</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_126.png'
+                    alt='Magmar sprite gen 3' />
+                    <p class='pokemon_name'>Magmar</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Guer. Ombre Audry</span>
+                </p>
+            </div><div id='pkmn_127' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 127</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_127.png'
+                    alt='Scarabrute sprite gen 3' />
+                    <p class='pokemon_name'>Scarabrute</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Guer. Ombre Audry</span>
+                </p>
+            </div><div id='pkmn_128' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 128</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_128.png'
+                    alt='Tauros sprite gen 3' />
+                    <p class='pokemon_name'>Tauros</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Grand Maître
+Malafid</span>
+                </p>
+            </div><div id='pkmn_131' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 131</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_131.png'
+                    alt='Lokhlass sprite gen 3' />
+                    <p class='pokemon_name'>Lokhlass</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Admin Ombre Eudes</span>
+                </p>
+            </div><div id='pkmn_143' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 143</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_143.png'
+                    alt='Ronflex sprite gen 3' />
+                    <p class='pokemon_name'>Ronflex</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Admin Ombre Artus</span>
+                </p>
+            </div><div id='pkmn_144' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 144</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_144.png'
+                    alt='Artikodin sprite gen 3' />
+                    <p class='pokemon_name'>Artikodin</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Grand Maître
+Malafid</span>
+                </p>
+            </div><div id='pkmn_145' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 145</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_145.png'
+                    alt='Électhor sprite gen 3' />
+                    <p class='pokemon_name'>Électhor</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Grand Maître
+Malafid</span>
+                </p>
+            </div><div id='pkmn_146' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 146</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_146.png'
+                    alt='Sulfura sprite gen 3' />
+                    <p class='pokemon_name'>Sulfura</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Grand Maître
+Malafid</span>
+                </p>
+            </div><div id='pkmn_149' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 149</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_149.png'
+                    alt='Dracolosse sprite gen 3' />
+                    <p class='pokemon_name'>Dracolosse</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Port Amarrée - Nomade Bouledisco</span>
+                </p>
+            </div><div id='pkmn_153' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 153</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_153.png'
+                    alt='Macronium sprite gen 3' />
+                    <p class='pokemon_name'>Macronium</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Phénacit - Guer. Ombre Verde<br /></span><span>Tour Titanite - Guer. Ombre Verde<br /></span><span>Labo Pokémon Obscurs - Guer. Ombre Verde<br /></span><span>Repaire Team Snatch - Guer. Ombre Verde</span>
+                </p>
+            </div><div id='pkmn_156' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 156</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_156.png'
+                    alt='Feurisson sprite gen 3' />
+                    <p class='pokemon_name'>Feurisson</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Phénacit - Guer. Ombre Rosso<br /></span><span>Tour Titanite - Guer. Ombre Rosso<br /></span><span>Labo Pokémon Obscurs - Guer. Ombre Rosso<br /></span><span>Repaire Team Snatch - Guer. Ombre Rosso</span>
+                </p>
+            </div><div id='pkmn_159' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 159</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_159.png'
+                    alt='Crocrodil sprite gen 3' />
+                    <p class='pokemon_name'>Crocrodil</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Phénacit - Guer. Ombre Bluno<br /></span><span>Tour Titanite - Guer. Ombre Bluno<br /></span><span>Labo Pokémon Obscurs - Guer. Ombre Bluno<br /></span><span>Repaire Team Snatch - Guer. Ombre Bluno</span>
+                </p>
+            </div><div id='pkmn_162' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 162</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_162.png'
+                    alt='Fouinar sprite gen 3' />
+                    <p class='pokemon_name'>Fouinar</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pyrite - Voyou Marc</span>
+                </p>
+            </div><div id='pkmn_164' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 164</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_164.png'
+                    alt='Noarfang sprite gen 3' />
+                    <p class='pokemon_name'>Noarfang</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pyrite - Biker Bebop</span>
+                </p>
+            </div><div id='pkmn_165' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 165</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_165.png'
+                    alt='Coxy sprite gen 3' />
+                    <p class='pokemon_name'>Coxy</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Port Amarrée - Señor Fransisco</span>
+                </p>
+            </div><div id='pkmn_166' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 166</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_166.png'
+                    alt='Coxyclaque sprite gen 3' />
+                    <p class='pokemon_name'>Coxyclaque</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Team Snatch - Guer. Ombre Khap<br /></span><span>Suerebe - Guer. Ombre Khap</span>
+                </p>
+            </div><div id='pkmn_167' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 167</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_167.png'
+                    alt='Mimigal sprite gen 3' />
+                    <p class='pokemon_name'>Mimigal</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Ombre - Guer. Ombre Sélen</span>
+                </p>
+            </div><div id='pkmn_168' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 168</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_168.png'
+                    alt='Migalos sprite gen 3' />
+                    <p class='pokemon_name'>Migalos</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Pokémon Obscurs - Guer. Ombre Lesar</span>
+                </p>
+            </div><div id='pkmn_175' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 175</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_175.png'
+                    alt='Togepi sprite gen 3' />
+                    <p class='pokemon_name'>Togepi</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Station Service - Donné par Volker</span>
+                </p>
+            </div><div id='pkmn_176' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 176</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_176.png'
+                    alt='Togetic sprite gen 3' />
+                    <p class='pokemon_name'>Togetic</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Station Service - Guer. Ombre Masq (après 47 Pokémon Obscurs snatchés)</span>
+                </p>
+            </div><div id='pkmn_177' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 177</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_177.png'
+                    alt='Natu sprite gen 3' />
+                    <p class='pokemon_name'>Natu</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Centre de Formation Pokémon - Guer. Ombre Isabelle</span>
+                </p>
+            </div><div id='pkmn_179' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 179</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_179.png'
+                    alt='Wattouat sprite gen 3' />
+                    <p class='pokemon_name'>Wattouat</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Ombre - Guer. Ombre Sijone</span>
+                </p>
+            </div><div id='pkmn_180' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 180</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_180.png'
+                    alt='Lainergie sprite gen 3' />
+                    <p class='pokemon_name'>Lainergie</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pyrite - Artiste Chelsea</span>
+                </p>
+            </div><div id='pkmn_185' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 185</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_185.png'
+                    alt='Simularbre sprite gen 3' />
+                    <p class='pokemon_name'>Simularbre</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Colosseum Targare - Admin Ombre Bouledisco<br /></span><span>Repaire Bouledisco - Admin Ombre Bouledisco<br /></span><span>Tour Titanite - Admin Ombre Bouledisco</span>
+                </p>
+            </div><div id='pkmn_187' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 187</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_187.png'
+                    alt='Granivol sprite gen 3' />
+                    <p class='pokemon_name'>Granivol</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Poké Place Oasis - 50%</span>
+                </p>
+            </div><div id='pkmn_188' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 188</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_188.png'
+                    alt='Floravol sprite gen 3' />
+                    <p class='pokemon_name'>Floravol</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pyrite - Biker Rapsody</span>
+                </p>
+            </div><div id='pkmn_190' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 190</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_190.png'
+                    alt='Capumain sprite gen 3' />
+                    <p class='pokemon_name'>Capumain</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Pokémon Obscurs - Guer. Ombre Gakoo</span>
+                </p>
+            </div><div id='pkmn_192' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 192</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_192.png'
+                    alt='Héliatronc sprite gen 3' />
+                    <p class='pokemon_name'>Héliatronc</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Tour Titanite - Guer. Ombre Giny<br /></span><span>Repaire Team Snatch - Guer. Ombre Giny</span>
+                </p>
+            </div><div id='pkmn_193' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 193</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_193.png'
+                    alt='Yanma sprite gen 3' />
+                    <p class='pokemon_name'>Yanma</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Immeuble de Pyrite - Guer. Ombre Wild<br /></span><span>Repaire Team Snatch - Guer. Ombre Wild</span>
+                </p>
+            </div><div id='pkmn_194' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 194</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_194.png'
+                    alt='Axoloto sprite gen 3' />
+                    <p class='pokemon_name'>Axoloto</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Poké Place Grotte - 15%</span>
+                </p>
+            </div><div id='pkmn_195' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 195</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_195.png'
+                    alt='Maraiste sprite gen 3' />
+                    <p class='pokemon_name'>Maraiste</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pyrite - Bandana Kid Pick</span>
+                </p>
+            </div><div id='pkmn_196' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 196</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_196.png'
+                    alt='Mentali sprite gen 3' />
+                    <p class='pokemon_name'>Mentali</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pokémon Colosseum - Pokémon de départ</span>
+                </p>
+            </div><div id='pkmn_197' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 197</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_197.png'
+                    alt='Noctali sprite gen 3' />
+                    <p class='pokemon_name'>Noctali</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pokémon Colosseum - Pokémon de départ</span>
+                </p>
+            </div><div id='pkmn_198' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 198</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_198.png'
+                    alt='Cornèbre sprite gen 3' />
+                    <p class='pokemon_name'>Cornèbre</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Pokémon Obscurs - Guer. Ombre Therma</span>
+                </p>
+            </div><div id='pkmn_200' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 200</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_200.png'
+                    alt='Feuforêve sprite gen 3' />
+                    <p class='pokemon_name'>Feuforêve</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pyrite - Biker Senio</span>
+                </p>
+            </div><div id='pkmn_204' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 204</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_204.png'
+                    alt='Pomdepik sprite gen 3' />
+                    <p class='pokemon_name'>Pomdepik</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Phénacit - Guer. Ombre Gilles</span>
+                </p>
+            </div><div id='pkmn_205' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 205</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_205.png'
+                    alt='Foretress sprite gen 3' />
+                    <p class='pokemon_name'>Foretress</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Pokémon Obscurs - Guer. Ombre Mara</span>
+                </p>
+            </div><div id='pkmn_206' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 206</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_206.png'
+                    alt='Insolourdo sprite gen 3' />
+                    <p class='pokemon_name'>Insolourdo</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cavernes de Pyrite - Biker Bim</span>
+                </p>
+            </div><div id='pkmn_207'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 207</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_207.png'
+                    alt='Scorplane sprite gen 3' />
+                    <p class='pokemon_name'>Scorplane</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='xd' >Poké Place Roche - 35%<br /></span><span class='colosseum' >Repaire Team Snatch - Chasseur Frena<br /></span><span class='colosseum' >Métro de Suerebe - Chasseur Frena</span>
+                </p>
+            </div><div id='pkmn_210' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 210</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_210.png'
+                    alt='Granbull sprite gen 3' />
+                    <p class='pokemon_name'>Granbull</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Pokémon Obscurs - Guer. Ombre Fia</span>
+                </p>
+            </div><div id='pkmn_211' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 211</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_211.png'
+                    alt='Qwilfish sprite gen 3' />
+                    <p class='pokemon_name'>Qwilfish</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Immeuble de Pyrite - Chasseur Tank</span>
+                </p>
+            </div><div id='pkmn_213' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 213</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_213.png'
+                    alt='Caratroc sprite gen 3' />
+                    <p class='pokemon_name'>Caratroc</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Colosseum Targare - Roi Targare Zoltan</span>
+                </p>
+            </div><div id='pkmn_214' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 214</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_214.png'
+                    alt='Scarhino sprite gen 3' />
+                    <p class='pokemon_name'>Scarhino</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Tour Titanite - Guer. Ombre Stern<br /></span><span>Repaire Team Snatch - Guer. Ombre Stern</span>
+                </p>
+            </div><div id='pkmn_215' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 215</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_215.png'
+                    alt='Farfuret sprite gen 3' />
+                    <p class='pokemon_name'>Farfuret</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Team Snatch - Biker Nelis<br /></span><span>Métro de Suerebe - Biker Nelis</span>
+                </p>
+            </div><div id='pkmn_216' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 216</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_216.png'
+                    alt='Teddiursa sprite gen 3' />
+                    <p class='pokemon_name'>Teddiursa</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Laboratoire Pokémon - Espion Bordi</span>
+                </p>
+            </div><div id='pkmn_217' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 217</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_217.png'
+                    alt='Ursaring sprite gen 3' />
+                    <p class='pokemon_name'>Ursaring</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Team Snatch - Team Snatch Midzano</span>
+                </p>
+            </div><div id='pkmn_218' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 218</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_218.png'
+                    alt='Limagma sprite gen 3' />
+                    <p class='pokemon_name'>Limagma</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pyrite - Rollerboy Atonn</span>
+                </p>
+            </div><div id='pkmn_219' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 219</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_219.png'
+                    alt='Volcaropod sprite gen 3' />
+                    <p class='pokemon_name'>Volcaropod</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Guer. Ombre Koé</span>
+                </p>
+            </div><div id='pkmn_220' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 220</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_220.png'
+                    alt='Marcacrin sprite gen 3' />
+                    <p class='pokemon_name'>Marcacrin</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Phénacit - Guer. Ombre Donatien</span>
+                </p>
+            </div><div id='pkmn_221' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 221</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_221.png'
+                    alt='Cochignon sprite gen 3' />
+                    <p class='pokemon_name'>Cochignon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Team Snatch - Culturiste Lonia<br /></span><span>Métro de Suerebe - Culturiste Lonia</span>
+                </p>
+            </div><div id='pkmn_223' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 223</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_223.png'
+                    alt='Rémoraid sprite gen 3' />
+                    <p class='pokemon_name'>Rémoraid</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Immeuble de Pyrite - Sbire Boul. Cary<br /></span><span>Cavernes de Pyrite - Sbire Boul. Cary</span>
+                </p>
+            </div><div id='pkmn_225' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 225</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_225.png'
+                    alt='Cadoizo sprite gen 3' />
+                    <p class='pokemon_name'>Cadoizo</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Tour Titanite - Guer. Ombre Zail<br /></span><span>Repaire Team Snatch - Guer. Ombre Zail</span>
+                </p>
+            </div><div id='pkmn_226' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 226</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_226.png'
+                    alt='Démanta sprite gen 3' />
+                    <p class='pokemon_name'>Démanta</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Immeuble de Pyrite - Sbire Boul. Sylla<br /></span><span>Cavernes de Pyrite - Sbire Boul. Sylla</span>
+                </p>
+            </div><div id='pkmn_227' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 227</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_227.png'
+                    alt='Airmure sprite gen 3' />
+                    <p class='pokemon_name'>Airmure</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Tour Titanite - Lead. Snatch Helgonza<br /></span><span>Repaire Team Snatch - Lead. Snatch Helgonza</span>
+                </p>
+            </div><div id='pkmn_228' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 228</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_228.png'
+                    alt='Malosse sprite gen 3' />
+                    <p class='pokemon_name'>Malosse</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Ombre - Guer. Ombre Sirouj</span>
+                </p>
+            </div><div id='pkmn_229' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 229</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_229.png'
+                    alt='Démolosse sprite gen 3' />
+                    <p class='pokemon_name'>Démolosse</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Colosseum Titanite - Guer. Ombre Chloee</span>
+                </p>
+            </div><div id='pkmn_231' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 231</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_231.png'
+                    alt='Phanpy sprite gen 3' />
+                    <p class='pokemon_name'>Phanpy</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Poké Place Oasis - 35%</span>
+                </p>
+            </div><div id='pkmn_234' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 234</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_234.png'
+                    alt='Cerfrousse sprite gen 3' />
+                    <p class='pokemon_name'>Cerfrousse</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Team Snatch - Canaille Shaina<br /></span><span>Métro de Suerebe - Canaille Shaina</span>
+                </p>
+            </div><div id='pkmn_235' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 235</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_235.png'
+                    alt='Queulorior sprite gen 3' />
+                    <p class='pokemon_name'>Queulorior</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Team Snatch - Team Snatch Zabb</span>
+                </p>
+            </div><div id='pkmn_237' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 237</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_237.png'
+                    alt='Kapoera sprite gen 3' />
+                    <p class='pokemon_name'>Kapoera</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Samaragd - Guer. Ombre Skrub<br /></span><span>Labo Pokémon Obscurs - Guer. Ombre Skrub<br /></span><span>Repaire Team Snatch - Guer. Ombre Skrub</span>
+                </p>
+            </div><div id='pkmn_241' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 241</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_241.png'
+                    alt='Écrémeuh sprite gen 3' />
+                    <p class='pokemon_name'>Écrémeuh</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Colosseum Titanite - Culturiste Rambi</span>
+                </p>
+            </div><div id='pkmn_243' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 243</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_243.png'
+                    alt='Raikou sprite gen 3' />
+                    <p class='pokemon_name'>Raikou</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Colosseum Targare - Admin Ombre Teck<br /></span><span>Tour Titanite - Admin Ombre Teck<br /></span><span>Labo Pokémon Obscurs - Admin Ombre Teck</span>
+                </p>
+            </div><div id='pkmn_244' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 244</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_244.png'
+                    alt='Entei sprite gen 3' />
+                    <p class='pokemon_name'>Entei</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Colosseum Targare - Admin Ombre Dakim<br /></span><span>Mont Bataille - Admin Ombre Dakim<br /></span><span>Tour Titanite - Admin Ombre Dakim</span>
+                </p>
+            </div><div id='pkmn_245' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 245</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_245.png'
+                    alt='Suicune sprite gen 3' />
+                    <p class='pokemon_name'>Suicune</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Colosseum Targare - Admin Ombre Venus<br /></span><span>Tour Titanite - Admin Ombre Venus<br /></span><span>Métro de Suerebe - Admin Ombre Venus</span>
+                </p>
+            </div><div id='pkmn_248' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 248</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_248.png'
+                    alt='Tyranocif sprite gen 3' />
+                    <p class='pokemon_name'>Tyranocif</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Colosseum Titanite - Leader Ombre Nosfrat</span>
+                </p>
+            </div><div id='pkmn_249' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 249</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_249.png'
+                    alt='Lugia sprite gen 3' />
+                    <p class='pokemon_name'>Lugia</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Grand Maître
+Malafid</span>
+                </p>
+            </div><div id='pkmn_250' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 250</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_250.png'
+                    alt='Ho-Oh sprite gen 3' />
+                    <p class='pokemon_name'>Ho-Oh</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pokémon Colosseum - Purifier les 48 Pokémon Obscurs puis vaincre les 100 dresseurs du Mode Combat</span>
+                </p>
+            </div><div id='pkmn_261' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 261</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_261.png'
+                    alt='Medhyèna sprite gen 3' />
+                    <p class='pokemon_name'>Medhyèna</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Port Amarrée - Culturiste Xenya</span>
+                </p>
+            </div><div id='pkmn_273' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 273</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_273.png'
+                    alt='Grainipiot sprite gen 3' />
+                    <p class='pokemon_name'>Grainipiot</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Ombre - Guer. Ombre Sivère</span>
+                </p>
+            </div><div id='pkmn_277' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 277</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_277.png'
+                    alt='Hélédelle sprite gen 3' />
+                    <p class='pokemon_name'>Hélédelle</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Admin Ombre Artus</span>
+                </p>
+            </div><div id='pkmn_280' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 280</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_280.png'
+                    alt='Tarsal sprite gen 3' />
+                    <p class='pokemon_name'>Tarsal</p>
+                </div>
+                <p class='catch_data'>
+                    <span>ONBS - Guer. Ombre Jari </span>
+                </p>
+            </div><div id='pkmn_283' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 283</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_283.png'
+                    alt='Arakdo sprite gen 3' />
+                    <p class='pokemon_name'>Arakdo</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Poké Place Oasis - 15%</span>
+                </p>
+            </div><div id='pkmn_285' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 285</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_285.png'
+                    alt='Balignon sprite gen 3' />
+                    <p class='pokemon_name'>Balignon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Ombre - R&D Ombre Jorrit</span>
+                </p>
+            </div><div id='pkmn_296'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 296</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_296.png'
+                    alt='Makuhita sprite gen 3' />
+                    <p class='pokemon_name'>Makuhita</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='colosseum' >Phénacit - Sbire Boul. Ross<br /></span><span class='xd' >ONBS - Guer. Ombre Nolan</span>
+                </p>
+            </div><div id='pkmn_299' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 299</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_299.png'
+                    alt='Tarinor sprite gen 3' />
+                    <p class='pokemon_name'>Tarinor</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Station Service - Nomade Bouledisco</span>
+                </p>
+            </div><div id='pkmn_301' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 301</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_301.png'
+                    alt='Delcatty sprite gen 3' />
+                    <p class='pokemon_name'>Delcatty</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Ombre - Admin Ombre Angéline</span>
+                </p>
+            </div><div id='pkmn_302' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 302</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_302.png'
+                    alt='Ténéfix sprite gen 3' />
+                    <p class='pokemon_name'>Ténéfix</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Navigateur Ombre Flavien</span>
+                </p>
+            </div><div id='pkmn_303' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 303</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_303.png'
+                    alt='Mysdibule sprite gen 3' />
+                    <p class='pokemon_name'>Mysdibule</p>
+                </div>
+                <p class='catch_data'>
+                    <span>ONBS - Chef Ombre Tiziano</span>
+                </p>
+            </div><div id='pkmn_304' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 304</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_304.png'
+                    alt='Galekid sprite gen 3' />
+                    <p class='pokemon_name'>Galekid</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Poké Place Grotte - 35%</span>
+                </p>
+            </div><div id='pkmn_307' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 307</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_307.png'
+                    alt='Méditikka sprite gen 3' />
+                    <p class='pokemon_name'>Méditikka</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cavernes de Pyrite - Biker Clint</span>
+                </p>
+            </div><div id='pkmn_310' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 310</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_310.png'
+                    alt='Élecsprint sprite gen 3' />
+                    <p class='pokemon_name'>Élecsprint</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Admin Ombre Eudes</span>
+                </p>
+            </div><div id='pkmn_311' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 311</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_311.png'
+                    alt='Posipi sprite gen 3' />
+                    <p class='pokemon_name'>Posipi</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pokémon Colosseum - Donné par Doking</span>
+                </p>
+            </div><div id='pkmn_315' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 315</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_315.png'
+                    alt='Rosélia sprite gen 3' />
+                    <p class='pokemon_name'>Rosélia</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Centre de Formation Pokémon - Guer. Ombre Janice</span>
+                </p>
+            </div><div id='pkmn_316' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 316</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_316.png'
+                    alt='Gloupti sprite gen 3' />
+                    <p class='pokemon_name'>Gloupti</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Ombre - Guer. Ombre Siviolé</span>
+                </p>
+            </div><div id='pkmn_318' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 318</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_318.png'
+                    alt='Carvanha sprite gen 3' />
+                    <p class='pokemon_name'>Carvanha</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Ombre - Guer. Ombre Ruben </span>
+                </p>
+            </div><div id='pkmn_322' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 322</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_322.png'
+                    alt='Chamallot sprite gen 3' />
+                    <p class='pokemon_name'>Chamallot</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Ombre - Guer. Ombre Niels </span>
+                </p>
+            </div><div id='pkmn_328' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 328</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_328.png'
+                    alt='Kraknoix sprite gen 3' />
+                    <p class='pokemon_name'>Kraknoix</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Poké Place Roche - 15%</span>
+                </p>
+            </div><div id='pkmn_329' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 329</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_329.png'
+                    alt='Vibraninf sprite gen 3' />
+                    <p class='pokemon_name'>Vibraninf</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Pokémon Obscurs - Guer. Ombre Izuna</span>
+                </p>
+            </div><div id='pkmn_333' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 333</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_333.png'
+                    alt='Tylton sprite gen 3' />
+                    <p class='pokemon_name'>Tylton</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cavernes de Pyrite - Chasseur Dremo</span>
+                </p>
+            </div><div id='pkmn_334' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 334</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_334.png'
+                    alt='Altaria sprite gen 3' />
+                    <p class='pokemon_name'>Altaria</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Admin Ombre Angéline</span>
+                </p>
+            </div><div id='pkmn_335' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 335</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_335.png'
+                    alt='Mangriff sprite gen 3' />
+                    <p class='pokemon_name'>Mangriff</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Repaire Ombre - Brute Barry</span>
+                </p>
+            </div><div id='pkmn_337' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 337</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_337.png'
+                    alt='Séléroc sprite gen 3' />
+                    <p class='pokemon_name'>Séléroc</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Colisée de Phénacit - Admin Ombre Vamper</span>
+                </p>
+            </div><div id='pkmn_338' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 338</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_338.png'
+                    alt='Solaroc sprite gen 3' />
+                    <p class='pokemon_name'>Solaroc</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Admin Ombre Vamper</span>
+                </p>
+            </div><div id='pkmn_343' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 343</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_343.png'
+                    alt='Balbuto sprite gen 3' />
+                    <p class='pokemon_name'>Balbuto</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Ombre - Guer. Ombre Sibrin</span>
+                </p>
+            </div><div id='pkmn_354' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 354</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_354.png'
+                    alt='Branette sprite gen 3' />
+                    <p class='pokemon_name'>Branette</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Guer. Ombre Ralf</span>
+                </p>
+            </div><div id='pkmn_355' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 355</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_355.png'
+                    alt='Skelénox sprite gen 3' />
+                    <p class='pokemon_name'>Skelénox</p>
+                </div>
+                <p class='catch_data'>
+                    <span>ONBS - Guer. Ombre Julien</span>
+                </p>
+            </div><div id='pkmn_357' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 357</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_357.png'
+                    alt='Tropius sprite gen 3' />
+                    <p class='pokemon_name'>Tropius</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Colosseum Titanite - Guer. Ombre Derder</span>
+                </p>
+            </div><div id='pkmn_359' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 359</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_359.png'
+                    alt='Absol sprite gen 3' />
+                    <p class='pokemon_name'>Absol</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Colosseum Titanite - Biker Easy</span>
+                </p>
+            </div><div id='pkmn_361' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 361</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_361.png'
+                    alt='Stalgamin sprite gen 3' />
+                    <p class='pokemon_name'>Stalgamin</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Phénacit - Guer. Ombre Flavie</span>
+                </p>
+            </div><div id='pkmn_363' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 363</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_363.png'
+                    alt='Obalie sprite gen 3' />
+                    <p class='pokemon_name'>Obalie</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Labo Ombre - Guer. Ombre Sibleux</span>
+                </p>
+            </div><div id='pkmn_373' class='xd' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 373</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_373.png'
+                    alt='Drattak sprite gen 3' />
+                    <p class='pokemon_name'>Drattak</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Île Ténébra - Admin Ombre Eudes</span>
+                </p>
+            </div><div id='pkmn_376' class='colosseum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 376</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen3/images/pokedex_emerald/sprite_376.png'
+                    alt='Métalosse sprite gen 3' />
+                    <p class='pokemon_name'>Métalosse</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Colosseum Titanite - Ombre Jakylla</span>
+                </p>
+            </div>
+                <p id='empty_search_message' class='hidden'>Aucun Pokémon trouvé ayant le nom ou numéro recherché.</p>
+                <p id='empty_caught_message' class='hidden'>Aucun Pokémon affiché, car ils sont tous capturés. Désactivez l'option <i>"Ignorer les Pokémon déjà attrapés"</i> pour faire une recherche.</p>
+            </section><script type='module'>
+                import name_search from '/lyra-website-backup/scripts/functions/pokemon/name_search.1726619881.js';
+                        
+                name_search();
+            </script>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Sauvegarde de pr&eacute;servation du site <strong>Lyra a un site web</strong>. Site, design et contenu originaux par <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon et tous les &eacute;l&eacute;ments associ&eacute;s sont des marques de Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

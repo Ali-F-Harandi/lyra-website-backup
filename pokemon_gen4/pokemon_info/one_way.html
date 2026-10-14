@@ -1,0 +1,2001 @@
+<!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <title>Pokémon only obtainable through a single method - Pokémon info - Gen 4</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen4.1774893397.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_diamond.css' />
+                <script>
+                    init_style('gen4');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/'>Return to main menu</a>
+                    </div>
+
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/fr/pokemon_gen4/catch_locations' >
+                            <span lang='fr'>Version française</span>
+                            <img src='/lyra-website-backup/views/images/french_flag.png' alt='French flag' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra made a website about</h1>
+    <h2>Pokémon Gen 4</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/pokemon_gen4/full_guide'>Full Guide</a>
+    <a href='/lyra-website-backup/pokemon_gen4/pokedex_tracker'>Pokédex tracker</a>
+    <a href='/lyra-website-backup/pokemon_gen4/catch_locations'>Catch locations</a>
+    <a href='/lyra-website-backup/pokemon_gen4/pokemon_info'>Pokémon info</a>
+    <a href='/lyra-website-backup/pokemon_gen4/extra_info'>Extra info</a>
+    <button id='settings_link'>Settings</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex tracker</h1>
+                <ul>
+                    <li>
+                <p>Pokédex displayed: </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>National Pokédex</option><option value='diamond_pearl_dex'>Diamond & Pearl</option><option value='platinum_dex'>Platinum</option><option value='heartgold_soulsilver_dex'>HeartGold & SoulSilver</option><option value='only_new_dex'>New Pokémon only</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Add extra step to capture</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Display current progress</p>
+            </li><li>
+                <p>Pokemon sprites used: </p>
+                <select id='select_pokemon_sprites'><option value='dp_sprites'>Diamond & Pearl</option><option value='plat_sprites'>Platinum</option><option value='hgss_sprites'>HeartGold & SoulSilver</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Small Pokémon sprites</p>
+            </li><li>
+                <p>Box labels: </p>
+                <select id='select_box_names'><option value='boxes_order'>Box number</option><option value='boxes_firstlast'>First & last Pokémon</option><option value='boxes_hidden'>Hide labels</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Catch locations</h1>
+                <ul>
+                    <li>
+                <p>Filter by version: </p>
+                <select id='select_version_filter'><option value='pref_none'>All</option><option value='pref_diamond'>Diamond</option><option value='pref_pearl'>Pearl</option><option value='pref_platinum'>Platinum</option><option value='pref_heartgold'>HeartGold</option><option value='pref_soulsilver'>SoulSilver</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Hide Old Rod and Good Rod data</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon info</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignore info of caught Pokémon</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Website colors</h1>
+                <ul>
+                    <li>
+                <p>Color theme: </p>
+                <select id='select_color_theme'><optgroup label='Gen 4'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamond</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Pearl</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Gen 4 data management</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Export</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Import</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+
+            import gen4_settings from '/lyra-website-backup/scripts/pokemon/gen4/gen4_settings.1763927568.js';
+            const current_settings = new gen4_settings();
+
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('en');
+            </script>
+<main>
+                <h1>Generation 4 - Pokémon info</h1>
+            <div id='select_pokemon_filter' class='select_menu'>
+                <span>Displayed list:</span>
+                <select>
+
+                    <option value=''  disabled hidden>Select filter</option><option value='all_methods'>All methods<option value='diamond_only'>Locations from Diamond only<option value='pearl_only'>Locations from Pearl only<option value='platinum_only'>Locations from Platinum only<option value='heartgold_only'>Locations from HeartGold only<option value='soulsilver_only'>Locations from SoulSilver only<option value='one_way' selected>Pokémon only obtainable through a single method<option value='theoretical_best'>Theoretical best location according to the database
+                </select>
+                <script type='module'>
+                    import select_reload from '/lyra-website-backup/scripts/functions/select_reload.1715012545.js';
+
+                    document.querySelector('#select_pokemon_filter').addEventListener('change', (event) => select_reload('/lyra-website-backup/pokemon_gen4/pokemon_info', event));
+                </script>
+            </div>
+            <section id='pokemon_info_extra'>
+                <span>Quick search:</span>
+                <input type='text' id='name_search_input' maxlength='15' />
+            </section>
+            <section id='pokemon_info' class='one_way'>
+                <div id='pkmn_1' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 1</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_1.png'
+                    alt='Bulbasaur sprite gen 4' />
+                    <p class='pokemon_name'>Bulbasaur</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >Pallet Town - Starter</span>
+                </p>
+            </div>
+<div id='pkmn_2'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 2</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_2.png'
+                    alt='Ivysaur sprite gen 4' />
+                    <p class='pokemon_name'>Ivysaur</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 16</span>
+                </p>
+            </div>
+<div id='pkmn_3'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 3</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_3.png'
+                    alt='Venusaur sprite gen 4' />
+                    <p class='pokemon_name'>Venusaur</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 32</span>
+                </p>
+            </div>
+<div id='pkmn_4' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 4</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_4.png'
+                    alt='Charmander sprite gen 4' />
+                    <p class='pokemon_name'>Charmander</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >Pallet Town - Starter</span>
+                </p>
+            </div>
+<div id='pkmn_5'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 5</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_5.png'
+                    alt='Charmeleon sprite gen 4' />
+                    <p class='pokemon_name'>Charmeleon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 16</span>
+                </p>
+            </div>
+<div id='pkmn_6'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 6</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_6.png'
+                    alt='Charizard sprite gen 4' />
+                    <p class='pokemon_name'>Charizard</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 36</span>
+                </p>
+            </div>
+<div id='pkmn_7' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 7</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_7.png'
+                    alt='Squirtle sprite gen 4' />
+                    <p class='pokemon_name'>Squirtle</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >Pallet Town - Starter</span>
+                </p>
+            </div>
+<div id='pkmn_8'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 8</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_8.png'
+                    alt='Wartortle sprite gen 4' />
+                    <p class='pokemon_name'>Wartortle</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 16</span>
+                </p>
+            </div>
+<div id='pkmn_9'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 9</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_9.png'
+                    alt='Blastoise sprite gen 4' />
+                    <p class='pokemon_name'>Blastoise</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 36</span>
+                </p>
+            </div>
+<div id='pkmn_18'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 18</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_18.png'
+                    alt='Pidgeot sprite gen 4' />
+                    <p class='pokemon_name'>Pidgeot</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 36</span>
+                </p>
+            </div>
+<div id='pkmn_26'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 26</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_26.png'
+                    alt='Raichu sprite gen 4' />
+                    <p class='pokemon_name'>Raichu</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Thunder Stone</span>
+                </p>
+            </div>
+<div id='pkmn_31'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 31</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_31.png'
+                    alt='Nidoqueen sprite gen 4' />
+                    <p class='pokemon_name'>Nidoqueen</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Moon Stone</span>
+                </p>
+            </div>
+<div id='pkmn_34'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 34</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_34.png'
+                    alt='Nidoking sprite gen 4' />
+                    <p class='pokemon_name'>Nidoking</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Moon Stone</span>
+                </p>
+            </div>
+<div id='pkmn_36'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 36</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_36.png'
+                    alt='Clefable sprite gen 4' />
+                    <p class='pokemon_name'>Clefable</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Moon Stone</span>
+                </p>
+            </div>
+<div id='pkmn_38'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 38</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_38.png'
+                    alt='Ninetales sprite gen 4' />
+                    <p class='pokemon_name'>Ninetales</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Fire Stone</span>
+                </p>
+            </div>
+<div id='pkmn_40'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 40</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_40.png'
+                    alt='Wigglytuff sprite gen 4' />
+                    <p class='pokemon_name'>Wigglytuff</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Moon Stone</span>
+                </p>
+            </div>
+<div id='pkmn_45'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 45</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_45.png'
+                    alt='Vileplume sprite gen 4' />
+                    <p class='pokemon_name'>Vileplume</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Leaf Stone</span>
+                </p>
+            </div>
+<div id='pkmn_59'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 59</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_59.png'
+                    alt='Arcanine sprite gen 4' />
+                    <p class='pokemon_name'>Arcanine</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Fire Stone</span>
+                </p>
+            </div>
+<div id='pkmn_62'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 62</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_62.png'
+                    alt='Poliwrath sprite gen 4' />
+                    <p class='pokemon_name'>Poliwrath</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Water Stone</span>
+                </p>
+            </div>
+<div id='pkmn_65'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 65</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_65.png'
+                    alt='Alakazam sprite gen 4' />
+                    <p class='pokemon_name'>Alakazam</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Trade</span>
+                </p>
+            </div>
+<div id='pkmn_68'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 68</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_68.png'
+                    alt='Machamp sprite gen 4' />
+                    <p class='pokemon_name'>Machamp</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Trade</span>
+                </p>
+            </div>
+<div id='pkmn_71'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 71</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_71.png'
+                    alt='Victreebel sprite gen 4' />
+                    <p class='pokemon_name'>Victreebel</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Leaf Stone</span>
+                </p>
+            </div>
+<div id='pkmn_91'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 91</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_91.png'
+                    alt='Cloyster sprite gen 4' />
+                    <p class='pokemon_name'>Cloyster</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Water Stone</span>
+                </p>
+            </div>
+<div id='pkmn_103'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 103</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_103.png'
+                    alt='Exeggutor sprite gen 4' />
+                    <p class='pokemon_name'>Exeggutor</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Leaf Stone</span>
+                </p>
+            </div>
+<div id='pkmn_106'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 106</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_106.png'
+                    alt='Hitmonlee sprite gen 4' />
+                    <p class='pokemon_name'>Hitmonlee</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 20</span>
+                </p>
+            </div>
+<div id='pkmn_107'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 107</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_107.png'
+                    alt='Hitmonchan sprite gen 4' />
+                    <p class='pokemon_name'>Hitmonchan</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 20</span>
+                </p>
+            </div>
+<div id='pkmn_121'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 121</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_121.png'
+                    alt='Starmie sprite gen 4' />
+                    <p class='pokemon_name'>Starmie</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Water Stone</span>
+                </p>
+            </div>
+<div id='pkmn_134'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 134</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_134.png'
+                    alt='Vaporeon sprite gen 4' />
+                    <p class='pokemon_name'>Vaporeon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Water Stone</span>
+                </p>
+            </div>
+<div id='pkmn_135'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 135</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_135.png'
+                    alt='Jolteon sprite gen 4' />
+                    <p class='pokemon_name'>Jolteon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Thunder Stone</span>
+                </p>
+            </div>
+<div id='pkmn_136'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 136</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_136.png'
+                    alt='Flareon sprite gen 4' />
+                    <p class='pokemon_name'>Flareon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Fire Stone</span>
+                </p>
+            </div>
+<div id='pkmn_139'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 139</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_139.png'
+                    alt='Omastar sprite gen 4' />
+                    <p class='pokemon_name'>Omastar</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 40</span>
+                </p>
+            </div>
+<div id='pkmn_141'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 141</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_141.png'
+                    alt='Kabutops sprite gen 4' />
+                    <p class='pokemon_name'>Kabutops</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 40</span>
+                </p>
+            </div>
+<div id='pkmn_149'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 149</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_149.png'
+                    alt='Dragonite sprite gen 4' />
+                    <p class='pokemon_name'>Dragonite</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 55</span>
+                </p>
+            </div>
+<div id='pkmn_150' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 150</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_150.png'
+                    alt='Mewtwo sprite gen 4' />
+                    <p class='pokemon_name'>Mewtwo</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >Cerulean Cave - B1F - Unique</span>
+                </p>
+            </div>
+<div id='pkmn_151'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 151</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_151.png'
+                    alt='Mew sprite gen 4' />
+                    <p class='pokemon_name'>Mew</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pal Park - Import from Gen 3</span>
+                </p>
+            </div>
+<div id='pkmn_152' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 152</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_152.png'
+                    alt='Chikorita sprite gen 4' />
+                    <p class='pokemon_name'>Chikorita</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >New Bark Town - Starter</span>
+                </p>
+            </div>
+<div id='pkmn_153'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 153</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_153.png'
+                    alt='Bayleef sprite gen 4' />
+                    <p class='pokemon_name'>Bayleef</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 16</span>
+                </p>
+            </div>
+<div id='pkmn_154'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 154</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_154.png'
+                    alt='Meganium sprite gen 4' />
+                    <p class='pokemon_name'>Meganium</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 32</span>
+                </p>
+            </div>
+<div id='pkmn_155' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 155</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_155.png'
+                    alt='Cyndaquil sprite gen 4' />
+                    <p class='pokemon_name'>Cyndaquil</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >New Bark Town - Starter</span>
+                </p>
+            </div>
+<div id='pkmn_156'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 156</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_156.png'
+                    alt='Quilava sprite gen 4' />
+                    <p class='pokemon_name'>Quilava</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 14</span>
+                </p>
+            </div>
+<div id='pkmn_157'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 157</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_157.png'
+                    alt='Typhlosion sprite gen 4' />
+                    <p class='pokemon_name'>Typhlosion</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 36</span>
+                </p>
+            </div>
+<div id='pkmn_158' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 158</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_158.png'
+                    alt='Totodile sprite gen 4' />
+                    <p class='pokemon_name'>Totodile</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >New Bark Town - Starter</span>
+                </p>
+            </div>
+<div id='pkmn_159'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 159</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_159.png'
+                    alt='Croconaw sprite gen 4' />
+                    <p class='pokemon_name'>Croconaw</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 18</span>
+                </p>
+            </div>
+<div id='pkmn_160'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 160</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_160.png'
+                    alt='Feraligatr sprite gen 4' />
+                    <p class='pokemon_name'>Feraligatr</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 30</span>
+                </p>
+            </div>
+<div id='pkmn_169'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 169</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_169.png'
+                    alt='Crobat sprite gen 4' />
+                    <p class='pokemon_name'>Crobat</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Friendship</span>
+                </p>
+            </div>
+<div id='pkmn_176'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 176</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_176.png'
+                    alt='Togetic sprite gen 4' />
+                    <p class='pokemon_name'>Togetic</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Friendship</span>
+                </p>
+            </div>
+<div id='pkmn_181'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 181</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_181.png'
+                    alt='Ampharos sprite gen 4' />
+                    <p class='pokemon_name'>Ampharos</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 30</span>
+                </p>
+            </div>
+<div id='pkmn_182'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 182</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_182.png'
+                    alt='Bellossom sprite gen 4' />
+                    <p class='pokemon_name'>Bellossom</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Sun Stone</span>
+                </p>
+            </div>
+<div id='pkmn_186'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 186</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_186.png'
+                    alt='Politoed sprite gen 4' />
+                    <p class='pokemon_name'>Politoed</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Trade (Kings Rock)</span>
+                </p>
+            </div>
+<div id='pkmn_192'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 192</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_192.png'
+                    alt='Sunflora sprite gen 4' />
+                    <p class='pokemon_name'>Sunflora</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Sun Stone</span>
+                </p>
+            </div>
+<div id='pkmn_196'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 196</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_196.png'
+                    alt='Espeon sprite gen 4' />
+                    <p class='pokemon_name'>Espeon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Friendship (day)</span>
+                </p>
+            </div>
+<div id='pkmn_197'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 197</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_197.png'
+                    alt='Umbreon sprite gen 4' />
+                    <p class='pokemon_name'>Umbreon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Friendship (night)</span>
+                </p>
+            </div>
+<div id='pkmn_199'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 199</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_199.png'
+                    alt='Slowking sprite gen 4' />
+                    <p class='pokemon_name'>Slowking</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Trade (Kings Rock)</span>
+                </p>
+            </div>
+<div id='pkmn_205'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 205</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_205.png'
+                    alt='Forretress sprite gen 4' />
+                    <p class='pokemon_name'>Forretress</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 31</span>
+                </p>
+            </div>
+<div id='pkmn_210'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 210</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_210.png'
+                    alt='Granbull sprite gen 4' />
+                    <p class='pokemon_name'>Granbull</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 23</span>
+                </p>
+            </div>
+<div id='pkmn_212'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 212</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_212.png'
+                    alt='Scizor sprite gen 4' />
+                    <p class='pokemon_name'>Scizor</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Trade (Metal Coat)</span>
+                </p>
+            </div>
+<div id='pkmn_230'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 230</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_230.png'
+                    alt='Kingdra sprite gen 4' />
+                    <p class='pokemon_name'>Kingdra</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Trade (Dragon Scale)</span>
+                </p>
+            </div>
+<div id='pkmn_233'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 233</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_233.png'
+                    alt='Porygon2 sprite gen 4' />
+                    <p class='pokemon_name'>Porygon2</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Trade (Up Grade)</span>
+                </p>
+            </div>
+<div id='pkmn_237'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 237</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_237.png'
+                    alt='Hitmontop sprite gen 4' />
+                    <p class='pokemon_name'>Hitmontop</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 20</span>
+                </p>
+            </div>
+<div id='pkmn_242'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 242</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_242.png'
+                    alt='Blissey sprite gen 4' />
+                    <p class='pokemon_name'>Blissey</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Friendship</span>
+                </p>
+            </div>
+<div id='pkmn_243' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 243</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_243.png'
+                    alt='Raikou sprite gen 4' />
+                    <p class='pokemon_name'>Raikou</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >Roaming Johto</span>
+                </p>
+            </div>
+<div id='pkmn_244' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 244</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_244.png'
+                    alt='Entei sprite gen 4' />
+                    <p class='pokemon_name'>Entei</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >Roaming Johto</span>
+                </p>
+            </div>
+<div id='pkmn_245' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 245</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_245.png'
+                    alt='Suicune sprite gen 4' />
+                    <p class='pokemon_name'>Suicune</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >Route 25 - Unique</span>
+                </p>
+            </div>
+<div id='pkmn_248'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 248</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_248.png'
+                    alt='Tyranitar sprite gen 4' />
+                    <p class='pokemon_name'>Tyranitar</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 55</span>
+                </p>
+            </div>
+<div id='pkmn_249' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 249</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_249.png'
+                    alt='Lugia sprite gen 4' />
+                    <p class='pokemon_name'>Lugia</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >Whirl Islands - B3F - Unique</span>
+                </p>
+            </div>
+<div id='pkmn_250' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 250</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_250.png'
+                    alt='Ho-Oh sprite gen 4' />
+                    <p class='pokemon_name'>Ho-Oh</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >Bell Tower - Roof - Unique</span>
+                </p>
+            </div>
+<div id='pkmn_251'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 251</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_251.png'
+                    alt='Celebi sprite gen 4' />
+                    <p class='pokemon_name'>Celebi</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pal Park - Import from Gen 3</span>
+                </p>
+            </div>
+<div id='pkmn_252' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 252</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_252.png'
+                    alt='Treecko sprite gen 4' />
+                    <p class='pokemon_name'>Treecko</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >Saffron City - Silph Co. - Starter</span>
+                </p>
+            </div>
+<div id='pkmn_253'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 253</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_253.png'
+                    alt='Grovyle sprite gen 4' />
+                    <p class='pokemon_name'>Grovyle</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 16</span>
+                </p>
+            </div>
+<div id='pkmn_254'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 254</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_254.png'
+                    alt='Sceptile sprite gen 4' />
+                    <p class='pokemon_name'>Sceptile</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 36</span>
+                </p>
+            </div>
+<div id='pkmn_255' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 255</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_255.png'
+                    alt='Torchic sprite gen 4' />
+                    <p class='pokemon_name'>Torchic</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >Saffron City - Silph Co. - Starter</span>
+                </p>
+            </div>
+<div id='pkmn_256'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 256</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_256.png'
+                    alt='Combusken sprite gen 4' />
+                    <p class='pokemon_name'>Combusken</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 16</span>
+                </p>
+            </div>
+<div id='pkmn_257'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 257</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_257.png'
+                    alt='Blaziken sprite gen 4' />
+                    <p class='pokemon_name'>Blaziken</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 36</span>
+                </p>
+            </div>
+<div id='pkmn_258' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 258</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_258.png'
+                    alt='Mudkip sprite gen 4' />
+                    <p class='pokemon_name'>Mudkip</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >Saffron City - Silph Co. - Starter</span>
+                </p>
+            </div>
+<div id='pkmn_259'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 259</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_259.png'
+                    alt='Marshtomp sprite gen 4' />
+                    <p class='pokemon_name'>Marshtomp</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 16</span>
+                </p>
+            </div>
+<div id='pkmn_260'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 260</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_260.png'
+                    alt='Swampert sprite gen 4' />
+                    <p class='pokemon_name'>Swampert</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 36</span>
+                </p>
+            </div>
+<div id='pkmn_272'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 272</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_272.png'
+                    alt='Ludicolo sprite gen 4' />
+                    <p class='pokemon_name'>Ludicolo</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Water Stone</span>
+                </p>
+            </div>
+<div id='pkmn_275'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 275</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_275.png'
+                    alt='Shiftry sprite gen 4' />
+                    <p class='pokemon_name'>Shiftry</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Leaf Stone</span>
+                </p>
+            </div>
+<div id='pkmn_276' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 276</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_276.png'
+                    alt='Taillow sprite gen 4' />
+                    <p class='pokemon_name'>Taillow</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >Cherrygrove City - 30%</span>
+                </p>
+            </div>
+<div id='pkmn_282'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 282</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_282.png'
+                    alt='Gardevoir sprite gen 4' />
+                    <p class='pokemon_name'>Gardevoir</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 30</span>
+                </p>
+            </div>
+<div id='pkmn_289'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 289</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_289.png'
+                    alt='Slaking sprite gen 4' />
+                    <p class='pokemon_name'>Slaking</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 36</span>
+                </p>
+            </div>
+<div id='pkmn_291'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 291</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_291.png'
+                    alt='Ninjask sprite gen 4' />
+                    <p class='pokemon_name'>Ninjask</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 20</span>
+                </p>
+            </div>
+<div id='pkmn_292'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 292</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_292.png'
+                    alt='Shedinja sprite gen 4' />
+                    <p class='pokemon_name'>Shedinja</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Evolve Nincada (empty slot + Poké Ball)</span>
+                </p>
+            </div>
+<div id='pkmn_295'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 295</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_295.png'
+                    alt='Exploud sprite gen 4' />
+                    <p class='pokemon_name'>Exploud</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 40</span>
+                </p>
+            </div>
+<div id='pkmn_297'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 297</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_297.png'
+                    alt='Hariyama sprite gen 4' />
+                    <p class='pokemon_name'>Hariyama</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 24</span>
+                </p>
+            </div>
+<div id='pkmn_301'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 301</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_301.png'
+                    alt='Delcatty sprite gen 4' />
+                    <p class='pokemon_name'>Delcatty</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Moon Stone</span>
+                </p>
+            </div>
+<div id='pkmn_306'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 306</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_306.png'
+                    alt='Aggron sprite gen 4' />
+                    <p class='pokemon_name'>Aggron</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 42</span>
+                </p>
+            </div>
+<div id='pkmn_317'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 317</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_317.png'
+                    alt='Swalot sprite gen 4' />
+                    <p class='pokemon_name'>Swalot</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 26</span>
+                </p>
+            </div>
+<div id='pkmn_326'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 326</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_326.png'
+                    alt='Grumpig sprite gen 4' />
+                    <p class='pokemon_name'>Grumpig</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 32</span>
+                </p>
+            </div>
+<div id='pkmn_330'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 330</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_330.png'
+                    alt='Flygon sprite gen 4' />
+                    <p class='pokemon_name'>Flygon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 45</span>
+                </p>
+            </div>
+<div id='pkmn_334'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 334</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_334.png'
+                    alt='Altaria sprite gen 4' />
+                    <p class='pokemon_name'>Altaria</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 35</span>
+                </p>
+            </div>
+<div id='pkmn_344'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 344</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_344.png'
+                    alt='Claydol sprite gen 4' />
+                    <p class='pokemon_name'>Claydol</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 36</span>
+                </p>
+            </div>
+<div id='pkmn_346'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 346</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_346.png'
+                    alt='Cradily sprite gen 4' />
+                    <p class='pokemon_name'>Cradily</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 40</span>
+                </p>
+            </div>
+<div id='pkmn_348'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 348</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_348.png'
+                    alt='Armaldo sprite gen 4' />
+                    <p class='pokemon_name'>Armaldo</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 40</span>
+                </p>
+            </div>
+<div id='pkmn_349' class='diamond_pearl_platinum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 349</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_349.png'
+                    alt='Feebas sprite gen 4' />
+                    <p class='pokemon_name'>Feebas</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='diamond_pearl_platinum' >Mt. Coronet - B1F - 50%</span>
+                </p>
+            </div>
+<div id='pkmn_350'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 350</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_350.png'
+                    alt='Milotic sprite gen 4' />
+                    <p class='pokemon_name'>Milotic</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - High Beauty</span>
+                </p>
+            </div>
+<div id='pkmn_353' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 353</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_353.png'
+                    alt='Shuppet sprite gen 4' />
+                    <p class='pokemon_name'>Shuppet</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >Johto Safari Zone - Forest - 10%</span>
+                </p>
+            </div>
+<div id='pkmn_360'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 360</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_360.png'
+                    alt='Wynaut sprite gen 4' />
+                    <p class='pokemon_name'>Wynaut</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Egg - Wobbuffet</span>
+                </p>
+            </div>
+<div id='pkmn_362'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 362</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_362.png'
+                    alt='Glalie sprite gen 4' />
+                    <p class='pokemon_name'>Glalie</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 42</span>
+                </p>
+            </div>
+<div id='pkmn_365'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 365</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_365.png'
+                    alt='Walrein sprite gen 4' />
+                    <p class='pokemon_name'>Walrein</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 44</span>
+                </p>
+            </div>
+<div id='pkmn_367'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 367</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_367.png'
+                    alt='Huntail sprite gen 4' />
+                    <p class='pokemon_name'>Huntail</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Trade (Deep Sea Tooth)</span>
+                </p>
+            </div>
+<div id='pkmn_368'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 368</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_368.png'
+                    alt='Gorebyss sprite gen 4' />
+                    <p class='pokemon_name'>Gorebyss</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Trade (Deep Sea Scale)</span>
+                </p>
+            </div>
+<div id='pkmn_373'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 373</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_373.png'
+                    alt='Salamence sprite gen 4' />
+                    <p class='pokemon_name'>Salamence</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 50</span>
+                </p>
+            </div>
+<div id='pkmn_376'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 376</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_376.png'
+                    alt='Metagross sprite gen 4' />
+                    <p class='pokemon_name'>Metagross</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 45</span>
+                </p>
+            </div>
+<div id='pkmn_377'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 377</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_377.png'
+                    alt='Regirock sprite gen 4' />
+                    <p class='pokemon_name'>Regirock</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pal Park - Import from Gen 3</span>
+                </p>
+            </div>
+<div id='pkmn_378'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 378</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_378.png'
+                    alt='Regice sprite gen 4' />
+                    <p class='pokemon_name'>Regice</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pal Park - Import from Gen 3</span>
+                </p>
+            </div>
+<div id='pkmn_379'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 379</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_379.png'
+                    alt='Registeel sprite gen 4' />
+                    <p class='pokemon_name'>Registeel</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pal Park - Import from Gen 3</span>
+                </p>
+            </div>
+<div id='pkmn_380' class='heartgold' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 380</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_380.png'
+                    alt='Latias sprite gen 4' />
+                    <p class='pokemon_name'>Latias</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold' >Roaming Johto</span>
+                </p>
+            </div>
+<div id='pkmn_381' class='soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 381</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_381.png'
+                    alt='Latios sprite gen 4' />
+                    <p class='pokemon_name'>Latios</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='soulsilver' >Roaming Johto</span>
+                </p>
+            </div>
+<div id='pkmn_382' class='heartgold' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 382</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_382.png'
+                    alt='Kyogre sprite gen 4' />
+                    <p class='pokemon_name'>Kyogre</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold' >Embedded Tower - Unique</span>
+                </p>
+            </div>
+<div id='pkmn_383' class='soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 383</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_383.png'
+                    alt='Groudon sprite gen 4' />
+                    <p class='pokemon_name'>Groudon</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='soulsilver' >Embedded Tower - Unique</span>
+                </p>
+            </div>
+<div id='pkmn_384' class='heartgold_soulsilver' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 384</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_384.png'
+                    alt='Rayquaza sprite gen 4' />
+                    <p class='pokemon_name'>Rayquaza</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='heartgold_soulsilver' >Embedded Tower - Unique</span>
+                </p>
+            </div>
+<div id='pkmn_385'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 385</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_385.png'
+                    alt='Jirachi sprite gen 4' />
+                    <p class='pokemon_name'>Jirachi</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pal Park - Import from Gen 3</span>
+                </p>
+            </div>
+<div id='pkmn_386'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 386</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_386.png'
+                    alt='Deoxys sprite gen 4' />
+                    <p class='pokemon_name'>Deoxys</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pal Park - Import from Gen 3</span>
+                </p>
+            </div>
+<div id='pkmn_388'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 388</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_388.png'
+                    alt='Grotle sprite gen 4' />
+                    <p class='pokemon_name'>Grotle</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 18</span>
+                </p>
+            </div>
+<div id='pkmn_389'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 389</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_389.png'
+                    alt='Torterra sprite gen 4' />
+                    <p class='pokemon_name'>Torterra</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 32</span>
+                </p>
+            </div>
+<div id='pkmn_391'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 391</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_391.png'
+                    alt='Monferno sprite gen 4' />
+                    <p class='pokemon_name'>Monferno</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 14</span>
+                </p>
+            </div>
+<div id='pkmn_392'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 392</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_392.png'
+                    alt='Infernape sprite gen 4' />
+                    <p class='pokemon_name'>Infernape</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 36</span>
+                </p>
+            </div>
+<div id='pkmn_394'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 394</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_394.png'
+                    alt='Prinplup sprite gen 4' />
+                    <p class='pokemon_name'>Prinplup</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 16</span>
+                </p>
+            </div>
+<div id='pkmn_395'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 395</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_395.png'
+                    alt='Empoleon sprite gen 4' />
+                    <p class='pokemon_name'>Empoleon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 36</span>
+                </p>
+            </div>
+<div id='pkmn_398'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 398</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_398.png'
+                    alt='Staraptor sprite gen 4' />
+                    <p class='pokemon_name'>Staraptor</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 34</span>
+                </p>
+            </div>
+<div id='pkmn_405'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 405</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_405.png'
+                    alt='Luxray sprite gen 4' />
+                    <p class='pokemon_name'>Luxray</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 30</span>
+                </p>
+            </div>
+<div id='pkmn_407'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 407</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_407.png'
+                    alt='Roserade sprite gen 4' />
+                    <p class='pokemon_name'>Roserade</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Shiny Stone</span>
+                </p>
+            </div>
+<div id='pkmn_409'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 409</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_409.png'
+                    alt='Rampardos sprite gen 4' />
+                    <p class='pokemon_name'>Rampardos</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 30</span>
+                </p>
+            </div>
+<div id='pkmn_411'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 411</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_411.png'
+                    alt='Bastiodon sprite gen 4' />
+                    <p class='pokemon_name'>Bastiodon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 30</span>
+                </p>
+            </div>
+<div id='pkmn_413'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 413</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_413.png'
+                    alt='Wormadam sprite gen 4' />
+                    <p class='pokemon_name'>Wormadam</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 20</span>
+                </p>
+            </div>
+<div id='pkmn_414'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 414</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_414.png'
+                    alt='Mothim sprite gen 4' />
+                    <p class='pokemon_name'>Mothim</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 20</span>
+                </p>
+            </div>
+<div id='pkmn_416'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 416</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_416.png'
+                    alt='Vespiquen sprite gen 4' />
+                    <p class='pokemon_name'>Vespiquen</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 21</span>
+                </p>
+            </div>
+<div id='pkmn_421'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 421</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_421.png'
+                    alt='Cherrim sprite gen 4' />
+                    <p class='pokemon_name'>Cherrim</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 25</span>
+                </p>
+            </div>
+<div id='pkmn_424'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 424</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_424.png'
+                    alt='Ambipom sprite gen 4' />
+                    <p class='pokemon_name'>Ambipom</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Knows Double Hit</span>
+                </p>
+            </div>
+<div id='pkmn_425' class='diamond_pearl_platinum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 425</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_425.png'
+                    alt='Drifloon sprite gen 4' />
+                    <p class='pokemon_name'>Drifloon</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='diamond_pearl_platinum' >Valley Windworks - Unique</span>
+                </p>
+            </div>
+<div id='pkmn_426'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 426</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_426.png'
+                    alt='Drifblim sprite gen 4' />
+                    <p class='pokemon_name'>Drifblim</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 28</span>
+                </p>
+            </div>
+<div id='pkmn_428'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 428</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_428.png'
+                    alt='Lopunny sprite gen 4' />
+                    <p class='pokemon_name'>Lopunny</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Friendship</span>
+                </p>
+            </div>
+<div id='pkmn_429'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 429</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_429.png'
+                    alt='Mismagius sprite gen 4' />
+                    <p class='pokemon_name'>Mismagius</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Dusk Stone</span>
+                </p>
+            </div>
+<div id='pkmn_430'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 430</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_430.png'
+                    alt='Honchkrow sprite gen 4' />
+                    <p class='pokemon_name'>Honchkrow</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Dusk Stone</span>
+                </p>
+            </div>
+<div id='pkmn_442' class='diamond_pearl_platinum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 442</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_442.png'
+                    alt='Spiritomb sprite gen 4' />
+                    <p class='pokemon_name'>Spiritomb</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='diamond_pearl_platinum' >Route 209 - Unique</span>
+                </p>
+            </div>
+<div id='pkmn_445'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 445</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_445.png'
+                    alt='Garchomp sprite gen 4' />
+                    <p class='pokemon_name'>Garchomp</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level 48</span>
+                </p>
+            </div>
+<div id='pkmn_448'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 448</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_448.png'
+                    alt='Lucario sprite gen 4' />
+                    <p class='pokemon_name'>Lucario</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Friendship (day)</span>
+                </p>
+            </div>
+<div id='pkmn_461'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 461</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_461.png'
+                    alt='Weavile sprite gen 4' />
+                    <p class='pokemon_name'>Weavile</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level up holding Razor Claw (nuit)</span>
+                </p>
+            </div>
+<div id='pkmn_462'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 462</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_462.png'
+                    alt='Magnezone sprite gen 4' />
+                    <p class='pokemon_name'>Magnezone</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Mt. Coronet</span>
+                </p>
+            </div>
+<div id='pkmn_463'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 463</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_463.png'
+                    alt='Lickilicky sprite gen 4' />
+                    <p class='pokemon_name'>Lickilicky</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Knows Rollout</span>
+                </p>
+            </div>
+<div id='pkmn_464'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 464</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_464.png'
+                    alt='Rhyperior sprite gen 4' />
+                    <p class='pokemon_name'>Rhyperior</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Trade (Protector)</span>
+                </p>
+            </div>
+<div id='pkmn_465'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 465</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_465.png'
+                    alt='Tangrowth sprite gen 4' />
+                    <p class='pokemon_name'>Tangrowth</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Knows Ancient Power</span>
+                </p>
+            </div>
+<div id='pkmn_466'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 466</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_466.png'
+                    alt='Electivire sprite gen 4' />
+                    <p class='pokemon_name'>Electivire</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Trade (Electirizer)</span>
+                </p>
+            </div>
+<div id='pkmn_467'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 467</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_467.png'
+                    alt='Magmortar sprite gen 4' />
+                    <p class='pokemon_name'>Magmortar</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Trade (Magmarizer)</span>
+                </p>
+            </div>
+<div id='pkmn_468'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 468</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_468.png'
+                    alt='Togekiss sprite gen 4' />
+                    <p class='pokemon_name'>Togekiss</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Shiny Stone</span>
+                </p>
+            </div>
+<div id='pkmn_469'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 469</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_469.png'
+                    alt='Yanmega sprite gen 4' />
+                    <p class='pokemon_name'>Yanmega</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Knows Ancient Power</span>
+                </p>
+            </div>
+<div id='pkmn_470'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 470</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_470.png'
+                    alt='Leafeon sprite gen 4' />
+                    <p class='pokemon_name'>Leafeon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Moss Rock (Eterna Forest)</span>
+                </p>
+            </div>
+<div id='pkmn_471'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 471</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_471.png'
+                    alt='Glaceon sprite gen 4' />
+                    <p class='pokemon_name'>Glaceon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Ice Rock (Route 217)</span>
+                </p>
+            </div>
+<div id='pkmn_472'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 472</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_472.png'
+                    alt='Gliscor sprite gen 4' />
+                    <p class='pokemon_name'>Gliscor</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Level up holding Razor Fang (nuit)</span>
+                </p>
+            </div>
+<div id='pkmn_473'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 473</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_473.png'
+                    alt='Mamoswine sprite gen 4' />
+                    <p class='pokemon_name'>Mamoswine</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Knows Ancient Power</span>
+                </p>
+            </div>
+<div id='pkmn_474'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 474</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_474.png'
+                    alt='Porygon-Z sprite gen 4' />
+                    <p class='pokemon_name'>Porygon-Z</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Trade (Dubious Disc)</span>
+                </p>
+            </div>
+<div id='pkmn_475'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 475</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_475.png'
+                    alt='Gallade sprite gen 4' />
+                    <p class='pokemon_name'>Gallade</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Dawn Stone</span>
+                </p>
+            </div>
+<div id='pkmn_476'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 476</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_476.png'
+                    alt='Probopass sprite gen 4' />
+                    <p class='pokemon_name'>Probopass</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Mt. Coronet</span>
+                </p>
+            </div>
+<div id='pkmn_477'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 477</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_477.png'
+                    alt='Dusknoir sprite gen 4' />
+                    <p class='pokemon_name'>Dusknoir</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Trade (Reaper Cloth)</span>
+                </p>
+            </div>
+<div id='pkmn_478'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 478</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_478.png'
+                    alt='Froslass sprite gen 4' />
+                    <p class='pokemon_name'>Froslass</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Evolution - Dawn Stone</span>
+                </p>
+            </div>
+<div id='pkmn_479' class='diamond_pearl_platinum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 479</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_479.png'
+                    alt='Rotom sprite gen 4' />
+                    <p class='pokemon_name'>Rotom</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='diamond_pearl_platinum' >Old Chateau - 2F left room - Unique</span>
+                </p>
+            </div>
+<div id='pkmn_480' class='diamond_pearl_platinum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 480</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_480.png'
+                    alt='Uxie sprite gen 4' />
+                    <p class='pokemon_name'>Uxie</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='diamond_pearl_platinum' >Lake Acuity - Cavern - Unique</span>
+                </p>
+            </div>
+<div id='pkmn_481' class='diamond_pearl_platinum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 481</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_481.png'
+                    alt='Mesprit sprite gen 4' />
+                    <p class='pokemon_name'>Mesprit</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='diamond_pearl_platinum' >Roaming Sinnoh</span>
+                </p>
+            </div>
+<div id='pkmn_482' class='diamond_pearl_platinum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 482</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_482.png'
+                    alt='Azelf sprite gen 4' />
+                    <p class='pokemon_name'>Azelf</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='diamond_pearl_platinum' >Lake Valor - Cavern - Unique</span>
+                </p>
+            </div>
+<div id='pkmn_485' class='diamond_pearl_platinum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 485</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_485.png'
+                    alt='Heatran sprite gen 4' />
+                    <p class='pokemon_name'>Heatran</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='diamond_pearl_platinum' >Stark Mountain - Heatran Chamber - Unique</span>
+                </p>
+            </div>
+<div id='pkmn_486' class='diamond_pearl_platinum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 486</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_486.png'
+                    alt='Regigigas sprite gen 4' />
+                    <p class='pokemon_name'>Regigigas</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='diamond_pearl_platinum' >Snowpoint Temple - B5F - Unique</span>
+                </p>
+            </div>
+<div id='pkmn_488' class='diamond_pearl_platinum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 488</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_488.png'
+                    alt='Cresselia sprite gen 4' />
+                    <p class='pokemon_name'>Cresselia</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='diamond_pearl_platinum' >Roaming Sinnoh</span>
+                </p>
+            </div>
+<div id='pkmn_489'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 489</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_489.png'
+                    alt='Phione sprite gen 4' />
+                    <p class='pokemon_name'>Phione</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Egg - Manaphy</span>
+                </p>
+            </div>
+<div id='pkmn_490' class='diamond_pearl_platinum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 490</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_490.png'
+                    alt='Manaphy sprite gen 4' />
+                    <p class='pokemon_name'>Manaphy</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='diamond_pearl_platinum' >Reward - Pokémon Ranger special mission</span>
+                </p>
+            </div>
+<div id='pkmn_491' class='diamond_pearl_platinum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 491</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_491.png'
+                    alt='Darkrai sprite gen 4' />
+                    <p class='pokemon_name'>Darkrai</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='diamond_pearl_platinum' >Newmoon Island - Member Card event</span>
+                </p>
+            </div>
+<div id='pkmn_492' class='diamond_pearl_platinum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 492</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_492.png'
+                    alt='Shaymin sprite gen 4' />
+                    <p class='pokemon_name'>Shaymin</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='diamond_pearl_platinum' >Flower Paradise - Oak's Letter event</span>
+                </p>
+            </div>
+<div id='pkmn_493' class='diamond_pearl_platinum' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 493</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_493.png'
+                    alt='Arceus sprite gen 4' />
+                    <p class='pokemon_name'>Arceus</p>
+                </div>
+                <p class='catch_data'>
+                    <span class='diamond_pearl_platinum' >Hall of Origin - Azure Flute event</span>
+                </p>
+            </div>
+                <p id='empty_search_message' class='hidden'>Found no Pokémon with the searched name or number.</p>
+                <p id='empty_caught_message' class='hidden'>No Pokémon are displayed since they are all caught. Turn off the <i>"Ignore info of caught Pokémon"</i> setting to see Pokémon info.</p>
+            </section><script type='module'>
+                import name_search from '/lyra-website-backup/scripts/functions/pokemon/name_search.1726619881.js';
+
+                name_search();
+            </script>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Fan preservation backup of <strong>Lyra made a website</strong>. Original website, design and content by <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon and all related assets are trademarks of Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

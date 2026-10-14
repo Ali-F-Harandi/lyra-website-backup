@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+            <html lang='fr'>
+            <head>
+                <title>Temple Frimapic - B5F - Pokémon par zone - Gen 4</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen4.1774893397.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_diamond.css' />
+                <script>
+                    init_style('gen4');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/'>Return to main menu</a>
+                    </div>
+
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/' >
+                            <span lang='en'>English version</span>
+                            <img src='/lyra-website-backup/views/images/us-uk_flag.png' alt='Drapeau anglais/américain' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra a un site web sur</h1>
+    <h2>Pokémon Gen 4</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/fr/pokemon_gen4/full_guide'>Guide complet</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen4/pokedex_tracker'>Pokédex perso</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen4/catch_locations'>Pokémon par zone</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen4/pokemon_info'>Recherche par filtre</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen4/extra_info'>Infos supplémentaires</a>
+    <button id='settings_link'>Préférences</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex perso</h1>
+                <ul>
+                    <li>
+                <p>Pokédex affiché : </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>Pokédex National</option><option value='diamond_pearl_dex'>Diamant et Perle</option><option value='platinum_dex'>Platine</option><option value='heartgold_soulsilver_dex'>Or HeartGold et Argent SoulSilver</option><option value='only_new_dex'>Nouveaux Pokémon</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Ajouter une étape supplémentaire</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Afficher le nombre de Pokémon obtenus</p>
+            </li><li>
+                <p>Sprites utilisés : </p>
+                <select id='select_pokemon_sprites'><option value='dp_sprites'>Diamant et Perle</option><option value='plat_sprites'>Platine</option><option value='hgss_sprites'>Or HeartGold et Argent SoulSilver</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Mini Pokédex</p>
+            </li><li>
+                <p>Nom des boites : </p>
+                <select id='select_box_names'><option value='boxes_order'>Numéro de boite</option><option value='boxes_firstlast'>Premier et dernier Pokémon</option><option value='boxes_hidden'>Masquer les noms</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon par zone</h1>
+                <ul>
+                    <li>
+                <p>Filtrer par version : </p>
+                <select id='select_version_filter'><option value='pref_none'>Toutes</option><option value='pref_diamond'>Diamant</option><option value='pref_pearl'>Perle</option><option value='pref_platinum'>Platine</option><option value='pref_heartgold'>Or HeartGold</option><option value='pref_soulsilver'>Argent SoulSilver</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Masquer la Canne et Super Canne</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Recherche par filtre</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignorer les Pokémon déjà attrapés</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Couleurs du site web</h1>
+                <ul>
+                    <li>
+                <p>Thème de couleurs : </p>
+                <select id='select_color_theme'><optgroup label='4e génération'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamant</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Perle</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Données de la Gen 4</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Exporter</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Importer</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+
+            import gen4_settings from '/lyra-website-backup/scripts/pokemon/gen4/gen4_settings.1763927568.js';
+            const current_settings = new gen4_settings();
+
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('fr');
+            </script>
+<main>
+                <h1>Génération 4 - Pokémon par zone</h1>
+            <section id='catch_locations'>
+                <div id='select_section'><div id='diamond_pearl_platinum_select' class='select_menu'>
+    <span>Diamant, Perle & Platine :</span>
+    <select>
+        <option value='' disabled hidden>Choisissez une zone</option>
+        <optgroup label='Routes'><option value='route_201'>Route 201</option><option value='route_202'>Route 202</option><option value='route_203'>Route 203</option><option value='route_204_south'>Route 204 - Sud</option><option value='route_204_north'>Route 204 - Nord</option><option value='route_205_south'>Route 205 - Sud</option><option value='route_205_east'>Route 205 - Est</option><option value='route_206'>Route 206</option><option value='route_207'>Route 207</option><option value='route_208'>Route 208</option><option value='route_209'>Route 209</option><option value='route_210_south'>Route 210 - Sud</option><option value='route_210_west'>Route 210 - Ouest</option><option value='route_211_west'>Route 211 - Ouest</option><option value='route_211_east'>Route 211 - Est</option><option value='route_212_north'>Route 212 - Nord</option><option value='route_212_east'>Route 212 - Est</option><option value='route_213'>Route 213</option><option value='route_214'>Route 214</option><option value='route_215'>Route 215</option><option value='route_216'>Route 216</option><option value='route_217'>Route 217</option><option value='route_218'>Route 218</option><option value='route_219'>Route 219</option><option value='route_220'>Chenal 220</option><option value='route_221'>Route 221</option><option value='route_222'>Route 222</option><option value='route_223'>Chenal 223</option><option value='route_224'>Route 224</option><option value='route_225'>Route 225</option><option value='route_226'>Chenal 226</option><option value='route_226_island_house'>Chenal 226 - Maison sur l'Île</option><option value='route_227'>Route 227</option><option value='route_228'>Route 228</option><option value='route_229'>Route 229</option><option value='route_230'>Chenal 230</option></optgroup><optgroup label='Forêts et prairies'><option value='eterna_forest'>Forêt Vestigion</option><option value='floaroma_meadow'>Pré Floraville</option></optgroup><optgroup label='Grottes'><option value='iron_island'>Ile de Fer</option><option value='iron_island_1f'>Ile de Fer - 1F</option><option value='iron_island_b1f_left'>Ile de Fer - 1er s-sol gauche</option><option value='iron_island_b2f_left'>Ile de Fer - 2e s-sol gauche</option><option value='iron_island_b2f_right'>Ile de Fer - 2e s-sol droit</option><option value='iron_island_b3f'>Ile de Fer - B3F</option><option value='maniac_tunnel'>Tunnel Runiem.</option><option value='mt_coronet_1f_route_207'>Mont Couronné - RdC (Route 207)</option><option value='mt_coronet_1f_route_211'>Mont Couronné - RdC (Route 211)</option><option value='mt_coronet_1f_route_216'>Mont Couronné - RdC (Route 216)</option><option value='mt_coronet_1f_from_exterior'>Mont Couronné - RdC (depuis l'extérieur)</option><option value='mt_coronet_2f'>Mont Couronné - 2F</option><option value='mt_coronet_3f'>Mont Couronné - 3F</option><option value='mt_coronet_4f'>Mont Couronné - 4F</option><option value='mt_coronet_4f_small_room'>Mont Couronné - 3e ét. petite salle</option><option value='mt_coronet_5f'>Mont Couronné - 5F</option><option value='mt_coronet_6f'>Mont Couronné - 6F</option><option value='mt_coronet_b1f'>Mont Couronné - B1F</option><option value='mt_coronet_exterior_snowfall'>Mont Couronné - Extérieur (neige)</option><option value='ravaged_path'>Chemin Rocheux</option><option value='ruin_maniac_cave_0_9_unown_caught'>Grotte Ruinemaniac - 0-9 Zarbi attrapés</option><option value='ruin_maniac_cave_10_25_unown_caught'>Grotte Ruinemaniac - 10-25 Zarbi attrapés</option><option value='snowpoint_temple_1f'>Temple Frimapic - 1F</option><option value='snowpoint_temple_b1f'>Temple Frimapic - B1F</option><option value='snowpoint_temple_b2f'>Temple Frimapic - B2F</option><option value='snowpoint_temple_b4f'>Temple Frimapic - B4F</option><option value='snowpoint_temple_b5f' selected>Temple Frimapic - B5F</option><option value='solaceon_ruins'>Ruines Bonville</option><option value='stark_mountain_heatran_chamber'>Mont Abrupt - Salle d'Heatran</option><option value='stark_mountain_entrance'>Mont Abrupt - (entrée)</option><option value='stark_mountain_exterior'>Mont Abrupt - (extérieur)</option><option value='stark_mountain_main_cavern'>Mont Abrupt - (caverne principale)</option><option value='turnback_cave_after_pillar_3'>Grotte Retour - Après 3e pilier</option><option value='turnback_cave_before_pillar_1'>Grotte Retour - Avant 1er pilier</option><option value='turnback_cave_between_pillars_1_and_2'>Grotte Retour - Entre 1er et 2e piliers</option><option value='turnback_cave_between_pillars_2_and_3'>Grotte Retour - Entre 2e et 3e piliers</option><option value='turnback_cave_pillar_1'>Grotte Retour - 1er pilier</option><option value='turnback_cave_pillar_2'>Grotte Retour - 2e pilier</option><option value='turnback_cave_pillar_3'>Grotte Retour - 3e pilier</option><option value='victory_road_1f'>Route Victoire - 1F</option><option value='victory_road_2f'>Route Victoire - 2F</option><option value='victory_road_b1f'>Route Victoire - B1F</option><option value='victory_road_inside'>Route Victoire - Intérieur</option><option value='victory_road_inside_b1f'>Route Victoire - Intérieur sous-sol</option><option value='victory_road_inside_exit'>Route Victoire - Intérieur</option><option value='wayward_cave_1f'>Grotte Revèche - 1F</option><option value='wayward_cave_b1f'>Grotte Revèche - B1F</option></optgroup><optgroup label='Grand Marais'><option value='great_marsh_area_1'>Grand Marais - Zone 1</option><option value='great_marsh_area_2'>Grand Marais - Zone 2</option><option value='great_marsh_area_3'>Grand Marais - Zone 3</option><option value='great_marsh_area_4'>Grand Marais - Zone 4</option><option value='great_marsh_area_5'>Grand Marais - Zone 5</option><option value='great_marsh_area_6'>Grand Marais - Zone 6</option></optgroup><optgroup label='Lacs'><option value='acuity_lakefront'>Rive Lac Savoir</option><option value='lake_acuity'>Lac Savoir</option><option value='lake_acuity_cavern'>Lac Savoir - (caverne)</option><option value='lake_valor'>Lac Courage</option><option value='lake_valor_cavern'>Lac Courage - (caverne)</option><option value='lake_verity_center'>Lac Vérité - Centre</option><option value='lake_verity_lakefront_game_start'>Lac Vérité - Rive (début du jeu)</option><option value='sendoff_spring'>Source Adieu</option><option value='valor_lakefront'>Rive Lac Courage</option></optgroup><optgroup label='Bâtiments'><option value='fuego_ironworks'>Forge Fuego</option><option value='lost_tower_1f'>Tour Perdue - 1F</option><option value='lost_tower_2f'>Tour Perdue - 2F</option><option value='lost_tower_3f'>Tour Perdue - 3F</option><option value='lost_tower_4f'>Tour Perdue - 4F</option><option value='lost_tower_5f'>Tour Perdue - 5F</option><option value='old_chateau_2f_left_room'>Vieux Château - Étage pièce centre gauche</option><option value='old_chateau_2f_right_room'>Vieux Château - Étage pièce centre droite</option><option value='old_chateau_entrance'>Vieux Château - Entrée</option><option value='oreburgh_gate_1f'>Entrée Charbourg - 1F</option><option value='oreburgh_gate_b1f'>Entrée Charbourg - B1F</option><option value='oreburgh_mine_1f'>Mine Charbourg - 1F</option><option value='oreburgh_mine_b1f'>Mine Charbourg - B1F</option><option value='pokemon_league'>Ligue Pokémon</option><option value='trophy_garden'>Jardin Trophée</option><option value='valley_windworks'>Les Eoliennes</option></optgroup><optgroup label='Villes et Villages'><option value='canalave_city'>Joliberges</option><option value='celestic_town'>Célestia</option><option value='eterna_city'>Vestigion</option><option value='eterna_city_condominiums'>Vestigion - Résidence de Vestigion</option><option value='eterna_city_west_gate'>Vestigion - Porte ouest</option><option value='hearthome_city'>Unionpolis</option><option value='hearthome_city_west_gate'>Unionpolis - Porte ouest</option><option value='oreburgh_city_northwest_house'>Charbourg - Maison au Nord-Ouest</option><option value='oreburgh_city_oreburgh_mining_museum'>Charbourg - Musée Minier de Charbourg</option><option value='pastoria_city'>Verchamps</option><option value='resort'>Aire de Détente</option><option value='snowpoint_city'>Frimapic</option><option value='sunyshore_city'>Rivamar</option><option value='twinleaf_town'>Bonaugure</option><option value='veilstone_city'>Voilaroc</option></optgroup><optgroup label='Évènements et Rencontres uniques'><option value='distortion_world'>Monde Distorsion</option><option value='flower_paradise'>Paradis Fleuri</option><option value='hall_of_origin_1'>Salle Originelle</option><option value='newmoon_island'>Ile Nouvellelune</option><option value='pokemon_ranger'>Pokémon Ranger</option><option value='roaming_sinnoh'>Sillonnant Sinnoh</option><option value='spear_pillar'>Colonnes Lances</option></optgroup>
+    </select>
+    <script type='module'>
+        import select_reload from '/lyra-website-backup/scripts/functions/select_reload.1715012545.js';
+
+        document.querySelector('#diamond_pearl_platinum_select').addEventListener('change', (event) => select_reload('/lyra-website-backup/fr/pokemon_gen4/catch_locations', event));
+    </script>
+</div><div id='heartgold_soulsilver_select' class='select_menu'>
+    <span>Or HeartGold & Argent SoulSilver :</span>
+    <select>
+        <option value='' disabled hidden>Choisissez une zone</option>
+        <optgroup label='Routes (Johto)'><option value='route_29'>Route 29</option><option value='route_30'>Route 30</option><option value='route_31'>Route 31</option><option value='route_32'>Route 32</option><option value='route_33'>Route 33</option><option value='route_34'>Route 34</option><option value='route_35'>Route 35</option><option value='route_36'>Route 36</option><option value='route_37'>Route 37</option><option value='route_38'>Route 38</option><option value='route_39'>Route 39</option><option value='route_40'>Chenal 40</option><option value='route_41'>Chenal 41</option><option value='route_42'>Route 42</option><option value='route_43'>Route 43</option><option value='route_44'>Route 44</option><option value='route_45'>Route 45</option><option value='route_46'>Route 46</option><option value='route_47'>Route 47</option><option value='route_47_cave_gate'>Route 47 - Portail Falaise</option><option value='route_47_inside_cave'>Route 47 - Grotte Falaise</option><option value='route_48'>Route 48</option></optgroup><optgroup label='Routes (Kanto)'><option value='route_1'>Route 1</option><option value='route_2_south'>Route 2 - Sud</option><option value='route_2_north'>Route 2 - Nord</option><option value='route_3'>Route 3</option><option value='route_4'>Route 4</option><option value='route_5'>Route 5</option><option value='route_6'>Route 6</option><option value='route_7'>Route 7</option><option value='route_8'>Route 8</option><option value='route_9'>Route 9</option><option value='route_10'>Route 10</option><option value='route_11'>Route 11</option><option value='route_12'>Route 12</option><option value='route_13'>Route 13</option><option value='route_14'>Route 14</option><option value='route_15'>Route 15</option><option value='route_16'>Route 16</option><option value='route_17'>Route 17</option><option value='route_18'>Route 18</option><option value='route_19'>Chenal 19</option><option value='route_20'>Chenal 20</option><option value='route_21'>Chenal 21</option><option value='route_22'>Route 22</option><option value='route_24'>Route 24</option><option value='route_25'>Route 25</option><option value='route_26'>Route 26</option><option value='route_27'>Route 27</option><option value='route_28'>Route 28</option></optgroup><optgroup label='Forêts et parcs'><option value='ilex_forest'>Bois aux Chênes</option><option value='national_park'>Parc Naturel</option><option value='viridian_forest'>Forêt de Jade</option></optgroup><optgroup label='Grottes'><option value='cerulean_cave_1f'>Caverne Azurée - 1F</option><option value='cerulean_cave_2f'>Caverne Azurée - 2F</option><option value='cerulean_cave_b1f'>Caverne Azurée - B1F</option><option value='dark_cave_blackthorn_city_entrance'>Antre Noir - Entrée Ebènelle</option><option value='dark_cave_violet_city_entrance'>Antre Noir - Entrée Mauville</option><option value='digletts_cave'>Cave TAUPIQUEUR</option><option value='dragons_den'>Antre du Dragon</option><option value='ice_path_1f'>Route de Glace - 1F</option><option value='ice_path_b2f'>Route de Glace - B2F</option><option value='mt_moon_1f'>Mont Sélénite - 1F</option><option value='mt_moon_mount_moon_square'>Mont Sélénite - Aire de repos du Mont Sélénite</option><option value='mt_mortar_1f'>Mont Creuset - 1F</option><option value='mt_mortar_b1f'>Mont Creuset - B1F</option><option value='mt_mortar_lower_cave'>Mont Creuset - Caverne inférieure</option><option value='mt_mortar_upper_cave'>Mont Creuset - Caverne supérieure</option><option value='mt_silver_1f'>Mont Argenté - 1F</option><option value='mt_silver_1f_top'>Mont Argenté - RdC haut</option><option value='mt_silver_2f'>Mont Argenté - 2F</option><option value='mt_silver_3f'>Mont Argenté - 3F</option><option value='mt_silver_4f'>Mont Argenté - 4F</option><option value='mt_silver_mountainside'>Mont Argenté - Flancs</option><option value='mt_silver_outside'>Mont Argenté - Extérieur</option><option value='mt_silver_top'>Mont Argenté - Sommet</option><option value='rock_tunnel_1f'>Grotte - 1F</option><option value='rock_tunnel_b1f'>Grotte - B1F</option><option value='ruins_of_alph_interior_a'>Ruines d'Alpha - Intérieur A</option><option value='ruins_of_alph_outside'>Ruines d'Alpha - Extérieur</option><option value='seafoam_islands_1f'>Iles Ecume - 1F</option><option value='seafoam_islands_b1f'>Iles Ecume - B1F</option><option value='seafoam_islands_b2f'>Iles Ecume - B2F</option><option value='seafoam_islands_b3f'>Iles Ecume - B3F</option><option value='seafoam_islands_b4f'>Iles Ecume - B4F</option><option value='slowpoke_well_1f'>Puits RAMOLOSS - 1F</option><option value='slowpoke_well_b1f'>Puits RAMOLOSS - B1F</option><option value='tohjo_falls'>Chutes Tohjo</option><option value='union_cave_1f'>Caves Jumelles - 1F</option><option value='union_cave_b1f'>Caves Jumelles - B1F</option><option value='union_cave_b2f'>Caves Jumelles - B2F</option><option value='victory_road_1_1f'>Route Victoire - 1F</option><option value='victory_road_1_3f'>Route Victoire - 3F</option><option value='whirl_islands_1f'>Tourb'Iles - 1F</option><option value='whirl_islands_b1f'>Tourb'Iles - B1F</option><option value='whirl_islands_b2f'>Tourb'Iles - B2F</option><option value='whirl_islands_b3f'>Tourb'Iles - B3F</option></optgroup><optgroup label='Parc Safari'><option value='safari_zone_desert'>Parc Safari - Désert</option><option value='safari_zone_forest'>Parc Safari - Forêt</option><option value='safari_zone_marshland'>Parc Safari - Marécage</option><option value='safari_zone_meadow'>Parc Safari - Prairie</option><option value='safari_zone_mountain'>Parc Safari - Montagne</option><option value='safari_zone_peak'>Parc Safari - Pic</option><option value='safari_zone_plains'>Parc Safari - Plaines</option><option value='safari_zone_rocky_beach'>Parc Safari - Plage Rocheuse</option><option value='safari_zone_savannah'>Parc Safari - Savane</option><option value='safari_zone_swamp'>Parc Safari - Marais</option><option value='safari_zone_wasteland'>Parc Safari - Terre Désolée</option><option value='safari_zone_wetland'>Parc Safari - Zone Humide</option></optgroup><optgroup label='Lacs'><option value='lake_of_rage'>Lac Colère</option></optgroup><optgroup label='Bâtiments'><option value='bell_tower_2f'>Tour Carillon - 2F</option><option value='bell_tower_roof'>Tour Carillon - Toit</option><option value='burned_tower_1f'>Tour Cendrée - 1F</option><option value='burned_tower_b1f'>Tour Cendrée - B1F</option><option value='cinnabar_island'>Cramois'Ile</option><option value='power_plant'>Centrale</option><option value='safari_zone_gate'>Portail Safari</option><option value='sprout_tower'>Tour CHETIFLOR</option><option value='team_rocket_hq'>Repaire Rocket d'Acajou</option></optgroup><optgroup label='Villes et Villages'><option value='azalea_town'>Ecorcia</option><option value='blackthorn_city'>Ebènelle</option><option value='celadon_city'>Céladopole</option><option value='celadon_city_prize_corner'>Céladopole - Casino de Céladopole</option><option value='cerulean_city'>Azuria</option><option value='cherrygrove_city'>Ville Griotte</option><option value='cianwood_city'>Irisia</option><option value='cianwood_city_kirk_s_house'>Irisia - Maison à l'ouest du centre Pokémon</option><option value='cianwood_city_pok_mon_center'>Irisia - Centre Pokémon</option><option value='ecruteak_city'>Rosalia</option><option value='fuchsia_city'>Parmanie</option><option value='goldenrod_city_bill_s_house'>Doublonville - Maison de Bill</option><option value='goldenrod_city_department_store_5f'>Doublonville - Centre Commercial de Doublonville (4e ét.)</option><option value='goldenrod_city_game_corner'>Doublonville - Casino de Doublonville</option><option value='goldenrod_city_north_gate'>Doublonville - Porte Nord</option><option value='new_bark_town'>Bourg Geon</option><option value='olivine_city'>Oliville</option><option value='olivine_city_gym'>Oliville - Arène d'Oliville</option><option value='pallet_town'>Bourg Palette</option><option value='pewter_city'>Argenta</option><option value='pewter_city_pewter_museum_of_science'>Argenta - Musée des Sciences d'Argenta</option><option value='saffron_city_magnet_train_station'>Safrania - Gare de Safrania</option><option value='saffron_city_silph_co'>Safrania - Sylphe SARL</option><option value='vermilion_city'>Carmin sur Mer</option><option value='vermilion_city_s_s_anne_dock'>Carmin sur Mer - Pont de l'Océane</option><option value='violet_city'>Mauville</option><option value='violet_city_poke_mart'>Mauville - Boutique Pokémon</option><option value='violet_city_pokemon_center'>Mauville - Centre Pokémon</option><option value='viridian_city'>Jadielle</option></optgroup><optgroup label='Évènements et Rencontres uniques'><option value='embedded_tower'>Tour Enfouie</option><option value='roaming_johto'>Sillonnant Johto</option><option value='sinjoh_ruins'>Ruines Sinjoh</option></optgroup>
+    </select>
+    <script type='module'>
+        import select_reload from '/lyra-website-backup/scripts/functions/select_reload.1715012545.js';
+
+        document.querySelector('#heartgold_soulsilver_select').addEventListener('change', (event) => select_reload('/lyra-website-backup/fr/pokemon_gen4/catch_locations', event));
+    </script>
+</div></div>
+<div id='current_location'>
+                    <a href='/lyra-website-backup/fr/pokemon_gen4/catch_locations/snowpoint_temple_b4f'>←</a>
+                    <p>Temple Frimapic - B5F</p>
+                    <a href='/lyra-website-backup/fr/pokemon_gen4/catch_locations/solaceon_ruins'>→</a>
+                    <script type='module'>
+                        import locations_keynav from '/lyra-website-backup/scripts/functions/pokemon/locations_keynav.1720872089.js';
+
+                        locations_keynav('/lyra-website-backup/fr/pokemon_gen4/catch_locations/snowpoint_temple_b4f', '/lyra-website-backup/fr/pokemon_gen4/catch_locations/solaceon_ruins');
+                    </script>
+                </div>
+ <div id='location_detail'><div>
+                        <h2 class='diamond'>Version Diamant</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Localisation / </span>Méthode</th>
+                            <th class='col_level'>Niveau</th>
+                            <th colspan='3'>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                                        <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_42.png' 
+                                alt='Nosferalto sprite gen 4' />
+                                <span class='pokemon_name'>Nosferalto</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>55</td>
+                        <td colspan='3' class='col_rate_colspan' >20 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_215.png' 
+                                alt='Farfuret sprite gen 4' />
+                                <span class='pokemon_name'>Farfuret</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>55</td>
+                        <td colspan='3' class='col_rate_colspan' >20 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_42.png' 
+                                alt='Nosferalto sprite gen 4' />
+                                <span class='pokemon_name'>Nosferalto</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>56</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_75.png' 
+                                alt='Gravalanch sprite gen 4' />
+                                <span class='pokemon_name'>Gravalanch</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>56</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_208.png' 
+                                alt='Steelix sprite gen 4' />
+                                <span class='pokemon_name'>Steelix</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>55</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_215.png' 
+                                alt='Farfuret sprite gen 4' />
+                                <span class='pokemon_name'>Farfuret</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>56</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_42.png' 
+                                alt='Nosferalto sprite gen 4' />
+                                <span class='pokemon_name'>Nosferalto</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>54</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_208.png' 
+                                alt='Steelix sprite gen 4' />
+                                <span class='pokemon_name'>Steelix</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>54</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_208.png' 
+                                alt='Steelix sprite gen 4' />
+                                <span class='pokemon_name'>Steelix</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>56</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_215.png' 
+                                alt='Farfuret sprite gen 4' />
+                                <span class='pokemon_name'>Farfuret</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>54</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='unique'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_486.png' 
+                                alt='Regigigas sprite gen 4' />
+                                <span class='pokemon_name'>Regigigas</span>
+                            </div>
+                        </td>
+                        <td>Rencontre unique</td>
+                        <td>70</td>
+                        <td colspan='3' class='col_rate_colspan' >100 %</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>Toutes les rencontres de cette zone sont cachées par vos paramètres actuels.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div><div>
+                        <h2 class='pearl'>Version Perle</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Localisation / </span>Méthode</th>
+                            <th class='col_level'>Niveau</th>
+                            <th colspan='3'>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                                        <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_42.png' 
+                                alt='Nosferalto sprite gen 4' />
+                                <span class='pokemon_name'>Nosferalto</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>55</td>
+                        <td colspan='3' class='col_rate_colspan' >20 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_215.png' 
+                                alt='Farfuret sprite gen 4' />
+                                <span class='pokemon_name'>Farfuret</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>55</td>
+                        <td colspan='3' class='col_rate_colspan' >20 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_42.png' 
+                                alt='Nosferalto sprite gen 4' />
+                                <span class='pokemon_name'>Nosferalto</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>56</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_75.png' 
+                                alt='Gravalanch sprite gen 4' />
+                                <span class='pokemon_name'>Gravalanch</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>56</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_208.png' 
+                                alt='Steelix sprite gen 4' />
+                                <span class='pokemon_name'>Steelix</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>55</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_215.png' 
+                                alt='Farfuret sprite gen 4' />
+                                <span class='pokemon_name'>Farfuret</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>56</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_42.png' 
+                                alt='Nosferalto sprite gen 4' />
+                                <span class='pokemon_name'>Nosferalto</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>54</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_208.png' 
+                                alt='Steelix sprite gen 4' />
+                                <span class='pokemon_name'>Steelix</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>54</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_208.png' 
+                                alt='Steelix sprite gen 4' />
+                                <span class='pokemon_name'>Steelix</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>56</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_215.png' 
+                                alt='Farfuret sprite gen 4' />
+                                <span class='pokemon_name'>Farfuret</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>54</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='unique'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_486.png' 
+                                alt='Regigigas sprite gen 4' />
+                                <span class='pokemon_name'>Regigigas</span>
+                            </div>
+                        </td>
+                        <td>Rencontre unique</td>
+                        <td>70</td>
+                        <td colspan='3' class='col_rate_colspan' >100 %</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>Toutes les rencontres de cette zone sont cachées par vos paramètres actuels.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div><div>
+                        <h2 class='platinum'>Version Platine</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Localisation / </span>Méthode</th>
+                            <th class='col_level'>Niveau</th>
+                            <th colspan='3'>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                                        <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_42.png' 
+                                alt='Nosferalto sprite gen 4' />
+                                <span class='pokemon_name'>Nosferalto</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>48</td>
+                        <td colspan='3' class='col_rate_colspan' >30 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_42.png' 
+                                alt='Nosferalto sprite gen 4' />
+                                <span class='pokemon_name'>Nosferalto</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>47</td>
+                        <td colspan='3' class='col_rate_colspan' >25 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_42.png' 
+                                alt='Nosferalto sprite gen 4' />
+                                <span class='pokemon_name'>Nosferalto</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>49</td>
+                        <td colspan='3' class='col_rate_colspan' >15 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_42.png' 
+                                alt='Nosferalto sprite gen 4' />
+                                <span class='pokemon_name'>Nosferalto</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>50</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_215.png' 
+                                alt='Farfuret sprite gen 4' />
+                                <span class='pokemon_name'>Farfuret</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>51</td>
+                        <td colspan='3' class='col_rate_colspan' >10 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_124.png' 
+                                alt='Lippoutou sprite gen 4' />
+                                <span class='pokemon_name'>Lippoutou</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>49</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='cave'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_124.png' 
+                                alt='Lippoutou sprite gen 4' />
+                                <span class='pokemon_name'>Lippoutou</span>
+                            </div>
+                        </td>
+                        <td>Grotte</td>
+                        <td>51</td>
+                        <td colspan='3' class='col_rate_colspan' >5 %</td>
+                    </tr>
+                
+                    <tr class='unique'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_486.png' 
+                                alt='Regigigas sprite gen 4' />
+                                <span class='pokemon_name'>Regigigas</span>
+                            </div>
+                        </td>
+                        <td>Rencontre unique</td>
+                        <td>1</td>
+                        <td colspan='3' class='col_rate_colspan' >100 %</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>Toutes les rencontres de cette zone sont cachées par vos paramètres actuels.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div></div>
+</section>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Sauvegarde de pr&eacute;servation du site <strong>Lyra a un site web</strong>. Site, design et contenu originaux par <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon et tous les &eacute;l&eacute;ments associ&eacute;s sont des marques de Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

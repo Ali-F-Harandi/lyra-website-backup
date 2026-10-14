@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+            <html lang='fr'>
+            <head>
+                <title>Pokémon n'ayant qu'un seul moyen d'obtention - Recherche par filtre - Gen 1</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen1.1774893396.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_red.css' />
+                <script>
+                    init_style('gen1');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/fr'>Retour au menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/pokemon_gen1/pokemon_info/one_way' >
+                            <span lang='en'>English version</span>
+                            <img src='/lyra-website-backup/views/images/us-uk_flag.png' alt='Drapeau anglais/américain' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra a un site web sur</h1>
+    <h2>Pokémon Gen 1</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/fr/pokemon_gen1/full_guide'>Guide complet</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen1/pokedex_tracker'>Pokédex perso</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen1/catch_locations'>Pokémon par zone</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen1/pokemon_info'>Recherche par filtre</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen1/extra_info'>Infos supplémentaires</a>
+    <button id='settings_link'>Préférences</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex perso</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Ajouter une étape supplémentaire</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Afficher le nombre de Pokémon obtenus</p>
+            </li><li>
+                <p>Sprites utilisés : </p>
+                <select id='select_pokemon_sprites'><option value='rg_sprites'>Rouge et Vert</option><option value='rb_sprites'>Rouge et Bleu</option><option value='y_sprites'>Jaune</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Mini Pokédex</p>
+            </li><li>
+                <p>Nom des boites : </p>
+                <select id='select_box_names'><option value='boxes_order'>Numéro de boite</option><option value='boxes_firstlast'>Premier et dernier Pokémon</option><option value='boxes_hidden'>Masquer les noms</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Guide Complet</h1>
+                <ul>
+                    <li>
+                <p>Version du guide : </p>
+                <select id='select_guide_version'><option value='red_guide'>Rouge</option><option value='blue_guide'>Bleu</option><option value='yellow_guide'>Jaune</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon par zone</h1>
+                <ul>
+                    <li>
+                <p>Filtrer par version : </p>
+                <select id='select_version_filter'><option value='pref_none'>Toutes</option><option value='pref_red'>Rouge</option><option value='pref_blue'>Bleu</option><option value='pref_yellow'>Jaune</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Masquer la Canne et Super Canne</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Recherche par filtre</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignorer les Pokémon déjà attrapés</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Couleurs du site web</h1>
+                <ul>
+                    <li>
+                <p>Thème de couleurs : </p>
+                <select id='select_color_theme'><optgroup label='1re génération'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Rouge</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Bleu</option></optgroup><optgroup label='2e génération'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Or</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Argent</option></optgroup><optgroup label='3e génération'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Émeraude</option></optgroup><optgroup label='4e génération'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamant</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Perle</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Données de la Gen 1</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Exporter</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Importer</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen1_settings from '/lyra-website-backup/scripts/pokemon/gen1/gen1_settings.1774893378.js';
+            const current_settings = new gen1_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_guide_version(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('fr'); 
+            </script>
+            <main>
+                <h1>Génération 1 - Recherche par filtre</h1>
+            <div id='select_pokemon_filter' class='select_menu'>
+                <span>Filtre affiché :</span>
+                <select>
+                    
+                    <option value='all_methods' >Tous les Pokémon</option><option value='catch' >Pokémon sauvages uniquement</option><option value='single_or_safari' >Pokémon exclusifs au Parc Safari</option><option value='one_way' selected>Pokémon n'ayant qu'un seul moyen d'obtention</option><option value='evolutions' >Pokémon disponibles uniquement via une montée de niveau</option><option value='ingame_trades' >Liste des échanges en jeu</option><option value='trade' >Pokémon disponibles uniquement via un échange</option><option value='stones' >Pokémon utilisant une pierre d'évolution</option><option value='version_specific' >Pokémon exclusifs à une version</option><option value='common' >Pokémon communs (chance de rencontre >= 40 %)</option><option value='theoretical_best' >Meilleur moyen d'obtention selon la base de données</option>
+                </select>
+                <script type='module'>
+                    import select_reload from '/lyra-website-backup/scripts/functions/select_reload.1715012545.js';
+                    
+                    document.querySelector('#select_pokemon_filter').addEventListener('change', (event) => select_reload('/lyra-website-backup/fr/pokemon_gen1/pokemon_info', event));
+                </script>
+            </div>
+            <section id='pokemon_info_extra'>
+                <span>Recherche rapide :</span>
+                <input type='text' id='name_search_input' maxlength='15' />
+            </section>
+            <section id='pokemon_info' class='one_way'>
+                <div id='pkmn_2'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 2</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_2.png'
+                    alt='Herbizarre sprite gen 1' />
+                    <p class='pokemon_name'>Herbizarre</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Évolution - Niveau 16</span>
+                </p>
+            </div><div id='pkmn_3'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 3</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_3.png'
+                    alt='Florizarre sprite gen 1' />
+                    <p class='pokemon_name'>Florizarre</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Évolution - Niveau 32</span>
+                </p>
+            </div><div id='pkmn_5'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 5</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_5.png'
+                    alt='Reptincel sprite gen 1' />
+                    <p class='pokemon_name'>Reptincel</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Évolution - Niveau 16</span>
+                </p>
+            </div><div id='pkmn_6'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 6</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_6.png'
+                    alt='Dracaufeu sprite gen 1' />
+                    <p class='pokemon_name'>Dracaufeu</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Évolution - Niveau 36</span>
+                </p>
+            </div><div id='pkmn_8'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 8</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_8.png'
+                    alt='Carabaffe sprite gen 1' />
+                    <p class='pokemon_name'>Carabaffe</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Évolution - Niveau 16</span>
+                </p>
+            </div><div id='pkmn_9'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 9</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_9.png'
+                    alt='Tortank sprite gen 1' />
+                    <p class='pokemon_name'>Tortank</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Évolution - Niveau 36</span>
+                </p>
+            </div><div id='pkmn_12'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 12</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_12.png'
+                    alt='Papilusion sprite gen 1' />
+                    <p class='pokemon_name'>Papilusion</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Évolution - Niveau 10</span>
+                </p>
+            </div><div id='pkmn_15'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 15</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_15.png'
+                    alt='Dardargnan sprite gen 1' />
+                    <p class='pokemon_name'>Dardargnan</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Évolution - Niveau 10</span>
+                </p>
+            </div><div id='pkmn_18'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 18</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_18.png'
+                    alt='Roucarnage sprite gen 1' />
+                    <p class='pokemon_name'>Roucarnage</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Évolution - Niveau 36</span>
+                </p>
+            </div><div id='pkmn_31'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 31</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_31.png'
+                    alt='Nidoqueen sprite gen 1' />
+                    <p class='pokemon_name'>Nidoqueen</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pierre Lune - Nidorina</span>
+                </p>
+            </div><div id='pkmn_34'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 34</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_34.png'
+                    alt='Nidoking sprite gen 1' />
+                    <p class='pokemon_name'>Nidoking</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pierre Lune - Nidorino</span>
+                </p>
+            </div><div id='pkmn_36'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 36</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_36.png'
+                    alt='Mélodelfe sprite gen 1' />
+                    <p class='pokemon_name'>Mélodelfe</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pierre Lune - Mélofée</span>
+                </p>
+            </div><div id='pkmn_38'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 38</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_38.png'
+                    alt='Feunard sprite gen 1' />
+                    <p class='pokemon_name'>Feunard</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pierre Feu - Goupix</span>
+                </p>
+            </div><div id='pkmn_45'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 45</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_45.png'
+                    alt='Rafflesia sprite gen 1' />
+                    <p class='pokemon_name'>Rafflesia</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pierreplante - Ortide</span>
+                </p>
+            </div><div id='pkmn_50'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 50</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_50.png'
+                    alt='Taupiqueur sprite gen 1' />
+                    <p class='pokemon_name'>Taupiqueur</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cave Taupiqueur - 95%</span>
+                </p>
+            </div><div id='pkmn_53' class='blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 53</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_53.png'
+                    alt='Persian sprite gen 1' />
+                    <p class='pokemon_name'>Persian</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Évolution - Niveau 28</span>
+                </p>
+            </div><div id='pkmn_59'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 59</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_59.png'
+                    alt='Arcanin sprite gen 1' />
+                    <p class='pokemon_name'>Arcanin</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pierre Feu - Caninos</span>
+                </p>
+            </div><div id='pkmn_62'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 62</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_62.png'
+                    alt='Tartard sprite gen 1' />
+                    <p class='pokemon_name'>Tartard</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pierre Eau - Têtarte</span>
+                </p>
+            </div><div id='pkmn_65'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 65</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_65.png'
+                    alt='Alakazam sprite gen 1' />
+                    <p class='pokemon_name'>Alakazam</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Échange - Kadabra</span>
+                </p>
+            </div><div id='pkmn_68'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 68</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_68.png'
+                    alt='Mackogneur sprite gen 1' />
+                    <p class='pokemon_name'>Mackogneur</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Échange - Machopeur</span>
+                </p>
+            </div><div id='pkmn_71'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 71</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_71.png'
+                    alt='Empiflor sprite gen 1' />
+                    <p class='pokemon_name'>Empiflor</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pierreplante - Boustiflor</span>
+                </p>
+            </div><div id='pkmn_76'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 76</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_76.png'
+                    alt='Grolem sprite gen 1' />
+                    <p class='pokemon_name'>Grolem</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Échange - Gravalanch</span>
+                </p>
+            </div><div id='pkmn_78'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 78</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_78.png'
+                    alt='Galopa sprite gen 1' />
+                    <p class='pokemon_name'>Galopa</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Évolution - Niveau 40</span>
+                </p>
+            </div><div id='pkmn_91'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 91</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_91.png'
+                    alt='Crustabri sprite gen 1' />
+                    <p class='pokemon_name'>Crustabri</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pierre Eau - Kokiyas</span>
+                </p>
+            </div><div id='pkmn_94'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 94</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_94.png'
+                    alt='Ectoplasma sprite gen 1' />
+                    <p class='pokemon_name'>Ectoplasma</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Échange - Spectrum</span>
+                </p>
+            </div><div id='pkmn_103'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 103</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_103.png'
+                    alt='Noadkoko sprite gen 1' />
+                    <p class='pokemon_name'>Noadkoko</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pierreplante - Noeunoeuf</span>
+                </p>
+            </div><div id='pkmn_106'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 106</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_106.png'
+                    alt='Kicklee sprite gen 1' />
+                    <p class='pokemon_name'>Kicklee</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Safrania - Don</span>
+                </p>
+            </div><div id='pkmn_107'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 107</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_107.png'
+                    alt='Tygnon sprite gen 1' />
+                    <p class='pokemon_name'>Tygnon</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Safrania - Don</span>
+                </p>
+            </div><div id='pkmn_121'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 121</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_121.png'
+                    alt='Staross sprite gen 1' />
+                    <p class='pokemon_name'>Staross</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pierre Eau - Stari</span>
+                </p>
+            </div><div id='pkmn_124' class='red_blue' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 124</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_124.png'
+                    alt='Lippoutou sprite gen 1' />
+                    <p class='pokemon_name'>Lippoutou</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Azuria - Échangé contre Têtarte</span>
+                </p>
+            </div><div id='pkmn_125' class='red' >
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 125</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_125.png'
+                    alt='Élektek sprite gen 1' />
+                    <p class='pokemon_name'>Élektek</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Centrale - 5%</span>
+                </p>
+            </div><div id='pkmn_131'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 131</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_131.png'
+                    alt='Lokhlass sprite gen 1' />
+                    <p class='pokemon_name'>Lokhlass</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Safrania - Don</span>
+                </p>
+            </div><div id='pkmn_133'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 133</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_133.png'
+                    alt='Évoli sprite gen 1' />
+                    <p class='pokemon_name'>Évoli</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Céladopole - Don</span>
+                </p>
+            </div><div id='pkmn_134'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 134</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_134.png'
+                    alt='Aquali sprite gen 1' />
+                    <p class='pokemon_name'>Aquali</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pierre Eau - Évoli</span>
+                </p>
+            </div><div id='pkmn_135'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 135</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_135.png'
+                    alt='Voltali sprite gen 1' />
+                    <p class='pokemon_name'>Voltali</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pierrefoudre - Évoli</span>
+                </p>
+            </div><div id='pkmn_136'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 136</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_136.png'
+                    alt='Pyroli sprite gen 1' />
+                    <p class='pokemon_name'>Pyroli</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Pierre Feu - Évoli</span>
+                </p>
+            </div><div id='pkmn_138'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 138</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_138.png'
+                    alt='Amonita sprite gen 1' />
+                    <p class='pokemon_name'>Amonita</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cramois'Île - Nautile</span>
+                </p>
+            </div><div id='pkmn_139'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 139</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_139.png'
+                    alt='Amonistar sprite gen 1' />
+                    <p class='pokemon_name'>Amonistar</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Évolution - Niveau 40</span>
+                </p>
+            </div><div id='pkmn_140'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 140</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_140.png'
+                    alt='Kabuto sprite gen 1' />
+                    <p class='pokemon_name'>Kabuto</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cramois'Île - Fossile Dôme</span>
+                </p>
+            </div><div id='pkmn_141'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 141</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_141.png'
+                    alt='Kabutops sprite gen 1' />
+                    <p class='pokemon_name'>Kabutops</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Évolution - Niveau 40</span>
+                </p>
+            </div><div id='pkmn_142'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 142</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_142.png'
+                    alt='Ptéra sprite gen 1' />
+                    <p class='pokemon_name'>Ptéra</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Cramois'Île - Vieil Ambre</span>
+                </p>
+            </div><div id='pkmn_144'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 144</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_144.png'
+                    alt='Artikodin sprite gen 1' />
+                    <p class='pokemon_name'>Artikodin</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Îles Écume - 4e ss. - Unique</span>
+                </p>
+            </div><div id='pkmn_145'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 145</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_145.png'
+                    alt='Électhor sprite gen 1' />
+                    <p class='pokemon_name'>Électhor</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Centrale - Unique</span>
+                </p>
+            </div><div id='pkmn_146'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 146</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_146.png'
+                    alt='Sulfura sprite gen 1' />
+                    <p class='pokemon_name'>Sulfura</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Route Victoire - 1er ét. - Unique</span>
+                </p>
+            </div><div id='pkmn_149'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 149</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_149.png'
+                    alt='Dracolosse sprite gen 1' />
+                    <p class='pokemon_name'>Dracolosse</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Évolution - Niveau 55</span>
+                </p>
+            </div><div id='pkmn_150'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 150</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_150.png'
+                    alt='Mewtwo sprite gen 1' />
+                    <p class='pokemon_name'>Mewtwo</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Caverne Azurée - 1er ss. - Unique</span>
+                </p>
+            </div><div id='pkmn_151'>
+                <div class='pokemon_card'>
+                    <p class='pokemon_number' ># 151</p>
+                    <img src='/lyra-website-backup/views/pokemon/gen1/images/pokedex_rb/sprite_151.png'
+                    alt='Mew sprite gen 1' />
+                    <p class='pokemon_name'>Mew</p>
+                </div>
+                <p class='catch_data'>
+                    <span>Triche - Bug du Croupier</span>
+                </p>
+            </div>
+                <p id='empty_search_message' class='hidden'>Aucun Pokémon trouvé ayant le nom ou numéro recherché.</p>
+                <p id='empty_caught_message' class='hidden'>Aucun Pokémon affiché, car ils sont tous capturés. Désactivez l'option <i>"Ignorer les Pokémon déjà attrapés"</i> pour faire une recherche.</p>
+            </section><script type='module'>
+                import name_search from '/lyra-website-backup/scripts/functions/pokemon/name_search.1726619881.js';
+                        
+                name_search();
+            </script>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Sauvegarde de pr&eacute;servation du site <strong>Lyra a un site web</strong>. Site, design et contenu originaux par <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon et tous les &eacute;l&eacute;ments associ&eacute;s sont des marques de Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

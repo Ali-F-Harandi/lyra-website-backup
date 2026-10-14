@@ -1,0 +1,2504 @@
+<!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <title>Full Guide - Gen 4</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen4.1774893397.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_diamond.css' />
+                <script>
+                    init_style('gen4');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/'>Return to main menu</a>
+                    </div>
+
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/fr/pokemon_gen4/catch_locations' >
+                            <span lang='fr'>Version française</span>
+                            <img src='/lyra-website-backup/views/images/french_flag.png' alt='French flag' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra made a website about</h1>
+    <h2>Pokémon Gen 4</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/pokemon_gen4/full_guide'>Full Guide</a>
+    <a href='/lyra-website-backup/pokemon_gen4/pokedex_tracker'>Pokédex tracker</a>
+    <a href='/lyra-website-backup/pokemon_gen4/catch_locations'>Catch locations</a>
+    <a href='/lyra-website-backup/pokemon_gen4/pokemon_info'>Pokémon info</a>
+    <a href='/lyra-website-backup/pokemon_gen4/extra_info'>Extra info</a>
+    <button id='settings_link'>Settings</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex tracker</h1>
+                <ul>
+                    <li>
+                <p>Pokédex displayed: </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>National Pokédex</option><option value='diamond_pearl_dex'>Diamond & Pearl</option><option value='platinum_dex'>Platinum</option><option value='heartgold_soulsilver_dex'>HeartGold & SoulSilver</option><option value='only_new_dex'>New Pokémon only</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Add extra step to capture</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Display current progress</p>
+            </li><li>
+                <p>Pokemon sprites used: </p>
+                <select id='select_pokemon_sprites'><option value='dp_sprites'>Diamond & Pearl</option><option value='plat_sprites'>Platinum</option><option value='hgss_sprites'>HeartGold & SoulSilver</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Small Pokémon sprites</p>
+            </li><li>
+                <p>Box labels: </p>
+                <select id='select_box_names'><option value='boxes_order'>Box number</option><option value='boxes_firstlast'>First & last Pokémon</option><option value='boxes_hidden'>Hide labels</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Catch locations</h1>
+                <ul>
+                    <li>
+                <p>Filter by version: </p>
+                <select id='select_version_filter'><option value='pref_none'>All</option><option value='pref_diamond'>Diamond</option><option value='pref_pearl'>Pearl</option><option value='pref_platinum'>Platinum</option><option value='pref_heartgold'>HeartGold</option><option value='pref_soulsilver'>SoulSilver</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Hide Old Rod and Good Rod data</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon info</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignore info of caught Pokémon</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Website colors</h1>
+                <ul>
+                    <li>
+                <p>Color theme: </p>
+                <select id='select_color_theme'><optgroup label='Gen 4'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamond</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Pearl</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Gen 4 data management</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Export</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Import</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+
+            import gen4_settings from '/lyra-website-backup/scripts/pokemon/gen4/gen4_settings.1763927568.js';
+            const current_settings = new gen4_settings();
+
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('en');
+            </script>
+<main>
+                <h1>Generation 4 - Living Pokédex Guide</h1>
+
+<section id='guide_info'>
+    <article>
+        <h3>Goal and guidelines</h3>
+        <p>The goal of this guide is to help anyone complete a Living Pokédex in the <strong>Gen 4 games</strong> (Diamond, Pearl, Platinum, HeartGold and SoulSilver). Since one of each Pokémon has to be owned at the same time, planning is essential. Here are the directions followed when writing it:</p>
+        <ul>
+            <li>This guide is meant to be used as a <strong>template</strong>, not a rigid step-by-step walkthrough. The <a href='/lyra-website-backup/pokemon_gen4/pokemon_info'>Pokémon info page</a> is here to help adapting it to your own playstyle.</li><li><strong>Pokémon Platinum</strong> is chosen as the main Sinnoh game, as its Pokédex is larger and its extras (the Distortion World, the Battle Zone, both orbs) make it the most complete version. Diamond and Pearl additions are pointed out along the way.</li><li><strong>HeartGold</strong> is chosen for Johto and Kanto, with SoulSilver differences listed on the <a href='/lyra-website-backup/pokemon_gen4/pokemon_info'>Pokémon info page</a> (Groudon is SoulSilver only, Kyogre is HeartGold only, and so on).</li><li>All five Gen 4 games can <strong>trade with each other directly</strong>, which makes moving Pokémon around much easier than in Gen 3.</li><li>The seven Pokémon absent from Gen 4 games (<span class='h_pkmn'>Mew</span>, <span class='h_pkmn'>Celebi</span>, the three <span class='h_pkmn'>Regis</span>, <span class='h_pkmn'>Jirachi</span> and <span class='h_pkmn'>Deoxys</span>) must be transferred with the <span class='h_item'>Pal Park</span> from Gen 3 games. The <a href='/lyra-website-backup/pokemon_gen3/full_guide'>Gen 3 guide</a> explains how to obtain every one of them, event Pokémon included.</li><li>Access to in-game events is assumed for <span class='h_pkmn'>Darkrai</span>, <span class='h_pkmn'>Shaymin</span>, <span class='h_pkmn'>Arceus</span> and <span class='h_pkmn'>Manaphy</span> (see the <a href='/lyra-website-backup/pokemon_gen4/extra_info'>extra info page</a>).</li>
+        </ul>
+
+        <h3>Additional information</h3>
+        <p>For the smoothest experience possible, here are some extra details on how to read and use the Living Pokédex guide:</p>
+        <ul>
+            <li>Within each area, Pokémon are loosely ordered by the order they become reachable in. Rare Pokémon should be prioritized, as common ones will be encountered naturally.</li><li>Every evolution gets its own entry: catching the pre-evolution is described once, and the evolution entry tells you what to do with <strong>another</strong> instance of it. Breeding is the easiest source of extra instances.</li><li>This checklist and the <a href='/lyra-website-backup/pokemon_gen4/pokedex_tracker'>Pokédex tracker</a> are linked. If a Pokémon is caught in one page, refresh the other page to see the change.</li><li>The <strong>Poké Radar</strong>, <strong>Honey trees</strong>, <strong>daily swarms</strong> and <strong>GBA slot</strong> encounters have their own sections, as they require specific setups.</li><li>The <a href='/lyra-website-backup/pokemon_gen4/catch_locations'>catch locations page</a> details every encounter table of the five games, including the Safari Zone objects and the radio songs.</li><li>More information about Gen 4 and general tips are available on the <a href='/lyra-website-backup/pokemon_gen4/extra_info'>extra info page</a>.</li>
+        </ul>
+    </article>
+</section>
+
+
+            <section id='guide_full'>
+                <h2 class='platinum'>Pokémon Platinum</h2>
+            <article>
+                <h3>Twinleaf Town</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_54' />
+            <label for='pkmn_54'>
+                Catch <span class='h_pkmn'>Psyduck</span> - 90% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_129' />
+            <label for='pkmn_129'>
+                Catch <span class='h_pkmn'>Magikarp</span> - 60% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_118' />
+            <label for='pkmn_118'>
+                Catch <span class='h_pkmn'>Goldeen</span> - 40% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_119' />
+            <label for='pkmn_119'>
+                Catch <span class='h_pkmn'>Seaking</span> - 40% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_130' />
+            <label for='pkmn_130'>
+                Catch <span class='h_pkmn'>Gyarados</span> - 40% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_55' />
+            <label for='pkmn_55'>
+                Catch <span class='h_pkmn'>Golduck</span> - 10% encounter rate
+            </label>
+            </ul><h3>Lake Verity - Lakefront (game start)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_399' />
+            <label for='pkmn_399'>
+                Catch <span class='h_pkmn'>Bidoof</span> - 30% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_202' />
+            <label for='pkmn_202'>
+                Catch <span class='h_pkmn'>Wobbuffet</span> - 20% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_396' />
+            <label for='pkmn_396'>
+                Catch <span class='h_pkmn'>Starly</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_337' />
+            <label for='pkmn_337'>
+                Catch <span class='h_pkmn'>Lunatone</span> - GBA slot (Sapphire)
+            </label><li>
+                <input type='checkbox' id='pkmn_338' />
+            <label for='pkmn_338'>
+                Catch <span class='h_pkmn'>Solrock</span> - GBA slot (Ruby)
+            </label><li>
+                <input type='checkbox' id='pkmn_397' />
+            <label for='pkmn_397'>
+                Hatch a <span class='h_pkmn'>Starly</span> and evolve it into <span class='h_pkmn'>Staravia</span> (level 14)
+            </label><li>
+                <input type='checkbox' id='pkmn_400' />
+            <label for='pkmn_400'>
+                Hatch a <span class='h_pkmn'>Bidoof</span> and evolve it into <span class='h_pkmn'>Bibarel</span> (level 15)
+            </label>
+            </ul><h3>Route 201</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_84' />
+            <label for='pkmn_84'>
+                Catch <span class='h_pkmn'>Doduo</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_29' />
+            <label for='pkmn_29'>
+                Catch <span class='h_pkmn'>Nidoran♀</span> - 10% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_32' />
+            <label for='pkmn_32'>
+                Catch <span class='h_pkmn'>Nidoran♂</span> - 10% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_401' />
+            <label for='pkmn_401'>
+                Catch <span class='h_pkmn'>Kricketot</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_58' />
+            <label for='pkmn_58'>
+                Catch <span class='h_pkmn'>Growlithe</span> - GBA slot (FireRed)
+            </label><li>
+                <input type='checkbox' id='pkmn_387' />
+            <label for='pkmn_387'>
+                <span class='h_pkmn'>Turtwig</span> - Starter Pokémon
+            </label><li>
+                <input type='checkbox' id='pkmn_390' />
+            <label for='pkmn_390'>
+                <span class='h_pkmn'>Chimchar</span> - Starter Pokémon
+            </label><li>
+                <input type='checkbox' id='pkmn_393' />
+            <label for='pkmn_393'>
+                <span class='h_pkmn'>Piplup</span> - Starter Pokémon
+            </label><li>
+                <input type='checkbox' id='pkmn_30' />
+            <label for='pkmn_30'>
+                Hatch a <span class='h_pkmn'>Nidoran♀</span> and evolve it into <span class='h_pkmn'>Nidorina</span> (level 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_33' />
+            <label for='pkmn_33'>
+                Hatch a <span class='h_pkmn'>Nidoran♂</span> and evolve it into <span class='h_pkmn'>Nidorino</span> (level 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_59' />
+            <label for='pkmn_59'>
+                Hatch a <span class='h_pkmn'>Growlithe</span> and evolve it into <span class='h_pkmn'>Arcanine</span> (Fire Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_85' />
+            <label for='pkmn_85'>
+                Hatch a <span class='h_pkmn'>Doduo</span> and evolve it into <span class='h_pkmn'>Dodrio</span> (level 31)
+            </label><li>
+                <input type='checkbox' id='pkmn_388' />
+            <label for='pkmn_388'>
+                Hatch a <span class='h_pkmn'>Turtwig</span> and evolve it into <span class='h_pkmn'>Grotle</span> (level 18)
+            </label><li>
+                <input type='checkbox' id='pkmn_391' />
+            <label for='pkmn_391'>
+                Hatch a <span class='h_pkmn'>Chimchar</span> and evolve it into <span class='h_pkmn'>Monferno</span> (level 14)
+            </label><li>
+                <input type='checkbox' id='pkmn_394' />
+            <label for='pkmn_394'>
+                Hatch a <span class='h_pkmn'>Piplup</span> and evolve it into <span class='h_pkmn'>Prinplup</span> (level 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_402' />
+            <label for='pkmn_402'>
+                Hatch a <span class='h_pkmn'>Kricketot</span> and evolve it into <span class='h_pkmn'>Kricketune</span> (level 10)
+            </label>
+            </ul><h3>Route 202</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_263' />
+            <label for='pkmn_263'>
+                Catch <span class='h_pkmn'>Zigzagoon</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_403' />
+            <label for='pkmn_403'>
+                Catch <span class='h_pkmn'>Shinx</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_161' />
+            <label for='pkmn_161'>
+                Catch <span class='h_pkmn'>Sentret</span> - 10% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_162' />
+            <label for='pkmn_162'>
+                Hatch a <span class='h_pkmn'>Sentret</span> and evolve it into <span class='h_pkmn'>Furret</span> (level 15)
+            </label><li>
+                <input type='checkbox' id='pkmn_264' />
+            <label for='pkmn_264'>
+                Hatch a <span class='h_pkmn'>Zigzagoon</span> and evolve it into <span class='h_pkmn'>Linoone</span> (level 20)
+            </label><li>
+                <input type='checkbox' id='pkmn_404' />
+            <label for='pkmn_404'>
+                Hatch a <span class='h_pkmn'>Shinx</span> and evolve it into <span class='h_pkmn'>Luxio</span> (level 15)
+            </label>
+            </ul><h3>Route 203</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_104' />
+            <label for='pkmn_104'>
+                Catch <span class='h_pkmn'>Cubone</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_41' />
+            <label for='pkmn_41'>
+                Catch <span class='h_pkmn'>Zubat</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_63' />
+            <label for='pkmn_63'>
+                Catch <span class='h_pkmn'>Abra</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_204' />
+            <label for='pkmn_204'>
+                Catch <span class='h_pkmn'>Pineco</span> - GBA slot (Emerald)
+            </label><li>
+                <input type='checkbox' id='pkmn_270' />
+            <label for='pkmn_270'>
+                Catch <span class='h_pkmn'>Lotad</span> - GBA slot (Sapphire)
+            </label><li>
+                <input type='checkbox' id='pkmn_273' />
+            <label for='pkmn_273'>
+                Catch <span class='h_pkmn'>Seedot</span> - GBA slot (Ruby)
+            </label><li>
+                <input type='checkbox' id='pkmn_42' />
+            <label for='pkmn_42'>
+                Hatch a <span class='h_pkmn'>Zubat</span> and evolve it into <span class='h_pkmn'>Golbat</span> (level 22)
+            </label><li>
+                <input type='checkbox' id='pkmn_64' />
+            <label for='pkmn_64'>
+                Hatch a <span class='h_pkmn'>Abra</span> and evolve it into <span class='h_pkmn'>Kadabra</span> (level 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_105' />
+            <label for='pkmn_105'>
+                Hatch a <span class='h_pkmn'>Cubone</span> and evolve it into <span class='h_pkmn'>Marowak</span> (level 28)
+            </label><li>
+                <input type='checkbox' id='pkmn_205' />
+            <label for='pkmn_205'>
+                Hatch a <span class='h_pkmn'>Pineco</span> and evolve it into <span class='h_pkmn'>Forretress</span> (level 31)
+            </label><li>
+                <input type='checkbox' id='pkmn_271' />
+            <label for='pkmn_271'>
+                Hatch a <span class='h_pkmn'>Lotad</span> and evolve it into <span class='h_pkmn'>Lombre</span> (level 14)
+            </label><li>
+                <input type='checkbox' id='pkmn_274' />
+            <label for='pkmn_274'>
+                Hatch a <span class='h_pkmn'>Seedot</span> and evolve it into <span class='h_pkmn'>Nuzleaf</span> (level 14)
+            </label>
+            </ul><h3>Route 204 - South</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_265' />
+            <label for='pkmn_265'>
+                Catch <span class='h_pkmn'>Wurmple</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_406' />
+            <label for='pkmn_406'>
+                Catch <span class='h_pkmn'>Budew</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_10' />
+            <label for='pkmn_10'>
+                Catch <span class='h_pkmn'>Caterpie</span> - GBA slot (FireRed)
+            </label><li>
+                <input type='checkbox' id='pkmn_13' />
+            <label for='pkmn_13'>
+                Catch <span class='h_pkmn'>Weedle</span> - GBA slot (LeafGreen)
+            </label><li>
+                <input type='checkbox' id='pkmn_11' />
+            <label for='pkmn_11'>
+                Hatch a <span class='h_pkmn'>Caterpie</span> and evolve it into <span class='h_pkmn'>Metapod</span> (level 7)
+            </label><li>
+                <input type='checkbox' id='pkmn_14' />
+            <label for='pkmn_14'>
+                Hatch a <span class='h_pkmn'>Weedle</span> and evolve it into <span class='h_pkmn'>Kakuna</span> (level 7)
+            </label><li>
+                <input type='checkbox' id='pkmn_266' />
+            <label for='pkmn_266'>
+                Hatch a <span class='h_pkmn'>Wurmple</span> and evolve it into <span class='h_pkmn'>Silcoon</span> (level 7)
+            </label><li>
+                <input type='checkbox' id='pkmn_268' />
+            <label for='pkmn_268'>
+                Hatch a <span class='h_pkmn'>Wurmple</span> and evolve it into <span class='h_pkmn'>Cascoon</span> (level 7)
+            </label><li>
+                <input type='checkbox' id='pkmn_315' />
+            <label for='pkmn_315'>
+                Hatch a <span class='h_pkmn'>Budew</span> and evolve it into <span class='h_pkmn'>Roselia</span> (friendship during the day)
+            </label>
+            </ul><h3>Route 204 - North</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_191' />
+            <label for='pkmn_191'>
+                Catch <span class='h_pkmn'>Sunkern</span> - 20% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_192' />
+            <label for='pkmn_192'>
+                Hatch a <span class='h_pkmn'>Sunkern</span> and evolve it into <span class='h_pkmn'>Sunflora</span> (Sun Stone)
+            </label>
+            </ul><h3>Oreburgh Gate - 1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_74' />
+            <label for='pkmn_74'>
+                Catch <span class='h_pkmn'>Geodude</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_75' />
+            <label for='pkmn_75'>
+                Hatch a <span class='h_pkmn'>Geodude</span> and evolve it into <span class='h_pkmn'>Graveler</span> (level 25)
+            </label>
+            </ul><h3>Oreburgh Gate - B1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_339' />
+            <label for='pkmn_339'>
+                Catch <span class='h_pkmn'>Barboach</span> - 40% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_340' />
+            <label for='pkmn_340'>
+                Catch <span class='h_pkmn'>Whiscash</span> - 40% encounter rate
+            </label>
+            </ul><h3>Oreburgh Mine - 1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_95' />
+            <label for='pkmn_95'>
+                Catch <span class='h_pkmn'>Onix</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_208' />
+            <label for='pkmn_208'>
+                Hatch a <span class='h_pkmn'>Onix</span> and evolve it into <span class='h_pkmn'>Steelix</span> (trade holding Metal Coat)
+            </label>
+            </ul><h3>Oreburgh City - Oreburgh Mining Museum</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_138' />
+            <label for='pkmn_138'>
+                <span class='h_pkmn'>Omanyte</span> - Helix Fossil revived (<span class='h_loc'>Oreburgh City - Oreburgh Mining Museum</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_140' />
+            <label for='pkmn_140'>
+                <span class='h_pkmn'>Kabuto</span> - Dome Fossil revived (<span class='h_loc'>Oreburgh City - Oreburgh Mining Museum</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_142' />
+            <label for='pkmn_142'>
+                <span class='h_pkmn'>Aerodactyl</span> - Old Amber Fossil revived (<span class='h_loc'>Oreburgh City - Oreburgh Mining Museum</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_345' />
+            <label for='pkmn_345'>
+                <span class='h_pkmn'>Lileep</span> - Root Fossil revived (<span class='h_loc'>Oreburgh City - Oreburgh Mining Museum</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_347' />
+            <label for='pkmn_347'>
+                <span class='h_pkmn'>Anorith</span> - Claw Fossil revived (<span class='h_loc'>Oreburgh City - Oreburgh Mining Museum</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_408' />
+            <label for='pkmn_408'>
+                <span class='h_pkmn'>Cranidos</span> - Skull Fossil revived (<span class='h_loc'>Oreburgh City - Oreburgh Mining Museum</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_410' />
+            <label for='pkmn_410'>
+                <span class='h_pkmn'>Shieldon</span> - Armor Fossil revived (<span class='h_loc'>Oreburgh City - Oreburgh Mining Museum</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_139' />
+            <label for='pkmn_139'>
+                Hatch a <span class='h_pkmn'>Omanyte</span> and evolve it into <span class='h_pkmn'>Omastar</span> (level 40)
+            </label><li>
+                <input type='checkbox' id='pkmn_141' />
+            <label for='pkmn_141'>
+                Hatch a <span class='h_pkmn'>Kabuto</span> and evolve it into <span class='h_pkmn'>Kabutops</span> (level 40)
+            </label><li>
+                <input type='checkbox' id='pkmn_346' />
+            <label for='pkmn_346'>
+                Hatch a <span class='h_pkmn'>Lileep</span> and evolve it into <span class='h_pkmn'>Cradily</span> (level 40)
+            </label><li>
+                <input type='checkbox' id='pkmn_348' />
+            <label for='pkmn_348'>
+                Hatch a <span class='h_pkmn'>Anorith</span> and evolve it into <span class='h_pkmn'>Armaldo</span> (level 40)
+            </label><li>
+                <input type='checkbox' id='pkmn_409' />
+            <label for='pkmn_409'>
+                Hatch a <span class='h_pkmn'>Cranidos</span> and evolve it into <span class='h_pkmn'>Rampardos</span> (level 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_411' />
+            <label for='pkmn_411'>
+                Hatch a <span class='h_pkmn'>Shieldon</span> and evolve it into <span class='h_pkmn'>Bastiodon</span> (level 30)
+            </label>
+            </ul><h3>Route 207</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_446' />
+            <label for='pkmn_446'>
+                Catch <span class='h_pkmn'>Munchlax</span> - on a Honey tree
+            </label><li>
+                <input type='checkbox' id='pkmn_412' />
+            <label for='pkmn_412'>
+                Catch <span class='h_pkmn'>Burmy</span> - on a Honey tree
+            </label><li>
+                <input type='checkbox' id='pkmn_415' />
+            <label for='pkmn_415'>
+                Catch <span class='h_pkmn'>Combee</span> - on a Honey tree
+            </label><li>
+                <input type='checkbox' id='pkmn_420' />
+            <label for='pkmn_420'>
+                Catch <span class='h_pkmn'>Cherubi</span> - on a Honey tree
+            </label><li>
+                <input type='checkbox' id='pkmn_190' />
+            <label for='pkmn_190'>
+                Catch <span class='h_pkmn'>Aipom</span> - on a Honey tree
+            </label><li>
+                <input type='checkbox' id='pkmn_66' />
+            <label for='pkmn_66'>
+                Catch <span class='h_pkmn'>Machop</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_231' />
+            <label for='pkmn_231'>
+                Catch <span class='h_pkmn'>Phanpy</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_77' />
+            <label for='pkmn_77'>
+                Catch <span class='h_pkmn'>Ponyta</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_234' />
+            <label for='pkmn_234'>
+                Catch <span class='h_pkmn'>Stantler</span> - 10% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_214' />
+            <label for='pkmn_214'>
+                Catch <span class='h_pkmn'>Heracross</span> - on a Honey tree
+            </label><li>
+                <input type='checkbox' id='pkmn_67' />
+            <label for='pkmn_67'>
+                Hatch a <span class='h_pkmn'>Machop</span> and evolve it into <span class='h_pkmn'>Machoke</span> (level 28)
+            </label><li>
+                <input type='checkbox' id='pkmn_78' />
+            <label for='pkmn_78'>
+                Hatch a <span class='h_pkmn'>Ponyta</span> and evolve it into <span class='h_pkmn'>Rapidash</span> (level 40)
+            </label><li>
+                <input type='checkbox' id='pkmn_143' />
+            <label for='pkmn_143'>
+                Hatch a <span class='h_pkmn'>Munchlax</span> and evolve it into <span class='h_pkmn'>Snorlax</span> (friendship)
+            </label><li>
+                <input type='checkbox' id='pkmn_232' />
+            <label for='pkmn_232'>
+                Hatch a <span class='h_pkmn'>Phanpy</span> and evolve it into <span class='h_pkmn'>Donphan</span> (level 25)
+            </label><li>
+                <input type='checkbox' id='pkmn_413' />
+            <label for='pkmn_413'>
+                Hatch a <span class='h_pkmn'>Burmy</span> and evolve it into <span class='h_pkmn'>Wormadam</span> (level 20)
+            </label><li>
+                <input type='checkbox' id='pkmn_414' />
+            <label for='pkmn_414'>
+                Hatch a <span class='h_pkmn'>Burmy</span> and evolve it into <span class='h_pkmn'>Mothim</span> (level 20)
+            </label><li>
+                <input type='checkbox' id='pkmn_416' />
+            <label for='pkmn_416'>
+                Hatch a <span class='h_pkmn'>Combee</span> and evolve it into <span class='h_pkmn'>Vespiquen</span> (level 21)
+            </label><li>
+                <input type='checkbox' id='pkmn_421' />
+            <label for='pkmn_421'>
+                Hatch a <span class='h_pkmn'>Cherubi</span> and evolve it into <span class='h_pkmn'>Cherrim</span> (level 25)
+            </label><li>
+                <input type='checkbox' id='pkmn_424' />
+            <label for='pkmn_424'>
+                Hatch a <span class='h_pkmn'>Aipom</span> and evolve it into <span class='h_pkmn'>Ambipom</span> (knowing Double Hit)
+            </label>
+            </ul><h3>Mt. Coronet - 1F (Route 207)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_436' />
+            <label for='pkmn_436'>
+                Catch <span class='h_pkmn'>Bronzor</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_35' />
+            <label for='pkmn_35'>
+                Catch <span class='h_pkmn'>Clefairy</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_307' />
+            <label for='pkmn_307'>
+                Catch <span class='h_pkmn'>Meditite</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_299' />
+            <label for='pkmn_299'>
+                Catch <span class='h_pkmn'>Nosepass</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_433' />
+            <label for='pkmn_433'>
+                Catch <span class='h_pkmn'>Chingling</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_36' />
+            <label for='pkmn_36'>
+                Hatch a <span class='h_pkmn'>Clefairy</span> and evolve it into <span class='h_pkmn'>Clefable</span> (Moon Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_308' />
+            <label for='pkmn_308'>
+                Hatch a <span class='h_pkmn'>Meditite</span> and evolve it into <span class='h_pkmn'>Medicham</span> (level 37)
+            </label><li>
+                <input type='checkbox' id='pkmn_358' />
+            <label for='pkmn_358'>
+                Hatch a <span class='h_pkmn'>Chingling</span> and evolve it into <span class='h_pkmn'>Chimecho</span> (friendship at night)
+            </label><li>
+                <input type='checkbox' id='pkmn_437' />
+            <label for='pkmn_437'>
+                Hatch a <span class='h_pkmn'>Bronzor</span> and evolve it into <span class='h_pkmn'>Bronzong</span> (level 33)
+            </label><li>
+                <input type='checkbox' id='pkmn_476' />
+            <label for='pkmn_476'>
+                Hatch a <span class='h_pkmn'>Nosepass</span> and evolve it into <span class='h_pkmn'>Probopass</span> (at Mt. Coronet)
+            </label>
+            </ul><h3>Route 208</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_206' />
+            <label for='pkmn_206'>
+                Catch <span class='h_pkmn'>Dunsparce</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_235' />
+            <label for='pkmn_235'>
+                Catch <span class='h_pkmn'>Smeargle</span> - 10% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_280' />
+            <label for='pkmn_280'>
+                Catch <span class='h_pkmn'>Ralts</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_335' />
+            <label for='pkmn_335'>
+                Catch <span class='h_pkmn'>Zangoose</span> - GBA slot (Ruby)
+            </label><li>
+                <input type='checkbox' id='pkmn_336' />
+            <label for='pkmn_336'>
+                Catch <span class='h_pkmn'>Seviper</span> - GBA slot (Sapphire)
+            </label><li>
+                <input type='checkbox' id='pkmn_281' />
+            <label for='pkmn_281'>
+                Hatch a <span class='h_pkmn'>Ralts</span> and evolve it into <span class='h_pkmn'>Kirlia</span> (level 20)
+            </label>
+            </ul><h3>Hearthome City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_133' />
+            <label for='pkmn_133'>
+                <span class='h_pkmn'>Eevee</span> - gift (<span class='h_loc'>Hearthome City</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_134' />
+            <label for='pkmn_134'>
+                Hatch a <span class='h_pkmn'>Eevee</span> and evolve it into <span class='h_pkmn'>Vaporeon</span> (Water Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_135' />
+            <label for='pkmn_135'>
+                Hatch a <span class='h_pkmn'>Eevee</span> and evolve it into <span class='h_pkmn'>Jolteon</span> (Thunder Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_136' />
+            <label for='pkmn_136'>
+                Hatch a <span class='h_pkmn'>Eevee</span> and evolve it into <span class='h_pkmn'>Flareon</span> (Fire Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_196' />
+            <label for='pkmn_196'>
+                Hatch a <span class='h_pkmn'>Eevee</span> and evolve it into <span class='h_pkmn'>Espeon</span> (friendship during the day)
+            </label><li>
+                <input type='checkbox' id='pkmn_197' />
+            <label for='pkmn_197'>
+                Hatch a <span class='h_pkmn'>Eevee</span> and evolve it into <span class='h_pkmn'>Umbreon</span> (friendship at night)
+            </label><li>
+                <input type='checkbox' id='pkmn_470' />
+            <label for='pkmn_470'>
+                Hatch a <span class='h_pkmn'>Eevee</span> and evolve it into <span class='h_pkmn'>Leafeon</span> (Moss Rock (Eterna Forest))
+            </label><li>
+                <input type='checkbox' id='pkmn_471' />
+            <label for='pkmn_471'>
+                Hatch a <span class='h_pkmn'>Eevee</span> and evolve it into <span class='h_pkmn'>Glaceon</span> (Ice Rock (Route 217))
+            </label>
+            </ul><h3>Route 209</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_209' />
+            <label for='pkmn_209'>
+                Catch <span class='h_pkmn'>Snubbull</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_355' />
+            <label for='pkmn_355'>
+                Catch <span class='h_pkmn'>Duskull</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_37' />
+            <label for='pkmn_37'>
+                Catch <span class='h_pkmn'>Vulpix</span> - GBA slot (LeafGreen)
+            </label><li>
+                <input type='checkbox' id='pkmn_113' />
+            <label for='pkmn_113'>
+                Catch <span class='h_pkmn'>Chansey</span> - 4% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_442' />
+            <label for='pkmn_442'>
+                <span class='h_pkmn'>Spiritomb</span> - unique encounter at <span class='h_loc'>Route 209</span>
+            </label><li>
+                <input type='checkbox' id='pkmn_38' />
+            <label for='pkmn_38'>
+                Hatch a <span class='h_pkmn'>Vulpix</span> and evolve it into <span class='h_pkmn'>Ninetales</span> (Fire Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_210' />
+            <label for='pkmn_210'>
+                Hatch a <span class='h_pkmn'>Snubbull</span> and evolve it into <span class='h_pkmn'>Granbull</span> (level 23)
+            </label><li>
+                <input type='checkbox' id='pkmn_242' />
+            <label for='pkmn_242'>
+                Hatch a <span class='h_pkmn'>Chansey</span> and evolve it into <span class='h_pkmn'>Blissey</span> (friendship)
+            </label><li>
+                <input type='checkbox' id='pkmn_356' />
+            <label for='pkmn_356'>
+                Hatch a <span class='h_pkmn'>Duskull</span> and evolve it into <span class='h_pkmn'>Dusclops</span> (level 37)
+            </label>
+            </ul><h3>Lost Tower - 1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_92' />
+            <label for='pkmn_92'>
+                Catch <span class='h_pkmn'>Gastly</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_93' />
+            <label for='pkmn_93'>
+                Hatch a <span class='h_pkmn'>Gastly</span> and evolve it into <span class='h_pkmn'>Haunter</span> (level 25)
+            </label>
+            </ul><h3>Solaceon Ruins</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_201' />
+            <label for='pkmn_201'>
+                Catch <span class='h_pkmn'>Unown</span> - 20% encounter rate
+            </label>
+            </ul><h3>Maniac Tunnel</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_449' />
+            <label for='pkmn_449'>
+                Catch <span class='h_pkmn'>Hippopotas</span> - 15% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_450' />
+            <label for='pkmn_450'>
+                Hatch a <span class='h_pkmn'>Hippopotas</span> and evolve it into <span class='h_pkmn'>Hippowdon</span> (level 34)
+            </label>
+            </ul><h3>Route 210 - South</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_123' />
+            <label for='pkmn_123'>
+                Catch <span class='h_pkmn'>Scyther</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_128' />
+            <label for='pkmn_128'>
+                Catch <span class='h_pkmn'>Tauros</span> - 10% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_163' />
+            <label for='pkmn_163'>
+                Catch <span class='h_pkmn'>Hoothoot</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_164' />
+            <label for='pkmn_164'>
+                Catch <span class='h_pkmn'>Noctowl</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_241' />
+            <label for='pkmn_241'>
+                Catch <span class='h_pkmn'>Miltank</span> - 10% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_212' />
+            <label for='pkmn_212'>
+                Hatch a <span class='h_pkmn'>Scyther</span> and evolve it into <span class='h_pkmn'>Scizor</span> (trade holding Metal Coat)
+            </label>
+            </ul><h3>Route 210 - West</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_333' />
+            <label for='pkmn_333'>
+                Catch <span class='h_pkmn'>Swablu</span> - 30% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_371' />
+            <label for='pkmn_371'>
+                Catch <span class='h_pkmn'>Bagon</span> - 11% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_334' />
+            <label for='pkmn_334'>
+                Hatch a <span class='h_pkmn'>Swablu</span> and evolve it into <span class='h_pkmn'>Altaria</span> (level 35)
+            </label><li>
+                <input type='checkbox' id='pkmn_372' />
+            <label for='pkmn_372'>
+                Hatch a <span class='h_pkmn'>Bagon</span> and evolve it into <span class='h_pkmn'>Shelgon</span> (level 30)
+            </label>
+            </ul><h3>Celestic Town</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_341' />
+            <label for='pkmn_341'>
+                Catch <span class='h_pkmn'>Corphish</span> - 40% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_342' />
+            <label for='pkmn_342'>
+                Catch <span class='h_pkmn'>Crawdaunt</span> - 15% encounter rate
+            </label>
+            </ul><h3>Route 215</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_96' />
+            <label for='pkmn_96'>
+                Catch <span class='h_pkmn'>Drowzee</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_183' />
+            <label for='pkmn_183'>
+                Catch <span class='h_pkmn'>Marill</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_108' />
+            <label for='pkmn_108'>
+                Catch <span class='h_pkmn'>Lickitung</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_97' />
+            <label for='pkmn_97'>
+                Hatch a <span class='h_pkmn'>Drowzee</span> and evolve it into <span class='h_pkmn'>Hypno</span> (level 26)
+            </label><li>
+                <input type='checkbox' id='pkmn_184' />
+            <label for='pkmn_184'>
+                Hatch a <span class='h_pkmn'>Marill</span> and evolve it into <span class='h_pkmn'>Azumarill</span> (level 18)
+            </label><li>
+                <input type='checkbox' id='pkmn_463' />
+            <label for='pkmn_463'>
+                Hatch a <span class='h_pkmn'>Lickitung</span> and evolve it into <span class='h_pkmn'>Lickilicky</span> (knowing Rollout)
+            </label>
+            </ul><h3>Veilstone City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_137' />
+            <label for='pkmn_137'>
+                <span class='h_pkmn'>Porygon</span> - gift (<span class='h_loc'>Veilstone City</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_233' />
+            <label for='pkmn_233'>
+                Hatch a <span class='h_pkmn'>Porygon</span> and evolve it into <span class='h_pkmn'>Porygon2</span> (trade holding Up Grade)
+            </label>
+            </ul><h3>Route 214</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_261' />
+            <label for='pkmn_261'>
+                Catch <span class='h_pkmn'>Poochyena</span> - 20% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_325' />
+            <label for='pkmn_325'>
+                Catch <span class='h_pkmn'>Spoink</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_111' />
+            <label for='pkmn_111'>
+                Catch <span class='h_pkmn'>Rhyhorn</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_228' />
+            <label for='pkmn_228'>
+                Catch <span class='h_pkmn'>Houndour</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_112' />
+            <label for='pkmn_112'>
+                Hatch a <span class='h_pkmn'>Rhyhorn</span> and evolve it into <span class='h_pkmn'>Rhydon</span> (level 42)
+            </label><li>
+                <input type='checkbox' id='pkmn_229' />
+            <label for='pkmn_229'>
+                Hatch a <span class='h_pkmn'>Houndour</span> and evolve it into <span class='h_pkmn'>Houndoom</span> (level 24)
+            </label><li>
+                <input type='checkbox' id='pkmn_262' />
+            <label for='pkmn_262'>
+                Hatch a <span class='h_pkmn'>Poochyena</span> and evolve it into <span class='h_pkmn'>Mightyena</span> (level 18)
+            </label><li>
+                <input type='checkbox' id='pkmn_326' />
+            <label for='pkmn_326'>
+                Hatch a <span class='h_pkmn'>Spoink</span> and evolve it into <span class='h_pkmn'>Grumpig</span> (level 32)
+            </label>
+            </ul><h3>Lake Valor - Cavern</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_482' />
+            <label for='pkmn_482'>
+                <span class='h_pkmn'>Azelf</span> - unique encounter at <span class='h_loc'>Lake Valor - Cavern</span>
+            </label>
+            </ul><h3>Valor Lakefront</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_203' />
+            <label for='pkmn_203'>
+                Catch <span class='h_pkmn'>Girafarig</span> - 20% encounter rate
+            </label>
+            </ul><h3>Route 213</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_72' />
+            <label for='pkmn_72'>
+                Catch <span class='h_pkmn'>Tentacool</span> - 60% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_223' />
+            <label for='pkmn_223'>
+                Catch <span class='h_pkmn'>Remoraid</span> - 40% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_224' />
+            <label for='pkmn_224'>
+                Catch <span class='h_pkmn'>Octillery</span> - 40% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_278' />
+            <label for='pkmn_278'>
+                Catch <span class='h_pkmn'>Wingull</span> - 30% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_277' />
+            <label for='pkmn_277'>
+                Catch <span class='h_pkmn'>Swellow</span> - 21% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_418' />
+            <label for='pkmn_418'>
+                Catch <span class='h_pkmn'>Buizel</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_422' />
+            <label for='pkmn_422'>
+                Catch <span class='h_pkmn'>Shellos</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_441' />
+            <label for='pkmn_441'>
+                Catch <span class='h_pkmn'>Chatot</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_73' />
+            <label for='pkmn_73'>
+                Catch <span class='h_pkmn'>Tentacruel</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_423' />
+            <label for='pkmn_423'>
+                Catch <span class='h_pkmn'>Gastrodon</span> - 1% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_279' />
+            <label for='pkmn_279'>
+                Hatch a <span class='h_pkmn'>Wingull</span> and evolve it into <span class='h_pkmn'>Pelipper</span> (level 25)
+            </label><li>
+                <input type='checkbox' id='pkmn_419' />
+            <label for='pkmn_419'>
+                Hatch a <span class='h_pkmn'>Buizel</span> and evolve it into <span class='h_pkmn'>Floatzel</span> (level 26)
+            </label>
+            </ul><h3>Route 219</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_456' />
+            <label for='pkmn_456'>
+                Catch <span class='h_pkmn'>Finneon</span> - 40% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_457' />
+            <label for='pkmn_457'>
+                Catch <span class='h_pkmn'>Lumineon</span> - 40% encounter rate
+            </label>
+            </ul><h3>Great Marsh - Area 1</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_194' />
+            <label for='pkmn_194'>
+                Catch <span class='h_pkmn'>Wooper</span> - 90% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_318' />
+            <label for='pkmn_318'>
+                Catch <span class='h_pkmn'>Carvanha</span> - 40% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_195' />
+            <label for='pkmn_195'>
+                Catch <span class='h_pkmn'>Quagsire</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_357' />
+            <label for='pkmn_357'>
+                Catch <span class='h_pkmn'>Tropius</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_24' />
+            <label for='pkmn_24'>
+                Catch <span class='h_pkmn'>Arbok</span> - GBA slot (FireRed)
+            </label><li>
+                <input type='checkbox' id='pkmn_46' />
+            <label for='pkmn_46'>
+                Catch <span class='h_pkmn'>Paras</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_102' />
+            <label for='pkmn_102'>
+                Catch <span class='h_pkmn'>Exeggcute</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_114' />
+            <label for='pkmn_114'>
+                Catch <span class='h_pkmn'>Tangela</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_115' />
+            <label for='pkmn_115'>
+                Catch <span class='h_pkmn'>Kangaskhan</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_193' />
+            <label for='pkmn_193'>
+                Catch <span class='h_pkmn'>Yanma</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_285' />
+            <label for='pkmn_285'>
+                Catch <span class='h_pkmn'>Shroomish</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_316' />
+            <label for='pkmn_316'>
+                Catch <span class='h_pkmn'>Gulpin</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_352' />
+            <label for='pkmn_352'>
+                Catch <span class='h_pkmn'>Kecleon</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_451' />
+            <label for='pkmn_451'>
+                Catch <span class='h_pkmn'>Skorupi</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_452' />
+            <label for='pkmn_452'>
+                Catch <span class='h_pkmn'>Drapion</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_453' />
+            <label for='pkmn_453'>
+                Catch <span class='h_pkmn'>Croagunk</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_454' />
+            <label for='pkmn_454'>
+                Catch <span class='h_pkmn'>Toxicroak</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_455' />
+            <label for='pkmn_455'>
+                Catch <span class='h_pkmn'>Carnivine</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_47' />
+            <label for='pkmn_47'>
+                Hatch a <span class='h_pkmn'>Paras</span> and evolve it into <span class='h_pkmn'>Parasect</span> (level 24)
+            </label><li>
+                <input type='checkbox' id='pkmn_103' />
+            <label for='pkmn_103'>
+                Hatch a <span class='h_pkmn'>Exeggcute</span> and evolve it into <span class='h_pkmn'>Exeggutor</span> (Leaf Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_286' />
+            <label for='pkmn_286'>
+                Hatch a <span class='h_pkmn'>Shroomish</span> and evolve it into <span class='h_pkmn'>Breloom</span> (level 23)
+            </label><li>
+                <input type='checkbox' id='pkmn_317' />
+            <label for='pkmn_317'>
+                Hatch a <span class='h_pkmn'>Gulpin</span> and evolve it into <span class='h_pkmn'>Swalot</span> (level 26)
+            </label><li>
+                <input type='checkbox' id='pkmn_319' />
+            <label for='pkmn_319'>
+                Hatch a <span class='h_pkmn'>Carvanha</span> and evolve it into <span class='h_pkmn'>Sharpedo</span> (level 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_465' />
+            <label for='pkmn_465'>
+                Hatch a <span class='h_pkmn'>Tangela</span> and evolve it into <span class='h_pkmn'>Tangrowth</span> (knowing Ancient Power)
+            </label><li>
+                <input type='checkbox' id='pkmn_469' />
+            <label for='pkmn_469'>
+                Hatch a <span class='h_pkmn'>Yanma</span> and evolve it into <span class='h_pkmn'>Yanmega</span> (knowing Ancient Power)
+            </label>
+            </ul><h3>Route 212 - East</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_88' />
+            <label for='pkmn_88'>
+                Catch <span class='h_pkmn'>Grimer</span> - 11% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_23' />
+            <label for='pkmn_23'>
+                Catch <span class='h_pkmn'>Ekans</span> - GBA slot (FireRed)
+            </label><li>
+                <input type='checkbox' id='pkmn_89' />
+            <label for='pkmn_89'>
+                Hatch a <span class='h_pkmn'>Grimer</span> and evolve it into <span class='h_pkmn'>Muk</span> (level 38)
+            </label>
+            </ul><h3>Route 205 - South</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_90' />
+            <label for='pkmn_90'>
+                Catch <span class='h_pkmn'>Shellder</span> - 15% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_187' />
+            <label for='pkmn_187'>
+                Catch <span class='h_pkmn'>Hoppip</span> - 11% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_417' />
+            <label for='pkmn_417'>
+                Catch <span class='h_pkmn'>Pachirisu</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_91' />
+            <label for='pkmn_91'>
+                Hatch a <span class='h_pkmn'>Shellder</span> and evolve it into <span class='h_pkmn'>Cloyster</span> (Water Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_188' />
+            <label for='pkmn_188'>
+                Hatch a <span class='h_pkmn'>Hoppip</span> and evolve it into <span class='h_pkmn'>Skiploom</span> (level 18)
+            </label>
+            </ul><h3>Valley Windworks</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_309' />
+            <label for='pkmn_309'>
+                Catch <span class='h_pkmn'>Electrike</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_179' />
+            <label for='pkmn_179'>
+                Catch <span class='h_pkmn'>Mareep</span> - 11% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_425' />
+            <label for='pkmn_425'>
+                <span class='h_pkmn'>Drifloon</span> - unique encounter at <span class='h_loc'>Valley Windworks</span>
+            </label><li>
+                <input type='checkbox' id='pkmn_180' />
+            <label for='pkmn_180'>
+                Hatch a <span class='h_pkmn'>Mareep</span> and evolve it into <span class='h_pkmn'>Flaaffy</span> (level 15)
+            </label><li>
+                <input type='checkbox' id='pkmn_310' />
+            <label for='pkmn_310'>
+                Hatch a <span class='h_pkmn'>Electrike</span> and evolve it into <span class='h_pkmn'>Manectric</span> (level 26)
+            </label><li>
+                <input type='checkbox' id='pkmn_426' />
+            <label for='pkmn_426'>
+                Hatch a <span class='h_pkmn'>Drifloon</span> and evolve it into <span class='h_pkmn'>Drifblim</span> (level 28)
+            </label>
+            </ul><h3>Eterna Forest</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_287' />
+            <label for='pkmn_287'>
+                Catch <span class='h_pkmn'>Slakoth</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_427' />
+            <label for='pkmn_427'>
+                Catch <span class='h_pkmn'>Buneary</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_290' />
+            <label for='pkmn_290'>
+                Catch <span class='h_pkmn'>Nincada</span> - 10% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_267' />
+            <label for='pkmn_267'>
+                Catch <span class='h_pkmn'>Beautifly</span> - 1% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_269' />
+            <label for='pkmn_269'>
+                Catch <span class='h_pkmn'>Dustox</span> - 1% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_288' />
+            <label for='pkmn_288'>
+                Hatch a <span class='h_pkmn'>Slakoth</span> and evolve it into <span class='h_pkmn'>Vigoroth</span> (level 18)
+            </label><li>
+                <input type='checkbox' id='pkmn_291' />
+            <label for='pkmn_291'>
+                Hatch a <span class='h_pkmn'>Nincada</span> and evolve it into <span class='h_pkmn'>Ninjask</span> (level 20)
+            </label><li>
+                <input type='checkbox' id='pkmn_292' />
+            <label for='pkmn_292'>
+                Hatch a <span class='h_pkmn'>Nincada</span> and evolve it into <span class='h_pkmn'>Shedinja</span> (empty slot)
+            </label><li>
+                <input type='checkbox' id='pkmn_428' />
+            <label for='pkmn_428'>
+                Hatch a <span class='h_pkmn'>Buneary</span> and evolve it into <span class='h_pkmn'>Lopunny</span> (friendship)
+            </label>
+            </ul><h3>Route 205 - East</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_79' />
+            <label for='pkmn_79'>
+                Catch <span class='h_pkmn'>Slowpoke</span> - 20% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_80' />
+            <label for='pkmn_80'>
+                Hatch a <span class='h_pkmn'>Slowpoke</span> and evolve it into <span class='h_pkmn'>Slowbro</span> (level 37)
+            </label><li>
+                <input type='checkbox' id='pkmn_199' />
+            <label for='pkmn_199'>
+                Hatch a <span class='h_pkmn'>Slowpoke</span> and evolve it into <span class='h_pkmn'>Slowking</span> (trade holding Kings Rock)
+            </label>
+            </ul><h3>Eterna City - West gate</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_175' />
+            <label for='pkmn_175'>
+                <span class='h_pkmn'>Togepi</span> - egg gift (<span class='h_loc'>Eterna City - West gate</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_176' />
+            <label for='pkmn_176'>
+                Hatch a <span class='h_pkmn'>Togepi</span> and evolve it into <span class='h_pkmn'>Togetic</span> (friendship)
+            </label>
+            </ul><h3>Route 206</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_246' />
+            <label for='pkmn_246'>
+                Catch <span class='h_pkmn'>Larvitar</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_207' />
+            <label for='pkmn_207'>
+                Catch <span class='h_pkmn'>Gligar</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_343' />
+            <label for='pkmn_343'>
+                Catch <span class='h_pkmn'>Baltoy</span> - 10% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_247' />
+            <label for='pkmn_247'>
+                Hatch a <span class='h_pkmn'>Larvitar</span> and evolve it into <span class='h_pkmn'>Pupitar</span> (level 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_344' />
+            <label for='pkmn_344'>
+                Hatch a <span class='h_pkmn'>Baltoy</span> and evolve it into <span class='h_pkmn'>Claydol</span> (level 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_472' />
+            <label for='pkmn_472'>
+                Hatch a <span class='h_pkmn'>Gligar</span> and evolve it into <span class='h_pkmn'>Gliscor</span> (la nuit en tenant Razor Fang)
+            </label>
+            </ul><h3>Route 211 - West</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_236' />
+            <label for='pkmn_236'>
+                Catch <span class='h_pkmn'>Tyrogue</span> - 20% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_216' />
+            <label for='pkmn_216'>
+                Catch <span class='h_pkmn'>Teddiursa</span> - GBA slot (Emerald)
+            </label><li>
+                <input type='checkbox' id='pkmn_106' />
+            <label for='pkmn_106'>
+                Hatch a <span class='h_pkmn'>Tyrogue</span> and evolve it into <span class='h_pkmn'>Hitmonlee</span> (level 20)
+            </label><li>
+                <input type='checkbox' id='pkmn_107' />
+            <label for='pkmn_107'>
+                Hatch a <span class='h_pkmn'>Tyrogue</span> and evolve it into <span class='h_pkmn'>Hitmonchan</span> (level 20)
+            </label><li>
+                <input type='checkbox' id='pkmn_217' />
+            <label for='pkmn_217'>
+                Hatch a <span class='h_pkmn'>Teddiursa</span> and evolve it into <span class='h_pkmn'>Ursaring</span> (level 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_237' />
+            <label for='pkmn_237'>
+                Hatch a <span class='h_pkmn'>Tyrogue</span> and evolve it into <span class='h_pkmn'>Hitmontop</span> (level 20)
+            </label>
+            </ul><h3>Mt. Coronet - 1F (Route 211)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_173' />
+            <label for='pkmn_173'>
+                Catch <span class='h_pkmn'>Cleffa</span> - 10% encounter rate
+            </label>
+            </ul><h3>Route 216</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_215' />
+            <label for='pkmn_215'>
+                Catch <span class='h_pkmn'>Sneasel</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_459' />
+            <label for='pkmn_459'>
+                Catch <span class='h_pkmn'>Snover</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_361' />
+            <label for='pkmn_361'>
+                Catch <span class='h_pkmn'>Snorunt</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_362' />
+            <label for='pkmn_362'>
+                Hatch a <span class='h_pkmn'>Snorunt</span> and evolve it into <span class='h_pkmn'>Glalie</span> (level 42)
+            </label><li>
+                <input type='checkbox' id='pkmn_460' />
+            <label for='pkmn_460'>
+                Hatch a <span class='h_pkmn'>Snover</span> and evolve it into <span class='h_pkmn'>Abomasnow</span> (level 40)
+            </label><li>
+                <input type='checkbox' id='pkmn_461' />
+            <label for='pkmn_461'>
+                Hatch a <span class='h_pkmn'>Sneasel</span> and evolve it into <span class='h_pkmn'>Weavile</span> (la nuit en tenant Razor Claw)
+            </label><li>
+                <input type='checkbox' id='pkmn_478' />
+            <label for='pkmn_478'>
+                Hatch a <span class='h_pkmn'>Snorunt</span> and evolve it into <span class='h_pkmn'>Froslass</span> (Dawn Stone)
+            </label>
+            </ul><h3>Route 217</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_220' />
+            <label for='pkmn_220'>
+                Catch <span class='h_pkmn'>Swinub</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_221' />
+            <label for='pkmn_221'>
+                Catch <span class='h_pkmn'>Piloswine</span> - 20% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_225' />
+            <label for='pkmn_225'>
+                Catch <span class='h_pkmn'>Delibird</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_473' />
+            <label for='pkmn_473'>
+                Hatch a <span class='h_pkmn'>Piloswine</span> and evolve it into <span class='h_pkmn'>Mamoswine</span> (knowing Ancient Power)
+            </label>
+            </ul><h3>Lake Acuity - Cavern</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_480' />
+            <label for='pkmn_480'>
+                <span class='h_pkmn'>Uxie</span> - unique encounter at <span class='h_loc'>Lake Acuity - Cavern</span>
+            </label>
+            </ul><h3>Route 218</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_100' />
+            <label for='pkmn_100'>
+                Catch <span class='h_pkmn'>Voltorb</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_122' />
+            <label for='pkmn_122'>
+                Catch <span class='h_pkmn'>Mr. Mime</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_101' />
+            <label for='pkmn_101'>
+                Hatch a <span class='h_pkmn'>Voltorb</span> and evolve it into <span class='h_pkmn'>Electrode</span> (level 30)
+            </label>
+            </ul><h3>Canalave City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_120' />
+            <label for='pkmn_120'>
+                Catch <span class='h_pkmn'>Staryu</span> - 15% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_121' />
+            <label for='pkmn_121'>
+                Hatch a <span class='h_pkmn'>Staryu</span> and evolve it into <span class='h_pkmn'>Starmie</span> (Water Stone)
+            </label>
+            </ul><h3>Iron Island</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_211' />
+            <label for='pkmn_211'>
+                Catch <span class='h_pkmn'>Qwilfish</span> - 15% encounter rate
+            </label>
+            </ul><h3>Iron Island - B1F left</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_302' />
+            <label for='pkmn_302'>
+                Catch <span class='h_pkmn'>Sableye</span> - GBA slot (Sapphire)
+            </label><li>
+                <input type='checkbox' id='pkmn_303' />
+            <label for='pkmn_303'>
+                Catch <span class='h_pkmn'>Mawile</span> - GBA slot (Ruby)
+            </label>
+            </ul><h3>Iron Island - B2F left</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_447' />
+            <label for='pkmn_447'>
+                <span class='h_pkmn'>Riolu</span> - egg gift (<span class='h_loc'>Iron Island - B2F left</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_448' />
+            <label for='pkmn_448'>
+                Hatch a <span class='h_pkmn'>Riolu</span> and evolve it into <span class='h_pkmn'>Lucario</span> (friendship during the day)
+            </label>
+            </ul><h3>Mt. Coronet - 4F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_147' />
+            <label for='pkmn_147'>
+                Catch <span class='h_pkmn'>Dratini</span> - 40% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_148' />
+            <label for='pkmn_148'>
+                Catch <span class='h_pkmn'>Dragonair</span> - 4% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_149' />
+            <label for='pkmn_149'>
+                Hatch a <span class='h_pkmn'>Dragonair</span> and evolve it into <span class='h_pkmn'>Dragonite</span> (level 55)
+            </label>
+            </ul><h3>Mt. Coronet - B1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_349' />
+            <label for='pkmn_349'>
+                Catch <span class='h_pkmn'>Feebas</span> - 50% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_350' />
+            <label for='pkmn_350'>
+                Hatch a <span class='h_pkmn'>Feebas</span> and evolve it into <span class='h_pkmn'>Milotic</span> (high Beauty)
+            </label>
+            </ul><h3>Mt. Coronet - Exterior (snowfall)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_294' />
+            <label for='pkmn_294'>
+                Catch <span class='h_pkmn'>Loudred</span> - 21% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_359' />
+            <label for='pkmn_359'>
+                Catch <span class='h_pkmn'>Absol</span> - 4% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_295' />
+            <label for='pkmn_295'>
+                Hatch a <span class='h_pkmn'>Loudred</span> and evolve it into <span class='h_pkmn'>Exploud</span> (level 40)
+            </label>
+            </ul><h3>Spear Pillar</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_483' />
+            <label for='pkmn_483'>
+                <span class='h_pkmn'>Dialga</span> - unique encounter at <span class='h_loc'>Spear Pillar</span>
+            </label><li>
+                <input type='checkbox' id='pkmn_484' />
+            <label for='pkmn_484'>
+                <span class='h_pkmn'>Palkia</span> - unique encounter at <span class='h_loc'>Spear Pillar</span>
+            </label>
+            </ul><h3>Distortion World</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_487' />
+            <label for='pkmn_487'>
+                <span class='h_pkmn'>Giratina</span> - unique encounter at <span class='h_loc'>Distortion World</span>
+            </label>
+            </ul><h3>Route 222</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_125' />
+            <label for='pkmn_125'>
+                Catch <span class='h_pkmn'>Electabuzz</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_300' />
+            <label for='pkmn_300'>
+                Catch <span class='h_pkmn'>Skitty</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_81' />
+            <label for='pkmn_81'>
+                Catch <span class='h_pkmn'>Magnemite</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_82' />
+            <label for='pkmn_82'>
+                Catch <span class='h_pkmn'>Magneton</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_301' />
+            <label for='pkmn_301'>
+                Hatch a <span class='h_pkmn'>Skitty</span> and evolve it into <span class='h_pkmn'>Delcatty</span> (Moon Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_462' />
+            <label for='pkmn_462'>
+                Hatch a <span class='h_pkmn'>Magneton</span> and evolve it into <span class='h_pkmn'>Magnezone</span> (at Mt. Coronet)
+            </label><li>
+                <input type='checkbox' id='pkmn_466' />
+            <label for='pkmn_466'>
+                Hatch a <span class='h_pkmn'>Electabuzz</span> and evolve it into <span class='h_pkmn'>Electivire</span> (trade holding Electirizer)
+            </label>
+            </ul><h3>Route 223</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_320' />
+            <label for='pkmn_320'>
+                Catch <span class='h_pkmn'>Wailmer</span> - 40% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_458' />
+            <label for='pkmn_458'>
+                Catch <span class='h_pkmn'>Mantyke</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_321' />
+            <label for='pkmn_321'>
+                Catch <span class='h_pkmn'>Wailord</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_226' />
+            <label for='pkmn_226'>
+                Hatch a <span class='h_pkmn'>Mantyke</span> and evolve it into <span class='h_pkmn'>Mantine</span> (Remoraid in the party)
+            </label>
+            </ul><h3>Pokémon League</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_370' />
+            <label for='pkmn_370'>
+                Catch <span class='h_pkmn'>Luvdisc</span> - 15% encounter rate
+            </label>
+            </ul><h3>Victory Road - 1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_444' />
+            <label for='pkmn_444'>
+                Catch <span class='h_pkmn'>Gabite</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_445' />
+            <label for='pkmn_445'>
+                Hatch a <span class='h_pkmn'>Gabite</span> and evolve it into <span class='h_pkmn'>Garchomp</span> (level 48)
+            </label>
+            </ul><h3>Victory Road - Inside B1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_87' />
+            <label for='pkmn_87'>
+                Catch <span class='h_pkmn'>Dewgong</span> - 30% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_131' />
+            <label for='pkmn_131'>
+                Catch <span class='h_pkmn'>Lapras</span> - 10% encounter rate
+            </label>
+            </ul><h3>Route 221</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_83' />
+            <label for='pkmn_83'>
+                Catch <span class='h_pkmn'>Farfetch'd</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_185' />
+            <label for='pkmn_185'>
+                Catch <span class='h_pkmn'>Sudowoodo</span> - 10% encounter rate
+            </label>
+            </ul><h3>Route 224</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_177' />
+            <label for='pkmn_177'>
+                Catch <span class='h_pkmn'>Natu</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_43' />
+            <label for='pkmn_43'>
+                Catch <span class='h_pkmn'>Oddish</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_69' />
+            <label for='pkmn_69'>
+                Catch <span class='h_pkmn'>Bellsprout</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_213' />
+            <label for='pkmn_213'>
+                Catch <span class='h_pkmn'>Shuckle</span> - GBA slot (Emerald)
+            </label><li>
+                <input type='checkbox' id='pkmn_44' />
+            <label for='pkmn_44'>
+                Catch <span class='h_pkmn'>Gloom</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_70' />
+            <label for='pkmn_70'>
+                Catch <span class='h_pkmn'>Weepinbell</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_45' />
+            <label for='pkmn_45'>
+                Hatch a <span class='h_pkmn'>Gloom</span> and evolve it into <span class='h_pkmn'>Vileplume</span> (Leaf Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_71' />
+            <label for='pkmn_71'>
+                Hatch a <span class='h_pkmn'>Weepinbell</span> and evolve it into <span class='h_pkmn'>Victreebel</span> (Leaf Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_178' />
+            <label for='pkmn_178'>
+                Hatch a <span class='h_pkmn'>Natu</span> and evolve it into <span class='h_pkmn'>Xatu</span> (level 25)
+            </label><li>
+                <input type='checkbox' id='pkmn_182' />
+            <label for='pkmn_182'>
+                Hatch a <span class='h_pkmn'>Gloom</span> and evolve it into <span class='h_pkmn'>Bellossom</span> (Sun Stone)
+            </label>
+            </ul><h3>Route 225</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_296' />
+            <label for='pkmn_296'>
+                Catch <span class='h_pkmn'>Makuhita</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_20' />
+            <label for='pkmn_20'>
+                Catch <span class='h_pkmn'>Raticate</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_22' />
+            <label for='pkmn_22'>
+                Catch <span class='h_pkmn'>Fearow</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_57' />
+            <label for='pkmn_57'>
+                Catch <span class='h_pkmn'>Primeape</span> - 10% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_354' />
+            <label for='pkmn_354'>
+                Catch <span class='h_pkmn'>Banette</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_19' />
+            <label for='pkmn_19'>
+                Catch <span class='h_pkmn'>Rattata</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_21' />
+            <label for='pkmn_21'>
+                Catch <span class='h_pkmn'>Spearow</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_56' />
+            <label for='pkmn_56'>
+                Catch <span class='h_pkmn'>Mankey</span> - 2% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_297' />
+            <label for='pkmn_297'>
+                Hatch a <span class='h_pkmn'>Makuhita</span> and evolve it into <span class='h_pkmn'>Hariyama</span> (level 24)
+            </label>
+            </ul><h3>Route 226</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_116' />
+            <label for='pkmn_116'>
+                Catch <span class='h_pkmn'>Horsea</span> - 40% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_117' />
+            <label for='pkmn_117'>
+                Catch <span class='h_pkmn'>Seadra</span> - 40% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_98' />
+            <label for='pkmn_98'>
+                Catch <span class='h_pkmn'>Krabby</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_369' />
+            <label for='pkmn_369'>
+                Catch <span class='h_pkmn'>Relicanth</span> - 15% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_99' />
+            <label for='pkmn_99'>
+                Hatch a <span class='h_pkmn'>Krabby</span> and evolve it into <span class='h_pkmn'>Kingler</span> (level 28)
+            </label><li>
+                <input type='checkbox' id='pkmn_230' />
+            <label for='pkmn_230'>
+                Hatch a <span class='h_pkmn'>Seadra</span> and evolve it into <span class='h_pkmn'>Kingdra</span> (trade holding Dragon Scale)
+            </label>
+            </ul><h3>Route 227</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_61' />
+            <label for='pkmn_61'>
+                Catch <span class='h_pkmn'>Poliwhirl</span> - 70% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_60' />
+            <label for='pkmn_60'>
+                Catch <span class='h_pkmn'>Poliwag</span> - 30% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_323' />
+            <label for='pkmn_323'>
+                Catch <span class='h_pkmn'>Camerupt</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_327' />
+            <label for='pkmn_327'>
+                Catch <span class='h_pkmn'>Spinda</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_324' />
+            <label for='pkmn_324'>
+                Catch <span class='h_pkmn'>Torkoal</span> - 11% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_110' />
+            <label for='pkmn_110'>
+                Catch <span class='h_pkmn'>Weezing</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_227' />
+            <label for='pkmn_227'>
+                Catch <span class='h_pkmn'>Skarmory</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_322' />
+            <label for='pkmn_322'>
+                Catch <span class='h_pkmn'>Numel</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_62' />
+            <label for='pkmn_62'>
+                Hatch a <span class='h_pkmn'>Poliwhirl</span> and evolve it into <span class='h_pkmn'>Poliwrath</span> (Water Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_186' />
+            <label for='pkmn_186'>
+                Hatch a <span class='h_pkmn'>Poliwhirl</span> and evolve it into <span class='h_pkmn'>Politoed</span> (trade holding Kings Rock)
+            </label>
+            </ul><h3>Route 228</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_51' />
+            <label for='pkmn_51'>
+                Catch <span class='h_pkmn'>Dugtrio</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_332' />
+            <label for='pkmn_332'>
+                Catch <span class='h_pkmn'>Cacturne</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_374' />
+            <label for='pkmn_374'>
+                Catch <span class='h_pkmn'>Beldum</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_50' />
+            <label for='pkmn_50'>
+                Catch <span class='h_pkmn'>Diglett</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_331' />
+            <label for='pkmn_331'>
+                Catch <span class='h_pkmn'>Cacnea</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_28' />
+            <label for='pkmn_28'>
+                Catch <span class='h_pkmn'>Sandslash</span> - GBA slot (LeafGreen)
+            </label><li>
+                <input type='checkbox' id='pkmn_375' />
+            <label for='pkmn_375'>
+                Hatch a <span class='h_pkmn'>Beldum</span> and evolve it into <span class='h_pkmn'>Metang</span> (level 20)
+            </label>
+            </ul><h3>Route 229</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_283' />
+            <label for='pkmn_283'>
+                Catch <span class='h_pkmn'>Surskit</span> - 95% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_16' />
+            <label for='pkmn_16'>
+                Catch <span class='h_pkmn'>Pidgey</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_49' />
+            <label for='pkmn_49'>
+                Catch <span class='h_pkmn'>Venomoth</span> - 20% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_127' />
+            <label for='pkmn_127'>
+                Catch <span class='h_pkmn'>Pinsir</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_166' />
+            <label for='pkmn_166'>
+                Catch <span class='h_pkmn'>Ledian</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_168' />
+            <label for='pkmn_168'>
+                Catch <span class='h_pkmn'>Ariados</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_313' />
+            <label for='pkmn_313'>
+                Catch <span class='h_pkmn'>Volbeat</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_314' />
+            <label for='pkmn_314'>
+                Catch <span class='h_pkmn'>Illumise</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_284' />
+            <label for='pkmn_284'>
+                Catch <span class='h_pkmn'>Masquerain</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_48' />
+            <label for='pkmn_48'>
+                Catch <span class='h_pkmn'>Venonat</span> - 2% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_17' />
+            <label for='pkmn_17'>
+                Hatch a <span class='h_pkmn'>Pidgey</span> and evolve it into <span class='h_pkmn'>Pidgeotto</span> (level 18)
+            </label>
+            </ul><h3>Route 230</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_364' />
+            <label for='pkmn_364'>
+                Catch <span class='h_pkmn'>Sealeo</span> - 60% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_222' />
+            <label for='pkmn_222'>
+                Catch <span class='h_pkmn'>Corsola</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_365' />
+            <label for='pkmn_365'>
+                Hatch a <span class='h_pkmn'>Sealeo</span> and evolve it into <span class='h_pkmn'>Walrein</span> (level 44)
+            </label>
+            </ul><h3>Route 220</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_170' />
+            <label for='pkmn_170'>
+                Catch <span class='h_pkmn'>Chinchou</span> - 15% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_171' />
+            <label for='pkmn_171'>
+                Hatch a <span class='h_pkmn'>Chinchou</span> and evolve it into <span class='h_pkmn'>Lanturn</span> (level 27)
+            </label>
+            </ul><h3>Stark Mountain - entrance</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_219' />
+            <label for='pkmn_219'>
+                Catch <span class='h_pkmn'>Magcargo</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_218' />
+            <label for='pkmn_218'>
+                Catch <span class='h_pkmn'>Slugma</span> - 5% encounter rate
+            </label>
+            </ul><h3>Stark Mountain - main cavern</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_109' />
+            <label for='pkmn_109'>
+                Catch <span class='h_pkmn'>Koffing</span> - 5% encounter rate
+            </label>
+            </ul><h3>Stark Mountain - Heatran Chamber</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_485' />
+            <label for='pkmn_485'>
+                <span class='h_pkmn'>Heatran</span> - unique encounter at <span class='h_loc'>Stark Mountain - Heatran Chamber</span>
+            </label>
+            </ul><h3>Trophy Garden</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_172' />
+            <label for='pkmn_172'>
+                Catch <span class='h_pkmn'>Pichu</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_39' />
+            <label for='pkmn_39'>
+                Catch <span class='h_pkmn'>Jigglypuff</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_52' />
+            <label for='pkmn_52'>
+                Catch <span class='h_pkmn'>Meowth</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_132' />
+            <label for='pkmn_132'>
+                Catch <span class='h_pkmn'>Ditto</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_174' />
+            <label for='pkmn_174'>
+                Catch <span class='h_pkmn'>Igglybuff</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_298' />
+            <label for='pkmn_298'>
+                Catch <span class='h_pkmn'>Azurill</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_311' />
+            <label for='pkmn_311'>
+                Catch <span class='h_pkmn'>Plusle</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_312' />
+            <label for='pkmn_312'>
+                Catch <span class='h_pkmn'>Minun</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_351' />
+            <label for='pkmn_351'>
+                Catch <span class='h_pkmn'>Castform</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_438' />
+            <label for='pkmn_438'>
+                Catch <span class='h_pkmn'>Bonsly</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_439' />
+            <label for='pkmn_439'>
+                Catch <span class='h_pkmn'>Mime Jr.</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_440' />
+            <label for='pkmn_440'>
+                Catch <span class='h_pkmn'>Happiny</span> - daily swarm
+            </label><li>
+                <input type='checkbox' id='pkmn_25' />
+            <label for='pkmn_25'>
+                Catch <span class='h_pkmn'>Pikachu</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_26' />
+            <label for='pkmn_26'>
+                Hatch a <span class='h_pkmn'>Pikachu</span> and evolve it into <span class='h_pkmn'>Raichu</span> (Thunder Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_40' />
+            <label for='pkmn_40'>
+                Hatch a <span class='h_pkmn'>Jigglypuff</span> and evolve it into <span class='h_pkmn'>Wigglytuff</span> (Moon Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_53' />
+            <label for='pkmn_53'>
+                Hatch a <span class='h_pkmn'>Meowth</span> and evolve it into <span class='h_pkmn'>Persian</span> (level 28)
+            </label>
+            </ul><h3>Fuego Ironworks</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_126' />
+            <label for='pkmn_126'>
+                Catch <span class='h_pkmn'>Magmar</span> - 20% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_304' />
+            <label for='pkmn_304'>
+                Catch <span class='h_pkmn'>Aron</span> - 20% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_305' />
+            <label for='pkmn_305'>
+                Hatch a <span class='h_pkmn'>Aron</span> and evolve it into <span class='h_pkmn'>Lairon</span> (level 32)
+            </label><li>
+                <input type='checkbox' id='pkmn_467' />
+            <label for='pkmn_467'>
+                Hatch a <span class='h_pkmn'>Magmar</span> and evolve it into <span class='h_pkmn'>Magmortar</span> (trade holding Magmarizer)
+            </label>
+            </ul><h3>Wayward Cave - 1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_27' />
+            <label for='pkmn_27'>
+                Catch <span class='h_pkmn'>Sandshrew</span> - GBA slot (LeafGreen)
+            </label>
+            </ul><h3>Wayward Cave - B1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_443' />
+            <label for='pkmn_443'>
+                Catch <span class='h_pkmn'>Gible</span> - 10% encounter rate
+            </label>
+            </ul><h3>Old Chateau - 2F left room</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_479' />
+            <label for='pkmn_479'>
+                <span class='h_pkmn'>Rotom</span> - unique encounter at <span class='h_loc'>Old Chateau - 2F left room</span>
+            </label>
+            </ul><h3>Old Chateau - 2F right room</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_94' />
+            <label for='pkmn_94'>
+                Catch <span class='h_pkmn'>Gengar</span> - GBA slot (Ruby)
+            </label>
+            </ul><h3>Snowpoint Temple - 1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_238' />
+            <label for='pkmn_238'>
+                Catch <span class='h_pkmn'>Smoochum</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_124' />
+            <label for='pkmn_124'>
+                Hatch a <span class='h_pkmn'>Smoochum</span> and evolve it into <span class='h_pkmn'>Jynx</span> (level 30)
+            </label>
+            </ul><h3>Snowpoint Temple - B5F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_486' />
+            <label for='pkmn_486'>
+                <span class='h_pkmn'>Regigigas</span> - unique encounter at <span class='h_loc'>Snowpoint Temple - B5F</span>
+            </label>
+            </ul><h3>Flower Paradise</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_492' />
+            <label for='pkmn_492'>
+                <span class='h_pkmn'>Shaymin</span> - Oak's Letter event (<span class='h_loc'>Flower Paradise</span>)
+            </label>
+            </ul><h3>Newmoon Island</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_491' />
+            <label for='pkmn_491'>
+                <span class='h_pkmn'>Darkrai</span> - Member Card event (<span class='h_loc'>Newmoon Island</span>)
+            </label>
+            </ul><h3>Hall of Origin</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_493' />
+            <label for='pkmn_493'>
+                <span class='h_pkmn'>Arceus</span> - Azure Flute event (<span class='h_loc'>Hall of Origin</span>)
+            </label>
+            </ul><h3>Roaming Sinnoh</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_144' />
+            <label for='pkmn_144'>
+                <span class='h_pkmn'>Articuno</span> - roaming encounter
+            </label><li>
+                <input type='checkbox' id='pkmn_145' />
+            <label for='pkmn_145'>
+                <span class='h_pkmn'>Zapdos</span> - roaming encounter
+            </label><li>
+                <input type='checkbox' id='pkmn_146' />
+            <label for='pkmn_146'>
+                <span class='h_pkmn'>Moltres</span> - roaming encounter
+            </label><li>
+                <input type='checkbox' id='pkmn_481' />
+            <label for='pkmn_481'>
+                <span class='h_pkmn'>Mesprit</span> - roaming encounter
+            </label><li>
+                <input type='checkbox' id='pkmn_488' />
+            <label for='pkmn_488'>
+                <span class='h_pkmn'>Cresselia</span> - roaming encounter
+            </label>
+            </ul><h3>Pokémon Ranger</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_490' />
+            <label for='pkmn_490'>
+                <span class='h_pkmn'>Manaphy</span> - Pokémon Ranger mission egg
+            </label>
+            </ul>
+            </article>
+            <article>
+                <h3>Poké Radar</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_329' />
+            <label for='pkmn_329'>
+                Catch <span class='h_pkmn'>Vibrava</span> - 10% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_328' />
+            <label for='pkmn_328'>
+                Catch <span class='h_pkmn'>Trapinch</span> - 2% encounter rate with the Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_330' />
+            <label for='pkmn_330'>
+                Hatch a <span class='h_pkmn'>Vibrava</span> and evolve it into <span class='h_pkmn'>Flygon</span> (level 45)
+            </label>
+            </ul><h3>Honey trees</h3>
+            <ul>
+                
+            </ul><h3>Daily swarms</h3>
+            <ul>
+                
+            </ul><h3>GBA slot encounters</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_239' />
+            <label for='pkmn_239'>
+                Catch <span class='h_pkmn'>Elekid</span> - GBA slot (FireRed)
+            </label><li>
+                <input type='checkbox' id='pkmn_240' />
+            <label for='pkmn_240'>
+                Catch <span class='h_pkmn'>Magby</span> - GBA slot (LeafGreen)
+            </label><li>
+                <input type='checkbox' id='pkmn_434' />
+            <label for='pkmn_434'>
+                Catch <span class='h_pkmn'>Stunky</span> - GBA slot (Ruby)
+            </label><li>
+                <input type='checkbox' id='pkmn_435' />
+            <label for='pkmn_435'>
+                Hatch a <span class='h_pkmn'>Stunky</span> and evolve it into <span class='h_pkmn'>Skuntank</span> (level 34)
+            </label>
+            </ul>
+            </article>
+            <h2 class='heartgold'>Pokémon HeartGold & SoulSilver</h2>
+            <article>
+                <h3>New Bark Town</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_167' />
+            <label for='pkmn_167'>
+                Catch <span class='h_pkmn'>Spinarak</span> - 30% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_152' />
+            <label for='pkmn_152'>
+                <span class='h_pkmn'>Chikorita</span> - Starter Pokémon
+            </label><li>
+                <input type='checkbox' id='pkmn_155' />
+            <label for='pkmn_155'>
+                <span class='h_pkmn'>Cyndaquil</span> - Starter Pokémon
+            </label><li>
+                <input type='checkbox' id='pkmn_158' />
+            <label for='pkmn_158'>
+                <span class='h_pkmn'>Totodile</span> - Starter Pokémon
+            </label><li>
+                <input type='checkbox' id='pkmn_153' />
+            <label for='pkmn_153'>
+                Hatch a <span class='h_pkmn'>Chikorita</span> and evolve it into <span class='h_pkmn'>Bayleef</span> (level 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_156' />
+            <label for='pkmn_156'>
+                Hatch a <span class='h_pkmn'>Cyndaquil</span> and evolve it into <span class='h_pkmn'>Quilava</span> (level 14)
+            </label><li>
+                <input type='checkbox' id='pkmn_159' />
+            <label for='pkmn_159'>
+                Hatch a <span class='h_pkmn'>Totodile</span> and evolve it into <span class='h_pkmn'>Croconaw</span> (level 18)
+            </label>
+            </ul><h3>Route 30</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_293' />
+            <label for='pkmn_293'>
+                Catch <span class='h_pkmn'>Whismur</span> - after the Hoenn Sound radio song
+            </label>
+            </ul><h3>Cherrygrove City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_276' />
+            <label for='pkmn_276'>
+                Catch <span class='h_pkmn'>Taillow</span> - 30% encounter rate
+            </label>
+            </ul><h3>Ilex Forest</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_12' />
+            <label for='pkmn_12'>
+                Catch <span class='h_pkmn'>Butterfree</span> - 10% encounter rate
+            </label>
+            </ul><h3>National Park</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_15' />
+            <label for='pkmn_15'>
+                Catch <span class='h_pkmn'>Beedrill</span> - 5% encounter rate
+            </label>
+            </ul><h3>Bell Tower - Roof</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_250' />
+            <label for='pkmn_250'>
+                <span class='h_pkmn'>Ho-Oh</span> - unique encounter at <span class='h_loc'>Bell Tower - Roof</span>
+            </label>
+            </ul><h3>Route 47</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_86' />
+            <label for='pkmn_86'>
+                Catch <span class='h_pkmn'>Seel</span> - 30% encounter rate
+            </label>
+            </ul><h3>Route 47 - Inside cave</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_200' />
+            <label for='pkmn_200'>
+                Catch <span class='h_pkmn'>Misdreavus</span> - 5% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_429' />
+            <label for='pkmn_429'>
+                Hatch a <span class='h_pkmn'>Misdreavus</span> and evolve it into <span class='h_pkmn'>Mismagius</span> (Dusk Stone)
+            </label>
+            </ul><h3>Pallet Town</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_1' />
+            <label for='pkmn_1'>
+                <span class='h_pkmn'>Bulbasaur</span> - Starter Pokémon
+            </label><li>
+                <input type='checkbox' id='pkmn_4' />
+            <label for='pkmn_4'>
+                <span class='h_pkmn'>Charmander</span> - Starter Pokémon
+            </label><li>
+                <input type='checkbox' id='pkmn_7' />
+            <label for='pkmn_7'>
+                <span class='h_pkmn'>Squirtle</span> - Starter Pokémon
+            </label><li>
+                <input type='checkbox' id='pkmn_2' />
+            <label for='pkmn_2'>
+                Hatch a <span class='h_pkmn'>Bulbasaur</span> and evolve it into <span class='h_pkmn'>Ivysaur</span> (level 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_5' />
+            <label for='pkmn_5'>
+                Hatch a <span class='h_pkmn'>Charmander</span> and evolve it into <span class='h_pkmn'>Charmeleon</span> (level 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_8' />
+            <label for='pkmn_8'>
+                Hatch a <span class='h_pkmn'>Squirtle</span> and evolve it into <span class='h_pkmn'>Wartortle</span> (level 16)
+            </label>
+            </ul><h3>Cerulean Cave - B1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_150' />
+            <label for='pkmn_150'>
+                <span class='h_pkmn'>Mewtwo</span> - unique encounter at <span class='h_loc'>Cerulean Cave - B1F</span>
+            </label>
+            </ul><h3>Route 25</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_245' />
+            <label for='pkmn_245'>
+                <span class='h_pkmn'>Suicune</span> - unique encounter at <span class='h_loc'>Route 25</span>
+            </label>
+            </ul><h3>Saffron City - Silph Co.</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_252' />
+            <label for='pkmn_252'>
+                <span class='h_pkmn'>Treecko</span> - Starter Pokémon
+            </label><li>
+                <input type='checkbox' id='pkmn_255' />
+            <label for='pkmn_255'>
+                <span class='h_pkmn'>Torchic</span> - Starter Pokémon
+            </label><li>
+                <input type='checkbox' id='pkmn_258' />
+            <label for='pkmn_258'>
+                <span class='h_pkmn'>Mudkip</span> - Starter Pokémon
+            </label><li>
+                <input type='checkbox' id='pkmn_253' />
+            <label for='pkmn_253'>
+                Hatch a <span class='h_pkmn'>Treecko</span> and evolve it into <span class='h_pkmn'>Grovyle</span> (level 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_256' />
+            <label for='pkmn_256'>
+                Hatch a <span class='h_pkmn'>Torchic</span> and evolve it into <span class='h_pkmn'>Combusken</span> (level 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_259' />
+            <label for='pkmn_259'>
+                Hatch a <span class='h_pkmn'>Mudkip</span> and evolve it into <span class='h_pkmn'>Marshtomp</span> (level 16)
+            </label>
+            </ul><h3>Route 7</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_198' />
+            <label for='pkmn_198'>
+                Catch <span class='h_pkmn'>Murkrow</span> - 30% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_430' />
+            <label for='pkmn_430'>
+                Hatch a <span class='h_pkmn'>Murkrow</span> and evolve it into <span class='h_pkmn'>Honchkrow</span> (Dusk Stone)
+            </label>
+            </ul><h3>Route 19</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_366' />
+            <label for='pkmn_366'>
+                Catch <span class='h_pkmn'>Clamperl</span> - 60% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_367' />
+            <label for='pkmn_367'>
+                Hatch a <span class='h_pkmn'>Clamperl</span> and evolve it into <span class='h_pkmn'>Huntail</span> (trade holding Deep Sea Tooth)
+            </label><li>
+                <input type='checkbox' id='pkmn_368' />
+            <label for='pkmn_368'>
+                Hatch a <span class='h_pkmn'>Clamperl</span> and evolve it into <span class='h_pkmn'>Gorebyss</span> (trade holding Deep Sea Scale)
+            </label>
+            </ul><h3>Whirl Islands - B3F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_249' />
+            <label for='pkmn_249'>
+                <span class='h_pkmn'>Lugia</span> - unique encounter at <span class='h_loc'>Whirl Islands - B3F</span>
+            </label>
+            </ul><h3>Embedded Tower</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_382' />
+            <label for='pkmn_382'>
+                <span class='h_pkmn'>Kyogre</span> - unique encounter at <span class='h_loc'>Embedded Tower</span>
+            </label><li>
+                <input type='checkbox' id='pkmn_384' />
+            <label for='pkmn_384'>
+                <span class='h_pkmn'>Rayquaza</span> - unique encounter at <span class='h_loc'>Embedded Tower</span>
+            </label>
+            </ul><h3>Roaming Johto</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_243' />
+            <label for='pkmn_243'>
+                <span class='h_pkmn'>Raikou</span> - roaming encounter
+            </label><li>
+                <input type='checkbox' id='pkmn_244' />
+            <label for='pkmn_244'>
+                <span class='h_pkmn'>Entei</span> - roaming encounter
+            </label><li>
+                <input type='checkbox' id='pkmn_380' />
+            <label for='pkmn_380'>
+                <span class='h_pkmn'>Latias</span> - roaming encounter
+            </label>
+            </ul><h3>Johto Safari Zone - Forest</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_353' />
+            <label for='pkmn_353'>
+                Catch <span class='h_pkmn'>Shuppet</span> - Safari Zone objects (Johto Safari Zone - Forest)
+            </label>
+            </ul><h3>Johto Safari Zone - Marshland</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_189' />
+            <label for='pkmn_189'>
+                Catch <span class='h_pkmn'>Jumpluff</span> - Safari Zone objects (Johto Safari Zone - Marshland)
+            </label>
+            </ul><h3>Johto Safari Zone - Peak</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_76' />
+            <label for='pkmn_76'>
+                Catch <span class='h_pkmn'>Golem</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_363' />
+            <label for='pkmn_363'>
+                Catch <span class='h_pkmn'>Spheal</span> - Safari Zone objects (Johto Safari Zone - Peak)
+            </label>
+            </ul>
+            </article>
+            <article>
+                <h3>Radio songs</h3>
+            <ul>
+                
+            </ul><h3>Safari Zone objects</h3>
+            <ul>
+                
+            </ul><h3>Daily swarms</h3>
+            <ul>
+                
+            </ul><h3>GBA slot encounters</h3>
+            <ul>
+                
+            </ul>
+            </article>
+            <article>
+                <h3>Diamond & Pearl only</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_431' />
+            <label for='pkmn_431'>
+                Catch <span class='h_pkmn'>Glameow</span> - 10% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_432' />
+            <label for='pkmn_432'>
+                Catch <span class='h_pkmn'>Purugly</span> - 10% encounter rate
+            </label>
+            </ul>
+            </article>
+            <article>
+                <h3>SoulSilver only</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_165' />
+            <label for='pkmn_165'>
+                Catch <span class='h_pkmn'>Ledyba</span> - 30% encounter rate
+            </label><li>
+                <input type='checkbox' id='pkmn_383' />
+            <label for='pkmn_383'>
+                <span class='h_pkmn'>Groudon</span> - unique encounter at <span class='h_loc'>Embedded Tower</span>
+            </label><li>
+                <input type='checkbox' id='pkmn_381' />
+            <label for='pkmn_381'>
+                <span class='h_pkmn'>Latios</span> - roaming encounter
+            </label><li>
+                <input type='checkbox' id='pkmn_3' />
+            <label for='pkmn_3'>
+                Hatch a <span class='h_pkmn'>Ivysaur</span> and evolve it into <span class='h_pkmn'>Venusaur</span> (level 32)
+            </label><li>
+                <input type='checkbox' id='pkmn_6' />
+            <label for='pkmn_6'>
+                Hatch a <span class='h_pkmn'>Charmeleon</span> and evolve it into <span class='h_pkmn'>Charizard</span> (level 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_9' />
+            <label for='pkmn_9'>
+                Hatch a <span class='h_pkmn'>Wartortle</span> and evolve it into <span class='h_pkmn'>Blastoise</span> (level 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_154' />
+            <label for='pkmn_154'>
+                Hatch a <span class='h_pkmn'>Bayleef</span> and evolve it into <span class='h_pkmn'>Meganium</span> (level 32)
+            </label><li>
+                <input type='checkbox' id='pkmn_157' />
+            <label for='pkmn_157'>
+                Hatch a <span class='h_pkmn'>Quilava</span> and evolve it into <span class='h_pkmn'>Typhlosion</span> (level 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_160' />
+            <label for='pkmn_160'>
+                Hatch a <span class='h_pkmn'>Croconaw</span> and evolve it into <span class='h_pkmn'>Feraligatr</span> (level 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_254' />
+            <label for='pkmn_254'>
+                Hatch a <span class='h_pkmn'>Grovyle</span> and evolve it into <span class='h_pkmn'>Sceptile</span> (level 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_257' />
+            <label for='pkmn_257'>
+                Hatch a <span class='h_pkmn'>Combusken</span> and evolve it into <span class='h_pkmn'>Blaziken</span> (level 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_260' />
+            <label for='pkmn_260'>
+                Hatch a <span class='h_pkmn'>Marshtomp</span> and evolve it into <span class='h_pkmn'>Swampert</span> (level 36)
+            </label>
+            </ul>
+            </article>
+            <article>
+                <h3>Miscellaneous</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_18' />
+            <label for='pkmn_18'>
+                Hatch a <span class='h_pkmn'>Pidgeotto</span> and evolve it into <span class='h_pkmn'>Pidgeot</span> (level 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_31' />
+            <label for='pkmn_31'>
+                Hatch a <span class='h_pkmn'>Nidorina</span> and evolve it into <span class='h_pkmn'>Nidoqueen</span> (Moon Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_34' />
+            <label for='pkmn_34'>
+                Hatch a <span class='h_pkmn'>Nidorino</span> and evolve it into <span class='h_pkmn'>Nidoking</span> (Moon Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_65' />
+            <label for='pkmn_65'>
+                Hatch a <span class='h_pkmn'>Kadabra</span> and evolve it into <span class='h_pkmn'>Alakazam</span> (trade)
+            </label><li>
+                <input type='checkbox' id='pkmn_68' />
+            <label for='pkmn_68'>
+                Hatch a <span class='h_pkmn'>Machoke</span> and evolve it into <span class='h_pkmn'>Machamp</span> (trade)
+            </label><li>
+                <input type='checkbox' id='pkmn_151' />
+            <label for='pkmn_151'>
+                Pal Park - import from Gen 3 (see the Gen 1-3 guides)
+            </label><li>
+                <input type='checkbox' id='pkmn_169' />
+            <label for='pkmn_169'>
+                Hatch a <span class='h_pkmn'>Golbat</span> and evolve it into <span class='h_pkmn'>Crobat</span> (friendship)
+            </label><li>
+                <input type='checkbox' id='pkmn_181' />
+            <label for='pkmn_181'>
+                Hatch a <span class='h_pkmn'>Flaaffy</span> and evolve it into <span class='h_pkmn'>Ampharos</span> (level 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_248' />
+            <label for='pkmn_248'>
+                Hatch a <span class='h_pkmn'>Pupitar</span> and evolve it into <span class='h_pkmn'>Tyranitar</span> (level 55)
+            </label><li>
+                <input type='checkbox' id='pkmn_251' />
+            <label for='pkmn_251'>
+                Pal Park - import from Gen 3 (see the Gen 1-3 guides)
+            </label><li>
+                <input type='checkbox' id='pkmn_272' />
+            <label for='pkmn_272'>
+                Hatch a <span class='h_pkmn'>Lombre</span> and evolve it into <span class='h_pkmn'>Ludicolo</span> (Water Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_275' />
+            <label for='pkmn_275'>
+                Hatch a <span class='h_pkmn'>Nuzleaf</span> and evolve it into <span class='h_pkmn'>Shiftry</span> (Leaf Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_282' />
+            <label for='pkmn_282'>
+                Hatch a <span class='h_pkmn'>Kirlia</span> and evolve it into <span class='h_pkmn'>Gardevoir</span> (level 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_289' />
+            <label for='pkmn_289'>
+                Hatch a <span class='h_pkmn'>Vigoroth</span> and evolve it into <span class='h_pkmn'>Slaking</span> (level 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_306' />
+            <label for='pkmn_306'>
+                Hatch a <span class='h_pkmn'>Lairon</span> and evolve it into <span class='h_pkmn'>Aggron</span> (level 42)
+            </label><li>
+                <input type='checkbox' id='pkmn_360' />
+            <label for='pkmn_360'>
+                Hatch an egg - breed Wobbuffet
+            </label><li>
+                <input type='checkbox' id='pkmn_373' />
+            <label for='pkmn_373'>
+                Hatch a <span class='h_pkmn'>Shelgon</span> and evolve it into <span class='h_pkmn'>Salamence</span> (level 50)
+            </label><li>
+                <input type='checkbox' id='pkmn_376' />
+            <label for='pkmn_376'>
+                Hatch a <span class='h_pkmn'>Metang</span> and evolve it into <span class='h_pkmn'>Metagross</span> (level 45)
+            </label><li>
+                <input type='checkbox' id='pkmn_377' />
+            <label for='pkmn_377'>
+                Pal Park - import from Gen 3 (see the Gen 1-3 guides)
+            </label><li>
+                <input type='checkbox' id='pkmn_378' />
+            <label for='pkmn_378'>
+                Pal Park - import from Gen 3 (see the Gen 1-3 guides)
+            </label><li>
+                <input type='checkbox' id='pkmn_379' />
+            <label for='pkmn_379'>
+                Pal Park - import from Gen 3 (see the Gen 1-3 guides)
+            </label><li>
+                <input type='checkbox' id='pkmn_385' />
+            <label for='pkmn_385'>
+                Pal Park - import from Gen 3 (see the Gen 1-3 guides)
+            </label><li>
+                <input type='checkbox' id='pkmn_386' />
+            <label for='pkmn_386'>
+                Pal Park - import from Gen 3 (see the Gen 1-3 guides)
+            </label><li>
+                <input type='checkbox' id='pkmn_389' />
+            <label for='pkmn_389'>
+                Hatch a <span class='h_pkmn'>Grotle</span> and evolve it into <span class='h_pkmn'>Torterra</span> (level 32)
+            </label><li>
+                <input type='checkbox' id='pkmn_392' />
+            <label for='pkmn_392'>
+                Hatch a <span class='h_pkmn'>Monferno</span> and evolve it into <span class='h_pkmn'>Infernape</span> (level 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_395' />
+            <label for='pkmn_395'>
+                Hatch a <span class='h_pkmn'>Prinplup</span> and evolve it into <span class='h_pkmn'>Empoleon</span> (level 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_398' />
+            <label for='pkmn_398'>
+                Hatch a <span class='h_pkmn'>Staravia</span> and evolve it into <span class='h_pkmn'>Staraptor</span> (level 34)
+            </label><li>
+                <input type='checkbox' id='pkmn_405' />
+            <label for='pkmn_405'>
+                Hatch a <span class='h_pkmn'>Luxio</span> and evolve it into <span class='h_pkmn'>Luxray</span> (level 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_407' />
+            <label for='pkmn_407'>
+                Hatch a <span class='h_pkmn'>Roselia</span> and evolve it into <span class='h_pkmn'>Roserade</span> (Shiny Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_464' />
+            <label for='pkmn_464'>
+                Hatch a <span class='h_pkmn'>Rhydon</span> and evolve it into <span class='h_pkmn'>Rhyperior</span> (trade holding Protector)
+            </label><li>
+                <input type='checkbox' id='pkmn_468' />
+            <label for='pkmn_468'>
+                Hatch a <span class='h_pkmn'>Togetic</span> and evolve it into <span class='h_pkmn'>Togekiss</span> (Shiny Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_474' />
+            <label for='pkmn_474'>
+                Hatch a <span class='h_pkmn'>Porygon2</span> and evolve it into <span class='h_pkmn'>Porygon-Z</span> (trade holding Dubious Disc)
+            </label><li>
+                <input type='checkbox' id='pkmn_475' />
+            <label for='pkmn_475'>
+                Hatch a <span class='h_pkmn'>Kirlia</span> and evolve it into <span class='h_pkmn'>Gallade</span> (Dawn Stone)
+            </label><li>
+                <input type='checkbox' id='pkmn_477' />
+            <label for='pkmn_477'>
+                Hatch a <span class='h_pkmn'>Dusclops</span> and evolve it into <span class='h_pkmn'>Dusknoir</span> (trade holding Reaper Cloth)
+            </label><li>
+                <input type='checkbox' id='pkmn_489' />
+            <label for='pkmn_489'>
+                Hatch an egg - breed Manaphy
+            </label>
+            </ul>
+            </article><div id='completion'>
+                <h2>The End</h2>
+            <article>
+                <h3>Pokémon League</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='diploma' />
+            <label for='diploma'>
+                Go get your hard-earned diploma. You have completed something many trainers started, yet very few had the courage to finish. Congratulations, <strong>Pokémon Master!</strong>
+            </label>
+                </li>
+            </ul>
+            </article>
+            </div>
+            </section>
+            <script type='module'>
+                import pokemon_guide from '/lyra-website-backup/scripts/pokemon/pokemon_guide.1757042520.js';
+                import gen4_pokedex from '/lyra-website-backup/scripts/pokemon/gen4/gen4_pokedex.1763926658.js';
+
+                const gen4_guide = new pokemon_guide(new gen4_pokedex());
+                gen4_guide.initialize_guide();
+            </script>
+
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Fan preservation backup of <strong>Lyra made a website</strong>. Original website, design and content by <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon and all related assets are trademarks of Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

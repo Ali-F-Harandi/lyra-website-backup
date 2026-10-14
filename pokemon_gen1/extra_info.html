@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <title>Extra info - Gen 1</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen1.1774893396.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_red.css' />
+                <script>
+                    init_style('gen1');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/'>Return to main menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/fr/pokemon_gen1/extra_info' >
+                            <span lang='fr'>Version française</span>
+                            <img src='/lyra-website-backup/views/images/french_flag.png' alt='French flag' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra made a website about</h1>
+    <h2>Pokémon Gen 1</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/pokemon_gen1/full_guide'>Full Guide</a>
+    <a href='/lyra-website-backup/pokemon_gen1/pokedex_tracker'>Pokédex tracker</a>
+    <a href='/lyra-website-backup/pokemon_gen1/catch_locations'>Catch locations</a>
+    <a href='/lyra-website-backup/pokemon_gen1/pokemon_info'>Pokémon info</a>
+    <a href='/lyra-website-backup/pokemon_gen1/extra_info'>Extra info</a>
+    <button id='settings_link'>Settings</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex tracker</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Add extra step to capture</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Display current progress</p>
+            </li><li>
+                <p>Pokemon sprites used: </p>
+                <select id='select_pokemon_sprites'><option value='rg_sprites'>Red & Green</option><option value='rb_sprites'>Red & Blue</option><option value='y_sprites'>Yellow</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Small Pokémon sprites</p>
+            </li><li>
+                <p>Box labels: </p>
+                <select id='select_box_names'><option value='boxes_order'>Box number</option><option value='boxes_firstlast'>First & last Pokémon</option><option value='boxes_hidden'>Hide labels</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Full Guide</h1>
+                <ul>
+                    <li>
+                <p>Guide version: </p>
+                <select id='select_guide_version'><option value='red_guide'>Red</option><option value='blue_guide'>Blue</option><option value='yellow_guide'>Yellow</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Catch locations</h1>
+                <ul>
+                    <li>
+                <p>Filter by version: </p>
+                <select id='select_version_filter'><option value='pref_none'>All</option><option value='pref_red'>Red</option><option value='pref_blue'>Blue</option><option value='pref_yellow'>Yellow</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Hide Old Rod and Good Rod data</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon info</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignore info of caught Pokémon</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Website colors</h1>
+                <ul>
+                    <li>
+                <p>Color theme: </p>
+                <select id='select_color_theme'><optgroup label='Gen 1'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Red</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Blue</option></optgroup><optgroup label='Gen 2'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Gold</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Silver</option></optgroup><optgroup label='Gen 3'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Emerald</option></optgroup><optgroup label='Gen 4'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamond</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Pearl</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Gen 1 data management</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Export</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Import</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen1_settings from '/lyra-website-backup/scripts/pokemon/gen1/gen1_settings.1774893378.js';
+            const current_settings = new gen1_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_guide_version(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('en'); 
+            </script>
+            <main>
+                <h1>Extra info</h1>
+
+<h2>General catching strategy</h2>
+<article>
+    <p>
+        The website <em>The Cave of Dragonflies</em> has a well-written and exhaustive explanation of the
+    <a href="https://www.dragonflycave.com/mechanics/gen-i-capturing" target="_blank">Gen I capture mechanics</a> (with a conclusion written
+    <a href="https://www.dragonflycave.com/mechanics/gen-i-capturing#english" target="_blank">in simple terms</a>). The main points relevant to
+    the Living Dex challenge are as follows:
+    </p>
+    <ul>
+        <li>Every Pokémon species has a catch rate: the lower the number, the harder the Pokémon is to catch. In general, rare Pokémon have a low catch rate while
+        common Pokémon have a high one.</li>
+        <li>Any status effect increases the odds of a successful capture with sleep and freeze being the most effective.</li>
+        <li><span class="h_item">Ultra Balls</span> benefit greatly from low catch rate, low HP and status effects.</li>
+        <li>Against a Pokémon at full health with no status effects, a <span class="h_item">Great Ball</span> is better than an <span class="h_item">Ultra Ball</span>.</li>
+        <li>The low HP threshold for maximum catch chance is 1/2 HP for <span class="h_item">Great Balls</span> and 1/3 HP for <span class="h_item">Ultra Balls</span>.</li>
+    </ul>
+    <p>
+        From this, we can make the following set of rules:
+    </p>
+    <ul>
+        <li>Against common Pokémon, throwing a <span class="h_item">Great Ball</span> at full health, while not having the highest catch chance possible, is the most efficient.
+        Only go for sleep if you have guaranteed initiative with 100% chance to hit.</li>
+        <li>Against rare Pokémon, doing damage, using sleep and throwing an <span class="h_item">Ultra Ball</span> guarantees the highest catch chance possible.
+        Lowering the HP to less than 1/3 does not increase the catch chance further.</li>
+        <li>Against Legendary Pokémon, using sleep and throwing <span class="h_item">Ultra Balls</span> is the most efficient. The extra catch chance gained
+        from lowering HP is marginal.</li>
+        <li>For most encounters, if you do not plan on doing damage, going with a <span class="h_item">Great Ball</span> is your best option, status effect or not.</li>
+    </ul>
+</article>
+
+<h2>Key items locations</h2>
+<article>
+    <h3>Rare Candy locations</h3>
+    <p>
+        Considering many Pokémon can only be obtained via level-up evolution, picking up <span class="h_item">Rare Candies</span> while going through the story can speed up the experience grind quite a bit.
+        Here is the list and location of all the <span class="h_item">Rare Candies</span> in the game:
+    </p>
+    <ul>
+        <li><span class="h_loc">Mt. Moon</span> - 1F, southeast corner</li>
+        <li><span class="h_loc">Cerulean City</span> - <em>(Hidden)</em> Center of the northwest house's backyard</li>
+        <li><span class="h_loc">S.S. Anne</span> - 2F, 4th room from the left</li>
+        <li><span class="h_loc">Rocket Hideout</span> - B3F, east side of the maze</li>
+        <li><span class="h_loc">Route 17</span> - <em>(Hidden)</em> Middle of the patch of grass in the Cycling Road</li>
+        <li><span class="h_loc">Pokémon Tower</span> - 6F, west area</li>
+        <li><span class="h_loc">Silph Co.</span> - 10F, southwest room</li>
+        <li><span class="h_loc">Fuchsia City</span> - Warden's house, behind the boulder</li>
+        <li><span class="h_loc">Power Plant</span> - Northeast area</li>
+        <li><span class="h_loc">Pokémon Mansion</span> - B1F, northern area</li>
+        <li><span class="h_loc">Pokémon Mansion</span> - <em>(Hidden)</em> B1F, northwest corner of the area with the <span class="h_item">Secret Key</span></li>
+        <li><span class="h_loc">Victory Road</span> - 1F, north area</li>
+        <li><span class="h_loc">Cerulean Cave</span> - <em>(Hidden)</em> 1F, on a rock in the southwest area of the floor</li>
+    </ul>
+
+    <h3>HM locations</h3>
+    <ul>
+        <li><span class="h_item">HM 01 (Cut)</span> - <span class="h_loc">S.S. Anne</span></li>
+        <li><span class="h_item">HM 02 (Fly)</span> - <span class="h_loc">Route 16</span></li>
+        <li><span class="h_item">HM 03 (Surf)</span> - <span class="h_loc">Safari Zone</span></li>
+        <li><span class="h_item">HM 04 (Strength)</span> - <span class="h_loc">Fuchsia City</span></li>
+        <li><span class="h_item">HM 05 (Flash)</span> - <span class="h_loc">Route 2</span></li>
+    </ul>
+
+    <h3>Fishing Rod locations</h3>
+    <ul>
+        <li><span class="h_item">Old Rod</span> - <span class="h_loc">Vermilion City</span></li>
+        <li><span class="h_item">Good Rod</span> - <span class="h_loc">Fuchsia City</span></li>
+        <li><span class="h_item">Super Rod</span> - <span class="h_loc">Route 12</span></li>
+    </ul>
+</article>
+
+<h2>Catching Mew</h2>
+<article>
+    <p>
+        There is no way to get Mew legitimately anymore, as the only way was to get it through an event. Fortunately, it is possible to make use of a glitch that
+        forces a random encounter against a wild Mew. There is an in-depth article about the
+        <a href="https://bulbapedia.bulbagarden.net/wiki/Mew_glitch" target="_blank">Mew Glitch</a> on <em>Bulbapedia</em>. In short, you need to respect these criteria:
+    </p>
+    <ul>
+        <li>Having access to <span class="h_move">Fly</span> or <span class="h_move">Teleport</span></li>
+        <li>Not having fought both the Gambler on <span class="h_loc">Route 8</span> and the Youngster on <span class="h_loc">Route 25</span> <em>(slow version)</em></li>
+        <li>Not having fought both the Jr. Trainer ♂ west of <span class="h_loc">Nugget Bridge</span> and the first Swimmer in <span class="h_loc">Cerulean Gym</span> <em>(quick version)</em></li>
+    </ul>
+    <p>
+        The slow version allows you to trigger the glitch whenever you want as long as the 2 optional encounters are skipped. The quick version of the glitch
+        relies on you catching an Abra before fighting Misty. It is more restrictive, but you can get the Mew encounter as soon as you access Route 24. Remember to save your game
+        before you attempt any version of this glitch, in case something goes wrong. Good luck!
+    </p>
+</article>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Fan preservation backup of <strong>Lyra made a website</strong>. Original website, design and content by <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon and all related assets are trademarks of Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

@@ -1,0 +1,27 @@
+@import url("/lyra-website-backup/styles/pokemon/pokemon.css");
+
+body {
+    background-image: url("/lyra-website-backup/views/pokemon/gen4/images/background_gen4.png");
+}
+
+/* Pokemon sprite */
+.pokemon_card img {
+    margin: 0 auto;
+    width: 66px;
+    height: 66px;
+}
+
+#pokedex.small .pokemon_card {
+    padding: 0;
+}
+
+#pokedex.small img {
+    width: 52px;
+    height: 52px;
+}
+
+/* Pokédex small boxes */
+#pokedex {
+    --box_columns: 6;
+}
+

@@ -1,0 +1,367 @@
+html {
+    --header_color: #F7F7F7;
+
+    --main_red: #962A22;
+    --light_red: #F8E0DE;
+    --table_red: #E1817A;
+
+    --main_blue: #264F96;
+    --light_blue: #CDDCED;
+    --table_blue: #739CCE;
+
+    --main_yellow: #CE8C05;
+    --light_yellow: #F3E8B6;
+    --table_yellow: #FBCB0A;
+
+    --main_gold: #AC8C24;
+    --light_gold: #F0E3B8;
+    --table_gold: #DDC05F;
+
+    --main_silver: #787C7D;
+    --light_silver: #CFD0D1;
+    --table_silver: #B0B2B3;
+
+    --main_crystal: #2698AC;
+    --light_crystal: #B4E6EE;
+    --table_crystal: #4FC4D8;
+
+    --main_firered: #B74C17;
+    --light_firered: #F5C8B1;
+    --table_firered: #FF8B51;
+
+    --main_leafgreen: #71921E;
+    --light_leafgreen: #DAEAB3;
+    --table_leafgreen: #ACC56D;
+
+    --main_ruby: #A82838;
+    --light_ruby: #EFB9C0;
+    --table_ruby: #DA6270;
+
+    --main_sapphire: #303870;
+    --light_sapphire: #CACEE8;
+    --table_sapphire: #727CC3;
+
+    --main_emerald: #427668;
+    --light_emerald: #C6DFD8;
+    --table_emerald: #63A794;
+
+    --main_colosseum: #2980D0;
+    --light_colosseum: #CFE4F7;
+    --table_colosseum: #8FC0ED;
+
+    --main_xd: #904AB0;
+    --light_xd: #DFCBE9;
+    --table_xd: #C8A3D9;
+
+    --main_diamond: #4A7AB5;
+    --light_diamond: #D3E2F2;
+    --table_diamond: #86A9D6;
+
+    --main_pearl: #C77BA8;
+    --light_pearl: #F2DCEA;
+    --table_pearl: #DEA3C6;
+
+    --main_platinum: #A89960;
+    --light_platinum: #F0E9D2;
+    --table_platinum: #D2C08A;
+
+    --main_heartgold: #C89028;
+    --light_heartgold: #F5E6C0;
+    --table_heartgold: #E3C579;
+
+    --main_soulsilver: #7A8B99;
+    --light_soulsilver: #DEE4E9;
+    --table_soulsilver: #AFBECA;
+}
+
+/* version colors */
+/* Pokémon Red */
+main h2.red, main h2.red + table th {
+    background-color: var(--main_red);
+    color: var(--header_color);
+}
+main .red + article, div.red {
+    background-color: var(--light_red) !important;
+    border-color: var(--main_red) !important;
+}
+main h2.red + article h3, span.red {
+    color: var(--main_red);
+}
+main h2.red + table {
+    background-color: var(--table_red);
+    border-color: var(--main_red)
+}
+main h2.red + table th,
+main h2.red + table td {
+    border-color: var(--table_red) !important;
+}
+
+/* Pokémon Blue */
+main h2.blue, main h2.blue + table th {
+    background-color: var(--main_blue);
+    color: var(--header_color);
+}
+main .blue + article, div.blue {
+    background-color: var(--light_blue) !important;
+    border-color: var(--main_blue) !important;
+}
+main h2.blue + article h3, span.blue {
+    color: var(--main_blue);
+}
+main h2.blue + table {
+    background-color: var(--table_blue);
+    border-color: var(--main_blue)
+}
+main h2.blue + table th,
+main h2.blue + table td {
+    border-color: var(--table_blue) !important;
+}
+
+/* Pokémon Yellow */
+main h2.yellow, main h2.yellow + table th {
+    background-color: var(--main_yellow);
+    color: var(--header_color);
+}
+main .yellow + article, div.yellow {
+    background-color: var(--light_yellow) !important;
+    border-color: var(--main_yellow) !important;
+}
+main h2.yellow + article h3, span.yellow {
+    color: var(--main_yellow);
+}
+main h2.yellow + table {
+    background-color: var(--table_yellow);
+    border-color: var(--main_yellow)
+}
+main h2.yellow + table th,
+main h2.yellow + table td {
+    border-color: var(--table_yellow) !important;
+}
+
+/* Pokémon Gold */
+main h2.gold, main h2.gold + table th {
+    background-color: var(--main_gold);
+    color: var(--header_color);
+}
+main h2.gold + article, div.gold {
+    background-color: var(--light_gold) !important;
+    border-color: var(--main_gold) !important;
+}
+main h2.gold + article h3, span.gold {
+    color: var(--main_gold);
+}
+main h2.gold + table {
+    background-color: var(--table_gold);
+    border-color: var(--main_gold)
+}
+main h2.gold + table th,
+main h2.gold + table td {
+    border-color: var(--table_gold) !important;
+}
+
+/* Pokémon Silver */
+main h2.silver, main h2.silver + table th {
+    background-color: var(--main_silver);
+    color: var(--header_color);
+}
+main h2.silver + article, div.silver {
+    background-color: var(--light_silver) !important;
+    border-color: var(--main_silver) !important;
+}
+main h2.silver + article h3, span.silver {
+    color: var(--main_silver);
+}
+main h2.silver + table {
+    background-color: var(--table_silver);
+    border-color: var(--main_silver)
+}
+main h2.silver + table th,
+main h2.silver + table td {
+    border-color: var(--table_silver) !important;
+}
+
+/* Pokémon Crystal */
+main h2.crystal, main h2.crystal + table th {
+    background-color: var(--main_crystal);
+    color: var(--header_color);
+}
+main h2.crystal + article, div.crystal {
+    background-color: var(--light_crystal) !important;
+    border-color: var(--main_crystal) !important;
+}
+main h2.crystal + article h3, span.crystal {
+    color: var(--main_crystal);
+}
+main h2.crystal + table {
+    background-color: var(--table_crystal);
+    border-color: var(--main_crystal)
+}
+main h2.crystal + table th,
+main h2.crystal + table td {
+    border-color: var(--table_crystal) !important;
+}
+
+/* Pokémon Gold, Silver & Crystal */
+span.gold_crystal { color: var(--main_gold); }
+span.silver_crystal { color: var(--main_silver); }
+.all_locations_crystal span.gold_crystal,
+.all_locations_crystal span.silver_crystal
+    { color: inherit; }
+
+/* Pokémon FireRed */
+main h2.firered, main h2.firered + table th {
+    background-color: var(--main_firered);
+    color: var(--header_color);
+}
+main h2.firered + article, div.firered {
+    background-color: var(--light_firered) !important;
+    border-color: var(--main_firered) !important;
+}
+main h2.firered + article h3, span.firered {
+    color: var(--main_firered);
+}
+main h2.firered + table {
+    background-color: var(--table_firered);
+    border-color: var(--main_firered)
+}
+main h2.firered + table th,
+main h2.firered + table td {
+    border-color: var(--table_firered) !important;
+}
+
+/* Pokémon LeafGreen */
+main h2.leafgreen, main h2.leafgreen + table th {
+    background-color: var(--main_leafgreen);
+    color: var(--header_color);
+}
+main h2.leafgreen + article, div.leafgreen {
+    background-color: var(--light_leafgreen) !important;
+    border-color: var(--main_leafgreen) !important;
+}
+main h2.leafgreen + article h3, span.leafgreen {
+    color: var(--main_leafgreen);
+}
+main h2.leafgreen + table {
+    background-color: var(--table_leafgreen);
+    border-color: var(--main_leafgreen)
+}
+main h2.leafgreen + table th,
+main h2.leafgreen + table td {
+    border-color: var(--table_leafgreen) !important;
+}
+
+/* Pokémon Ruby */
+main h2.ruby, main h2.ruby + table th {
+    background-color: var(--main_ruby);
+    color: var(--header_color);
+}
+main h2.ruby + article, div.ruby {
+    background-color: var(--light_ruby) !important;
+    border-color: var(--main_ruby) !important;
+}
+main h2.ruby + article h3, span.ruby {
+    color: var(--main_ruby);
+}
+main h2.ruby + table {
+    background-color: var(--table_ruby);
+    border-color: var(--main_ruby)
+}
+main h2.ruby + table th,
+main h2.ruby + table td {
+    border-color: var(--table_ruby) !important;
+}
+
+/* Pokémon Sapphire */
+main h2.sapphire, main h2.sapphire + table th {
+    background-color: var(--main_sapphire);
+    color: var(--header_color);
+}
+main h2.sapphire + article, div.sapphire {
+    background-color: var(--light_sapphire) !important;
+    border-color: var(--main_sapphire) !important;
+}
+main h2.sapphire + article h3, span.sapphire {
+    color: var(--main_sapphire);
+}
+main h2.sapphire + table {
+    background-color: var(--table_sapphire);
+    border-color: var(--main_sapphire)
+}
+main h2.sapphire + table th,
+main h2.sapphire + table td {
+    border-color: var(--table_sapphire) !important;
+}
+
+/* Pokémon Emerald */
+main h2.emerald, main h2.emerald + table th {
+    background-color: var(--main_emerald);
+    color: var(--header_color);
+}
+main h2.emerald + article, div.emerald {
+    background-color: var(--light_emerald) !important;
+    border-color: var(--main_emerald) !important;
+}
+main h2.emerald + article h3, span.emerald {
+    color: var(--main_emerald);
+}
+main h2.emerald + table {
+    background-color: var(--table_emerald);
+    border-color: var(--main_emerald)
+}
+main h2.emerald + table th,
+main h2.emerald + table td {
+    border-color: var(--table_emerald) !important;
+}
+
+/* Pokémon Colosseum */
+main h2.colosseum, main h2.colosseum + table th {
+    background-color: var(--main_colosseum);
+    color: var(--header_color);
+}
+main h2.colosseum + article, div.colosseum {
+    background-color: var(--light_colosseum) !important;
+    border-color: var(--main_colosseum) !important;
+}
+main h2.colosseum + article h3, span.colosseum {
+    color: var(--main_colosseum);
+}
+main h2.colosseum + table {
+    background-color: var(--table_colosseum);
+    border-color: var(--main_colosseum);
+}
+main h2.colosseum + table th,
+main h2.colosseum + table td {
+    border-color: var(--table_colosseum) !important;
+}
+
+/* Pokémon XD */
+main h2.xd, main h2.xd + table th {
+    background-color: var(--main_xd);
+    color: var(--header_color);
+}
+main h2.xd + article, div.xd {
+    background-color: var(--light_xd) !important;
+    border-color: var(--main_xd) !important;
+}
+main h2.xd + article h3, span.xd {
+    color: var(--main_xd);
+}
+main h2.xd + table {
+    background-color: var(--table_xd);
+    border-color: var(--main_xd)
+}
+main h2.xd + table th,
+main h2.xd + table td {
+    border-color: var(--table_xd) !important;
+}
+
+/* Pokémon Gen 4 combo highlight */
+span.diamond, span.pearl, span.platinum, span.heartgold, span.soulsilver,
+span.diamond_pearl, span.diamond_pearl_platinum, span.heartgold_soulsilver {
+    font-weight: bold;
+}
+
+/* text highlight */
+span.red, span.blue, span.yellow, span.gold, span.silver, span.crystal, span.firered, span.leafgreen, span.ruby, span.sapphire, span.emerald, span.colosseum, span.xd, span.diamond, span.pearl, span.platinum, span.heartgold, span.soulsilver {
+    font-weight: bold;
+}

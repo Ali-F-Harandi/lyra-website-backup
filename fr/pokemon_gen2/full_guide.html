@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+            <html lang='fr'>
+            <head>
+                <title>Guide complet - Gen 2</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen2.1774893396.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_gold.css' />
+                <script>
+                    init_style('gen2');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/fr'>Retour au menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/pokemon_gen2/full_guide' >
+                            <span lang='en'>English version</span>
+                            <img src='/lyra-website-backup/views/images/us-uk_flag.png' alt='Drapeau anglais/américain' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra a un site web sur</h1>
+    <h2>Pokémon Gen 2</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/fr/pokemon_gen2/full_guide'>Guide complet</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen2/pokedex_tracker'>Pokédex perso</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen2/catch_locations'>Pokémon par zone</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen2/pokemon_info'>Recherche par filtre</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen2/extra_info'>Infos supplémentaires</a>
+    <button id='settings_link'>Préférences</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex perso</h1>
+                <ul>
+                    <li>
+                <p>Pokédex affiché : </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>Pokédex National</option><option value='regional_dex'>Or, Argent et Cristal</option><option value='only_new_dex'>Nouveaux Pokémon</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Ajouter une étape supplémentaire</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Afficher le nombre de Pokémon obtenus</p>
+            </li><li>
+                <p>Sprites utilisés : </p>
+                <select id='select_pokemon_sprites'><option value='gold_sprites'>Or</option><option value='silver_sprites'>Argent</option><option value='crystal_sprites'>Cristal</option><option value='crystal_anim_sprites'>Cristal (Animés)</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Mini Pokédex</p>
+            </li><li>
+                <p>Nom des boites : </p>
+                <select id='select_box_names'><option value='boxes_order'>Numéro de boite</option><option value='boxes_firstlast'>Premier et dernier Pokémon</option><option value='boxes_hidden'>Masquer les noms</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon par zone</h1>
+                <ul>
+                    <li>
+                <p>Filtrer par version : </p>
+                <select id='select_version_filter'><option value='pref_none'>Toutes</option><option value='pref_gold'>Or</option><option value='pref_silver'>Argent</option><option value='pref_crystal'>Cristal</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Masquer la Canne et Super Canne</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Recherche par filtre</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignorer les Pokémon déjà attrapés</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Couleurs du site web</h1>
+                <ul>
+                    <li>
+                <p>Thème de couleurs : </p>
+                <select id='select_color_theme'><optgroup label='1re génération'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Rouge</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Bleu</option></optgroup><optgroup label='2e génération'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Or</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Argent</option></optgroup><optgroup label='3e génération'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Émeraude</option></optgroup><optgroup label='4e génération'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamant</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Perle</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Données de la Gen 2</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Exporter</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Importer</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen2_settings from '/lyra-website-backup/scripts/pokemon/gen2/gen2_settings.1763926670.js';
+            const current_settings = new gen2_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('fr'); 
+            </script>
+            <main>
+                <h1>Génération 2 - Guide de Pokédex Vivant</h1>
+
+<section id='guide_info'>
+    <article>
+        <h3>Objectif</h3>
+        <p>
+            Ce guide propose une marche à suivre pour <strong><span class='gold'>Pokémon Or</span></strong> et <strong><span class='silver'>Argent</span></strong> qui permet de compléter efficacement un Pokédex Vivant tout en vous laissant la liberté de jouer au jeu comme bon vous semble. Voici comment le guide fonctionne :
+        </p>
+        <ul>
+            <li>Choisissez une version "principale" où vous stockerez tous vos Pokémon.</li>
+            <li>Si vous jouez à <strong><span class='crystal'>Pokémon Cristal</span></strong>, il vous faudra adapter certaines étapes vous-même. Heureusement, les <a href='/lyra-website-backup/fr/pokemon_gen2/catch_locations'>informations de capture par zone</a> sont disponibles pour les 3 jeux.</li>
+            <li>Chaque chapitre est trié par rapport au scénario excepté "Après la fin du jeu" qui est trié par ordre d'importance.</li>
+            <li>Les Pokémon de chaque zone sont triés par rareté (et étage s'il y en a) : concentrez-vous sur les plus rares en premier.</li>
+            <li>Les étapes exclusives à chaque version peuvent être faites n'importe quand, tant qu'il est possible d'échanger avec la version principale facilement.</li>
+            <li>Le guide suppose que vous jouez la journée. Les Pokémon matinaux sont souvent les mêmes, mais les nocturnes peuvent être très différents. Si une période autre que le jour est requise, celle-ci est spécifiée. Encore une fois, les informations de capture sont là pour vous aider si besoin.</li>
+        </ul>
+
+        <h3>Règles</h3>
+        <p>Puisqu'il existe de nombreuses façons d'obtenir chaque Pokémon et de jouer au jeu, j'ai posé certaines limites lors de l'écriture du guide. Le but est de coller au mieux à l'esprit du défi (attraper tous les Pokémon dans la 2e génération) plutôt qu'à son aspect technique (avoir tous les Pokémon sur une des versions de la 2e génération). De plus, nous essayons de garder la version principale la plus authentique possible. Voici les règles :</p>
+        <ul>
+            <li>Chaque version utilisée commence sur une nouvelle sauvegarde.</li>
+            <li>Seuls les Pokémon qui n'apparaissent pas dans la Gen 2 peuvent être obtenus dans la Gen 1. Tous les autres Pokémon sont obtenus dans la Gen 2.</li>
+            <li>Toutes les rencontres uniques possibles sur la version principale sont faites sur cette version.</li>
+            <li>Attraper un Pokémon directement est toujours privilégié même lorsqu'il est possible de l'obtenir via un échange en jeu. Attraper un Pokémon directement est aussi privilégié par rapport aux œufs, mis à part si le Pokémon n'est pas immédiatement accessible (choix ou sauvegarde supplémentaire requise).</li>
+            <li>Tout bug utilisé n'est employé que lorsque absolument nécessaire (Pokémon ou objet introuvable) et sur une version autre que la principale.</li>
+        </ul>
+
+        <h3>Recommandations</h3>
+        <p>Afin de vous permettre d'avoir une bonne expérience lors de votre défi, voici quelques recommandations sur la manière d'approcher votre Pokédex Vivant :</p>
+        <ul>
+            <li>Vous devriez jouer à la version principale jusqu'au <span class='h_loc'>Mont Argenté</span> avant de passer à une autre version, afin d'avoir accès à toutes les CS et zones.</li>
+            <li>Lorsque vous faites le scénario, utilisez des Pokémon dont l'évolution ne peut être obtenue qu'en montant de niveau ou grâce au bonheur. Ceux-ci sont nombreux, commencez tôt. Allez chercher le <span class='h_item'>Multi Exp</span> sur la <span class='h_loc'>Route 30</span> en donnant l'<span class='h_item'>Écaillerouge</span> à M. Pokémon dès que vous pouvez.</li>
+            <li>Puisque les pierres d'évolution sont <a href='/lyra-website-backup/fr/pokemon_gen2/extra_info#extra_stones'>difficiles à obtenir dans la Gen 2</a>, la marche à suivre pour les Pokémon concernés est de les échanger avec le jeu Gen 1 une fois son chapitre terminé, acheter les pierres nécessaires, les utiliser puis échanger de nouveau les Pokémon évolués.</li>
+            <li>Tenter d'attraper un Pokémon en particulier avant que celui-ci ne soit listé est inutile, vous pourriez le rencontrer naturellement avant. Cependant, nous avons tous nos petits favoris et former une équipe parfaite est l'une des joies de Pokémon. N'hésitez donc pas à adapter le guide à votre guise à l'aide de la <a href='/lyra-website-backup/fr/pokemon_gen2/pokemon_info'>recherche par filtre</a>.</li>
+            <li>Si vous souhaitez approfondir vos connaissances sur le fonctionnement de la capture, les mecaniques introduites dans la Gen 2, ou juste apprendre quelques astuces, passez par les <a href='/lyra-website-backup/fr/pokemon_gen2/extra_info'>infos supplémentaires</a>. En savoir plus sur le jeu peut réduire votre temps final de manière signficative et vous permettre de passer un meilleur moment.</li>
+            <li>Cette liste est lié au <a href='/lyra-website-backup/fr/pokemon_gen2/pokedex_tracker'>Pokédex perso</a> et tout Pokémon marqué comme attrapé sur une page le sera sur l'autre. Si vous avez les deux pages ouvertes, n'oubliez pas d'actualiser lorsque vous faites des changements afin de garder vos données à jour.</li>
+            <li>Compléter un Pokédex Vivant est génial ! Amusez-vous bien !</li>
+        </ul>
+    </article>
+</section>
+
+
+            <section id='guide_full'>
+                <h2>Sauvegarde principale</h2>
+            <article>
+                <h3>Mauville</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_176' />
+            <label for='pkmn_176'>
+                Récupérez <span class='h_pkmn'>Togepi</span> et faites-le évoluer en <span class='h_pkmn'>Togetic</span> (Bonheur)
+            </label>
+                </li>
+            </ul><h3>Route 36</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_185' />
+            <label for='pkmn_185'>
+                Attrapez <span class='h_pkmn'>Simularbre</span> - Rencontre unique
+            </label>
+                </li>
+            </ul><h3>Lac Colère</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_130' />
+            <label for='pkmn_130'>
+                Attrapez <span class='h_pkmn'>Léviator</span> - Rencontre unique
+            </label>
+                </li>
+            </ul><h3>Repaire Rocket</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_74' />
+            <label for='pkmn_74'>
+                Attrapez <span class='h_pkmn'>Racaillou</span> - Sol piègé
+            </label></li><li><input type='checkbox' id='pkmn_100' />
+            <label for='pkmn_100'>
+                Attrapez <span class='h_pkmn'>Voltorbe</span> - Sol piègé
+            </label></li><li><input type='checkbox' id='pkmn_109' />
+            <label for='pkmn_109'>
+                Attrapez <span class='h_pkmn'>Smogo</span> - Sol piègé
+            </label></li><li><input type='checkbox' id='pkmn_110' />
+            <label for='pkmn_110'>
+                Attrapez <span class='h_pkmn'>Smogo</span> et faites-le évoluer en <span class='h_pkmn'>Smogogo</span> (niveau 35)
+            </label></li><li><input type='checkbox' id='pkmn_101' />
+            <label for='pkmn_101'>
+                Attrapez <span class='h_pkmn'>Électrode</span> - Salle du générateur
+            </label>
+                </li>
+            </ul><h3>Carmin sur Mer</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_143' />
+            <label for='pkmn_143'>
+                Attrapez <span class='h_pkmn'>Ronflex</span> - Rencontre unique
+            </label>
+                </li>
+            </ul>
+            </article><h2 class='gold'>Exclusif à la version Or</h2>
+            <article>
+                <h3>Bourg Geon</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='starter_gold' />
+            <label for='starter_gold'>
+                Choisissez votre Pokémon de départ
+            </label>
+                </li>
+            </ul><h3>Caves Jumelles</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_27' />
+            <label for='pkmn_27'>
+                Attrapez <span class='h_pkmn'>Sabelette</span> - 30 % de taux de rencontre (RdC ou 1er sous-sol)
+            </label>
+                </li>
+            </ul><h3>Écorcia</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_10' />
+            <label for='pkmn_10'>
+                Utilisez Coup d'Boule pour trouver <span class='h_pkmn'>Chenipan</span> - 65 % de taux de rencontre (arbre commun)
+            </label>
+                </li>
+            </ul><h3>Doublonville</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_134' />
+            <label for='pkmn_134'>
+                Récupérez <span class='h_pkmn'>Évoli</span> (Maison de Léo, après l'avoir rencontré à <span class='h_loc'>Rosalia</span>) et faites-le évoluer en <span class='h_pkmn'>Aquali</span> (<span class='h_item'>Pierre Eau</span>)
+            </label>
+                </li>
+            </ul><h3>Parc Naturel</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_11' />
+            <label for='pkmn_11'>
+                Attrapez <span class='h_pkmn'>Chrysacier</span> - 30 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Route 41</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_226' />
+            <label for='pkmn_226'>
+                Attrapez <span class='h_pkmn'>Démanta</span> - 10 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Route 45</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_207' />
+            <label for='pkmn_207'>
+                Attrapez <span class='h_pkmn'>Scorplane</span> - 20 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_216' />
+            <label for='pkmn_216'>
+                Attrapez <span class='h_pkmn'>Teddiursa</span> - 10 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Puits Ramoloss</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='kings_rock_1' />
+            <label for='kings_rock_1'>
+                Ramassez  <span class='h_item'>Roche Royale</span> - 2e sous-sol, donné par PNJ
+            </label>
+                </li>
+            </ul><h3>Route 26</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_28' />
+            <label for='pkmn_28'>
+                Attrapez <span class='h_pkmn'>Sablaireau</span> - 30 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Aquaria</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='item_metal_gold' />
+            <label for='item_metal_gold'>
+                Ramassez  <span class='h_item'>Peau Métal</span> - Donné pendant le scénario
+            </label>
+                </li>
+            </ul><h3>Route 7</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_58' />
+            <label for='pkmn_58'>
+                Attrapez <span class='h_pkmn'>Caninos</span> - 25 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_59' />
+            <label for='pkmn_59'>
+                Attrapez <span class='h_pkmn'>Caninos</span> et faites-le évoluer en <span class='h_pkmn'>Arcanin</span> (<span class='h_item'>Pierre Feu</span>)
+            </label>
+                </li>
+            </ul><h3>Route 9</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_56' />
+            <label for='pkmn_56'>
+                Attrapez <span class='h_pkmn'>Férosinge</span> - 30 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_57' />
+            <label for='pkmn_57'>
+                Attrapez <span class='h_pkmn'>Colossinge</span> - 5 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Route 2</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_12' />
+            <label for='pkmn_12'>
+                Attrapez <span class='h_pkmn'>Papilusion</span> - 10 % de taux de rencontre (matin)
+            </label></li><li><input type='checkbox' id='pkmn_167' />
+            <label for='pkmn_167'>
+                Attrapez <span class='h_pkmn'>Mimigal</span> - 30 % de taux de rencontre (nuit)
+            </label></li><li><input type='checkbox' id='pkmn_168' />
+            <label for='pkmn_168'>
+                Attrapez <span class='h_pkmn'>Migalos</span> - 5 % de taux de rencontre (nuit)
+            </label>
+                </li>
+            </ul><h3>Mont Argenté</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_217' />
+            <label for='pkmn_217'>
+                Attrapez <span class='h_pkmn'>Ursaring</span> - 30 % de taux de rencontre (RdC)
+            </label>
+                </li>
+            </ul>
+            </article><h2 class='silver'>Exclusif à la version Argent</h2>
+            <article>
+                <h3>Bourg Geon</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='starter_silver' />
+            <label for='starter_silver'>
+                Choisissez votre Pokémon de départ
+            </label>
+                </li>
+            </ul><h3>Route 32 ou 33</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_23' />
+            <label for='pkmn_23'>
+                Attrapez <span class='h_pkmn'>Abo</span> - 30 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Écorcia</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_13' />
+            <label for='pkmn_13'>
+                Utilisez Coup d'Boule pour trouver <span class='h_pkmn'>Aspicot</span> - 65 % de taux de rencontre (arbre commun)
+            </label>
+                </li>
+            </ul><h3>Doublonville</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_135' />
+            <label for='pkmn_135'>
+                Récupérez <span class='h_pkmn'>Évoli</span> (Maison de Léo, après l'avoir rencontré à <span class='h_loc'>Rosalia</span>) et faites-le évoluer en <span class='h_pkmn'>Voltali</span> (<span class='h_item'>Pierrefoudre</span>)
+            </label>
+                </li>
+            </ul><h3>Parc Naturel</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_14' />
+            <label for='pkmn_14'>
+                Attrapez <span class='h_pkmn'>Coconfort</span> - 30 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Route de Glace</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_225' />
+            <label for='pkmn_225'>
+                Attrapez <span class='h_pkmn'>Cadoizo</span> - 20 % de taux de rencontre (tous les étages)
+            </label>
+                </li>
+            </ul><h3>Route 45</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_231' />
+            <label for='pkmn_231'>
+                Attrapez <span class='h_pkmn'>Phanpy</span> - 10 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_227' />
+            <label for='pkmn_227'>
+                Attrapez <span class='h_pkmn'>Airmure</span> - 5 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Puits Ramoloss</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='kings_rock_2' />
+            <label for='kings_rock_2'>
+                Ramassez  <span class='h_item'>Roche Royale</span> - 2e sous-sol, donné par PNJ
+            </label>
+                </li>
+            </ul><h3>Route 27</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_24' />
+            <label for='pkmn_24'>
+                Attrapez <span class='h_pkmn'>Arbok</span> - 30 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Aquaria</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='item_metal_silver' />
+            <label for='item_metal_silver'>
+                Ramassez  <span class='h_item'>Peau Métal</span> - Donné pendant le scénario
+            </label>
+                </li>
+            </ul><h3>Route 7</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_52' />
+            <label for='pkmn_52'>
+                Attrapez <span class='h_pkmn'>Miaouss</span> - 30 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_37' />
+            <label for='pkmn_37'>
+                Attrapez <span class='h_pkmn'>Goupix</span> - 25 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_38' />
+            <label for='pkmn_38'>
+                Attrapez <span class='h_pkmn'>Goupix</span> et faites-le évoluer en <span class='h_pkmn'>Feunard</span> (<span class='h_item'>Pierre Feu</span>)
+            </label></li><li><input type='checkbox' id='pkmn_53' />
+            <label for='pkmn_53'>
+                Attrapez <span class='h_pkmn'>Persian</span> - 5 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Route 2</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_165' />
+            <label for='pkmn_165'>
+                Attrapez <span class='h_pkmn'>Coxy</span> - 30 % de taux de rencontre (matin)
+            </label></li><li><input type='checkbox' id='pkmn_15' />
+            <label for='pkmn_15'>
+                Attrapez <span class='h_pkmn'>Dardargnan</span> - 10 % de taux de rencontre (matin)
+            </label></li><li><input type='checkbox' id='pkmn_166' />
+            <label for='pkmn_166'>
+                Attrapez <span class='h_pkmn'>Coxyclaque</span> - 5 % de taux de rencontre (matin)
+            </label>
+                </li>
+            </ul><h3>Mont Argenté</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_232' />
+            <label for='pkmn_232'>
+                Attrapez <span class='h_pkmn'>Donphan</span> - 30 % de taux de rencontre (RdC)
+            </label>
+                </li>
+            </ul>
+            </article><h2 class='crystal'>Exclusif à la version Crystal</h2>
+            <article>
+                <h3>Bourg Geon</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='starter_crystal' />
+            <label for='starter_crystal'>
+                Choisissez votre Pokémon de départ
+            </label>
+                </li>
+            </ul><h3>Doublonville</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_136' />
+            <label for='pkmn_136'>
+                Récupérez <span class='h_pkmn'>Évoli</span> (Maison de Léo, après l'avoir rencontré à <span class='h_loc'>Rosalia</span>) et faites-le évoluer en <span class='h_pkmn'>Pyroli</span> (<span class='h_item'>Pierre Feu</span>)
+            </label>
+                </li>
+            </ul><h3>Bois aux Chênes</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_251' />
+            <label for='pkmn_251'>
+                Attrapez <span class='h_pkmn'>Celebi</span> - Evènement GS Ball (donné dans le <span class='h_loc'>Centre Pokémon de Doublonville</span> après être entré dans le Panthéon sur Console Virtuelle, triche/bug nécessaire sur cartouche)
+            </label>
+                </li>
+            </ul>
+            </article><h2 class='red'>Génération 1</h2>
+            <article>
+                <h3>Bourg Palette</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='starter_gen1_1' />
+            <label for='starter_gen1_1'>
+                Choisissez votre Pokémon de départ
+             - <span class='h_play'>1re sauvegarde</span></label></li><li><input type='checkbox' id='starter_gen1_2' />
+            <label for='starter_gen1_2'>
+                Choisissez votre Pokémon de départ
+             - <span class='h_play'>2e sauvegarde</span></label></li><li><input type='checkbox' id='starter_gen1_3' />
+            <label for='starter_gen1_3'>
+                Choisissez votre Pokémon de départ
+             - <span class='h_play'>3e sauvegarde</span></label>
+                </li>
+            </ul><h3>Mont Sélénite</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='item_fossil_1' />
+            <label for='item_fossil_1'>
+                Ramassez soit le <span class='h_item'>Nautile</span> (<span class='h_pkmn'>Amonita</span>), soit le <span class='h_item'>Fossile Dôme</span> (<span class='h_pkmn'>Kabuto</span>)
+             - <span class='h_play'>1re sauvegarde</span></label></li><li><input type='checkbox' id='item_fossil_2' />
+            <label for='item_fossil_2'>
+                Ramassez soit le <span class='h_item'>Nautile</span> (<span class='h_pkmn'>Amonita</span>), soit le <span class='h_item'>Fossile Dôme</span> (<span class='h_pkmn'>Kabuto</span>)
+             - <span class='h_play'>2e sauvegarde</span></label>
+                </li>
+            </ul><h3>Route 8</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_151' />
+            <label for='pkmn_151'>
+                Attrapez <span class='h_pkmn'>Mew</span> - Bug du Croupier
+            </label>
+                </li>
+            </ul><h3>Cramois'Île</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='revive_1' />
+            <label for='revive_1'>
+                Régénérez soit <span class='h_pkmn'>Amonita</span> (<span class='h_item'>Nautile</span>), soit <span class='h_pkmn'>Kabuto</span> (<span class='h_item'>Fossile Dôme</span>)
+             - <span class='h_play'>1re sauvegarde</span></label></li><li><input type='checkbox' id='revive_2' />
+            <label for='revive_2'>
+                Régénérez soit <span class='h_pkmn'>Amonita</span> (<span class='h_item'>Nautile</span>), soit <span class='h_pkmn'>Kabuto</span> (<span class='h_item'>Fossile Dôme</span>)
+             - <span class='h_play'>2e sauvegarde</span></label>
+                </li>
+            </ul><h3>Îles Écume</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_144' />
+            <label for='pkmn_144'>
+                Attrapez <span class='h_pkmn'>Artikodin</span> - Rencontre unique
+            </label>
+                </li>
+            </ul><h3>Centrale</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_145' />
+            <label for='pkmn_145'>
+                Attrapez <span class='h_pkmn'>Électhor</span> - Rencontre unique
+            </label>
+                </li>
+            </ul><h3>Route Victoire</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_146' />
+            <label for='pkmn_146'>
+                Attrapez <span class='h_pkmn'>Sulfura</span> - Rencontre unique
+            </label>
+                </li>
+            </ul><h3>Caverne Azurée</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_150' />
+            <label for='pkmn_150'>
+                Attrapez <span class='h_pkmn'>Mewtwo</span> - Rencontre unique
+            </label>
+                </li>
+            </ul>
+            </article><h2>Après la fin du jeu</h2>
+            <article>
+                <h3>Mont Argenté</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_77' />
+            <label for='pkmn_77'>
+                Attrapez <span class='h_pkmn'>Ponyta</span> - 30 % de taux de rencontre (extérieur)
+            </label></li><li><input type='checkbox' id='pkmn_78' />
+            <label for='pkmn_78'>
+                Attrapez <span class='h_pkmn'>Galopa</span> - 10 % de taux de rencontre (extérieur)
+            </label></li><li><input type='checkbox' id='pkmn_85' />
+            <label for='pkmn_85'>
+                Attrapez <span class='h_pkmn'>Dodrio</span> - 5 % de taux de rencontre (extérieur)
+            </label></li><li><input type='checkbox' id='pkmn_215' />
+            <label for='pkmn_215'>
+                Attrapez <span class='h_pkmn'>Farfuret</span> - 10 % de taux de rencontre (extérieur - nuit)
+            </label></li><li><input type='checkbox' id='pkmn_60' />
+            <label for='pkmn_60'>
+                Pêchez <span class='h_pkmn'>Ptitard</span> - 80 % de taux de rencontre (<span class='h_item'>Méga Canne</span> - extérieur)
+            </label></li><li><input type='checkbox' id='pkmn_61' />
+            <label for='pkmn_61'>
+                Attrapez <span class='h_pkmn'>Têtarte</span> - 90 % de taux de rencontre (Surf - extérieur)
+            </label></li><li><input type='checkbox' id='pkmn_62' />
+            <label for='pkmn_62'>
+                Attrapez <span class='h_pkmn'>Têtarte</span> et faites-le évoluer en <span class='h_pkmn'>Tartard</span> (<span class='h_item'>Pierre Eau</span>)
+            </label></li><li><input type='checkbox' id='pkmn_186' />
+            <label for='pkmn_186'>
+                Attrapez <span class='h_pkmn'>Têtarte</span>, donnez-lui <span class='h_item'>Roche Royale</span> et faites-le évoluer en <span class='h_pkmn'>Tarpaud</span> (Échange)
+            </label></li><li><input type='checkbox' id='pkmn_246' />
+            <label for='pkmn_246'>
+                Attrapez <span class='h_pkmn'>Embrylex</span> - 5 % de taux de rencontre (tous les étages)
+            </label></li><li><input type='checkbox' id='pkmn_247' />
+            <label for='pkmn_247'>
+                Attrapez un <span class='h_pkmn'>Embrylex</span> niveau 20 et faites-le évoluer en <span class='h_pkmn'>Ymphect</span> (niveau 30)
+            </label></li><li><input type='checkbox' id='pkmn_248' />
+            <label for='pkmn_248'>
+                Attrapez un <span class='h_pkmn'>Embrylex</span> niveau 20, faites-le évoluer en <span class='h_pkmn'>Ymphect</span> (niveau 30) puis en <span class='h_pkmn'>Tyranocif</span> (niveau 55)
+            </label></li><li><input type='checkbox' id='pkmn_95' />
+            <label for='pkmn_95'>
+                Attrapez <span class='h_pkmn'>Onix</span> - 30 % de taux de rencontre (RdC ou sommet)
+            </label></li><li><input type='checkbox' id='pkmn_208' />
+            <label for='pkmn_208'>
+                Attrapez <span class='h_pkmn'>Onix</span>, donnez-lui <span class='h_item'>Peau Métal</span> et faites-le évoluer en <span class='h_pkmn'>Steelix</span> (Échange)
+            </label></li><li><input type='checkbox' id='pkmn_119' />
+            <label for='pkmn_119'>
+                Attrapez <span class='h_pkmn'>Poissoroy</span> - 90 % de taux de rencontre (Surf - 1er étage)
+            </label></li><li><input type='checkbox' id='pkmn_55' />
+            <label for='pkmn_55'>
+                Attrapez <span class='h_pkmn'>Akwakwak</span> - 30 % de taux de rencontre (1er étage ou salles d'objet)
+            </label></li><li><input type='checkbox' id='pkmn_200' />
+            <label for='pkmn_200'>
+                Attrapez <span class='h_pkmn'>Feuforêve</span> - 30 % de taux de rencontre (salles d'objet - nuit)
+            </label></li><li><input type='checkbox' id='pkmn_42' />
+            <label for='pkmn_42'>
+                Attrapez <span class='h_pkmn'>Nosferalto</span> - 50 % de taux de rencontre (sommet)
+            </label></li><li><input type='checkbox' id='pkmn_169' />
+            <label for='pkmn_169'>
+                Attrapez <span class='h_pkmn'>Nosferalto</span> et faites-le évoluer en <span class='h_pkmn'>Nostenfer</span> (Bonheur)
+            </label>
+                </li>
+            </ul><h3>Tour Cendrée</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_98' />
+            <label for='pkmn_98'>
+                Utilisez Éclate-Roc pour trouver <span class='h_pkmn'>Krabby</span> - 90 % de taux de rencontre (RdC)
+            </label></li><li><input type='checkbox' id='pkmn_213' />
+            <label for='pkmn_213'>
+                Utilisez Éclate-Roc pour trouver <span class='h_pkmn'>Caratroc</span> - 10 % de taux de rencontre (RdC)
+            </label></li><li><input type='checkbox' id='pkmn_126' />
+            <label for='pkmn_126'>
+                Attrapez <span class='h_pkmn'>Magmar</span> - 10 % de taux de rencontre (1er sous-sol)
+            </label>
+                </li>
+            </ul><h3>Tour Ferraille</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_19' />
+            <label for='pkmn_19'>
+                Attrapez <span class='h_pkmn'>Rattata</span> - 100 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_92' />
+            <label for='pkmn_92'>
+                Attrapez <span class='h_pkmn'>Fantominus</span> - 80 % de taux de rencontre (nuit)
+            </label></li><li><input type='checkbox' id='pkmn_250' />
+            <label for='pkmn_250'>
+                Attrapez <span class='h_pkmn'>Ho-Oh</span> - Rencontre unique
+            </label>
+                </li>
+            </ul><h3>Route 42</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_179' />
+            <label for='pkmn_179'>
+                Attrapez <span class='h_pkmn'>Wattouat</span> - <span class='gold'>30 %</span> / <span class='silver'>50 %</span> de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Mont Creuset</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_118' />
+            <label for='pkmn_118'>
+                Attrapez <span class='h_pkmn'>Poissirène</span> - 90 % de taux de rencontre (Surf - tous les étages)
+            </label></li><li><input type='checkbox' id='pkmn_66' />
+            <label for='pkmn_66'>
+                Attrapez <span class='h_pkmn'>Machoc</span> - 35 % de taux de rencontre (RdC)
+            </label></li><li><input type='checkbox' id='item_dragon_scale' />
+            <label for='item_dragon_scale'>
+                Ramassez  <span class='h_item'>Écailledraco</span> - 1er étage, nord-ouest
+            </label></li><li><input type='checkbox' id='pkmn_75' />
+            <label for='pkmn_75'>
+                Attrapez <span class='h_pkmn'>Gravalanch</span> - 30 % de taux de rencontre (1er étage)
+            </label></li><li><input type='checkbox' id='pkmn_76' />
+            <label for='pkmn_76'>
+                Attrapez <span class='h_pkmn'>Gravalanch</span> et faites-le évoluer en <span class='h_pkmn'>Grolem</span> (Échange)
+            </label></li><li><input type='checkbox' id='pkmn_67' />
+            <label for='pkmn_67'>
+                Attrapez <span class='h_pkmn'>Machopeur</span> - 30 % de taux de rencontre (1er étage)
+            </label></li><li><input type='checkbox' id='pkmn_68' />
+            <label for='pkmn_68'>
+                Attrapez <span class='h_pkmn'>Machopeur</span> et faites-le évoluer en <span class='h_pkmn'>Mackogneur</span> (Échange)
+            </label></li><li><input type='checkbox' id='pkmn_183' />
+            <label for='pkmn_183'>
+                Attrapez <span class='h_pkmn'>Marill</span> - 1 % de taux de rencontre (entrée - essaim possible)
+            </label></li><li><input type='checkbox' id='pkmn_184' />
+            <label for='pkmn_184'>
+                Attrapez <span class='h_pkmn'>Marill</span> et faites-le évoluer en <span class='h_pkmn'>Azumarill</span> (niveau 18)
+            </label></li><li><input type='checkbox' id='pkmn_237' />
+            <label for='pkmn_237'>
+                Récupérez <span class='h_pkmn'>Debugant</span> (1er sous-sol, donné par PNJ) et faites-le évoluer en <span class='h_pkmn'>Kapoera</span> (niveau 20 - Attaque = Defense)
+            </label>
+                </li>
+            </ul><h3>Route 1</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_16' />
+            <label for='pkmn_16'>
+                Attrapez <span class='h_pkmn'>Roucool</span> - 45 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_161' />
+            <label for='pkmn_161'>
+                Attrapez <span class='h_pkmn'>Fouinette</span> - 20 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_162' />
+            <label for='pkmn_162'>
+                Attrapez <span class='h_pkmn'>Fouinar</span> - 5 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Route 2</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_25' />
+            <label for='pkmn_25'>
+                Attrapez <span class='h_pkmn'>Pikachu</span> - 5 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_26' />
+            <label for='pkmn_26'>
+                Attrapez <span class='h_pkmn'>Pikachu</span> et faites-le évoluer en <span class='h_pkmn'>Raichu</span> (<span class='h_item'>Pierrefoudre</span>)
+            </label>
+                </li>
+            </ul><h3>Cave Taupiqueur</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_50' />
+            <label for='pkmn_50'>
+                Attrapez <span class='h_pkmn'>Taupiqueur</span> - 90 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_51' />
+            <label for='pkmn_51'>
+                Attrapez <span class='h_pkmn'>Triopikeur</span> - 10 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Mont Sélénite</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_46' />
+            <label for='pkmn_46'>
+                Attrapez <span class='h_pkmn'>Paras</span> - 10 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_47' />
+            <label for='pkmn_47'>
+                Attrapez <span class='h_pkmn'>Paras</span> et faites-le évoluer en <span class='h_pkmn'>Parasect</span> (niveau 24)
+            </label></li><li><input type='checkbox' id='pkmn_35' />
+            <label for='pkmn_35'>
+                Attrapez <span class='h_pkmn'>Mélofée</span> - 5 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_36' />
+            <label for='pkmn_36'>
+                Attrapez <span class='h_pkmn'>Mélofée</span> et faites-le évoluer en <span class='h_pkmn'>Mélodelfe</span> (<span class='h_item'>Pierre Lune</span>)
+            </label>
+                </li>
+            </ul><h3>Route 4</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_39' />
+            <label for='pkmn_39'>
+                Attrapez <span class='h_pkmn'>Rondoudou</span> - 10 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_40' />
+            <label for='pkmn_40'>
+                Attrapez <span class='h_pkmn'>Rondoudou</span> et faites-le évoluer en <span class='h_pkmn'>Grodoudou</span> (<span class='h_item'>Pierre Lune</span>)
+            </label>
+                </li>
+            </ul><h3>Route 24</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_69' />
+            <label for='pkmn_69'>
+                Attrapez <span class='h_pkmn'>Chétiflor</span> - 60 % de taux de rencontre (matin)
+            </label>
+                </li>
+            </ul><h3>Route 25</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_48' />
+            <label for='pkmn_48'>
+                Attrapez <span class='h_pkmn'>Mimitoss</span> - 30 % de taux de rencontre (nuit)
+            </label></li><li><input type='checkbox' id='pkmn_49' />
+            <label for='pkmn_49'>
+                Attrapez <span class='h_pkmn'>Aéromite</span> - 20 % de taux de rencontre (nuit)
+            </label>
+                </li>
+            </ul><h3>Route 5</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_43' />
+            <label for='pkmn_43'>
+                Attrapez <span class='h_pkmn'>Mystherbe</span> - <span class='gold'>60 %</span> / <span class='silver'>30 %</span> de taux de rencontre (nuit)
+            </label></li><li><input type='checkbox' id='pkmn_44' />
+            <label for='pkmn_44'>
+                Attrapez <span class='h_pkmn'>Ortide</span> - 10 % de taux de rencontre (nuit)
+            </label></li><li><input type='checkbox' id='pkmn_45' />
+            <label for='pkmn_45'>
+                Attrapez <span class='h_pkmn'>Ortide</span> et faites-le évoluer en <span class='h_pkmn'>Rafflesia</span> (<span class='h_item'>Pierreplante</span>)
+            </label></li><li><input type='checkbox' id='pkmn_182' />
+            <label for='pkmn_182'>
+                Attrapez <span class='h_pkmn'>Ortide</span> et faites-le évoluer en <span class='h_pkmn'>Joliflor</span> (<span class='h_item'>Pierresoleil</span>)
+            </label>
+                </li>
+            </ul><h3>Safrania</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='item_upgrade' />
+            <label for='item_upgrade'>
+                Ramassez un <span class='h_item'>Evolutor</span> - <span class='h_loc'>Sylphe SARL</span>
+            </label>
+                </li>
+            </ul><h3>Route 8</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_63' />
+            <label for='pkmn_63'>
+                Attrapez <span class='h_pkmn'>Abra</span> - 20 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_64' />
+            <label for='pkmn_64'>
+                Attrapez <span class='h_pkmn'>Kadabra</span> - 5 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_65' />
+            <label for='pkmn_65'>
+                Attrapez <span class='h_pkmn'>Kadabra</span> et faites-le évoluer en <span class='h_pkmn'>Alakazam</span> (Échange)
+            </label></li><li><input type='checkbox' id='pkmn_93' />
+            <label for='pkmn_93'>
+                Attrapez <span class='h_pkmn'>Spectrum</span> - 30 % de taux de rencontre (nuit)
+            </label></li><li><input type='checkbox' id='pkmn_94' />
+            <label for='pkmn_94'>
+                Attrapez <span class='h_pkmn'>Spectrum</span> et faites-le évoluer en <span class='h_pkmn'>Ectoplasma</span> (Échange)
+            </label>
+                </li>
+            </ul><h3>Route 10</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_125' />
+            <label for='pkmn_125'>
+                Attrapez <span class='h_pkmn'>Élektek</span> - 10 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Grotte</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_104' />
+            <label for='pkmn_104'>
+                Attrapez <span class='h_pkmn'>Osselait</span> - 30 % de taux de rencontre (1er sous-sol)
+            </label></li><li><input type='checkbox' id='pkmn_105' />
+            <label for='pkmn_105'>
+                Attrapez <span class='h_pkmn'>Ossatueur</span> - 5 % de taux de rencontre (1er sous-sol)
+            </label></li><li><input type='checkbox' id='pkmn_115' />
+            <label for='pkmn_115'>
+                Attrapez <span class='h_pkmn'>Kangourex</span> - 5 % de taux de rencontre (1er sous-sol)
+            </label>
+                </li>
+            </ul><h3>Route 11</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_97' />
+            <label for='pkmn_97'>
+                Attrapez <span class='h_pkmn'>Hypnomade</span> - 10 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Route 7</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_198' />
+            <label for='pkmn_198'>
+                Attrapez <span class='h_pkmn'>Cornèbre</span> - <span class='gold'>35 %</span> / <span class='silver'>30 %</span> de taux de rencontre (nuit)
+            </label></li><li><input type='checkbox' id='pkmn_228' />
+            <label for='pkmn_228'>
+                Attrapez <span class='h_pkmn'>Malosse</span> - 5 % de taux de rencontre (nuit)
+            </label></li><li><input type='checkbox' id='pkmn_229' />
+            <label for='pkmn_229'>
+                Attrapez <span class='h_pkmn'>Malosse</span> et faites-le évoluer en <span class='h_pkmn'>Démolosse</span> (niveau 24)
+            </label>
+                </li>
+            </ul><h3>Route 17</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_22' />
+            <label for='pkmn_22'>
+                Attrapez <span class='h_pkmn'>Rapasdepic</span> - 40 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_218' />
+            <label for='pkmn_218'>
+                Attrapez <span class='h_pkmn'>Limagma</span> - 35 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_219' />
+            <label for='pkmn_219'>
+                Attrapez un <span class='h_pkmn'>Limagma</span> niveau 27 et faites-le évoluer en <span class='h_pkmn'>Volcaropod</span> (niveau 38)
+            </label></li><li><input type='checkbox' id='pkmn_88' />
+            <label for='pkmn_88'>
+                Attrapez <span class='h_pkmn'>Tadmorv</span> - 80 % de taux de rencontre (nuit)
+            </label></li><li><input type='checkbox' id='pkmn_89' />
+            <label for='pkmn_89'>
+                Attrapez <span class='h_pkmn'>Grotadmorv</span> - 15 % de taux de rencontre (nuit)
+            </label>
+                </li>
+            </ul><h3>Route 14</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_30' />
+            <label for='pkmn_30'>
+                Attrapez <span class='h_pkmn'>Nidorina</span> - 30 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_31' />
+            <label for='pkmn_31'>
+                Attrapez <span class='h_pkmn'>Nidorina</span> et faites-le évoluer en <span class='h_pkmn'>Nidoqueen</span> (<span class='h_item'>Pierre Lune</span>)
+            </label></li><li><input type='checkbox' id='pkmn_33' />
+            <label for='pkmn_33'>
+                Attrapez <span class='h_pkmn'>Nidorino</span> - 30 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_34' />
+            <label for='pkmn_34'>
+                Attrapez <span class='h_pkmn'>Nidorino</span> et faites-le évoluer en <span class='h_pkmn'>Nidoking</span> (<span class='h_item'>Pierre Lune</span>)
+            </label></li><li><input type='checkbox' id='pkmn_17' />
+            <label for='pkmn_17'>
+                Attrapez <span class='h_pkmn'>Roucoups</span> - 20 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_18' />
+            <label for='pkmn_18'>
+                Attrapez <span class='h_pkmn'>Roucoups</span> et faites-le évoluer en <span class='h_pkmn'>Roucarnage</span> (niveau 36)
+            </label></li><li><input type='checkbox' id='pkmn_188' />
+            <label for='pkmn_188'>
+                Attrapez <span class='h_pkmn'>Floravol</span> - 9 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_189' />
+            <label for='pkmn_189'>
+                Attrapez <span class='h_pkmn'>Floravol</span> et faites-le évoluer en <span class='h_pkmn'>Cotovol</span> (niveau 27)
+            </label></li><li><input type='checkbox' id='pkmn_164' />
+            <label for='pkmn_164'>
+                Attrapez <span class='h_pkmn'>Noarfang</span> - 20 % de taux de rencontre (nuit)
+            </label></li><li><input type='checkbox' id='pkmn_113' />
+            <label for='pkmn_113'>
+                Attrapez <span class='h_pkmn'>Leveinard</span> - 1 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_242' />
+            <label for='pkmn_242'>
+                Attrapez <span class='h_pkmn'>Leveinard</span> et faites-le évoluer en <span class='h_pkmn'>Leuphorie</span> (Bonheur)
+            </label></li><li><input type='checkbox' id='pkmn_142' />
+            <label for='pkmn_142'>
+                Attrapez <span class='h_pkmn'>Leveinard</span> puis échangez-le pour <span class='h_pkmn'>Ptéra</span> (<span class='h_loc'>Route 14</span>)
+            </label>
+                </li>
+            </ul><h3>Route 21</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_114' />
+            <label for='pkmn_114'>
+                Attrapez <span class='h_pkmn'>Saquedeneu</span> - 90 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_122' />
+            <label for='pkmn_122'>
+                Attrapez <span class='h_pkmn'>M. Mime</span> - 10 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_90' />
+            <label for='pkmn_90'>
+                Pêchez <span class='h_pkmn'>Kokiyas</span> - 30 % de taux de rencontre (<span class='h_item'>Méga Canne</span>)
+            </label></li><li><input type='checkbox' id='pkmn_91' />
+            <label for='pkmn_91'>
+                Pêchez <span class='h_pkmn'>Kokiyas</span> et faites-le évoluer en <span class='h_pkmn'>Crustabri</span> (<span class='h_item'>Pierre Eau</span>)
+            </label></li><li><input type='checkbox' id='pkmn_170' />
+            <label for='pkmn_170'>
+                Pêchez <span class='h_pkmn'>Loupio</span> - 40 % de taux de rencontre (<span class='h_item'>Méga Canne</span>)
+            </label></li><li><input type='checkbox' id='pkmn_171' />
+            <label for='pkmn_171'>
+                Pêchez <span class='h_pkmn'>Lanturn</span> - 10 % de taux de rencontre (<span class='h_item'>Méga Canne</span>)
+            </label>
+                </li>
+            </ul><h3>Route Victoire</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_111' />
+            <label for='pkmn_111'>
+                Attrapez <span class='h_pkmn'>Rhinocorne</span> - 5 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Route 26</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_20' />
+            <label for='pkmn_20'>
+                Attrapez <span class='h_pkmn'>Rattatac</span> - <span class='gold'>40 %</span> / <span class='silver'>70 %</span> de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Route 27</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_84' />
+            <label for='pkmn_84'>
+                Attrapez <span class='h_pkmn'>Doduo</span> - 50 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_195' />
+            <label for='pkmn_195'>
+                Attrapez <span class='h_pkmn'>Maraiste</span> - <span class='gold'>50 %</span> / <span class='silver'>55 %</span> de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Route 37</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_234' />
+            <label for='pkmn_234'>
+                Attrapez <span class='h_pkmn'>Cerfrousse</span> - 30 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Parc Naturel</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_191' />
+            <label for='pkmn_191'>
+                Attrapez <span class='h_pkmn'>Tournegrin</span> - 25 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_192' />
+            <label for='pkmn_192'>
+                Attrapez <span class='h_pkmn'>Tournegrin</span> et faites-le évoluer en <span class='h_pkmn'>Héliatronc</span> (<span class='h_item'>Pierresoleil</span>)
+            </label></li><li><input type='checkbox' id='pkmn_163' />
+            <label for='pkmn_163'>
+                Attrapez <span class='h_pkmn'>Hoothoot</span> - 100 % de taux de rencontre (nuit)
+            </label>
+                </li>
+            </ul><h3>Route 35</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_54' />
+            <label for='pkmn_54'>
+                Attrapez <span class='h_pkmn'>Psykokwak</span> - 90 % de taux de rencontre (Surf)
+            </label></li><li><input type='checkbox' id='pkmn_29' />
+            <label for='pkmn_29'>
+                Attrapez <span class='h_pkmn'>Nidoran♀</span> - 30 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_32' />
+            <label for='pkmn_32'>
+                Attrapez <span class='h_pkmn'>Nidoran♂</span> - 30 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_193' />
+            <label for='pkmn_193'>
+                Attrapez <span class='h_pkmn'>Yanma</span> - 1 % de taux de rencontre (essaim possible)
+            </label>
+                </li>
+            </ul><h3>Route 34</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_96' />
+            <label for='pkmn_96'>
+                Attrapez <span class='h_pkmn'>Soporifik</span> - 50 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_132' />
+            <label for='pkmn_132'>
+                Attrapez <span class='h_pkmn'>Métamorph</span> - 5 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Écorcia</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_102' />
+            <label for='pkmn_102'>
+                Utilisez Coup d'Boule pour trouver <span class='h_pkmn'>Noeunoeuf</span> - 15 % de taux de rencontre (tous les arbres)
+            </label></li><li><input type='checkbox' id='pkmn_103' />
+            <label for='pkmn_103'>
+                Utilisez Coup d'Boule pour trouver <span class='h_pkmn'>Noeunoeuf</span> et faites-le évoluer en <span class='h_pkmn'>Noadkoko</span> (<span class='h_item'>Pierreplante</span>)
+            </label></li><li><input type='checkbox' id='pkmn_204' />
+            <label for='pkmn_204'>
+                Utilisez Coup d'Boule pour trouver <span class='h_pkmn'>Pomdepik</span> - 30 % de taux de rencontre (arbre rare)
+            </label></li><li><input type='checkbox' id='pkmn_205' />
+            <label for='pkmn_205'>
+                Utilisez Coup d'Boule pour trouver <span class='h_pkmn'>Pomdepik</span> et faites-le évoluer en <span class='h_pkmn'>Foretress</span> (niveau 31)
+            </label>
+                </li>
+            </ul><h3>Puits Ramoloss</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_41' />
+            <label for='pkmn_41'>
+                Attrapez <span class='h_pkmn'>Nosferapti</span> - 85 % de taux de rencontre (1er sous-sol)
+            </label></li><li><input type='checkbox' id='pkmn_79' />
+            <label for='pkmn_79'>
+                Attrapez <span class='h_pkmn'>Ramoloss</span> - 90 % de taux de rencontre (2e sous-sol)
+            </label></li><li><input type='checkbox' id='pkmn_199' />
+            <label for='pkmn_199'>
+                Attrapez <span class='h_pkmn'>Ramoloss</span>, donnez-lui <span class='h_item'>Roche Royale</span> et faites-le évoluer en <span class='h_pkmn'>Roigada</span> (Échange)
+            </label></li><li><input type='checkbox' id='pkmn_80' />
+            <label for='pkmn_80'>
+                Attrapez <span class='h_pkmn'>Flagadoss</span> - 10 % de taux de rencontre (Surf - 2e sous-sol)
+            </label>
+                </li>
+            </ul><h3>Route 33</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_187' />
+            <label for='pkmn_187'>
+                Attrapez <span class='h_pkmn'>Granivol</span> - 35 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Caves Jumelles</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_194' />
+            <label for='pkmn_194'>
+                Attrapez <span class='h_pkmn'>Axoloto</span> - 60 % de taux de rencontre (Surf - RdC ou 1er sous-sol)
+            </label></li><li><input type='checkbox' id='pkmn_131' />
+            <label for='pkmn_131'>
+                Attrapez <span class='h_pkmn'>Lokhlass</span> - Rencontre unique (2e sous-sol, tous les vendredi)
+            </label>
+                </li>
+            </ul><h3>Ruines d'Alpha (en passant par les Caves Jumelles)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_201' />
+            <label for='pkmn_201'>
+                Attrapez <span class='h_pkmn'>Zarbi</span> - 100 % de taux de rencontre (intérieur)
+            </label></li><li><input type='checkbox' id='pkmn_177' />
+            <label for='pkmn_177'>
+                Attrapez <span class='h_pkmn'>Natu</span> - 90 % de taux de rencontre (extérieur)
+            </label></li><li><input type='checkbox' id='pkmn_178' />
+            <label for='pkmn_178'>
+                Attrapez un <span class='h_pkmn'>Natu</span> niveau 24 et faites-le évoluer en <span class='h_pkmn'>Xatu</span> (niveau 25)
+            </label></li><li><input type='checkbox' id='pkmn_235' />
+            <label for='pkmn_235'>
+                Attrapez <span class='h_pkmn'>Queulorior</span> - 10 % de taux de rencontre (extérieur)
+            </label>
+                </li>
+            </ul><h3>Route 32</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_211' />
+            <label for='pkmn_211'>
+                Pêchez <span class='h_pkmn'>Qwilfish</span> - 10 % de taux de rencontre (<span class='h_item'>Méga Canne</span> - essaim possible)
+            </label>
+                </li>
+            </ul><h3>Route 43</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_180' />
+            <label for='pkmn_180'>
+                Attrapez <span class='h_pkmn'>Lainergie</span> - 40 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_181' />
+            <label for='pkmn_181'>
+                Attrapez <span class='h_pkmn'>Lainergie</span> et faites-le évoluer en <span class='h_pkmn'>Pharamp</span> (niveau 30)
+            </label></li><li><input type='checkbox' id='pkmn_203' />
+            <label for='pkmn_203'>
+                Attrapez <span class='h_pkmn'>Girafarig</span> - 30 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Route 44</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_70' />
+            <label for='pkmn_70'>
+                Attrapez <span class='h_pkmn'>Boustiflor</span> - 35 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_71' />
+            <label for='pkmn_71'>
+                Attrapez <span class='h_pkmn'>Boustiflor</span> et faites-le évoluer en <span class='h_pkmn'>Empiflor</span> (<span class='h_item'>Pierreplante</span>)
+            </label></li><li><input type='checkbox' id='pkmn_108' />
+            <label for='pkmn_108'>
+                Attrapez <span class='h_pkmn'>Excelangue</span> - 15 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_223' />
+            <label for='pkmn_223'>
+                Pêchez <span class='h_pkmn'>Rémoraid</span> - 10 % de taux de rencontre (<span class='h_item'>Méga Canne</span> - essaim possible)
+            </label></li><li><input type='checkbox' id='pkmn_224' />
+            <label for='pkmn_224'>
+                Pêchez <span class='h_pkmn'>Rémoraid</span> et faites-le évoluer en <span class='h_pkmn'>Octillery</span> (niveau 25)
+            </label></li><li><input type='checkbox' id='pkmn_190' />
+            <label for='pkmn_190'>
+                Utilisez Coup d'Boule pour trouver <span class='h_pkmn'>Capumain</span> - 20 % de taux de rencontre (tous les arbres)
+            </label></li><li><input type='checkbox' id='pkmn_21' />
+            <label for='pkmn_21'>
+                Utilisez Coup d'Boule pour trouver <span class='h_pkmn'>Piafabec</span> - 80 % de taux de rencontre (arbre commun)
+            </label></li><li><input type='checkbox' id='pkmn_214' />
+            <label for='pkmn_214'>
+                Utilisez Coup d'Boule pour trouver <span class='h_pkmn'>Scarhino</span> - 30 % de taux de rencontre (arbre rare)
+            </label>
+                </li>
+            </ul><h3>Route de Glace</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_220' />
+            <label for='pkmn_220'>
+                Attrapez <span class='h_pkmn'>Marcacrin</span> - 40 % de taux de rencontre (tous les étages)
+            </label></li><li><input type='checkbox' id='pkmn_221' />
+            <label for='pkmn_221'>
+                Attrapez un <span class='h_pkmn'>Marcacrin</span> niveau 25 (3e sous-sol) et faites-le évoluer en <span class='h_pkmn'>Cochignon</span> (niveau 33)
+            </label></li><li><input type='checkbox' id='pkmn_124' />
+            <label for='pkmn_124'>
+                Attrapez <span class='h_pkmn'>Lippoutou</span> - 10 % de taux de rencontre (tous les étages)
+            </label>
+                </li>
+            </ul><h3>Antre du Dragon</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_147' />
+            <label for='pkmn_147'>
+                Pêchez <span class='h_pkmn'>Minidraco</span> - 30 % de taux de rencontre (<span class='h_item'>Méga Canne</span>)
+            </label></li><li><input type='checkbox' id='pkmn_148' />
+            <label for='pkmn_148'>
+                Pêchez <span class='h_pkmn'>Draco</span> - 10 % de taux de rencontre (<span class='h_item'>Méga Canne</span>)
+            </label></li><li><input type='checkbox' id='pkmn_149' />
+            <label for='pkmn_149'>
+                Pêchez <span class='h_pkmn'>Draco</span> et faites-le évoluer en <span class='h_pkmn'>Dracolosse</span> (niveau 55)
+            </label></li><li><input type='checkbox' id='pkmn_112' />
+            <label for='pkmn_112'>
+                Pêchez <span class='h_pkmn'>Draco</span> puis échangez-le pour <span class='h_pkmn'>Rhinoféros</span> (<span class='h_loc'>Ébènelle</span>, ♀ required)
+            </label>
+                </li>
+            </ul><h3>Antre Noire (Route 45)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_202' />
+            <label for='pkmn_202'>
+                Attrapez <span class='h_pkmn'>Qulbutoké</span> - 15 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Antre Noire (Route 31)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_206' />
+            <label for='pkmn_206'>
+                Attrapez <span class='h_pkmn'>Insolourdo</span> - 1 % de taux de rencontre (essaim possible)
+            </label>
+                </li>
+            </ul><h3>Route 38</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_209' />
+            <label for='pkmn_209'>
+                Attrapez <span class='h_pkmn'>Snubbull</span> - 1 % de taux de rencontre (essaim possible)
+            </label></li><li><input type='checkbox' id='pkmn_210' />
+            <label for='pkmn_210'>
+                Attrapez <span class='h_pkmn'>Snubbull</span> et faites-le évoluer en <span class='h_pkmn'>Granbull</span> (niveau 23)
+            </label>
+                </li>
+            </ul><h3>Route 39</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_81' />
+            <label for='pkmn_81'>
+                Attrapez <span class='h_pkmn'>Magnéti</span> - 20 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_82' />
+            <label for='pkmn_82'>
+                Attrapez <span class='h_pkmn'>Magnéti</span> et faites-le évoluer en <span class='h_pkmn'>Magnéton</span> (niveau 30)
+            </label></li><li><input type='checkbox' id='pkmn_83' />
+            <label for='pkmn_83'>
+                Attrapez <span class='h_pkmn'>Canarticho</span> - 10 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_128' />
+            <label for='pkmn_128'>
+                Attrapez <span class='h_pkmn'>Tauros</span> - 5 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_241' />
+            <label for='pkmn_241'>
+                Attrapez <span class='h_pkmn'>Écrémeuh</span> - 5 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Oliville</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_72' />
+            <label for='pkmn_72'>
+                Attrapez <span class='h_pkmn'>Tentacool</span> - 90 % de taux de rencontre (Surf)
+            </label></li><li><input type='checkbox' id='pkmn_129' />
+            <label for='pkmn_129'>
+                Pêchez <span class='h_pkmn'>Magicarpe</span> - 85 % de taux de rencontre (<span class='h_item'>Canne</span>)
+            </label></li><li><input type='checkbox' id='pkmn_222' />
+            <label for='pkmn_222'>
+                Pêchez <span class='h_pkmn'>Corayon</span> - 30 % de taux de rencontre (<span class='h_item'>Méga Canne</span>)
+            </label></li><li><input type='checkbox' id='pkmn_120' />
+            <label for='pkmn_120'>
+                Pêchez <span class='h_pkmn'>Stari</span> - 30 % de taux de rencontre (<span class='h_item'>Méga Canne</span> - nuit)
+            </label></li><li><input type='checkbox' id='pkmn_121' />
+            <label for='pkmn_121'>
+                Pêchez <span class='h_pkmn'>Stari</span> et faites-le évoluer en <span class='h_pkmn'>Staross</span> (<span class='h_item'>Pierre Eau</span>)
+            </label>
+                </li>
+            </ul><h3>Tourb'Îles</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_86' />
+            <label for='pkmn_86'>
+                Attrapez <span class='h_pkmn'>Otaria</span> - 15 % de taux de rencontre (tous les étages)
+            </label></li><li><input type='checkbox' id='pkmn_99' />
+            <label for='pkmn_99'>
+                Pêchez <span class='h_pkmn'>Krabboss</span> - 20 % de taux de rencontre (<span class='h_item'>Méga Canne</span> - tous les étages)
+            </label></li><li><input type='checkbox' id='pkmn_117' />
+            <label for='pkmn_117'>
+                Pêchez <span class='h_pkmn'>Hypocéan</span> - 10 % de taux de rencontre (<span class='h_item'>Méga Canne</span> - tous les étages)
+            </label></li><li><input type='checkbox' id='pkmn_230' />
+            <label for='pkmn_230'>
+                Pêchez <span class='h_pkmn'>Hypocéan</span>, donnez-lui <span class='h_item'>Écailledraco</span> et faites-le évoluer en <span class='h_pkmn'>Hyporoi</span> (Échange)
+            </label></li><li><input type='checkbox' id='pkmn_116' />
+            <label for='pkmn_116'>
+                Attrapez <span class='h_pkmn'>Hypotrempe</span> - 90 % de taux de rencontre (Surf - 2e sous-sol)
+            </label></li><li><input type='checkbox' id='pkmn_87' />
+            <label for='pkmn_87'>
+                Attrapez un <span class='h_pkmn'>Otaria</span> niveau 26 (3e sous-sol) et faites-le évoluer en <span class='h_pkmn'>Lamantine</span> (niveau 34)
+            </label></li><li><input type='checkbox' id='pkmn_73' />
+            <label for='pkmn_73'>
+                Attrapez <span class='h_pkmn'>Tentacruel</span> - 30 % de taux de rencontre (Surf - 3e sous-sol)
+            </label></li><li><input type='checkbox' id='pkmn_249' />
+            <label for='pkmn_249'>
+                Attrapez <span class='h_pkmn'>Lugia</span> - Rencontre unique (3e sous-sol)
+            </label>
+                </li>
+            </ul><h3>Parc Naturel (Concours de Capture d'insecte)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_123' />
+            <label for='pkmn_123'>
+                Attrapez <span class='h_pkmn'>Insécateur</span> - 5 % de taux de rencontre
+            </label></li><li><input type='checkbox' id='pkmn_212' />
+            <label for='pkmn_212'>
+                Attrapez <span class='h_pkmn'>Insécateur</span>, donnez-lui <span class='h_item'>Peau Métal</span> et faites-le évoluer en <span class='h_pkmn'>Cizayox</span> (Échange)
+            </label></li><li><input type='checkbox' id='pkmn_127' />
+            <label for='pkmn_127'>
+                Attrapez <span class='h_pkmn'>Scarabrute</span> - 5 % de taux de rencontre
+            </label>
+                </li>
+            </ul><h3>Céladopole</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_137' />
+            <label for='pkmn_137'>
+                Achetez <span class='h_pkmn'>Porygon</span> au <span class='h_loc'>Casino</span> (<span class='h_item'>9999 jetons</span>)
+            </label>
+                </li>
+            </ul><h3>Pokémon errant</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_243' />
+            <label for='pkmn_243'>
+                Attrapez <span class='h_pkmn'>Raikou</span> - Rôde dans Johto
+            </label></li><li><input type='checkbox' id='pkmn_244' />
+            <label for='pkmn_244'>
+                Attrapez <span class='h_pkmn'>Entei</span> - Rôde dans Johto
+            </label></li><li><input type='checkbox' id='pkmn_245' />
+            <label for='pkmn_245'>
+                Attrapez <span class='h_pkmn'>Suicune</span> - Rôde dans Johto
+            </label>
+                </li>
+            </ul><h3>Bébé Pokémon</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_172' />
+            <label for='pkmn_172'>
+                Faites éclore <span class='h_pkmn'>Pichu</span> à partir de <span class='h_pkmn'>Pikachu</span>,<span class='h_pkmn'> Raichu</span>
+            </label></li><li><input type='checkbox' id='pkmn_173' />
+            <label for='pkmn_173'>
+                Faites éclore <span class='h_pkmn'>Mélo</span> à partir de <span class='h_pkmn'>Mélofée</span>,<span class='h_pkmn'> Mélodelfe</span>
+            </label></li><li><input type='checkbox' id='pkmn_174' />
+            <label for='pkmn_174'>
+                Faites éclore <span class='h_pkmn'>Toudoudou</span> à partir de <span class='h_pkmn'>Rondoudou</span>,<span class='h_pkmn'> Grodoudou</span>
+            </label></li><li><input type='checkbox' id='pkmn_175' />
+            <label for='pkmn_175'>
+                Faites éclore <span class='h_pkmn'>Togepi</span> à partir de <span class='h_pkmn'>Togetic</span>
+            </label></li><li><input type='checkbox' id='pkmn_236' />
+            <label for='pkmn_236'>
+                Faites éclore <span class='h_pkmn'>Debugant</span> à partir de <span class='h_pkmn'>Kicklee</span>,<span class='h_pkmn'> Tygnon</span>,<span class='h_pkmn'> Kapoera</span>
+            </label></li><li><input type='checkbox' id='pkmn_238' />
+            <label for='pkmn_238'>
+                Faites éclore <span class='h_pkmn'>Lippouti</span> à partir de <span class='h_pkmn'>Lippoutou</span>
+            </label></li><li><input type='checkbox' id='pkmn_239' />
+            <label for='pkmn_239'>
+                Faites éclore <span class='h_pkmn'>Élekid</span> à partir de <span class='h_pkmn'>Élektek</span>
+            </label></li><li><input type='checkbox' id='pkmn_240' />
+            <label for='pkmn_240'>
+                Faites éclore <span class='h_pkmn'>Magby</span> à partir de <span class='h_pkmn'>Magmar</span>
+            </label>
+                </li>
+            </ul><h3>Œufs</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_133' />
+            <label for='pkmn_133'>
+                Faites éclore <span class='h_pkmn'>Évoli</span>
+            </label></li><li><input type='checkbox' id='pkmn_196' />
+            <label for='pkmn_196'>
+                Faites éclore <span class='h_pkmn'>Évoli</span> et faites-le évoluer en <span class='h_pkmn'>Mentali</span> (Bonheur - matin et jour)
+            </label></li><li><input type='checkbox' id='pkmn_197' />
+            <label for='pkmn_197'>
+                Faites éclore <span class='h_pkmn'>Évoli</span> et faites-le évoluer en <span class='h_pkmn'>Noctali</span> (Bonheur - nuit)
+            </label></li><li><input type='checkbox' id='pkmn_233' />
+            <label for='pkmn_233'>
+                Faites éclore <span class='h_pkmn'>Porygon</span>, donnez-lui <span class='h_item'>Evolutor</span> et faites-le évoluer en <span class='h_pkmn'>Porygon2</span> (Échange)
+            </label></li><li><input type='checkbox' id='pkmn_1' />
+            <label for='pkmn_1'>
+                Faites éclore <span class='h_pkmn'>Bulbizarre</span>
+            </label></li><li><input type='checkbox' id='pkmn_2' />
+            <label for='pkmn_2'>
+                Faites éclore <span class='h_pkmn'>Bulbizarre</span> et faites-le évoluer en <span class='h_pkmn'>Herbizarre</span> (niveau 16)
+            </label></li><li><input type='checkbox' id='pkmn_4' />
+            <label for='pkmn_4'>
+                Faites éclore <span class='h_pkmn'>Salamèche</span>
+            </label></li><li><input type='checkbox' id='pkmn_5' />
+            <label for='pkmn_5'>
+                Faites éclore <span class='h_pkmn'>Salamèche</span> et faites-le évoluer en <span class='h_pkmn'>Reptincel</span> (niveau 16)
+            </label></li><li><input type='checkbox' id='pkmn_7' />
+            <label for='pkmn_7'>
+                Faites éclore <span class='h_pkmn'>Carapuce</span>
+            </label></li><li><input type='checkbox' id='pkmn_8' />
+            <label for='pkmn_8'>
+                Faites éclore <span class='h_pkmn'>Carapuce</span> et faites-le évoluer en <span class='h_pkmn'>Carabaffe</span> (niveau 16)
+            </label></li><li><input type='checkbox' id='pkmn_138' />
+            <label for='pkmn_138'>
+                Faites éclore <span class='h_pkmn'>Amonita</span>
+            </label></li><li><input type='checkbox' id='pkmn_140' />
+            <label for='pkmn_140'>
+                Faites éclore <span class='h_pkmn'>Kabuto</span>
+            </label></li><li><input type='checkbox' id='pkmn_152' />
+            <label for='pkmn_152'>
+                Faites éclore <span class='h_pkmn'>Germignon</span>
+            </label></li><li><input type='checkbox' id='pkmn_153' />
+            <label for='pkmn_153'>
+                Faites éclore <span class='h_pkmn'>Germignon</span> et faites-le évoluer en <span class='h_pkmn'>Macronium</span> (niveau 16)
+            </label></li><li><input type='checkbox' id='pkmn_155' />
+            <label for='pkmn_155'>
+                Faites éclore <span class='h_pkmn'>Héricendre</span>
+            </label></li><li><input type='checkbox' id='pkmn_156' />
+            <label for='pkmn_156'>
+                Faites éclore <span class='h_pkmn'>Héricendre</span> et faites-le évoluer en <span class='h_pkmn'>Feurisson</span> (niveau 14)
+            </label></li><li><input type='checkbox' id='pkmn_158' />
+            <label for='pkmn_158'>
+                Faites éclore <span class='h_pkmn'>Kaiminus</span>
+            </label></li><li><input type='checkbox' id='pkmn_159' />
+            <label for='pkmn_159'>
+                Faites éclore <span class='h_pkmn'>Kaiminus</span> et faites-le évoluer en <span class='h_pkmn'>Crocrodil</span> (niveau 18)
+            </label></li><li><input type='checkbox' id='pkmn_106' />
+            <label for='pkmn_106'>
+                Faites éclore <span class='h_pkmn'>Debugant</span> et faites-le évoluer en <span class='h_pkmn'>Kicklee</span> (niveau 20 - Attaque > Defense)
+            </label></li><li><input type='checkbox' id='pkmn_107' />
+            <label for='pkmn_107'>
+                Faites éclore <span class='h_pkmn'>Debugant</span> et faites-le évoluer en <span class='h_pkmn'>Tygnon</span> (niveau 20 - Attaque < Defense)
+            </label>
+                </li>
+            </ul><h3>Évolutions restantes</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_3' />
+            <label for='pkmn_3'>
+                Faites évoluer <span class='h_pkmn'>Bulbizarre</span> en <span class='h_pkmn'>Herbizarre</span> (niveau 16) puis en <span class='h_pkmn'>Florizarre</span> (niveau 32)
+            </label></li><li><input type='checkbox' id='pkmn_6' />
+            <label for='pkmn_6'>
+                Faites évoluer <span class='h_pkmn'>Salamèche</span> en <span class='h_pkmn'>Reptincel</span> (niveau 16) puis en <span class='h_pkmn'>Dracaufeu</span> (niveau 36)
+            </label></li><li><input type='checkbox' id='pkmn_9' />
+            <label for='pkmn_9'>
+                Faites évoluer <span class='h_pkmn'>Carapuce</span> en <span class='h_pkmn'>Carabaffe</span> (niveau 16) puis en <span class='h_pkmn'>Tortank</span> (niveau 36)
+            </label></li><li><input type='checkbox' id='pkmn_139' />
+            <label for='pkmn_139'>
+                Faites évoluer <span class='h_pkmn'>Amonita</span> en <span class='h_pkmn'>Amonistar</span> (niveau 40)
+            </label></li><li><input type='checkbox' id='pkmn_141' />
+            <label for='pkmn_141'>
+                Faites évoluer <span class='h_pkmn'>Kabuto</span> en <span class='h_pkmn'>Kabutops</span> (niveau 40)
+            </label></li><li><input type='checkbox' id='pkmn_154' />
+            <label for='pkmn_154'>
+                Faites évoluer <span class='h_pkmn'>Germignon</span> en <span class='h_pkmn'>Macronium</span> (niveau 16) puis en <span class='h_pkmn'>Méganium</span> (niveau 32)
+            </label></li><li><input type='checkbox' id='pkmn_157' />
+            <label for='pkmn_157'>
+                Faites évoluer <span class='h_pkmn'>Héricendre</span> en <span class='h_pkmn'>Feurisson</span> (niveau 14) puis en <span class='h_pkmn'>Typhlosion</span> (niveau 36)
+            </label></li><li><input type='checkbox' id='pkmn_160' />
+            <label for='pkmn_160'>
+                Faites évoluer <span class='h_pkmn'>Kaiminus</span> en <span class='h_pkmn'>Crocrodil</span> (niveau 18) puis en <span class='h_pkmn'>Aligatueur</span> (niveau 30)
+            </label>
+                </li>
+            </ul>
+            </article><div id='completion'>
+                <h2>La fin finale</h2>
+            <article>
+                <h3>Céladopole</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='diploma' />
+            <label for='diploma'>
+                Allez au <span class='h_loc'>Manoir Céladon</span> afin d'obtenir votre diplôme bien mérité. Félicitations, Maître Pokémon !
+            </label>
+                </li>
+            </ul>
+            </article>
+            </div>
+            </section>
+            <script type='module'>
+                import pokemon_guide from '/lyra-website-backup/scripts/pokemon/pokemon_guide.1757042520.js';
+                import gen2_pokedex from '/lyra-website-backup/scripts/pokemon/gen2/gen2_pokedex.1715012544.js';
+            
+                const gen2_guide = new pokemon_guide(new gen2_pokedex());
+                gen2_guide.initialize_guide();
+            </script>
+        
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Sauvegarde de pr&eacute;servation du site <strong>Lyra a un site web</strong>. Site, design et contenu originaux par <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon et tous les &eacute;l&eacute;ments associ&eacute;s sont des marques de Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

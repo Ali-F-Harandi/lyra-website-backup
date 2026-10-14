@@ -1,0 +1,2504 @@
+<!DOCTYPE html>
+            <html lang='fr'>
+            <head>
+                <title>Guide complet - Gen 4</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen4.1774893397.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_diamond.css' />
+                <script>
+                    init_style('gen4');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/'>Return to main menu</a>
+                    </div>
+
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/' >
+                            <span lang='en'>English version</span>
+                            <img src='/lyra-website-backup/views/images/us-uk_flag.png' alt='Drapeau anglais/américain' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra a un site web sur</h1>
+    <h2>Pokémon Gen 4</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/fr/pokemon_gen4/full_guide'>Guide complet</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen4/pokedex_tracker'>Pokédex perso</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen4/catch_locations'>Pokémon par zone</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen4/pokemon_info'>Recherche par filtre</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen4/extra_info'>Infos supplémentaires</a>
+    <button id='settings_link'>Préférences</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex perso</h1>
+                <ul>
+                    <li>
+                <p>Pokédex affiché : </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>Pokédex National</option><option value='diamond_pearl_dex'>Diamant et Perle</option><option value='platinum_dex'>Platine</option><option value='heartgold_soulsilver_dex'>Or HeartGold et Argent SoulSilver</option><option value='only_new_dex'>Nouveaux Pokémon</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Ajouter une étape supplémentaire</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Afficher le nombre de Pokémon obtenus</p>
+            </li><li>
+                <p>Sprites utilisés : </p>
+                <select id='select_pokemon_sprites'><option value='dp_sprites'>Diamant et Perle</option><option value='plat_sprites'>Platine</option><option value='hgss_sprites'>Or HeartGold et Argent SoulSilver</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Mini Pokédex</p>
+            </li><li>
+                <p>Nom des boites : </p>
+                <select id='select_box_names'><option value='boxes_order'>Numéro de boite</option><option value='boxes_firstlast'>Premier et dernier Pokémon</option><option value='boxes_hidden'>Masquer les noms</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon par zone</h1>
+                <ul>
+                    <li>
+                <p>Filtrer par version : </p>
+                <select id='select_version_filter'><option value='pref_none'>Toutes</option><option value='pref_diamond'>Diamant</option><option value='pref_pearl'>Perle</option><option value='pref_platinum'>Platine</option><option value='pref_heartgold'>Or HeartGold</option><option value='pref_soulsilver'>Argent SoulSilver</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Masquer la Canne et Super Canne</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Recherche par filtre</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignorer les Pokémon déjà attrapés</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Couleurs du site web</h1>
+                <ul>
+                    <li>
+                <p>Thème de couleurs : </p>
+                <select id='select_color_theme'><optgroup label='4e génération'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamant</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Perle</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Données de la Gen 4</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Exporter</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Importer</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+
+            import gen4_settings from '/lyra-website-backup/scripts/pokemon/gen4/gen4_settings.1763927568.js';
+            const current_settings = new gen4_settings();
+
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('fr');
+            </script>
+<main>
+                <h1>Generation 4 - Guide de Pokédex Vivant</h1>
+
+<section id='guide_info'>
+    <article>
+        <h3>Objectif et règles</h3>
+        <p>Le but de ce guide est d'aider n'importe quel joueur à compléter un Pokédex Vivant dans les <strong>jeux de la Gen 4</strong> (Diamant, Perle, Platine, Or HeartGold et Argent SoulSilver). Puisqu'un exemplaire de chaque Pokémon doit être possédé en même temps, la planification est essentielle. Voici les règles suivies lors de l'écriture du guide :</p>
+        <ul>
+            <li>Ce guide doit être utilisé comme un <strong>modèle</strong>, et non suivi de manière rigide. La <a href='/lyra-website-backup/fr/pokemon_gen4/pokemon_info'>Recherche par filtre</a> permet de facilement adapter le guide à chaque style de jeu.</li><li><strong>Pokémon Platine</strong> est choisi comme jeu principal de Sinnoh, car son Pokédex est plus large et ses extras (le Monde Distorsion, la Zone de Combat, les deux orbes) en font la version la plus complète. Les ajouts propres à Diamant et Perle sont indiqués au fil du guide.</li><li><strong>Or HeartGold</strong> est choisi pour Johto et Kanto, les différences avec Argent SoulSilver étant listées sur la <a href='/lyra-website-backup/fr/pokemon_gen4/pokemon_info'>Recherche par filtre</a> (Groudon est exclusif à Argent SoulSilver, Kyogre à Or HeartGold, et ainsi de suite).</li><li>Les cinq jeux de la Gen 4 peuvent <strong>s'échanger directement entre eux</strong>, ce qui rend les transferts bien plus simples qu'en Gen 3.</li><li>Les sept Pokémon absents des jeux Gen 4 (<span class='h_pkmn'>Mew</span>, <span class='h_pkmn'>Celebi</span>, les trois <span class='h_pkmn'>Regis</span>, <span class='h_pkmn'>Jirachi</span> et <span class='h_pkmn'>Deoxys</span>) doivent être transférés via le <span class='h_item'>Parc des Amis</span> depuis les jeux Gen 3. Le <a href='/lyra-website-backup/fr/pokemon_gen3/full_guide'>guide Gen 3</a> explique comment obtenir chacun d'entre eux, Pokédex d'évènement inclus.</li><li>Un accès aux évènements est supposé pour <span class='h_pkmn'>Darkrai</span>, <span class='h_pkmn'>Shaymin</span>, <span class='h_pkmn'>Arceus</span> et <span class='h_pkmn'>Manaphy</span> (voir la page <a href='/lyra-website-backup/fr/pokemon_gen4/extra_info'>Infos supplémentaires</a>).</li>
+        </ul>
+
+        <h3>Informations supplémentaires</h3>
+        <p>Pour une expérience des plus fluides, voici quelques détails sur la lecture et l'utilisation du guide de Pokédex Vivant :</p>
+        <ul>
+            <li>Dans chaque zone, les Pokémon sont grossièrement ordonnés selon leur accessibilité au fil du jeu. Les Pokémon rares devraient être priorisés, les communs étant rencontrés naturellement.</li><li>Chaque évolution a sa propre entrée : la capture de la pré-évolution est décrite une fois, et l'entrée d'évolution indique quoi faire avec <strong>un autre</strong> exemplaire. L'élevage est la source la plus simple d'exemplaires supplémentaires.</li><li>Cette liste et le <a href='/lyra-website-backup/fr/pokemon_gen4/pokedex_tracker'>Pokédex perso</a> sont liés. Si un Pokémon est attrapé sur une page, l'autre doit être rafraîchie pour voir le changement.</li><li>Le <strong>Poké Radar</strong>, les <strong>arbres à miel</strong>, les <strong>nuées quotidiennes</strong> et les rencontres par <strong>port GBA</strong> ont leurs propres sections, car elles demandent une préparation spécifique.</li><li>La page <a href='/lyra-website-backup/fr/pokemon_gen4/catch_locations'>Pokémon par zone</a> détaille chaque table de rencontre des cinq jeux, objets du Parc Safari et chansons radio inclus.</li><li>Plus d'informations sur la Gen 4 et des astuces générales sont disponibles sur la page <a href='/lyra-website-backup/fr/pokemon_gen4/extra_info'>Infos supplémentaires</a>.</li>
+        </ul>
+    </article>
+</section>
+
+
+            <section id='guide_full'>
+                <h2 class='platinum'>Pokémon Platine</h2>
+            <article>
+                <h3>Bonaugure</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_54' />
+            <label for='pkmn_54'>
+                Attraper <span class='h_pkmn'>Psykokwak</span> - 90 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_129' />
+            <label for='pkmn_129'>
+                Attraper <span class='h_pkmn'>Magicarpe</span> - 60 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_118' />
+            <label for='pkmn_118'>
+                Attraper <span class='h_pkmn'>Poissirène</span> - 40 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_119' />
+            <label for='pkmn_119'>
+                Attraper <span class='h_pkmn'>Poissoroy</span> - 40 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_130' />
+            <label for='pkmn_130'>
+                Attraper <span class='h_pkmn'>Léviator</span> - 40 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_55' />
+            <label for='pkmn_55'>
+                Attraper <span class='h_pkmn'>Akwakwak</span> - 10 % taux de rencontre
+            </label>
+            </ul><h3>Lac Vérité - Rive (début du jeu)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_399' />
+            <label for='pkmn_399'>
+                Attraper <span class='h_pkmn'>Keunotor</span> - 30 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_202' />
+            <label for='pkmn_202'>
+                Attraper <span class='h_pkmn'>Qulbutoké</span> - 20 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_396' />
+            <label for='pkmn_396'>
+                Attraper <span class='h_pkmn'>Étourmi</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_337' />
+            <label for='pkmn_337'>
+                Attraper <span class='h_pkmn'>Séléroc</span> - port GBA (Saphir)
+            </label><li>
+                <input type='checkbox' id='pkmn_338' />
+            <label for='pkmn_338'>
+                Attraper <span class='h_pkmn'>Solaroc</span> - port GBA (Rubis)
+            </label><li>
+                <input type='checkbox' id='pkmn_397' />
+            <label for='pkmn_397'>
+                Faire éclore un œuf de <span class='h_pkmn'>Étourmi</span> et l'évoluer en <span class='h_pkmn'>Étourvol</span> (niveau 14)
+            </label><li>
+                <input type='checkbox' id='pkmn_400' />
+            <label for='pkmn_400'>
+                Faire éclore un œuf de <span class='h_pkmn'>Keunotor</span> et l'évoluer en <span class='h_pkmn'>Castorno</span> (niveau 15)
+            </label>
+            </ul><h3>Route 201</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_84' />
+            <label for='pkmn_84'>
+                Attraper <span class='h_pkmn'>Doduo</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_29' />
+            <label for='pkmn_29'>
+                Attraper <span class='h_pkmn'>Nidoran♀</span> - 10 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_32' />
+            <label for='pkmn_32'>
+                Attraper <span class='h_pkmn'>Nidoran♂</span> - 10 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_401' />
+            <label for='pkmn_401'>
+                Attraper <span class='h_pkmn'>Crikzik</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_58' />
+            <label for='pkmn_58'>
+                Attraper <span class='h_pkmn'>Caninos</span> - port GBA (Rouge Feu)
+            </label><li>
+                <input type='checkbox' id='pkmn_387' />
+            <label for='pkmn_387'>
+                <span class='h_pkmn'>Tortipouss</span> - Pokémon de départ
+            </label><li>
+                <input type='checkbox' id='pkmn_390' />
+            <label for='pkmn_390'>
+                <span class='h_pkmn'>Ouisticram</span> - Pokémon de départ
+            </label><li>
+                <input type='checkbox' id='pkmn_393' />
+            <label for='pkmn_393'>
+                <span class='h_pkmn'>Tiplouf</span> - Pokémon de départ
+            </label><li>
+                <input type='checkbox' id='pkmn_30' />
+            <label for='pkmn_30'>
+                Faire éclore un œuf de <span class='h_pkmn'>Nidoran♀</span> et l'évoluer en <span class='h_pkmn'>Nidorina</span> (niveau 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_33' />
+            <label for='pkmn_33'>
+                Faire éclore un œuf de <span class='h_pkmn'>Nidoran♂</span> et l'évoluer en <span class='h_pkmn'>Nidorino</span> (niveau 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_59' />
+            <label for='pkmn_59'>
+                Faire éclore un œuf de <span class='h_pkmn'>Caninos</span> et l'évoluer en <span class='h_pkmn'>Arcanin</span> (Pierre Feu)
+            </label><li>
+                <input type='checkbox' id='pkmn_85' />
+            <label for='pkmn_85'>
+                Faire éclore un œuf de <span class='h_pkmn'>Doduo</span> et l'évoluer en <span class='h_pkmn'>Dodrio</span> (niveau 31)
+            </label><li>
+                <input type='checkbox' id='pkmn_388' />
+            <label for='pkmn_388'>
+                Faire éclore un œuf de <span class='h_pkmn'>Tortipouss</span> et l'évoluer en <span class='h_pkmn'>Boskara</span> (niveau 18)
+            </label><li>
+                <input type='checkbox' id='pkmn_391' />
+            <label for='pkmn_391'>
+                Faire éclore un œuf de <span class='h_pkmn'>Ouisticram</span> et l'évoluer en <span class='h_pkmn'>Chimpenfeu</span> (niveau 14)
+            </label><li>
+                <input type='checkbox' id='pkmn_394' />
+            <label for='pkmn_394'>
+                Faire éclore un œuf de <span class='h_pkmn'>Tiplouf</span> et l'évoluer en <span class='h_pkmn'>Prinplouf</span> (niveau 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_402' />
+            <label for='pkmn_402'>
+                Faire éclore un œuf de <span class='h_pkmn'>Crikzik</span> et l'évoluer en <span class='h_pkmn'>Mélokrik</span> (niveau 10)
+            </label>
+            </ul><h3>Route 202</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_263' />
+            <label for='pkmn_263'>
+                Attraper <span class='h_pkmn'>Zigzaton</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_403' />
+            <label for='pkmn_403'>
+                Attraper <span class='h_pkmn'>Lixy</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_161' />
+            <label for='pkmn_161'>
+                Attraper <span class='h_pkmn'>Fouinette</span> - 10 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_162' />
+            <label for='pkmn_162'>
+                Faire éclore un œuf de <span class='h_pkmn'>Fouinette</span> et l'évoluer en <span class='h_pkmn'>Fouinar</span> (niveau 15)
+            </label><li>
+                <input type='checkbox' id='pkmn_264' />
+            <label for='pkmn_264'>
+                Faire éclore un œuf de <span class='h_pkmn'>Zigzaton</span> et l'évoluer en <span class='h_pkmn'>Linéon</span> (niveau 20)
+            </label><li>
+                <input type='checkbox' id='pkmn_404' />
+            <label for='pkmn_404'>
+                Faire éclore un œuf de <span class='h_pkmn'>Lixy</span> et l'évoluer en <span class='h_pkmn'>Luxio</span> (niveau 15)
+            </label>
+            </ul><h3>Route 203</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_104' />
+            <label for='pkmn_104'>
+                Attraper <span class='h_pkmn'>Osselait</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_41' />
+            <label for='pkmn_41'>
+                Attraper <span class='h_pkmn'>Nosferapti</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_63' />
+            <label for='pkmn_63'>
+                Attraper <span class='h_pkmn'>Abra</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_204' />
+            <label for='pkmn_204'>
+                Attraper <span class='h_pkmn'>Pomdepik</span> - port GBA (Émeraude)
+            </label><li>
+                <input type='checkbox' id='pkmn_270' />
+            <label for='pkmn_270'>
+                Attraper <span class='h_pkmn'>Nénupiot</span> - port GBA (Saphir)
+            </label><li>
+                <input type='checkbox' id='pkmn_273' />
+            <label for='pkmn_273'>
+                Attraper <span class='h_pkmn'>Grainipiot</span> - port GBA (Rubis)
+            </label><li>
+                <input type='checkbox' id='pkmn_42' />
+            <label for='pkmn_42'>
+                Faire éclore un œuf de <span class='h_pkmn'>Nosferapti</span> et l'évoluer en <span class='h_pkmn'>Nosferalto</span> (niveau 22)
+            </label><li>
+                <input type='checkbox' id='pkmn_64' />
+            <label for='pkmn_64'>
+                Faire éclore un œuf de <span class='h_pkmn'>Abra</span> et l'évoluer en <span class='h_pkmn'>Kadabra</span> (niveau 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_105' />
+            <label for='pkmn_105'>
+                Faire éclore un œuf de <span class='h_pkmn'>Osselait</span> et l'évoluer en <span class='h_pkmn'>Ossatueur</span> (niveau 28)
+            </label><li>
+                <input type='checkbox' id='pkmn_205' />
+            <label for='pkmn_205'>
+                Faire éclore un œuf de <span class='h_pkmn'>Pomdepik</span> et l'évoluer en <span class='h_pkmn'>Foretress</span> (niveau 31)
+            </label><li>
+                <input type='checkbox' id='pkmn_271' />
+            <label for='pkmn_271'>
+                Faire éclore un œuf de <span class='h_pkmn'>Nénupiot</span> et l'évoluer en <span class='h_pkmn'>Lombre</span> (niveau 14)
+            </label><li>
+                <input type='checkbox' id='pkmn_274' />
+            <label for='pkmn_274'>
+                Faire éclore un œuf de <span class='h_pkmn'>Grainipiot</span> et l'évoluer en <span class='h_pkmn'>Pifeuil</span> (niveau 14)
+            </label>
+            </ul><h3>Route 204 - Sud</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_265' />
+            <label for='pkmn_265'>
+                Attraper <span class='h_pkmn'>Chenipotte</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_406' />
+            <label for='pkmn_406'>
+                Attraper <span class='h_pkmn'>Rozbouton</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_10' />
+            <label for='pkmn_10'>
+                Attraper <span class='h_pkmn'>Chenipan</span> - port GBA (Rouge Feu)
+            </label><li>
+                <input type='checkbox' id='pkmn_13' />
+            <label for='pkmn_13'>
+                Attraper <span class='h_pkmn'>Aspicot</span> - port GBA (Vert Feuille)
+            </label><li>
+                <input type='checkbox' id='pkmn_11' />
+            <label for='pkmn_11'>
+                Faire éclore un œuf de <span class='h_pkmn'>Chenipan</span> et l'évoluer en <span class='h_pkmn'>Chrysacier</span> (niveau 7)
+            </label><li>
+                <input type='checkbox' id='pkmn_14' />
+            <label for='pkmn_14'>
+                Faire éclore un œuf de <span class='h_pkmn'>Aspicot</span> et l'évoluer en <span class='h_pkmn'>Coconfort</span> (niveau 7)
+            </label><li>
+                <input type='checkbox' id='pkmn_266' />
+            <label for='pkmn_266'>
+                Faire éclore un œuf de <span class='h_pkmn'>Chenipotte</span> et l'évoluer en <span class='h_pkmn'>Armulys</span> (niveau 7)
+            </label><li>
+                <input type='checkbox' id='pkmn_268' />
+            <label for='pkmn_268'>
+                Faire éclore un œuf de <span class='h_pkmn'>Chenipotte</span> et l'évoluer en <span class='h_pkmn'>Blindalys</span> (niveau 7)
+            </label><li>
+                <input type='checkbox' id='pkmn_315' />
+            <label for='pkmn_315'>
+                Faire éclore un œuf de <span class='h_pkmn'>Rozbouton</span> et l'évoluer en <span class='h_pkmn'>Rosélia</span> (bonheur le jour)
+            </label>
+            </ul><h3>Route 204 - Nord</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_191' />
+            <label for='pkmn_191'>
+                Attraper <span class='h_pkmn'>Tournegrin</span> - 20 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_192' />
+            <label for='pkmn_192'>
+                Faire éclore un œuf de <span class='h_pkmn'>Tournegrin</span> et l'évoluer en <span class='h_pkmn'>Héliatronc</span> (Pierre Soleil)
+            </label>
+            </ul><h3>Entrée Charbourg - 1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_74' />
+            <label for='pkmn_74'>
+                Attraper <span class='h_pkmn'>Racaillou</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_75' />
+            <label for='pkmn_75'>
+                Faire éclore un œuf de <span class='h_pkmn'>Racaillou</span> et l'évoluer en <span class='h_pkmn'>Gravalanch</span> (niveau 25)
+            </label>
+            </ul><h3>Entrée Charbourg - B1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_339' />
+            <label for='pkmn_339'>
+                Attraper <span class='h_pkmn'>Barloche</span> - 40 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_340' />
+            <label for='pkmn_340'>
+                Attraper <span class='h_pkmn'>Barbicha</span> - 40 % taux de rencontre
+            </label>
+            </ul><h3>Mine Charbourg - 1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_95' />
+            <label for='pkmn_95'>
+                Attraper <span class='h_pkmn'>Onix</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_208' />
+            <label for='pkmn_208'>
+                Faire éclore un œuf de <span class='h_pkmn'>Onix</span> et l'évoluer en <span class='h_pkmn'>Steelix</span> (échange avec Métal Peau)
+            </label>
+            </ul><h3>Charbourg - Musée Minier de Charbourg</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_138' />
+            <label for='pkmn_138'>
+                <span class='h_pkmn'>Amonita</span> - Helix Fossil régénéré (<span class='h_loc'>Charbourg - Musée Minier de Charbourg</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_140' />
+            <label for='pkmn_140'>
+                <span class='h_pkmn'>Kabuto</span> - Dome Fossil régénéré (<span class='h_loc'>Charbourg - Musée Minier de Charbourg</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_142' />
+            <label for='pkmn_142'>
+                <span class='h_pkmn'>Ptéra</span> - Old Amber Fossil régénéré (<span class='h_loc'>Charbourg - Musée Minier de Charbourg</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_345' />
+            <label for='pkmn_345'>
+                <span class='h_pkmn'>Lilia</span> - Root Fossil régénéré (<span class='h_loc'>Charbourg - Musée Minier de Charbourg</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_347' />
+            <label for='pkmn_347'>
+                <span class='h_pkmn'>Anorith</span> - Claw Fossil régénéré (<span class='h_loc'>Charbourg - Musée Minier de Charbourg</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_408' />
+            <label for='pkmn_408'>
+                <span class='h_pkmn'>Kranidos</span> - Skull Fossil régénéré (<span class='h_loc'>Charbourg - Musée Minier de Charbourg</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_410' />
+            <label for='pkmn_410'>
+                <span class='h_pkmn'>Dinoclier</span> - Armor Fossil régénéré (<span class='h_loc'>Charbourg - Musée Minier de Charbourg</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_139' />
+            <label for='pkmn_139'>
+                Faire éclore un œuf de <span class='h_pkmn'>Amonita</span> et l'évoluer en <span class='h_pkmn'>Amonistar</span> (niveau 40)
+            </label><li>
+                <input type='checkbox' id='pkmn_141' />
+            <label for='pkmn_141'>
+                Faire éclore un œuf de <span class='h_pkmn'>Kabuto</span> et l'évoluer en <span class='h_pkmn'>Kabutops</span> (niveau 40)
+            </label><li>
+                <input type='checkbox' id='pkmn_346' />
+            <label for='pkmn_346'>
+                Faire éclore un œuf de <span class='h_pkmn'>Lilia</span> et l'évoluer en <span class='h_pkmn'>Vacilys</span> (niveau 40)
+            </label><li>
+                <input type='checkbox' id='pkmn_348' />
+            <label for='pkmn_348'>
+                Faire éclore un œuf de <span class='h_pkmn'>Anorith</span> et l'évoluer en <span class='h_pkmn'>Armaldo</span> (niveau 40)
+            </label><li>
+                <input type='checkbox' id='pkmn_409' />
+            <label for='pkmn_409'>
+                Faire éclore un œuf de <span class='h_pkmn'>Kranidos</span> et l'évoluer en <span class='h_pkmn'>Charkos</span> (niveau 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_411' />
+            <label for='pkmn_411'>
+                Faire éclore un œuf de <span class='h_pkmn'>Dinoclier</span> et l'évoluer en <span class='h_pkmn'>Bastiodon</span> (niveau 30)
+            </label>
+            </ul><h3>Route 207</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_446' />
+            <label for='pkmn_446'>
+                Attraper <span class='h_pkmn'>Goinfrex</span> - sur un arbre à miel
+            </label><li>
+                <input type='checkbox' id='pkmn_412' />
+            <label for='pkmn_412'>
+                Attraper <span class='h_pkmn'>Cheniti</span> - sur un arbre à miel
+            </label><li>
+                <input type='checkbox' id='pkmn_415' />
+            <label for='pkmn_415'>
+                Attraper <span class='h_pkmn'>Apitrini</span> - sur un arbre à miel
+            </label><li>
+                <input type='checkbox' id='pkmn_420' />
+            <label for='pkmn_420'>
+                Attraper <span class='h_pkmn'>Ceribou</span> - sur un arbre à miel
+            </label><li>
+                <input type='checkbox' id='pkmn_190' />
+            <label for='pkmn_190'>
+                Attraper <span class='h_pkmn'>Capumain</span> - sur un arbre à miel
+            </label><li>
+                <input type='checkbox' id='pkmn_66' />
+            <label for='pkmn_66'>
+                Attraper <span class='h_pkmn'>Machoc</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_231' />
+            <label for='pkmn_231'>
+                Attraper <span class='h_pkmn'>Phanpy</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_77' />
+            <label for='pkmn_77'>
+                Attraper <span class='h_pkmn'>Ponyta</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_234' />
+            <label for='pkmn_234'>
+                Attraper <span class='h_pkmn'>Cerfrousse</span> - 10 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_214' />
+            <label for='pkmn_214'>
+                Attraper <span class='h_pkmn'>Scarhino</span> - sur un arbre à miel
+            </label><li>
+                <input type='checkbox' id='pkmn_67' />
+            <label for='pkmn_67'>
+                Faire éclore un œuf de <span class='h_pkmn'>Machoc</span> et l'évoluer en <span class='h_pkmn'>Machopeur</span> (niveau 28)
+            </label><li>
+                <input type='checkbox' id='pkmn_78' />
+            <label for='pkmn_78'>
+                Faire éclore un œuf de <span class='h_pkmn'>Ponyta</span> et l'évoluer en <span class='h_pkmn'>Galopa</span> (niveau 40)
+            </label><li>
+                <input type='checkbox' id='pkmn_143' />
+            <label for='pkmn_143'>
+                Faire éclore un œuf de <span class='h_pkmn'>Goinfrex</span> et l'évoluer en <span class='h_pkmn'>Ronflex</span> (bonheur)
+            </label><li>
+                <input type='checkbox' id='pkmn_232' />
+            <label for='pkmn_232'>
+                Faire éclore un œuf de <span class='h_pkmn'>Phanpy</span> et l'évoluer en <span class='h_pkmn'>Donphan</span> (niveau 25)
+            </label><li>
+                <input type='checkbox' id='pkmn_413' />
+            <label for='pkmn_413'>
+                Faire éclore un œuf de <span class='h_pkmn'>Cheniti</span> et l'évoluer en <span class='h_pkmn'>Cheniselle</span> (niveau 20)
+            </label><li>
+                <input type='checkbox' id='pkmn_414' />
+            <label for='pkmn_414'>
+                Faire éclore un œuf de <span class='h_pkmn'>Cheniti</span> et l'évoluer en <span class='h_pkmn'>Papilord</span> (niveau 20)
+            </label><li>
+                <input type='checkbox' id='pkmn_416' />
+            <label for='pkmn_416'>
+                Faire éclore un œuf de <span class='h_pkmn'>Apitrini</span> et l'évoluer en <span class='h_pkmn'>Apireine</span> (niveau 21)
+            </label><li>
+                <input type='checkbox' id='pkmn_421' />
+            <label for='pkmn_421'>
+                Faire éclore un œuf de <span class='h_pkmn'>Ceribou</span> et l'évoluer en <span class='h_pkmn'>Ceriflor</span> (niveau 25)
+            </label><li>
+                <input type='checkbox' id='pkmn_424' />
+            <label for='pkmn_424'>
+                Faire éclore un œuf de <span class='h_pkmn'>Capumain</span> et l'évoluer en <span class='h_pkmn'>Capidextre</span> (en connaissant Coup Double)
+            </label>
+            </ul><h3>Mont Couronné - RdC (Route 207)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_436' />
+            <label for='pkmn_436'>
+                Attraper <span class='h_pkmn'>Archéomire</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_35' />
+            <label for='pkmn_35'>
+                Attraper <span class='h_pkmn'>Mélofée</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_307' />
+            <label for='pkmn_307'>
+                Attraper <span class='h_pkmn'>Méditikka</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_299' />
+            <label for='pkmn_299'>
+                Attraper <span class='h_pkmn'>Tarinor</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_433' />
+            <label for='pkmn_433'>
+                Attraper <span class='h_pkmn'>Éolico</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_36' />
+            <label for='pkmn_36'>
+                Faire éclore un œuf de <span class='h_pkmn'>Mélofée</span> et l'évoluer en <span class='h_pkmn'>Mélodelfe</span> (Pierre Lune)
+            </label><li>
+                <input type='checkbox' id='pkmn_308' />
+            <label for='pkmn_308'>
+                Faire éclore un œuf de <span class='h_pkmn'>Méditikka</span> et l'évoluer en <span class='h_pkmn'>Charmina</span> (niveau 37)
+            </label><li>
+                <input type='checkbox' id='pkmn_358' />
+            <label for='pkmn_358'>
+                Faire éclore un œuf de <span class='h_pkmn'>Éolico</span> et l'évoluer en <span class='h_pkmn'>Éoko</span> (bonheur la nuit)
+            </label><li>
+                <input type='checkbox' id='pkmn_437' />
+            <label for='pkmn_437'>
+                Faire éclore un œuf de <span class='h_pkmn'>Archéomire</span> et l'évoluer en <span class='h_pkmn'>Archéodong</span> (niveau 33)
+            </label><li>
+                <input type='checkbox' id='pkmn_476' />
+            <label for='pkmn_476'>
+                Faire éclore un œuf de <span class='h_pkmn'>Tarinor</span> et l'évoluer en <span class='h_pkmn'>Tarinorme</span> (dans le Mont Couronné)
+            </label>
+            </ul><h3>Route 208</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_206' />
+            <label for='pkmn_206'>
+                Attraper <span class='h_pkmn'>Insolourdo</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_235' />
+            <label for='pkmn_235'>
+                Attraper <span class='h_pkmn'>Queulorior</span> - 10 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_280' />
+            <label for='pkmn_280'>
+                Attraper <span class='h_pkmn'>Tarsal</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_335' />
+            <label for='pkmn_335'>
+                Attraper <span class='h_pkmn'>Mangriff</span> - port GBA (Rubis)
+            </label><li>
+                <input type='checkbox' id='pkmn_336' />
+            <label for='pkmn_336'>
+                Attraper <span class='h_pkmn'>Séviper</span> - port GBA (Saphir)
+            </label><li>
+                <input type='checkbox' id='pkmn_281' />
+            <label for='pkmn_281'>
+                Faire éclore un œuf de <span class='h_pkmn'>Tarsal</span> et l'évoluer en <span class='h_pkmn'>Kirlia</span> (niveau 20)
+            </label>
+            </ul><h3>Unionpolis</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_133' />
+            <label for='pkmn_133'>
+                <span class='h_pkmn'>Évoli</span> - don (<span class='h_loc'>Unionpolis</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_134' />
+            <label for='pkmn_134'>
+                Faire éclore un œuf de <span class='h_pkmn'>Évoli</span> et l'évoluer en <span class='h_pkmn'>Aquali</span> (Pierre Eau)
+            </label><li>
+                <input type='checkbox' id='pkmn_135' />
+            <label for='pkmn_135'>
+                Faire éclore un œuf de <span class='h_pkmn'>Évoli</span> et l'évoluer en <span class='h_pkmn'>Voltali</span> (Pierre Foudre)
+            </label><li>
+                <input type='checkbox' id='pkmn_136' />
+            <label for='pkmn_136'>
+                Faire éclore un œuf de <span class='h_pkmn'>Évoli</span> et l'évoluer en <span class='h_pkmn'>Pyroli</span> (Pierre Feu)
+            </label><li>
+                <input type='checkbox' id='pkmn_196' />
+            <label for='pkmn_196'>
+                Faire éclore un œuf de <span class='h_pkmn'>Évoli</span> et l'évoluer en <span class='h_pkmn'>Mentali</span> (bonheur le jour)
+            </label><li>
+                <input type='checkbox' id='pkmn_197' />
+            <label for='pkmn_197'>
+                Faire éclore un œuf de <span class='h_pkmn'>Évoli</span> et l'évoluer en <span class='h_pkmn'>Noctali</span> (bonheur la nuit)
+            </label><li>
+                <input type='checkbox' id='pkmn_470' />
+            <label for='pkmn_470'>
+                Faire éclore un œuf de <span class='h_pkmn'>Évoli</span> et l'évoluer en <span class='h_pkmn'>Phyllali</span> (Roche Mousse (Forêt Vestigion))
+            </label><li>
+                <input type='checkbox' id='pkmn_471' />
+            <label for='pkmn_471'>
+                Faire éclore un œuf de <span class='h_pkmn'>Évoli</span> et l'évoluer en <span class='h_pkmn'>Givrali</span> (Roche Glace (Route 217))
+            </label>
+            </ul><h3>Route 209</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_209' />
+            <label for='pkmn_209'>
+                Attraper <span class='h_pkmn'>Snubbull</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_355' />
+            <label for='pkmn_355'>
+                Attraper <span class='h_pkmn'>Skelénox</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_37' />
+            <label for='pkmn_37'>
+                Attraper <span class='h_pkmn'>Goupix</span> - port GBA (Vert Feuille)
+            </label><li>
+                <input type='checkbox' id='pkmn_113' />
+            <label for='pkmn_113'>
+                Attraper <span class='h_pkmn'>Leveinard</span> - 4 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_442' />
+            <label for='pkmn_442'>
+                <span class='h_pkmn'>Spiritomb</span> - rencontre unique à <span class='h_loc'>Route 209</span>
+            </label><li>
+                <input type='checkbox' id='pkmn_38' />
+            <label for='pkmn_38'>
+                Faire éclore un œuf de <span class='h_pkmn'>Goupix</span> et l'évoluer en <span class='h_pkmn'>Feunard</span> (Pierre Feu)
+            </label><li>
+                <input type='checkbox' id='pkmn_210' />
+            <label for='pkmn_210'>
+                Faire éclore un œuf de <span class='h_pkmn'>Snubbull</span> et l'évoluer en <span class='h_pkmn'>Granbull</span> (niveau 23)
+            </label><li>
+                <input type='checkbox' id='pkmn_242' />
+            <label for='pkmn_242'>
+                Faire éclore un œuf de <span class='h_pkmn'>Leveinard</span> et l'évoluer en <span class='h_pkmn'>Leuphorie</span> (bonheur)
+            </label><li>
+                <input type='checkbox' id='pkmn_356' />
+            <label for='pkmn_356'>
+                Faire éclore un œuf de <span class='h_pkmn'>Skelénox</span> et l'évoluer en <span class='h_pkmn'>Téraclope</span> (niveau 37)
+            </label>
+            </ul><h3>Tour Perdue - 1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_92' />
+            <label for='pkmn_92'>
+                Attraper <span class='h_pkmn'>Fantominus</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_93' />
+            <label for='pkmn_93'>
+                Faire éclore un œuf de <span class='h_pkmn'>Fantominus</span> et l'évoluer en <span class='h_pkmn'>Spectrum</span> (niveau 25)
+            </label>
+            </ul><h3>Ruines Bonville</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_201' />
+            <label for='pkmn_201'>
+                Attraper <span class='h_pkmn'>Zarbi</span> - 20 % taux de rencontre
+            </label>
+            </ul><h3>Tunnel Runiem.</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_449' />
+            <label for='pkmn_449'>
+                Attraper <span class='h_pkmn'>Hippopotas</span> - 15 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_450' />
+            <label for='pkmn_450'>
+                Faire éclore un œuf de <span class='h_pkmn'>Hippopotas</span> et l'évoluer en <span class='h_pkmn'>Hippodocus</span> (niveau 34)
+            </label>
+            </ul><h3>Route 210 - Sud</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_123' />
+            <label for='pkmn_123'>
+                Attraper <span class='h_pkmn'>Insécateur</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_128' />
+            <label for='pkmn_128'>
+                Attraper <span class='h_pkmn'>Tauros</span> - 10 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_163' />
+            <label for='pkmn_163'>
+                Attraper <span class='h_pkmn'>Hoothoot</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_164' />
+            <label for='pkmn_164'>
+                Attraper <span class='h_pkmn'>Noarfang</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_241' />
+            <label for='pkmn_241'>
+                Attraper <span class='h_pkmn'>Écrémeuh</span> - 10 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_212' />
+            <label for='pkmn_212'>
+                Faire éclore un œuf de <span class='h_pkmn'>Insécateur</span> et l'évoluer en <span class='h_pkmn'>Cizayox</span> (échange avec Métal Peau)
+            </label>
+            </ul><h3>Route 210 - Ouest</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_333' />
+            <label for='pkmn_333'>
+                Attraper <span class='h_pkmn'>Tylton</span> - 30 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_371' />
+            <label for='pkmn_371'>
+                Attraper <span class='h_pkmn'>Draby</span> - 11 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_334' />
+            <label for='pkmn_334'>
+                Faire éclore un œuf de <span class='h_pkmn'>Tylton</span> et l'évoluer en <span class='h_pkmn'>Altaria</span> (niveau 35)
+            </label><li>
+                <input type='checkbox' id='pkmn_372' />
+            <label for='pkmn_372'>
+                Faire éclore un œuf de <span class='h_pkmn'>Draby</span> et l'évoluer en <span class='h_pkmn'>Drackhaus</span> (niveau 30)
+            </label>
+            </ul><h3>Célestia</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_341' />
+            <label for='pkmn_341'>
+                Attraper <span class='h_pkmn'>Écrapince</span> - 40 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_342' />
+            <label for='pkmn_342'>
+                Attraper <span class='h_pkmn'>Colhomard</span> - 15 % taux de rencontre
+            </label>
+            </ul><h3>Route 215</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_96' />
+            <label for='pkmn_96'>
+                Attraper <span class='h_pkmn'>Soporifik</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_183' />
+            <label for='pkmn_183'>
+                Attraper <span class='h_pkmn'>Marill</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_108' />
+            <label for='pkmn_108'>
+                Attraper <span class='h_pkmn'>Excelangue</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_97' />
+            <label for='pkmn_97'>
+                Faire éclore un œuf de <span class='h_pkmn'>Soporifik</span> et l'évoluer en <span class='h_pkmn'>Hypnomade</span> (niveau 26)
+            </label><li>
+                <input type='checkbox' id='pkmn_184' />
+            <label for='pkmn_184'>
+                Faire éclore un œuf de <span class='h_pkmn'>Marill</span> et l'évoluer en <span class='h_pkmn'>Azumarill</span> (niveau 18)
+            </label><li>
+                <input type='checkbox' id='pkmn_463' />
+            <label for='pkmn_463'>
+                Faire éclore un œuf de <span class='h_pkmn'>Excelangue</span> et l'évoluer en <span class='h_pkmn'>Coudlangue</span> (en connaissant Roulade)
+            </label>
+            </ul><h3>Voilaroc</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_137' />
+            <label for='pkmn_137'>
+                <span class='h_pkmn'>Porygon</span> - don (<span class='h_loc'>Voilaroc</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_233' />
+            <label for='pkmn_233'>
+                Faire éclore un œuf de <span class='h_pkmn'>Porygon</span> et l'évoluer en <span class='h_pkmn'>Porygon2</span> (échange avec Up Grade)
+            </label>
+            </ul><h3>Route 214</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_261' />
+            <label for='pkmn_261'>
+                Attraper <span class='h_pkmn'>Medhyèna</span> - 20 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_325' />
+            <label for='pkmn_325'>
+                Attraper <span class='h_pkmn'>Spoink</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_111' />
+            <label for='pkmn_111'>
+                Attraper <span class='h_pkmn'>Rhinocorne</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_228' />
+            <label for='pkmn_228'>
+                Attraper <span class='h_pkmn'>Malosse</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_112' />
+            <label for='pkmn_112'>
+                Faire éclore un œuf de <span class='h_pkmn'>Rhinocorne</span> et l'évoluer en <span class='h_pkmn'>Rhinoféros</span> (niveau 42)
+            </label><li>
+                <input type='checkbox' id='pkmn_229' />
+            <label for='pkmn_229'>
+                Faire éclore un œuf de <span class='h_pkmn'>Malosse</span> et l'évoluer en <span class='h_pkmn'>Démolosse</span> (niveau 24)
+            </label><li>
+                <input type='checkbox' id='pkmn_262' />
+            <label for='pkmn_262'>
+                Faire éclore un œuf de <span class='h_pkmn'>Medhyèna</span> et l'évoluer en <span class='h_pkmn'>Grahyèna</span> (niveau 18)
+            </label><li>
+                <input type='checkbox' id='pkmn_326' />
+            <label for='pkmn_326'>
+                Faire éclore un œuf de <span class='h_pkmn'>Spoink</span> et l'évoluer en <span class='h_pkmn'>Groret</span> (niveau 32)
+            </label>
+            </ul><h3>Lac Courage - (caverne)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_482' />
+            <label for='pkmn_482'>
+                <span class='h_pkmn'>Créfadet</span> - rencontre unique à <span class='h_loc'>Lac Courage - (caverne)</span>
+            </label>
+            </ul><h3>Rive Lac Courage</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_203' />
+            <label for='pkmn_203'>
+                Attraper <span class='h_pkmn'>Girafarig</span> - 20 % taux de rencontre
+            </label>
+            </ul><h3>Route 213</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_72' />
+            <label for='pkmn_72'>
+                Attraper <span class='h_pkmn'>Tentacool</span> - 60 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_223' />
+            <label for='pkmn_223'>
+                Attraper <span class='h_pkmn'>Rémoraid</span> - 40 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_224' />
+            <label for='pkmn_224'>
+                Attraper <span class='h_pkmn'>Octillery</span> - 40 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_278' />
+            <label for='pkmn_278'>
+                Attraper <span class='h_pkmn'>Goélise</span> - 30 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_277' />
+            <label for='pkmn_277'>
+                Attraper <span class='h_pkmn'>Hélédelle</span> - 21 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_418' />
+            <label for='pkmn_418'>
+                Attraper <span class='h_pkmn'>Mustébouée</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_422' />
+            <label for='pkmn_422'>
+                Attraper <span class='h_pkmn'>Sancoki</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_441' />
+            <label for='pkmn_441'>
+                Attraper <span class='h_pkmn'>Pijako</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_73' />
+            <label for='pkmn_73'>
+                Attraper <span class='h_pkmn'>Tentacruel</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_423' />
+            <label for='pkmn_423'>
+                Attraper <span class='h_pkmn'>Tritosor</span> - 1 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_279' />
+            <label for='pkmn_279'>
+                Faire éclore un œuf de <span class='h_pkmn'>Goélise</span> et l'évoluer en <span class='h_pkmn'>Bekipan</span> (niveau 25)
+            </label><li>
+                <input type='checkbox' id='pkmn_419' />
+            <label for='pkmn_419'>
+                Faire éclore un œuf de <span class='h_pkmn'>Mustébouée</span> et l'évoluer en <span class='h_pkmn'>Mustéflott</span> (niveau 26)
+            </label>
+            </ul><h3>Route 219</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_456' />
+            <label for='pkmn_456'>
+                Attraper <span class='h_pkmn'>Écayon</span> - 40 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_457' />
+            <label for='pkmn_457'>
+                Attraper <span class='h_pkmn'>Luminéon</span> - 40 % taux de rencontre
+            </label>
+            </ul><h3>Grand Marais - Zone 1</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_194' />
+            <label for='pkmn_194'>
+                Attraper <span class='h_pkmn'>Axoloto</span> - 90 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_318' />
+            <label for='pkmn_318'>
+                Attraper <span class='h_pkmn'>Carvanha</span> - 40 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_195' />
+            <label for='pkmn_195'>
+                Attraper <span class='h_pkmn'>Maraiste</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_357' />
+            <label for='pkmn_357'>
+                Attraper <span class='h_pkmn'>Tropius</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_24' />
+            <label for='pkmn_24'>
+                Attraper <span class='h_pkmn'>Arbok</span> - port GBA (Rouge Feu)
+            </label><li>
+                <input type='checkbox' id='pkmn_46' />
+            <label for='pkmn_46'>
+                Attraper <span class='h_pkmn'>Paras</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_102' />
+            <label for='pkmn_102'>
+                Attraper <span class='h_pkmn'>Noeunoeuf</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_114' />
+            <label for='pkmn_114'>
+                Attraper <span class='h_pkmn'>Saquedeneu</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_115' />
+            <label for='pkmn_115'>
+                Attraper <span class='h_pkmn'>Kangourex</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_193' />
+            <label for='pkmn_193'>
+                Attraper <span class='h_pkmn'>Yanma</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_285' />
+            <label for='pkmn_285'>
+                Attraper <span class='h_pkmn'>Balignon</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_316' />
+            <label for='pkmn_316'>
+                Attraper <span class='h_pkmn'>Gloupti</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_352' />
+            <label for='pkmn_352'>
+                Attraper <span class='h_pkmn'>Kecleon</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_451' />
+            <label for='pkmn_451'>
+                Attraper <span class='h_pkmn'>Rapion</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_452' />
+            <label for='pkmn_452'>
+                Attraper <span class='h_pkmn'>Drascore</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_453' />
+            <label for='pkmn_453'>
+                Attraper <span class='h_pkmn'>Cradopaud</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_454' />
+            <label for='pkmn_454'>
+                Attraper <span class='h_pkmn'>Coatox</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_455' />
+            <label for='pkmn_455'>
+                Attraper <span class='h_pkmn'>Vortente</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_47' />
+            <label for='pkmn_47'>
+                Faire éclore un œuf de <span class='h_pkmn'>Paras</span> et l'évoluer en <span class='h_pkmn'>Parasect</span> (niveau 24)
+            </label><li>
+                <input type='checkbox' id='pkmn_103' />
+            <label for='pkmn_103'>
+                Faire éclore un œuf de <span class='h_pkmn'>Noeunoeuf</span> et l'évoluer en <span class='h_pkmn'>Noadkoko</span> (Pierre Plante)
+            </label><li>
+                <input type='checkbox' id='pkmn_286' />
+            <label for='pkmn_286'>
+                Faire éclore un œuf de <span class='h_pkmn'>Balignon</span> et l'évoluer en <span class='h_pkmn'>Chapignon</span> (niveau 23)
+            </label><li>
+                <input type='checkbox' id='pkmn_317' />
+            <label for='pkmn_317'>
+                Faire éclore un œuf de <span class='h_pkmn'>Gloupti</span> et l'évoluer en <span class='h_pkmn'>Avaltout</span> (niveau 26)
+            </label><li>
+                <input type='checkbox' id='pkmn_319' />
+            <label for='pkmn_319'>
+                Faire éclore un œuf de <span class='h_pkmn'>Carvanha</span> et l'évoluer en <span class='h_pkmn'>Sharpedo</span> (niveau 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_465' />
+            <label for='pkmn_465'>
+                Faire éclore un œuf de <span class='h_pkmn'>Saquedeneu</span> et l'évoluer en <span class='h_pkmn'>Bouldeneu</span> (en connaissant Pouvoir Antique)
+            </label><li>
+                <input type='checkbox' id='pkmn_469' />
+            <label for='pkmn_469'>
+                Faire éclore un œuf de <span class='h_pkmn'>Yanma</span> et l'évoluer en <span class='h_pkmn'>Yanmega</span> (en connaissant Pouvoir Antique)
+            </label>
+            </ul><h3>Route 212 - Est</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_88' />
+            <label for='pkmn_88'>
+                Attraper <span class='h_pkmn'>Tadmorv</span> - 11 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_23' />
+            <label for='pkmn_23'>
+                Attraper <span class='h_pkmn'>Abo</span> - port GBA (Rouge Feu)
+            </label><li>
+                <input type='checkbox' id='pkmn_89' />
+            <label for='pkmn_89'>
+                Faire éclore un œuf de <span class='h_pkmn'>Tadmorv</span> et l'évoluer en <span class='h_pkmn'>Grotadmorv</span> (niveau 38)
+            </label>
+            </ul><h3>Route 205 - Sud</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_90' />
+            <label for='pkmn_90'>
+                Attraper <span class='h_pkmn'>Kokiyas</span> - 15 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_187' />
+            <label for='pkmn_187'>
+                Attraper <span class='h_pkmn'>Granivol</span> - 11 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_417' />
+            <label for='pkmn_417'>
+                Attraper <span class='h_pkmn'>Pachirisu</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_91' />
+            <label for='pkmn_91'>
+                Faire éclore un œuf de <span class='h_pkmn'>Kokiyas</span> et l'évoluer en <span class='h_pkmn'>Crustabri</span> (Pierre Eau)
+            </label><li>
+                <input type='checkbox' id='pkmn_188' />
+            <label for='pkmn_188'>
+                Faire éclore un œuf de <span class='h_pkmn'>Granivol</span> et l'évoluer en <span class='h_pkmn'>Floravol</span> (niveau 18)
+            </label>
+            </ul><h3>Les Eoliennes</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_309' />
+            <label for='pkmn_309'>
+                Attraper <span class='h_pkmn'>Dynavolt</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_179' />
+            <label for='pkmn_179'>
+                Attraper <span class='h_pkmn'>Wattouat</span> - 11 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_425' />
+            <label for='pkmn_425'>
+                <span class='h_pkmn'>Baudrive</span> - rencontre unique à <span class='h_loc'>Les Eoliennes</span>
+            </label><li>
+                <input type='checkbox' id='pkmn_180' />
+            <label for='pkmn_180'>
+                Faire éclore un œuf de <span class='h_pkmn'>Wattouat</span> et l'évoluer en <span class='h_pkmn'>Lainergie</span> (niveau 15)
+            </label><li>
+                <input type='checkbox' id='pkmn_310' />
+            <label for='pkmn_310'>
+                Faire éclore un œuf de <span class='h_pkmn'>Dynavolt</span> et l'évoluer en <span class='h_pkmn'>Élecsprint</span> (niveau 26)
+            </label><li>
+                <input type='checkbox' id='pkmn_426' />
+            <label for='pkmn_426'>
+                Faire éclore un œuf de <span class='h_pkmn'>Baudrive</span> et l'évoluer en <span class='h_pkmn'>Grodrive</span> (niveau 28)
+            </label>
+            </ul><h3>Forêt Vestigion</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_287' />
+            <label for='pkmn_287'>
+                Attraper <span class='h_pkmn'>Parecool</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_427' />
+            <label for='pkmn_427'>
+                Attraper <span class='h_pkmn'>Laporeille</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_290' />
+            <label for='pkmn_290'>
+                Attraper <span class='h_pkmn'>Ningale</span> - 10 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_267' />
+            <label for='pkmn_267'>
+                Attraper <span class='h_pkmn'>Charmillon</span> - 1 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_269' />
+            <label for='pkmn_269'>
+                Attraper <span class='h_pkmn'>Papinox</span> - 1 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_288' />
+            <label for='pkmn_288'>
+                Faire éclore un œuf de <span class='h_pkmn'>Parecool</span> et l'évoluer en <span class='h_pkmn'>Vigoroth</span> (niveau 18)
+            </label><li>
+                <input type='checkbox' id='pkmn_291' />
+            <label for='pkmn_291'>
+                Faire éclore un œuf de <span class='h_pkmn'>Ningale</span> et l'évoluer en <span class='h_pkmn'>Ninjask</span> (niveau 20)
+            </label><li>
+                <input type='checkbox' id='pkmn_292' />
+            <label for='pkmn_292'>
+                Faire éclore un œuf de <span class='h_pkmn'>Ningale</span> et l'évoluer en <span class='h_pkmn'>Munja</span> (place libre)
+            </label><li>
+                <input type='checkbox' id='pkmn_428' />
+            <label for='pkmn_428'>
+                Faire éclore un œuf de <span class='h_pkmn'>Laporeille</span> et l'évoluer en <span class='h_pkmn'>Lockpin</span> (bonheur)
+            </label>
+            </ul><h3>Route 205 - Est</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_79' />
+            <label for='pkmn_79'>
+                Attraper <span class='h_pkmn'>Ramoloss</span> - 20 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_80' />
+            <label for='pkmn_80'>
+                Faire éclore un œuf de <span class='h_pkmn'>Ramoloss</span> et l'évoluer en <span class='h_pkmn'>Flagadoss</span> (niveau 37)
+            </label><li>
+                <input type='checkbox' id='pkmn_199' />
+            <label for='pkmn_199'>
+                Faire éclore un œuf de <span class='h_pkmn'>Ramoloss</span> et l'évoluer en <span class='h_pkmn'>Roigada</span> (échange avec Kings Rock)
+            </label>
+            </ul><h3>Vestigion - Porte ouest</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_175' />
+            <label for='pkmn_175'>
+                <span class='h_pkmn'>Togepi</span> - œuf offert (<span class='h_loc'>Vestigion - Porte ouest</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_176' />
+            <label for='pkmn_176'>
+                Faire éclore un œuf de <span class='h_pkmn'>Togepi</span> et l'évoluer en <span class='h_pkmn'>Togetic</span> (bonheur)
+            </label>
+            </ul><h3>Route 206</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_246' />
+            <label for='pkmn_246'>
+                Attraper <span class='h_pkmn'>Embrylex</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_207' />
+            <label for='pkmn_207'>
+                Attraper <span class='h_pkmn'>Scorplane</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_343' />
+            <label for='pkmn_343'>
+                Attraper <span class='h_pkmn'>Balbuto</span> - 10 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_247' />
+            <label for='pkmn_247'>
+                Faire éclore un œuf de <span class='h_pkmn'>Embrylex</span> et l'évoluer en <span class='h_pkmn'>Ymphect</span> (niveau 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_344' />
+            <label for='pkmn_344'>
+                Faire éclore un œuf de <span class='h_pkmn'>Balbuto</span> et l'évoluer en <span class='h_pkmn'>Kaorine</span> (niveau 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_472' />
+            <label for='pkmn_472'>
+                Faire éclore un œuf de <span class='h_pkmn'>Scorplane</span> et l'évoluer en <span class='h_pkmn'>Scorvol</span> (la nuit en tenant Croc Rasoir)
+            </label>
+            </ul><h3>Route 211 - Ouest</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_236' />
+            <label for='pkmn_236'>
+                Attraper <span class='h_pkmn'>Debugant</span> - 20 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_216' />
+            <label for='pkmn_216'>
+                Attraper <span class='h_pkmn'>Teddiursa</span> - port GBA (Émeraude)
+            </label><li>
+                <input type='checkbox' id='pkmn_106' />
+            <label for='pkmn_106'>
+                Faire éclore un œuf de <span class='h_pkmn'>Debugant</span> et l'évoluer en <span class='h_pkmn'>Kicklee</span> (niveau 20)
+            </label><li>
+                <input type='checkbox' id='pkmn_107' />
+            <label for='pkmn_107'>
+                Faire éclore un œuf de <span class='h_pkmn'>Debugant</span> et l'évoluer en <span class='h_pkmn'>Tygnon</span> (niveau 20)
+            </label><li>
+                <input type='checkbox' id='pkmn_217' />
+            <label for='pkmn_217'>
+                Faire éclore un œuf de <span class='h_pkmn'>Teddiursa</span> et l'évoluer en <span class='h_pkmn'>Ursaring</span> (niveau 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_237' />
+            <label for='pkmn_237'>
+                Faire éclore un œuf de <span class='h_pkmn'>Debugant</span> et l'évoluer en <span class='h_pkmn'>Kapoera</span> (niveau 20)
+            </label>
+            </ul><h3>Mont Couronné - RdC (Route 211)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_173' />
+            <label for='pkmn_173'>
+                Attraper <span class='h_pkmn'>Mélo</span> - 10 % taux de rencontre
+            </label>
+            </ul><h3>Route 216</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_215' />
+            <label for='pkmn_215'>
+                Attraper <span class='h_pkmn'>Farfuret</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_459' />
+            <label for='pkmn_459'>
+                Attraper <span class='h_pkmn'>Blizzi</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_361' />
+            <label for='pkmn_361'>
+                Attraper <span class='h_pkmn'>Stalgamin</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_362' />
+            <label for='pkmn_362'>
+                Faire éclore un œuf de <span class='h_pkmn'>Stalgamin</span> et l'évoluer en <span class='h_pkmn'>Oniglali</span> (niveau 42)
+            </label><li>
+                <input type='checkbox' id='pkmn_460' />
+            <label for='pkmn_460'>
+                Faire éclore un œuf de <span class='h_pkmn'>Blizzi</span> et l'évoluer en <span class='h_pkmn'>Blizzaroi</span> (niveau 40)
+            </label><li>
+                <input type='checkbox' id='pkmn_461' />
+            <label for='pkmn_461'>
+                Faire éclore un œuf de <span class='h_pkmn'>Farfuret</span> et l'évoluer en <span class='h_pkmn'>Dimoret</span> (la nuit en tenant Griffe Rasoir)
+            </label><li>
+                <input type='checkbox' id='pkmn_478' />
+            <label for='pkmn_478'>
+                Faire éclore un œuf de <span class='h_pkmn'>Stalgamin</span> et l'évoluer en <span class='h_pkmn'>Momartik</span> (Pierre Aube)
+            </label>
+            </ul><h3>Route 217</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_220' />
+            <label for='pkmn_220'>
+                Attraper <span class='h_pkmn'>Marcacrin</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_221' />
+            <label for='pkmn_221'>
+                Attraper <span class='h_pkmn'>Cochignon</span> - 20 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_225' />
+            <label for='pkmn_225'>
+                Attraper <span class='h_pkmn'>Cadoizo</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_473' />
+            <label for='pkmn_473'>
+                Faire éclore un œuf de <span class='h_pkmn'>Cochignon</span> et l'évoluer en <span class='h_pkmn'>Mammochon</span> (en connaissant Pouvoir Antique)
+            </label>
+            </ul><h3>Lac Savoir - (caverne)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_480' />
+            <label for='pkmn_480'>
+                <span class='h_pkmn'>Créhelf</span> - rencontre unique à <span class='h_loc'>Lac Savoir - (caverne)</span>
+            </label>
+            </ul><h3>Route 218</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_100' />
+            <label for='pkmn_100'>
+                Attraper <span class='h_pkmn'>Voltorbe</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_122' />
+            <label for='pkmn_122'>
+                Attraper <span class='h_pkmn'>M. Mime</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_101' />
+            <label for='pkmn_101'>
+                Faire éclore un œuf de <span class='h_pkmn'>Voltorbe</span> et l'évoluer en <span class='h_pkmn'>Électrode</span> (niveau 30)
+            </label>
+            </ul><h3>Joliberges</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_120' />
+            <label for='pkmn_120'>
+                Attraper <span class='h_pkmn'>Stari</span> - 15 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_121' />
+            <label for='pkmn_121'>
+                Faire éclore un œuf de <span class='h_pkmn'>Stari</span> et l'évoluer en <span class='h_pkmn'>Staross</span> (Pierre Eau)
+            </label>
+            </ul><h3>Ile de Fer</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_211' />
+            <label for='pkmn_211'>
+                Attraper <span class='h_pkmn'>Qwilfish</span> - 15 % taux de rencontre
+            </label>
+            </ul><h3>Ile de Fer - 1er s-sol gauche</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_302' />
+            <label for='pkmn_302'>
+                Attraper <span class='h_pkmn'>Ténéfix</span> - port GBA (Saphir)
+            </label><li>
+                <input type='checkbox' id='pkmn_303' />
+            <label for='pkmn_303'>
+                Attraper <span class='h_pkmn'>Mysdibule</span> - port GBA (Rubis)
+            </label>
+            </ul><h3>Ile de Fer - 2e s-sol gauche</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_447' />
+            <label for='pkmn_447'>
+                <span class='h_pkmn'>Riolu</span> - œuf offert (<span class='h_loc'>Ile de Fer - 2e s-sol gauche</span>)
+            </label><li>
+                <input type='checkbox' id='pkmn_448' />
+            <label for='pkmn_448'>
+                Faire éclore un œuf de <span class='h_pkmn'>Riolu</span> et l'évoluer en <span class='h_pkmn'>Lucario</span> (bonheur le jour)
+            </label>
+            </ul><h3>Mont Couronné - 4F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_147' />
+            <label for='pkmn_147'>
+                Attraper <span class='h_pkmn'>Minidraco</span> - 40 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_148' />
+            <label for='pkmn_148'>
+                Attraper <span class='h_pkmn'>Draco</span> - 4 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_149' />
+            <label for='pkmn_149'>
+                Faire éclore un œuf de <span class='h_pkmn'>Draco</span> et l'évoluer en <span class='h_pkmn'>Dracolosse</span> (niveau 55)
+            </label>
+            </ul><h3>Mont Couronné - B1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_349' />
+            <label for='pkmn_349'>
+                Attraper <span class='h_pkmn'>Barpau</span> - 50 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_350' />
+            <label for='pkmn_350'>
+                Faire éclore un œuf de <span class='h_pkmn'>Barpau</span> et l'évoluer en <span class='h_pkmn'>Milobellus</span> (grande beauté)
+            </label>
+            </ul><h3>Mont Couronné - Extérieur (neige)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_294' />
+            <label for='pkmn_294'>
+                Attraper <span class='h_pkmn'>Ramboum</span> - 21 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_359' />
+            <label for='pkmn_359'>
+                Attraper <span class='h_pkmn'>Absol</span> - 4 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_295' />
+            <label for='pkmn_295'>
+                Faire éclore un œuf de <span class='h_pkmn'>Ramboum</span> et l'évoluer en <span class='h_pkmn'>Brouhabam</span> (niveau 40)
+            </label>
+            </ul><h3>Colonnes Lances</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_483' />
+            <label for='pkmn_483'>
+                <span class='h_pkmn'>Dialga</span> - rencontre unique à <span class='h_loc'>Colonnes Lances</span>
+            </label><li>
+                <input type='checkbox' id='pkmn_484' />
+            <label for='pkmn_484'>
+                <span class='h_pkmn'>Palkia</span> - rencontre unique à <span class='h_loc'>Colonnes Lances</span>
+            </label>
+            </ul><h3>Monde Distorsion</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_487' />
+            <label for='pkmn_487'>
+                <span class='h_pkmn'>Giratina</span> - rencontre unique à <span class='h_loc'>Monde Distorsion</span>
+            </label>
+            </ul><h3>Route 222</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_125' />
+            <label for='pkmn_125'>
+                Attraper <span class='h_pkmn'>Élektek</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_300' />
+            <label for='pkmn_300'>
+                Attraper <span class='h_pkmn'>Skitty</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_81' />
+            <label for='pkmn_81'>
+                Attraper <span class='h_pkmn'>Magnéti</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_82' />
+            <label for='pkmn_82'>
+                Attraper <span class='h_pkmn'>Magnéton</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_301' />
+            <label for='pkmn_301'>
+                Faire éclore un œuf de <span class='h_pkmn'>Skitty</span> et l'évoluer en <span class='h_pkmn'>Delcatty</span> (Pierre Lune)
+            </label><li>
+                <input type='checkbox' id='pkmn_462' />
+            <label for='pkmn_462'>
+                Faire éclore un œuf de <span class='h_pkmn'>Magnéton</span> et l'évoluer en <span class='h_pkmn'>Magnézone</span> (dans le Mont Couronné)
+            </label><li>
+                <input type='checkbox' id='pkmn_466' />
+            <label for='pkmn_466'>
+                Faire éclore un œuf de <span class='h_pkmn'>Élektek</span> et l'évoluer en <span class='h_pkmn'>Élekable</span> (échange avec Électiriseur)
+            </label>
+            </ul><h3>Chenal 223</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_320' />
+            <label for='pkmn_320'>
+                Attraper <span class='h_pkmn'>Wailmer</span> - 40 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_458' />
+            <label for='pkmn_458'>
+                Attraper <span class='h_pkmn'>Babimanta</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_321' />
+            <label for='pkmn_321'>
+                Attraper <span class='h_pkmn'>Wailord</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_226' />
+            <label for='pkmn_226'>
+                Faire éclore un œuf de <span class='h_pkmn'>Babimanta</span> et l'évoluer en <span class='h_pkmn'>Démanta</span> (Rémoraid dans l'équipe)
+            </label>
+            </ul><h3>Ligue Pokémon</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_370' />
+            <label for='pkmn_370'>
+                Attraper <span class='h_pkmn'>Lovdisc</span> - 15 % taux de rencontre
+            </label>
+            </ul><h3>Route Victoire - 1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_444' />
+            <label for='pkmn_444'>
+                Attraper <span class='h_pkmn'>Carmache</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_445' />
+            <label for='pkmn_445'>
+                Faire éclore un œuf de <span class='h_pkmn'>Carmache</span> et l'évoluer en <span class='h_pkmn'>Carchacrok</span> (niveau 48)
+            </label>
+            </ul><h3>Route Victoire - Intérieur sous-sol</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_87' />
+            <label for='pkmn_87'>
+                Attraper <span class='h_pkmn'>Lamantine</span> - 30 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_131' />
+            <label for='pkmn_131'>
+                Attraper <span class='h_pkmn'>Lokhlass</span> - 10 % taux de rencontre
+            </label>
+            </ul><h3>Route 221</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_83' />
+            <label for='pkmn_83'>
+                Attraper <span class='h_pkmn'>Canarticho</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_185' />
+            <label for='pkmn_185'>
+                Attraper <span class='h_pkmn'>Simularbre</span> - 10 % taux de rencontre
+            </label>
+            </ul><h3>Route 224</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_177' />
+            <label for='pkmn_177'>
+                Attraper <span class='h_pkmn'>Natu</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_43' />
+            <label for='pkmn_43'>
+                Attraper <span class='h_pkmn'>Mystherbe</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_69' />
+            <label for='pkmn_69'>
+                Attraper <span class='h_pkmn'>Chétiflor</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_213' />
+            <label for='pkmn_213'>
+                Attraper <span class='h_pkmn'>Caratroc</span> - port GBA (Émeraude)
+            </label><li>
+                <input type='checkbox' id='pkmn_44' />
+            <label for='pkmn_44'>
+                Attraper <span class='h_pkmn'>Ortide</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_70' />
+            <label for='pkmn_70'>
+                Attraper <span class='h_pkmn'>Boustiflor</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_45' />
+            <label for='pkmn_45'>
+                Faire éclore un œuf de <span class='h_pkmn'>Ortide</span> et l'évoluer en <span class='h_pkmn'>Rafflesia</span> (Pierre Plante)
+            </label><li>
+                <input type='checkbox' id='pkmn_71' />
+            <label for='pkmn_71'>
+                Faire éclore un œuf de <span class='h_pkmn'>Boustiflor</span> et l'évoluer en <span class='h_pkmn'>Empiflor</span> (Pierre Plante)
+            </label><li>
+                <input type='checkbox' id='pkmn_178' />
+            <label for='pkmn_178'>
+                Faire éclore un œuf de <span class='h_pkmn'>Natu</span> et l'évoluer en <span class='h_pkmn'>Xatu</span> (niveau 25)
+            </label><li>
+                <input type='checkbox' id='pkmn_182' />
+            <label for='pkmn_182'>
+                Faire éclore un œuf de <span class='h_pkmn'>Ortide</span> et l'évoluer en <span class='h_pkmn'>Joliflor</span> (Pierre Soleil)
+            </label>
+            </ul><h3>Route 225</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_296' />
+            <label for='pkmn_296'>
+                Attraper <span class='h_pkmn'>Makuhita</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_20' />
+            <label for='pkmn_20'>
+                Attraper <span class='h_pkmn'>Rattatac</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_22' />
+            <label for='pkmn_22'>
+                Attraper <span class='h_pkmn'>Rapasdepic</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_57' />
+            <label for='pkmn_57'>
+                Attraper <span class='h_pkmn'>Colossinge</span> - 10 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_354' />
+            <label for='pkmn_354'>
+                Attraper <span class='h_pkmn'>Branette</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_19' />
+            <label for='pkmn_19'>
+                Attraper <span class='h_pkmn'>Rattata</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_21' />
+            <label for='pkmn_21'>
+                Attraper <span class='h_pkmn'>Piafabec</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_56' />
+            <label for='pkmn_56'>
+                Attraper <span class='h_pkmn'>Férosinge</span> - 2 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_297' />
+            <label for='pkmn_297'>
+                Faire éclore un œuf de <span class='h_pkmn'>Makuhita</span> et l'évoluer en <span class='h_pkmn'>Hariyama</span> (niveau 24)
+            </label>
+            </ul><h3>Chenal 226</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_116' />
+            <label for='pkmn_116'>
+                Attraper <span class='h_pkmn'>Hypotrempe</span> - 40 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_117' />
+            <label for='pkmn_117'>
+                Attraper <span class='h_pkmn'>Hypocéan</span> - 40 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_98' />
+            <label for='pkmn_98'>
+                Attraper <span class='h_pkmn'>Krabby</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_369' />
+            <label for='pkmn_369'>
+                Attraper <span class='h_pkmn'>Relicanth</span> - 15 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_99' />
+            <label for='pkmn_99'>
+                Faire éclore un œuf de <span class='h_pkmn'>Krabby</span> et l'évoluer en <span class='h_pkmn'>Krabboss</span> (niveau 28)
+            </label><li>
+                <input type='checkbox' id='pkmn_230' />
+            <label for='pkmn_230'>
+                Faire éclore un œuf de <span class='h_pkmn'>Hypocéan</span> et l'évoluer en <span class='h_pkmn'>Hyporoi</span> (échange avec Écaille Draco)
+            </label>
+            </ul><h3>Route 227</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_61' />
+            <label for='pkmn_61'>
+                Attraper <span class='h_pkmn'>Têtarte</span> - 70 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_60' />
+            <label for='pkmn_60'>
+                Attraper <span class='h_pkmn'>Ptitard</span> - 30 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_323' />
+            <label for='pkmn_323'>
+                Attraper <span class='h_pkmn'>Camérupt</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_327' />
+            <label for='pkmn_327'>
+                Attraper <span class='h_pkmn'>Spinda</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_324' />
+            <label for='pkmn_324'>
+                Attraper <span class='h_pkmn'>Chartor</span> - 11 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_110' />
+            <label for='pkmn_110'>
+                Attraper <span class='h_pkmn'>Smogogo</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_227' />
+            <label for='pkmn_227'>
+                Attraper <span class='h_pkmn'>Airmure</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_322' />
+            <label for='pkmn_322'>
+                Attraper <span class='h_pkmn'>Chamallot</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_62' />
+            <label for='pkmn_62'>
+                Faire éclore un œuf de <span class='h_pkmn'>Têtarte</span> et l'évoluer en <span class='h_pkmn'>Tartard</span> (Pierre Eau)
+            </label><li>
+                <input type='checkbox' id='pkmn_186' />
+            <label for='pkmn_186'>
+                Faire éclore un œuf de <span class='h_pkmn'>Têtarte</span> et l'évoluer en <span class='h_pkmn'>Tarpaud</span> (échange avec Kings Rock)
+            </label>
+            </ul><h3>Route 228</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_51' />
+            <label for='pkmn_51'>
+                Attraper <span class='h_pkmn'>Triopikeur</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_332' />
+            <label for='pkmn_332'>
+                Attraper <span class='h_pkmn'>Cacturne</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_374' />
+            <label for='pkmn_374'>
+                Attraper <span class='h_pkmn'>Terhal</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_50' />
+            <label for='pkmn_50'>
+                Attraper <span class='h_pkmn'>Taupiqueur</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_331' />
+            <label for='pkmn_331'>
+                Attraper <span class='h_pkmn'>Cacnea</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_28' />
+            <label for='pkmn_28'>
+                Attraper <span class='h_pkmn'>Sablaireau</span> - port GBA (Vert Feuille)
+            </label><li>
+                <input type='checkbox' id='pkmn_375' />
+            <label for='pkmn_375'>
+                Faire éclore un œuf de <span class='h_pkmn'>Terhal</span> et l'évoluer en <span class='h_pkmn'>Métang</span> (niveau 20)
+            </label>
+            </ul><h3>Route 229</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_283' />
+            <label for='pkmn_283'>
+                Attraper <span class='h_pkmn'>Arakdo</span> - 95 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_16' />
+            <label for='pkmn_16'>
+                Attraper <span class='h_pkmn'>Roucool</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_49' />
+            <label for='pkmn_49'>
+                Attraper <span class='h_pkmn'>Aéromite</span> - 20 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_127' />
+            <label for='pkmn_127'>
+                Attraper <span class='h_pkmn'>Scarabrute</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_166' />
+            <label for='pkmn_166'>
+                Attraper <span class='h_pkmn'>Coxyclaque</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_168' />
+            <label for='pkmn_168'>
+                Attraper <span class='h_pkmn'>Migalos</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_313' />
+            <label for='pkmn_313'>
+                Attraper <span class='h_pkmn'>Muciole</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_314' />
+            <label for='pkmn_314'>
+                Attraper <span class='h_pkmn'>Lumivole</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_284' />
+            <label for='pkmn_284'>
+                Attraper <span class='h_pkmn'>Maskadra</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_48' />
+            <label for='pkmn_48'>
+                Attraper <span class='h_pkmn'>Mimitoss</span> - 2 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_17' />
+            <label for='pkmn_17'>
+                Faire éclore un œuf de <span class='h_pkmn'>Roucool</span> et l'évoluer en <span class='h_pkmn'>Roucoups</span> (niveau 18)
+            </label>
+            </ul><h3>Chenal 230</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_364' />
+            <label for='pkmn_364'>
+                Attraper <span class='h_pkmn'>Phogleur</span> - 60 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_222' />
+            <label for='pkmn_222'>
+                Attraper <span class='h_pkmn'>Corayon</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_365' />
+            <label for='pkmn_365'>
+                Faire éclore un œuf de <span class='h_pkmn'>Phogleur</span> et l'évoluer en <span class='h_pkmn'>Kaimorse</span> (niveau 44)
+            </label>
+            </ul><h3>Chenal 220</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_170' />
+            <label for='pkmn_170'>
+                Attraper <span class='h_pkmn'>Loupio</span> - 15 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_171' />
+            <label for='pkmn_171'>
+                Faire éclore un œuf de <span class='h_pkmn'>Loupio</span> et l'évoluer en <span class='h_pkmn'>Lanturn</span> (niveau 27)
+            </label>
+            </ul><h3>Mont Abrupt - (entrée)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_219' />
+            <label for='pkmn_219'>
+                Attraper <span class='h_pkmn'>Volcaropod</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_218' />
+            <label for='pkmn_218'>
+                Attraper <span class='h_pkmn'>Limagma</span> - 5 % taux de rencontre
+            </label>
+            </ul><h3>Mont Abrupt - (caverne principale)</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_109' />
+            <label for='pkmn_109'>
+                Attraper <span class='h_pkmn'>Smogo</span> - 5 % taux de rencontre
+            </label>
+            </ul><h3>Mont Abrupt - Salle d'Heatran</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_485' />
+            <label for='pkmn_485'>
+                <span class='h_pkmn'>Heatran</span> - rencontre unique à <span class='h_loc'>Mont Abrupt - Salle d'Heatran</span>
+            </label>
+            </ul><h3>Jardin Trophée</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_172' />
+            <label for='pkmn_172'>
+                Attraper <span class='h_pkmn'>Pichu</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_39' />
+            <label for='pkmn_39'>
+                Attraper <span class='h_pkmn'>Rondoudou</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_52' />
+            <label for='pkmn_52'>
+                Attraper <span class='h_pkmn'>Miaouss</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_132' />
+            <label for='pkmn_132'>
+                Attraper <span class='h_pkmn'>Métamorph</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_174' />
+            <label for='pkmn_174'>
+                Attraper <span class='h_pkmn'>Toudoudou</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_298' />
+            <label for='pkmn_298'>
+                Attraper <span class='h_pkmn'>Azurill</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_311' />
+            <label for='pkmn_311'>
+                Attraper <span class='h_pkmn'>Posipi</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_312' />
+            <label for='pkmn_312'>
+                Attraper <span class='h_pkmn'>Négapi</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_351' />
+            <label for='pkmn_351'>
+                Attraper <span class='h_pkmn'>Morphéo</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_438' />
+            <label for='pkmn_438'>
+                Attraper <span class='h_pkmn'>Manzaï</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_439' />
+            <label for='pkmn_439'>
+                Attraper <span class='h_pkmn'>Mime Jr.</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_440' />
+            <label for='pkmn_440'>
+                Attraper <span class='h_pkmn'>Ptiravi</span> - nuée quotidienne
+            </label><li>
+                <input type='checkbox' id='pkmn_25' />
+            <label for='pkmn_25'>
+                Attraper <span class='h_pkmn'>Pikachu</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_26' />
+            <label for='pkmn_26'>
+                Faire éclore un œuf de <span class='h_pkmn'>Pikachu</span> et l'évoluer en <span class='h_pkmn'>Raichu</span> (Pierre Foudre)
+            </label><li>
+                <input type='checkbox' id='pkmn_40' />
+            <label for='pkmn_40'>
+                Faire éclore un œuf de <span class='h_pkmn'>Rondoudou</span> et l'évoluer en <span class='h_pkmn'>Grodoudou</span> (Pierre Lune)
+            </label><li>
+                <input type='checkbox' id='pkmn_53' />
+            <label for='pkmn_53'>
+                Faire éclore un œuf de <span class='h_pkmn'>Miaouss</span> et l'évoluer en <span class='h_pkmn'>Persian</span> (niveau 28)
+            </label>
+            </ul><h3>Forge Fuego</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_126' />
+            <label for='pkmn_126'>
+                Attraper <span class='h_pkmn'>Magmar</span> - 20 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_304' />
+            <label for='pkmn_304'>
+                Attraper <span class='h_pkmn'>Galekid</span> - 20 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_305' />
+            <label for='pkmn_305'>
+                Faire éclore un œuf de <span class='h_pkmn'>Galekid</span> et l'évoluer en <span class='h_pkmn'>Galegon</span> (niveau 32)
+            </label><li>
+                <input type='checkbox' id='pkmn_467' />
+            <label for='pkmn_467'>
+                Faire éclore un œuf de <span class='h_pkmn'>Magmar</span> et l'évoluer en <span class='h_pkmn'>Maganon</span> (échange avec Magmariseur)
+            </label>
+            </ul><h3>Grotte Revèche - 1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_27' />
+            <label for='pkmn_27'>
+                Attraper <span class='h_pkmn'>Sabelette</span> - port GBA (Vert Feuille)
+            </label>
+            </ul><h3>Grotte Revèche - B1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_443' />
+            <label for='pkmn_443'>
+                Attraper <span class='h_pkmn'>Griknot</span> - 10 % taux de rencontre
+            </label>
+            </ul><h3>Vieux Château - Étage pièce centre gauche</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_479' />
+            <label for='pkmn_479'>
+                <span class='h_pkmn'>Motisma</span> - rencontre unique à <span class='h_loc'>Vieux Château - Étage pièce centre gauche</span>
+            </label>
+            </ul><h3>Vieux Château - Étage pièce centre droite</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_94' />
+            <label for='pkmn_94'>
+                Attraper <span class='h_pkmn'>Ectoplasma</span> - port GBA (Rubis)
+            </label>
+            </ul><h3>Temple Frimapic - 1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_238' />
+            <label for='pkmn_238'>
+                Attraper <span class='h_pkmn'>Lippouti</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_124' />
+            <label for='pkmn_124'>
+                Faire éclore un œuf de <span class='h_pkmn'>Lippouti</span> et l'évoluer en <span class='h_pkmn'>Lippoutou</span> (niveau 30)
+            </label>
+            </ul><h3>Temple Frimapic - B5F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_486' />
+            <label for='pkmn_486'>
+                <span class='h_pkmn'>Regigigas</span> - rencontre unique à <span class='h_loc'>Temple Frimapic - B5F</span>
+            </label>
+            </ul><h3>Paradis Fleuri</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_492' />
+            <label for='pkmn_492'>
+                <span class='h_pkmn'>Shaymin</span> - Oak's Letter (évènement) (<span class='h_loc'>Paradis Fleuri</span>)
+            </label>
+            </ul><h3>Ile Nouvellelune</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_491' />
+            <label for='pkmn_491'>
+                <span class='h_pkmn'>Darkrai</span> - Member Card (évènement) (<span class='h_loc'>Ile Nouvellelune</span>)
+            </label>
+            </ul><h3>Salle Originelle</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_493' />
+            <label for='pkmn_493'>
+                <span class='h_pkmn'>Arceus</span> - Azure Flute (évènement) (<span class='h_loc'>Salle Originelle</span>)
+            </label>
+            </ul><h3>Sillonnant Sinnoh</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_144' />
+            <label for='pkmn_144'>
+                <span class='h_pkmn'>Artikodin</span> - rencontre itinérante
+            </label><li>
+                <input type='checkbox' id='pkmn_145' />
+            <label for='pkmn_145'>
+                <span class='h_pkmn'>Électhor</span> - rencontre itinérante
+            </label><li>
+                <input type='checkbox' id='pkmn_146' />
+            <label for='pkmn_146'>
+                <span class='h_pkmn'>Sulfura</span> - rencontre itinérante
+            </label><li>
+                <input type='checkbox' id='pkmn_481' />
+            <label for='pkmn_481'>
+                <span class='h_pkmn'>Créfollet</span> - rencontre itinérante
+            </label><li>
+                <input type='checkbox' id='pkmn_488' />
+            <label for='pkmn_488'>
+                <span class='h_pkmn'>Cresselia</span> - rencontre itinérante
+            </label>
+            </ul><h3>Pokémon Ranger</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_490' />
+            <label for='pkmn_490'>
+                <span class='h_pkmn'>Manaphy</span> - œuf de mission Pokémon Ranger
+            </label>
+            </ul>
+            </article>
+            <article>
+                <h3>Poké Radar</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_329' />
+            <label for='pkmn_329'>
+                Attraper <span class='h_pkmn'>Vibraninf</span> - 10 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_328' />
+            <label for='pkmn_328'>
+                Attraper <span class='h_pkmn'>Kraknoix</span> - 2 % taux avec le Poké Radar
+            </label><li>
+                <input type='checkbox' id='pkmn_330' />
+            <label for='pkmn_330'>
+                Faire éclore un œuf de <span class='h_pkmn'>Vibraninf</span> et l'évoluer en <span class='h_pkmn'>Libégon</span> (niveau 45)
+            </label>
+            </ul><h3>Arbres à miel</h3>
+            <ul>
+                
+            </ul><h3>Nuées quotidiennes</h3>
+            <ul>
+                
+            </ul><h3>Rencontres par port GBA</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_239' />
+            <label for='pkmn_239'>
+                Attraper <span class='h_pkmn'>Élekid</span> - port GBA (Rouge Feu)
+            </label><li>
+                <input type='checkbox' id='pkmn_240' />
+            <label for='pkmn_240'>
+                Attraper <span class='h_pkmn'>Magby</span> - port GBA (Vert Feuille)
+            </label><li>
+                <input type='checkbox' id='pkmn_434' />
+            <label for='pkmn_434'>
+                Attraper <span class='h_pkmn'>Moufouette</span> - port GBA (Rubis)
+            </label><li>
+                <input type='checkbox' id='pkmn_435' />
+            <label for='pkmn_435'>
+                Faire éclore un œuf de <span class='h_pkmn'>Moufouette</span> et l'évoluer en <span class='h_pkmn'>Moufflair</span> (niveau 34)
+            </label>
+            </ul>
+            </article>
+            <h2 class='heartgold'>Pokémon Or HeartGold et Argent SoulSilver</h2>
+            <article>
+                <h3>Bourg Geon</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_167' />
+            <label for='pkmn_167'>
+                Attraper <span class='h_pkmn'>Mimigal</span> - 30 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_152' />
+            <label for='pkmn_152'>
+                <span class='h_pkmn'>Germignon</span> - Pokémon de départ
+            </label><li>
+                <input type='checkbox' id='pkmn_155' />
+            <label for='pkmn_155'>
+                <span class='h_pkmn'>Héricendre</span> - Pokémon de départ
+            </label><li>
+                <input type='checkbox' id='pkmn_158' />
+            <label for='pkmn_158'>
+                <span class='h_pkmn'>Kaiminus</span> - Pokémon de départ
+            </label><li>
+                <input type='checkbox' id='pkmn_153' />
+            <label for='pkmn_153'>
+                Faire éclore un œuf de <span class='h_pkmn'>Germignon</span> et l'évoluer en <span class='h_pkmn'>Macronium</span> (niveau 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_156' />
+            <label for='pkmn_156'>
+                Faire éclore un œuf de <span class='h_pkmn'>Héricendre</span> et l'évoluer en <span class='h_pkmn'>Feurisson</span> (niveau 14)
+            </label><li>
+                <input type='checkbox' id='pkmn_159' />
+            <label for='pkmn_159'>
+                Faire éclore un œuf de <span class='h_pkmn'>Kaiminus</span> et l'évoluer en <span class='h_pkmn'>Crocrodil</span> (niveau 18)
+            </label>
+            </ul><h3>Route 30</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_293' />
+            <label for='pkmn_293'>
+                Attraper <span class='h_pkmn'>Chuchmur</span> - après la chanson de Hoenn à la radio
+            </label>
+            </ul><h3>Ville Griotte</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_276' />
+            <label for='pkmn_276'>
+                Attraper <span class='h_pkmn'>Nirondelle</span> - 30 % taux de rencontre
+            </label>
+            </ul><h3>Bois aux Chênes</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_12' />
+            <label for='pkmn_12'>
+                Attraper <span class='h_pkmn'>Papilusion</span> - 10 % taux de rencontre
+            </label>
+            </ul><h3>Parc Naturel</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_15' />
+            <label for='pkmn_15'>
+                Attraper <span class='h_pkmn'>Dardargnan</span> - 5 % taux de rencontre
+            </label>
+            </ul><h3>Tour Carillon - Toit</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_250' />
+            <label for='pkmn_250'>
+                <span class='h_pkmn'>Ho-Oh</span> - rencontre unique à <span class='h_loc'>Tour Carillon - Toit</span>
+            </label>
+            </ul><h3>Route 47</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_86' />
+            <label for='pkmn_86'>
+                Attraper <span class='h_pkmn'>Otaria</span> - 30 % taux de rencontre
+            </label>
+            </ul><h3>Route 47 - Grotte Falaise</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_200' />
+            <label for='pkmn_200'>
+                Attraper <span class='h_pkmn'>Feuforêve</span> - 5 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_429' />
+            <label for='pkmn_429'>
+                Faire éclore un œuf de <span class='h_pkmn'>Feuforêve</span> et l'évoluer en <span class='h_pkmn'>Magirêve</span> (Pierre Nuit)
+            </label>
+            </ul><h3>Bourg Palette</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_1' />
+            <label for='pkmn_1'>
+                <span class='h_pkmn'>Bulbizarre</span> - Pokémon de départ
+            </label><li>
+                <input type='checkbox' id='pkmn_4' />
+            <label for='pkmn_4'>
+                <span class='h_pkmn'>Salamèche</span> - Pokémon de départ
+            </label><li>
+                <input type='checkbox' id='pkmn_7' />
+            <label for='pkmn_7'>
+                <span class='h_pkmn'>Carapuce</span> - Pokémon de départ
+            </label><li>
+                <input type='checkbox' id='pkmn_2' />
+            <label for='pkmn_2'>
+                Faire éclore un œuf de <span class='h_pkmn'>Bulbizarre</span> et l'évoluer en <span class='h_pkmn'>Herbizarre</span> (niveau 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_5' />
+            <label for='pkmn_5'>
+                Faire éclore un œuf de <span class='h_pkmn'>Salamèche</span> et l'évoluer en <span class='h_pkmn'>Reptincel</span> (niveau 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_8' />
+            <label for='pkmn_8'>
+                Faire éclore un œuf de <span class='h_pkmn'>Carapuce</span> et l'évoluer en <span class='h_pkmn'>Carabaffe</span> (niveau 16)
+            </label>
+            </ul><h3>Caverne Azurée - B1F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_150' />
+            <label for='pkmn_150'>
+                <span class='h_pkmn'>Mewtwo</span> - rencontre unique à <span class='h_loc'>Caverne Azurée - B1F</span>
+            </label>
+            </ul><h3>Route 25</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_245' />
+            <label for='pkmn_245'>
+                <span class='h_pkmn'>Suicune</span> - rencontre unique à <span class='h_loc'>Route 25</span>
+            </label>
+            </ul><h3>Safrania - Sylphe SARL</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_252' />
+            <label for='pkmn_252'>
+                <span class='h_pkmn'>Arcko</span> - Pokémon de départ
+            </label><li>
+                <input type='checkbox' id='pkmn_255' />
+            <label for='pkmn_255'>
+                <span class='h_pkmn'>Poussifeu</span> - Pokémon de départ
+            </label><li>
+                <input type='checkbox' id='pkmn_258' />
+            <label for='pkmn_258'>
+                <span class='h_pkmn'>Gobou</span> - Pokémon de départ
+            </label><li>
+                <input type='checkbox' id='pkmn_253' />
+            <label for='pkmn_253'>
+                Faire éclore un œuf de <span class='h_pkmn'>Arcko</span> et l'évoluer en <span class='h_pkmn'>Massko</span> (niveau 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_256' />
+            <label for='pkmn_256'>
+                Faire éclore un œuf de <span class='h_pkmn'>Poussifeu</span> et l'évoluer en <span class='h_pkmn'>Galifeu</span> (niveau 16)
+            </label><li>
+                <input type='checkbox' id='pkmn_259' />
+            <label for='pkmn_259'>
+                Faire éclore un œuf de <span class='h_pkmn'>Gobou</span> et l'évoluer en <span class='h_pkmn'>Flobio</span> (niveau 16)
+            </label>
+            </ul><h3>Route 7</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_198' />
+            <label for='pkmn_198'>
+                Attraper <span class='h_pkmn'>Cornèbre</span> - 30 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_430' />
+            <label for='pkmn_430'>
+                Faire éclore un œuf de <span class='h_pkmn'>Cornèbre</span> et l'évoluer en <span class='h_pkmn'>Corboss</span> (Pierre Nuit)
+            </label>
+            </ul><h3>Chenal 19</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_366' />
+            <label for='pkmn_366'>
+                Attraper <span class='h_pkmn'>Coquiperl</span> - 60 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_367' />
+            <label for='pkmn_367'>
+                Faire éclore un œuf de <span class='h_pkmn'>Coquiperl</span> et l'évoluer en <span class='h_pkmn'>Serpang</span> (échange avec Croc Profond)
+            </label><li>
+                <input type='checkbox' id='pkmn_368' />
+            <label for='pkmn_368'>
+                Faire éclore un œuf de <span class='h_pkmn'>Coquiperl</span> et l'évoluer en <span class='h_pkmn'>Rosabyss</span> (échange avec Écaille Profonde)
+            </label>
+            </ul><h3>Tourb'Iles - B3F</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_249' />
+            <label for='pkmn_249'>
+                <span class='h_pkmn'>Lugia</span> - rencontre unique à <span class='h_loc'>Tourb'Iles - B3F</span>
+            </label>
+            </ul><h3>Tour Enfouie</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_382' />
+            <label for='pkmn_382'>
+                <span class='h_pkmn'>Kyogre</span> - rencontre unique à <span class='h_loc'>Tour Enfouie</span>
+            </label><li>
+                <input type='checkbox' id='pkmn_384' />
+            <label for='pkmn_384'>
+                <span class='h_pkmn'>Rayquaza</span> - rencontre unique à <span class='h_loc'>Tour Enfouie</span>
+            </label>
+            </ul><h3>Sillonnant Johto</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_243' />
+            <label for='pkmn_243'>
+                <span class='h_pkmn'>Raikou</span> - rencontre itinérante
+            </label><li>
+                <input type='checkbox' id='pkmn_244' />
+            <label for='pkmn_244'>
+                <span class='h_pkmn'>Entei</span> - rencontre itinérante
+            </label><li>
+                <input type='checkbox' id='pkmn_380' />
+            <label for='pkmn_380'>
+                <span class='h_pkmn'>Latias</span> - rencontre itinérante
+            </label>
+            </ul><h3>Parc Safari - Forêt</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_353' />
+            <label for='pkmn_353'>
+                Attraper <span class='h_pkmn'>Polichombr</span> - objets du Parc Safari (Parc Safari - Forêt)
+            </label>
+            </ul><h3>Parc Safari - Marécage</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_189' />
+            <label for='pkmn_189'>
+                Attraper <span class='h_pkmn'>Cotovol</span> - objets du Parc Safari (Parc Safari - Marécage)
+            </label>
+            </ul><h3>Parc Safari - Pic</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_76' />
+            <label for='pkmn_76'>
+                Attraper <span class='h_pkmn'>Grolem</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_363' />
+            <label for='pkmn_363'>
+                Attraper <span class='h_pkmn'>Obalie</span> - objets du Parc Safari (Parc Safari - Pic)
+            </label>
+            </ul>
+            </article>
+            <article>
+                <h3>Chansons radio</h3>
+            <ul>
+                
+            </ul><h3>Objets du Parc Safari</h3>
+            <ul>
+                
+            </ul><h3>Nuées quotidiennes</h3>
+            <ul>
+                
+            </ul><h3>Rencontres par port GBA</h3>
+            <ul>
+                
+            </ul>
+            </article>
+            <article>
+                <h3>Diamant et Perle uniquement</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_431' />
+            <label for='pkmn_431'>
+                Attraper <span class='h_pkmn'>Chaglam</span> - 10 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_432' />
+            <label for='pkmn_432'>
+                Attraper <span class='h_pkmn'>Chaffreux</span> - 10 % taux de rencontre
+            </label>
+            </ul>
+            </article>
+            <article>
+                <h3>Argent SoulSilver uniquement</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_165' />
+            <label for='pkmn_165'>
+                Attraper <span class='h_pkmn'>Coxy</span> - 30 % taux de rencontre
+            </label><li>
+                <input type='checkbox' id='pkmn_383' />
+            <label for='pkmn_383'>
+                <span class='h_pkmn'>Groudon</span> - rencontre unique à <span class='h_loc'>Tour Enfouie</span>
+            </label><li>
+                <input type='checkbox' id='pkmn_381' />
+            <label for='pkmn_381'>
+                <span class='h_pkmn'>Latios</span> - rencontre itinérante
+            </label><li>
+                <input type='checkbox' id='pkmn_3' />
+            <label for='pkmn_3'>
+                Faire éclore un œuf de <span class='h_pkmn'>Herbizarre</span> et l'évoluer en <span class='h_pkmn'>Florizarre</span> (niveau 32)
+            </label><li>
+                <input type='checkbox' id='pkmn_6' />
+            <label for='pkmn_6'>
+                Faire éclore un œuf de <span class='h_pkmn'>Reptincel</span> et l'évoluer en <span class='h_pkmn'>Dracaufeu</span> (niveau 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_9' />
+            <label for='pkmn_9'>
+                Faire éclore un œuf de <span class='h_pkmn'>Carabaffe</span> et l'évoluer en <span class='h_pkmn'>Tortank</span> (niveau 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_154' />
+            <label for='pkmn_154'>
+                Faire éclore un œuf de <span class='h_pkmn'>Macronium</span> et l'évoluer en <span class='h_pkmn'>Méganium</span> (niveau 32)
+            </label><li>
+                <input type='checkbox' id='pkmn_157' />
+            <label for='pkmn_157'>
+                Faire éclore un œuf de <span class='h_pkmn'>Feurisson</span> et l'évoluer en <span class='h_pkmn'>Typhlosion</span> (niveau 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_160' />
+            <label for='pkmn_160'>
+                Faire éclore un œuf de <span class='h_pkmn'>Crocrodil</span> et l'évoluer en <span class='h_pkmn'>Aligatueur</span> (niveau 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_254' />
+            <label for='pkmn_254'>
+                Faire éclore un œuf de <span class='h_pkmn'>Massko</span> et l'évoluer en <span class='h_pkmn'>Jungko</span> (niveau 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_257' />
+            <label for='pkmn_257'>
+                Faire éclore un œuf de <span class='h_pkmn'>Galifeu</span> et l'évoluer en <span class='h_pkmn'>Braségali</span> (niveau 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_260' />
+            <label for='pkmn_260'>
+                Faire éclore un œuf de <span class='h_pkmn'>Flobio</span> et l'évoluer en <span class='h_pkmn'>Laggron</span> (niveau 36)
+            </label>
+            </ul>
+            </article>
+            <article>
+                <h3>Divers</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_18' />
+            <label for='pkmn_18'>
+                Faire éclore un œuf de <span class='h_pkmn'>Roucoups</span> et l'évoluer en <span class='h_pkmn'>Roucarnage</span> (niveau 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_31' />
+            <label for='pkmn_31'>
+                Faire éclore un œuf de <span class='h_pkmn'>Nidorina</span> et l'évoluer en <span class='h_pkmn'>Nidoqueen</span> (Pierre Lune)
+            </label><li>
+                <input type='checkbox' id='pkmn_34' />
+            <label for='pkmn_34'>
+                Faire éclore un œuf de <span class='h_pkmn'>Nidorino</span> et l'évoluer en <span class='h_pkmn'>Nidoking</span> (Pierre Lune)
+            </label><li>
+                <input type='checkbox' id='pkmn_65' />
+            <label for='pkmn_65'>
+                Faire éclore un œuf de <span class='h_pkmn'>Kadabra</span> et l'évoluer en <span class='h_pkmn'>Alakazam</span> (échange)
+            </label><li>
+                <input type='checkbox' id='pkmn_68' />
+            <label for='pkmn_68'>
+                Faire éclore un œuf de <span class='h_pkmn'>Machopeur</span> et l'évoluer en <span class='h_pkmn'>Mackogneur</span> (échange)
+            </label><li>
+                <input type='checkbox' id='pkmn_151' />
+            <label for='pkmn_151'>
+                Parc des Amis - import depuis la Gen 3
+            </label><li>
+                <input type='checkbox' id='pkmn_169' />
+            <label for='pkmn_169'>
+                Faire éclore un œuf de <span class='h_pkmn'>Nosferalto</span> et l'évoluer en <span class='h_pkmn'>Nostenfer</span> (bonheur)
+            </label><li>
+                <input type='checkbox' id='pkmn_181' />
+            <label for='pkmn_181'>
+                Faire éclore un œuf de <span class='h_pkmn'>Lainergie</span> et l'évoluer en <span class='h_pkmn'>Pharamp</span> (niveau 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_248' />
+            <label for='pkmn_248'>
+                Faire éclore un œuf de <span class='h_pkmn'>Ymphect</span> et l'évoluer en <span class='h_pkmn'>Tyranocif</span> (niveau 55)
+            </label><li>
+                <input type='checkbox' id='pkmn_251' />
+            <label for='pkmn_251'>
+                Parc des Amis - import depuis la Gen 3
+            </label><li>
+                <input type='checkbox' id='pkmn_272' />
+            <label for='pkmn_272'>
+                Faire éclore un œuf de <span class='h_pkmn'>Lombre</span> et l'évoluer en <span class='h_pkmn'>Ludicolo</span> (Pierre Eau)
+            </label><li>
+                <input type='checkbox' id='pkmn_275' />
+            <label for='pkmn_275'>
+                Faire éclore un œuf de <span class='h_pkmn'>Pifeuil</span> et l'évoluer en <span class='h_pkmn'>Tengalice</span> (Pierre Plante)
+            </label><li>
+                <input type='checkbox' id='pkmn_282' />
+            <label for='pkmn_282'>
+                Faire éclore un œuf de <span class='h_pkmn'>Kirlia</span> et l'évoluer en <span class='h_pkmn'>Gardevoir</span> (niveau 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_289' />
+            <label for='pkmn_289'>
+                Faire éclore un œuf de <span class='h_pkmn'>Vigoroth</span> et l'évoluer en <span class='h_pkmn'>Monaflèmit</span> (niveau 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_306' />
+            <label for='pkmn_306'>
+                Faire éclore un œuf de <span class='h_pkmn'>Galegon</span> et l'évoluer en <span class='h_pkmn'>Galeking</span> (niveau 42)
+            </label><li>
+                <input type='checkbox' id='pkmn_360' />
+            <label for='pkmn_360'>
+                Faire éclore un œuf - accoupler Qulbutoké
+            </label><li>
+                <input type='checkbox' id='pkmn_373' />
+            <label for='pkmn_373'>
+                Faire éclore un œuf de <span class='h_pkmn'>Drackhaus</span> et l'évoluer en <span class='h_pkmn'>Drattak</span> (niveau 50)
+            </label><li>
+                <input type='checkbox' id='pkmn_376' />
+            <label for='pkmn_376'>
+                Faire éclore un œuf de <span class='h_pkmn'>Métang</span> et l'évoluer en <span class='h_pkmn'>Métalosse</span> (niveau 45)
+            </label><li>
+                <input type='checkbox' id='pkmn_377' />
+            <label for='pkmn_377'>
+                Parc des Amis - import depuis la Gen 3
+            </label><li>
+                <input type='checkbox' id='pkmn_378' />
+            <label for='pkmn_378'>
+                Parc des Amis - import depuis la Gen 3
+            </label><li>
+                <input type='checkbox' id='pkmn_379' />
+            <label for='pkmn_379'>
+                Parc des Amis - import depuis la Gen 3
+            </label><li>
+                <input type='checkbox' id='pkmn_385' />
+            <label for='pkmn_385'>
+                Parc des Amis - import depuis la Gen 3
+            </label><li>
+                <input type='checkbox' id='pkmn_386' />
+            <label for='pkmn_386'>
+                Parc des Amis - import depuis la Gen 3
+            </label><li>
+                <input type='checkbox' id='pkmn_389' />
+            <label for='pkmn_389'>
+                Faire éclore un œuf de <span class='h_pkmn'>Boskara</span> et l'évoluer en <span class='h_pkmn'>Torterra</span> (niveau 32)
+            </label><li>
+                <input type='checkbox' id='pkmn_392' />
+            <label for='pkmn_392'>
+                Faire éclore un œuf de <span class='h_pkmn'>Chimpenfeu</span> et l'évoluer en <span class='h_pkmn'>Simiabraz</span> (niveau 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_395' />
+            <label for='pkmn_395'>
+                Faire éclore un œuf de <span class='h_pkmn'>Prinplouf</span> et l'évoluer en <span class='h_pkmn'>Pingoléon</span> (niveau 36)
+            </label><li>
+                <input type='checkbox' id='pkmn_398' />
+            <label for='pkmn_398'>
+                Faire éclore un œuf de <span class='h_pkmn'>Étourvol</span> et l'évoluer en <span class='h_pkmn'>Étouraptor</span> (niveau 34)
+            </label><li>
+                <input type='checkbox' id='pkmn_405' />
+            <label for='pkmn_405'>
+                Faire éclore un œuf de <span class='h_pkmn'>Luxio</span> et l'évoluer en <span class='h_pkmn'>Luxray</span> (niveau 30)
+            </label><li>
+                <input type='checkbox' id='pkmn_407' />
+            <label for='pkmn_407'>
+                Faire éclore un œuf de <span class='h_pkmn'>Rosélia</span> et l'évoluer en <span class='h_pkmn'>Roserade</span> (Pierre Éclat)
+            </label><li>
+                <input type='checkbox' id='pkmn_464' />
+            <label for='pkmn_464'>
+                Faire éclore un œuf de <span class='h_pkmn'>Rhinoféros</span> et l'évoluer en <span class='h_pkmn'>Rhinastoc</span> (échange avec Protecteur)
+            </label><li>
+                <input type='checkbox' id='pkmn_468' />
+            <label for='pkmn_468'>
+                Faire éclore un œuf de <span class='h_pkmn'>Togetic</span> et l'évoluer en <span class='h_pkmn'>Togekiss</span> (Pierre Éclat)
+            </label><li>
+                <input type='checkbox' id='pkmn_474' />
+            <label for='pkmn_474'>
+                Faire éclore un œuf de <span class='h_pkmn'>Porygon2</span> et l'évoluer en <span class='h_pkmn'>Porygon-Z</span> (échange avec CD Douteux)
+            </label><li>
+                <input type='checkbox' id='pkmn_475' />
+            <label for='pkmn_475'>
+                Faire éclore un œuf de <span class='h_pkmn'>Kirlia</span> et l'évoluer en <span class='h_pkmn'>Gallame</span> (Pierre Aube)
+            </label><li>
+                <input type='checkbox' id='pkmn_477' />
+            <label for='pkmn_477'>
+                Faire éclore un œuf de <span class='h_pkmn'>Téraclope</span> et l'évoluer en <span class='h_pkmn'>Noctunoir</span> (échange avec Étoffe Fauche)
+            </label><li>
+                <input type='checkbox' id='pkmn_489' />
+            <label for='pkmn_489'>
+                Faire éclore un œuf - accoupler Manaphy
+            </label>
+            </ul>
+            </article><div id='completion'>
+                <h2>La Fin</h2>
+            <article>
+                <h3>Ligue Pokémon</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='diploma' />
+            <label for='diploma'>
+                Allez chercher votre diplôme si durement gagné. Vous avez accompli ce que beaucoup de dresseurs ont commencé, mais que très peu ont eu le courage de finir. Félicitations, <strong>Maître Pokémon !</strong>
+            </label>
+                </li>
+            </ul>
+            </article>
+            </div>
+            </section>
+            <script type='module'>
+                import pokemon_guide from '/lyra-website-backup/scripts/pokemon/pokemon_guide.1757042520.js';
+                import gen4_pokedex from '/lyra-website-backup/scripts/pokemon/gen4/gen4_pokedex.1763926658.js';
+
+                const gen4_guide = new pokemon_guide(new gen4_pokedex());
+                gen4_guide.initialize_guide();
+            </script>
+
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Sauvegarde de pr&eacute;servation du site <strong>Lyra a un site web</strong>. Site, design et contenu originaux par <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon et tous les &eacute;l&eacute;ments associ&eacute;s sont des marques de Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

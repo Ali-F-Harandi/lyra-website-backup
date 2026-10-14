@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+            <html lang='fr'>
+            <head>
+                <title>Infos supplémentaires - Gen 1</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen1.1774893396.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_red.css' />
+                <script>
+                    init_style('gen1');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/fr'>Retour au menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/pokemon_gen1/extra_info' >
+                            <span lang='en'>English version</span>
+                            <img src='/lyra-website-backup/views/images/us-uk_flag.png' alt='Drapeau anglais/américain' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra a un site web sur</h1>
+    <h2>Pokémon Gen 1</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/fr/pokemon_gen1/full_guide'>Guide complet</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen1/pokedex_tracker'>Pokédex perso</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen1/catch_locations'>Pokémon par zone</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen1/pokemon_info'>Recherche par filtre</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen1/extra_info'>Infos supplémentaires</a>
+    <button id='settings_link'>Préférences</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex perso</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Ajouter une étape supplémentaire</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Afficher le nombre de Pokémon obtenus</p>
+            </li><li>
+                <p>Sprites utilisés : </p>
+                <select id='select_pokemon_sprites'><option value='rg_sprites'>Rouge et Vert</option><option value='rb_sprites'>Rouge et Bleu</option><option value='y_sprites'>Jaune</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Mini Pokédex</p>
+            </li><li>
+                <p>Nom des boites : </p>
+                <select id='select_box_names'><option value='boxes_order'>Numéro de boite</option><option value='boxes_firstlast'>Premier et dernier Pokémon</option><option value='boxes_hidden'>Masquer les noms</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Guide Complet</h1>
+                <ul>
+                    <li>
+                <p>Version du guide : </p>
+                <select id='select_guide_version'><option value='red_guide'>Rouge</option><option value='blue_guide'>Bleu</option><option value='yellow_guide'>Jaune</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon par zone</h1>
+                <ul>
+                    <li>
+                <p>Filtrer par version : </p>
+                <select id='select_version_filter'><option value='pref_none'>Toutes</option><option value='pref_red'>Rouge</option><option value='pref_blue'>Bleu</option><option value='pref_yellow'>Jaune</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Masquer la Canne et Super Canne</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Recherche par filtre</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignorer les Pokémon déjà attrapés</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Couleurs du site web</h1>
+                <ul>
+                    <li>
+                <p>Thème de couleurs : </p>
+                <select id='select_color_theme'><optgroup label='1re génération'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Rouge</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Bleu</option></optgroup><optgroup label='2e génération'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Or</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Argent</option></optgroup><optgroup label='3e génération'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Émeraude</option></optgroup><optgroup label='4e génération'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamant</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Perle</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Données de la Gen 1</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Exporter</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Importer</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen1_settings from '/lyra-website-backup/scripts/pokemon/gen1/gen1_settings.1774893378.js';
+            const current_settings = new gen1_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_guide_version(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('fr'); 
+            </script>
+            <main>
+                <h1>Infos supplémentaires</h1>
+
+<h2>Stratégie de capture</h2>
+<article>
+    <p>
+        Le site web <em>The Cave of Dragonflies</em> contient une explication complète et exhaustive (en anglais) des <a href="https://www.dragonflycave.com/mechanics/gen-i-capturing" target="_blank">mécaniques de capture de la Gen 1</a>. Les points importants à retenir pour notre Pokédex Vivant sont les suivants :
+    </p>
+    <ul>
+        <li>Chaque espèce de Pokémon a un taux de capture : plus ce taux est bas, plus le Pokémon est difficile à attraper. En général, les Pokémon rares ont un taux de capture bas tandis que les Pokméon commun ont un taux élevé.</li>
+        <li>Toutes les altérations d'état augmentent les chances de capture, le sommeil et le gel étant les plus efficaces.</li>
+        <li>Les <span class="h_item">Hyper Ball</span> bénéficient grandement de taux de capture et PV bas, ainsi que des altérations d'état.</li>
+        <li>Contre un Pokémon avec tous ses PV sans altérations, une <span class="h_item">Super Ball</span> est meilleure qu'une <span class="h_item">Hyper Ball</span>.</li>
+        <li>Le seuil de PV à atteindre pour augmenter au maximum les chances de capture est de la moitié pour les <span class="h_item">Super Ball</span> et du tiers pour les <span class="h_item">Hyper Ball</span>.</li>
+    </ul>
+    <p>
+        A partir de ces éléments, nous pouvons établir les règles suivantes :
+    </p>
+    <ul>
+        <li>Contre les Pokémon communs, utiliser une <span class="h_item">Super Ball</span> à max PV, sans donner les chances maximales de capture, est le plus efficace. N'utilisez le sommeil que si vous attaquez en premier avec 100% de chances de toucher.</li>
+        <li>Contre les Pokémon rares, faire des dégats, endormir et utiliser une <span class="h_item">Hyper Ball</span> guarantit les meilleures chances de capture possibles. Baisser les PV plus bas qu'un tiers restant n'augmente pas les chances de capture davantage.</li>
+        <li>Contre les Pokémon légendaires, endormir et lancer des <span class="h_item">Hyper Ball</span> est le plus efficace. Le taux de capture gagné en baissant les PV est minime.</li>
+        <li>Pour la majorité des rencontres, si vous n'avez pas prévu de faire de dégâts, utiliser des <span class="h_item">Super Ball</span> est votre meilleure option, altération d'état ou non.</li>
+    </ul>
+</article>
+
+<h2>Emplacement des objets clés</h2>
+<article>
+    <h3>Emplacement des Super Bonbons</h3>
+    <p>
+        Vu que de nombreux Pokémon ne sont obtenus que via une montée de niveau, ramasser tous les <span class="h_item">Super Bonbons</span> sur votre chemin peut accélérer de manière significative votre progression. Voici la liste de tous les <span class="h_item">Super Bonbons</span> du jeu ainsi que leur emplacement :
+    </p>
+    <ul>
+        <li><span class="h_loc">Mont Sélénite</span> - RDC, coin sud-est</li>
+        <li><span class="h_loc">Azuria</span> - <em>(Caché)</em> Centre du jardin de la maison au nord-ouest</li>
+        <li><span class="h_loc">L'Océane</span> - 1er étage, 4e salle en partant de la droite</li>
+        <li><span class="h_loc">Repaire de la Team Rocket</span> - 3e sous-sol, côté est du labyrinthe</li>
+        <li><span class="h_loc">Route 17</span> - <em>(Caché)</em> Centre des hautes herbes de la Piste Cyclable</li>
+        <li><span class="h_loc">Tour Pokémon</span> - 5e étage, zone ouest</li>
+        <li><span class="h_loc">Sylphe SARL</span> - 9e étage, pièce au sud-ouest</li>
+        <li><span class="h_loc">Parmanie</span> - Maison du gardien, derrière le rocher</li>
+        <li><span class="h_loc">Centrale</span> - Zone nord-est</li>
+        <li><span class="h_loc">Manoir Pokémon</span> - 1er sous-sol, zone nord</li>
+        <li><span class="h_loc">Manoir Pokémon</span> - <em>(Caché)</em> 1er sous-sol, coin nord-ouest de l'endroit où se trouve la <span class="h_item">Clé Secrète</span></li>
+        <li><span class="h_loc">Route Victoire</span> - RDC, zone nord</li>
+        <li><span class="h_loc">Caverne Azurée</span> - <em>(Caché)</em> RDC, dans un rocher de la zone sud-ouest</li>
+    </ul>
+
+    <h3>Emplacement des CS</h3>
+    <ul>
+        <li><span class="h_item">CS01 (Coupe)</span> - <span class="h_loc">L'Océane</span></li>
+        <li><span class="h_item">CS02 (Vol)</span> - <span class="h_loc">Route 16</span></li>
+        <li><span class="h_item">CS03 (Surf)</span> - <span class="h_loc">Parc Safari</span></li>
+        <li><span class="h_item">CS04 (Force)</span> - <span class="h_loc">Parmanie</span></li>
+        <li><span class="h_item">CS05 (Flash)</span> - <span class="h_loc">Route 2</span></li>
+    </ul>
+
+    <h3>Emplacement des cannes à pêche</h3>
+    <ul>
+        <li><span class="h_item">Canne</span> - <span class="h_loc">Carmin sur Mer</span></li>
+        <li><span class="h_item">Super Canne</span> - <span class="h_loc">Parmanie</span></li>
+        <li><span class="h_item">Méga Canne</span> - <span class="h_loc">Route 12</span></li>
+    </ul>
+</article>
+
+<h2>Attraper Mew</h2>
+<article>
+    <p>
+        Il n'est plus possible d'obtenir Mew de manière légitime, puisque la seule manière de l'obtenir était de participer à un évènement officiel. Heureusement, il est possible d'abuser d'un bug jeu qui force une rencontre avec un Mew sauvage. Il existe un article qui détaille le <a href="https://www.pokepedia.fr/Bug_du_Croupier" target="_blank">Bug du Croupier</a> sur <em>Poképedia</em>. En bref, il vous faut respecter ces conditions :
+    </p>
+    <ul>
+        <li>Avoir accès à <span class="h_move">Vol</span> ou <span class="h_move">Téléport</span></li>
+        <li>Ne pas avoir battu le Croupier sur la <span class="h_loc">Route 8</span> et le Gamin sur la <span class="h_loc">Route 25</span> <em>(version lente)</em></li>
+        <li>Ne pas avoir battu le Dresseur Jr à l'ouest du <span class="h_loc">Pont Pépite</span> et le premier Nageur de l'<span class="h_loc">Arène d'Azuria</span> <em>(version rapide)</em></li>
+    </ul>
+    <p>
+        La version lente vous offre la possibilité d'utiliser le bug au moment où vous le souhaitez, tant que les 2 rencontres optionnelles sont évitées. La version rapide vous force à attraper un Abra avant de combattre Ondine. Elle est plus restrictive, mais vous permet d'attraper un Mew dès que vous avez accès à la Route 24. N'oubliez pas de sauvegarder votre partie avant de tenter quoi que ce soit, au cas où vous feriez une mauvaise manipulation. Bon courage !
+    </p>
+</article>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Sauvegarde de pr&eacute;servation du site <strong>Lyra a un site web</strong>. Site, design et contenu originaux par <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon et tous les &eacute;l&eacute;ments associ&eacute;s sont des marques de Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

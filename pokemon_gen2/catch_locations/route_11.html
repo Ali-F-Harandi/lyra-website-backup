@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <title>Route 11 - Catch locations - Gen 2</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen2.1774893396.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_gold.css' />
+                <script>
+                    init_style('gen2');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/'>Return to main menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/fr/pokemon_gen2/catch_locations/route_11' >
+                            <span lang='fr'>Version française</span>
+                            <img src='/lyra-website-backup/views/images/french_flag.png' alt='French flag' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra made a website about</h1>
+    <h2>Pokémon Gen 2</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/pokemon_gen2/full_guide'>Full Guide</a>
+    <a href='/lyra-website-backup/pokemon_gen2/pokedex_tracker'>Pokédex tracker</a>
+    <a href='/lyra-website-backup/pokemon_gen2/catch_locations'>Catch locations</a>
+    <a href='/lyra-website-backup/pokemon_gen2/pokemon_info'>Pokémon info</a>
+    <a href='/lyra-website-backup/pokemon_gen2/extra_info'>Extra info</a>
+    <button id='settings_link'>Settings</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex tracker</h1>
+                <ul>
+                    <li>
+                <p>Pokédex displayed: </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>National Pokédex</option><option value='regional_dex'>Gold, Silver & Crystal</option><option value='only_new_dex'>New Pokémon only</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Add extra step to capture</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Display current progress</p>
+            </li><li>
+                <p>Pokemon sprites used: </p>
+                <select id='select_pokemon_sprites'><option value='gold_sprites'>Gold</option><option value='silver_sprites'>Silver</option><option value='crystal_sprites'>Crystal</option><option value='crystal_anim_sprites'>Cristal (Animated)</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Small Pokémon sprites</p>
+            </li><li>
+                <p>Box labels: </p>
+                <select id='select_box_names'><option value='boxes_order'>Box number</option><option value='boxes_firstlast'>First & last Pokémon</option><option value='boxes_hidden'>Hide labels</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Catch locations</h1>
+                <ul>
+                    <li>
+                <p>Filter by version: </p>
+                <select id='select_version_filter'><option value='pref_none'>All</option><option value='pref_gold'>Gold</option><option value='pref_silver'>Silver</option><option value='pref_crystal'>Crystal</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Hide Old Rod and Good Rod data</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon info</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignore info of caught Pokémon</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Website colors</h1>
+                <ul>
+                    <li>
+                <p>Color theme: </p>
+                <select id='select_color_theme'><optgroup label='Gen 1'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Red</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Blue</option></optgroup><optgroup label='Gen 2'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Gold</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Silver</option></optgroup><optgroup label='Gen 3'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Emerald</option></optgroup><optgroup label='Gen 4'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamond</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Pearl</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Gen 2 data management</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Export</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Import</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen2_settings from '/lyra-website-backup/scripts/pokemon/gen2/gen2_settings.1763926670.js';
+            const current_settings = new gen2_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('en'); 
+            </script>
+            <main>
+                <h1>Generation 2 - Catch locations</h1>
+            <section id='catch_locations'>
+                <div id='select_section'><div id='location_select' class='select_menu'>
+                <span>Location to display:</span>
+                <select>
+                    <option value=''  disabled hidden>Select location</option>
+                    <optgroup label='Routes'><option value='route_01' >Route 1</option><option value='route_02' >Route 2</option><option value='route_03' >Route 3</option><option value='route_04' >Route 4</option><option value='route_05' >Route 5</option><option value='route_06' >Route 6</option><option value='route_07' >Route 7</option><option value='route_08' >Route 8</option><option value='route_09' >Route 9</option><option value='route_10' >Route 10</option><option value='route_11' selected>Route 11</option><option value='route_12' >Route 12</option><option value='route_13' >Route 13</option><option value='route_14' >Route 14</option><option value='route_15' >Route 15</option><option value='route_16' >Route 16</option><option value='route_17' >Route 17</option><option value='route_18' >Route 18</option><option value='route_19' >Route 19</option><option value='route_20' >Route 20</option><option value='route_21' >Route 21</option><option value='route_22' >Route 22</option><option value='route_24' >Route 24</option><option value='route_25' >Route 25</option><option value='route_26' >Route 26</option><option value='route_27' >Route 27</option><option value='route_28' >Route 28</option><option value='route_29' >Route 29</option><option value='route_30' >Route 30</option><option value='route_31' >Route 31</option><option value='route_32' >Route 32</option><option value='route_33' >Route 33</option><option value='route_34' >Route 34</option><option value='route_35' >Route 35</option><option value='route_36' >Route 36</option><option value='route_37' >Route 37</option><option value='route_38' >Route 38</option><option value='route_39' >Route 39</option><option value='route_40' >Route 40</option><option value='route_41' >Route 41</option><option value='route_42' >Route 42</option><option value='route_43' >Route 43</option><option value='route_44' >Route 44</option><option value='route_45' >Route 45</option><option value='route_46' >Route 46</option></optgroup>
+                        <optgroup label='Forests'><option value='ilex_forest' >Ilex Forest</option><option value='lake_of_rage' >Lake of Rage</option><option value='national_park' >National Park</option><option value='national_park_contest' >National Park - Contest</option></optgroup>
+                        <optgroup label='Caves'><option value='dark_cave_r31' >Dark Cave - Route 31</option><option value='dark_cave_r45' >Dark Cave - Route 45</option><option value='diglett_cave' >Diglett's Cave</option><option value='dragon_den' >Dragon's Den</option><option value='ice_path_1' >Ice Path - 1F</option><option value='ice_path_b1' >Ice Path - B1F</option><option value='ice_path_b2' >Ice Path - B2F</option><option value='ice_path_b3' >Ice Path - B3F</option><option value='mt_moon' >Mt. Moon</option><option value='mt_mortar_1' >Mt. Mortar - 1F</option><option value='mt_mortar_2' >Mt. Mortar - 2F</option><option value='mt_mortar_b1' >Mt. Mortar - B1F</option><option value='mt_mortar_ent' >Mt. Mortar - Entrance</option><option value='mt_silver_1' >Mt. Silver - 1F</option><option value='mt_silver_2' >Mt. Silver - 2F</option><option value='mt_silver_cham' >Mt. Silver - Item chambers</option><option value='mt_silver_ext' >Mt. Silver - Exterior</option><option value='mt_silver_sum' >Mt. Silver - Summit</option><option value='rock_tunnel_1' >Rock Tunnel - 1F</option><option value='rock_tunnel_b1' >Rock Tunnel - B1F</option><option value='ruins_of_alph_ext' >Ruins of Alph - Exterior</option><option value='ruins_of_alph_int' >Ruins of Alph - Interior</option><option value='slowpoke_well_b1' >Slowpoke Well - B1F</option><option value='slowpoke_well_b2' >Slowpoke Well - B2F</option><option value='tohjo_falls' >Tohjo Falls</option><option value='union_cave_1' >Union Cave - 1F</option><option value='union_cave_b1' >Union Cave - B1F</option><option value='union_cave_b2' >Union Cave - B2F</option><option value='victory_road' >Victory Road</option><option value='whirl_islands_1' >Whirl Islands - 1F</option><option value='whirl_islands_b1' >Whirl Islands - B1F</option><option value='whirl_islands_b2' >Whirl Islands - B2F</option><option value='whirl_islands_b3' >Whirl Islands - B3F</option></optgroup>
+                        <optgroup label='Buildings'><option value='bell_tower' >Tin Tower</option><option value='burned_tower_1' >Burned Tower - 1F</option><option value='burned_tower_b1' >Burned Tower - B1F</option><option value='cerulean_gym' >Cerulean Gym</option><option value='power_plant' >Power Plant</option><option value='sprout_tower' >Sprout Tower</option><option value='team_rocket_hq' >Team Rocket's Hideout</option></optgroup>
+                        <optgroup label='Towns'><option value='blackthorn_city' >Blackthorn City</option><option value='celadon_city' >Celadon City</option><option value='cerulean_city' >Cerulean City</option><option value='cherrygrove_city' >Cherrygrove City</option><option value='cianwood_city' >Cianwood City</option><option value='cinnabar_island' >Cinnabar Island</option><option value='ecruteak_city' >Ecruteak City</option><option value='fuchsia_city' >Fuchsia City</option><option value='goldenrod_city' >Goldenrod City</option><option value='new_bark_town' >New Bark Town</option><option value='olivine_city' >Olivine City</option><option value='olivine_city_harbor' >Olivine City - Harbor</option><option value='pallet_town' >Pallet Town</option><option value='pewter_city' >Pewter City</option><option value='vermilion_city' >Vermilion City</option><option value='vermilion_city_harbor' >Vermilion City - Harbor</option><option value='violet_city' >Violet City</option><option value='viridian_city' >Viridian City</option></optgroup>
+                        <optgroup label='Other'><option value='headbutt_a' >Headbutt tree A</option><option value='headbutt_b' >Headbutt tree B</option><option value='headbutt_c1' >Headbutt tree C1</option><option value='headbutt_c2' >Headbutt tree C2</option><option value='headbutt_c3' >Headbutt tree C3</option><option value='headbutt_c4' >Headbutt tree C4</option><option value='headbutt_c5' >Headbutt tree C5</option><option value='headbutt_c6' >Headbutt tree C6</option></optgroup>
+                </select>
+                <script type='module'>
+                    import select_reload from '/lyra-website-backup/scripts/functions/select_reload.1715012545.js';
+                    
+                    document.querySelector('#location_select').addEventListener('change', (event) => select_reload('/lyra-website-backup/pokemon_gen2/catch_locations', event));
+                </script>
+            </div></div><div id='current_location'>
+                    <a href='/lyra-website-backup/pokemon_gen2/catch_locations/route_10'>←</a>
+                    <p>Route 11</p>
+                    <a href='/lyra-website-backup/pokemon_gen2/catch_locations/route_12'>→</a>
+                    <script type='module'>
+                        import locations_keynav from '/lyra-website-backup/scripts/functions/pokemon/locations_keynav.1720872089.js';
+                        
+                        locations_keynav('/lyra-website-backup/pokemon_gen2/catch_locations/route_10', '/lyra-website-backup/pokemon_gen2/catch_locations/route_12');
+                    </script>
+                </div>
+                 <div id='location_detail'><div>
+                        <h2 class='gold'>Gold Version</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Location / </span>Method</th>
+                            <th class='col_level'>Level</th>
+                            <th colspan='3'>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_96.png' 
+                                alt='Drowzee sprite gen 2' />
+                                <span class='pokemon_name'>Drowzee</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>14-16</td>
+                        <td colspan='3' class='col_rate_colspan' >40%</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_19.png' 
+                                alt='Rattata sprite gen 2' />
+                                <span class='pokemon_name'>Rattata</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>15</td>
+                        <td colspan='3' class='col_rate_colspan' >30%</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_81.png' 
+                                alt='Magnemite sprite gen 2' />
+                                <span class='pokemon_name'>Magnemite</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>15</td>
+                        <td colspan='3' class='col_rate_colspan' >20%</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_gold/sprite_97.png' 
+                                alt='Hypno sprite gen 2' />
+                                <span class='pokemon_name'>Hypno</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>16</td>
+                        <td colspan='3' class='col_rate_colspan' >10%</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>All potential Pokémon encounters are being filtered out by your current settings.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div><div>
+                        <h2 class='silver'>Silver Version</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Location / </span>Method</th>
+                            <th class='col_level'>Level</th>
+                            <th colspan='3'>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_96.png' 
+                                alt='Drowzee sprite gen 2' />
+                                <span class='pokemon_name'>Drowzee</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>14-16</td>
+                        <td colspan='3' class='col_rate_colspan' >40%</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_19.png' 
+                                alt='Rattata sprite gen 2' />
+                                <span class='pokemon_name'>Rattata</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>15</td>
+                        <td colspan='3' class='col_rate_colspan' >30%</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_81.png' 
+                                alt='Magnemite sprite gen 2' />
+                                <span class='pokemon_name'>Magnemite</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>15</td>
+                        <td colspan='3' class='col_rate_colspan' >20%</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_97.png' 
+                                alt='Hypno sprite gen 2' />
+                                <span class='pokemon_name'>Hypno</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>16</td>
+                        <td colspan='3' class='col_rate_colspan' >10%</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>All potential Pokémon encounters are being filtered out by your current settings.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div><div>
+                        <h2 class='crystal'>Crystal Version</h2>
+                        
+                <table>
+                    <thead>
+                        <tr>
+                            <th class='col_pokemon'>Pokémon</th>
+                            <th class='col_location'><span class='hide_responsive'>Location / </span>Method</th>
+                            <th class='col_level'>Level</th>
+                            <th colspan='3'>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_187.png' 
+                                alt='Hoppip sprite gen 2' />
+                                <span class='pokemon_name'>Hoppip</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>14-16</td>
+                        <td class='col_rate time_morning'>35%</td>
+                        <td class='col_rate time_day'>35%</td>
+                        <td class='col_rate time_night'>-</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_20.png' 
+                                alt='Raticate sprite gen 2' />
+                                <span class='pokemon_name'>Raticate</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>13</td>
+                        <td class='col_rate time_morning'>30%</td>
+                        <td class='col_rate time_day'>30%</td>
+                        <td class='col_rate time_night'>-</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_52.png' 
+                                alt='Meowth sprite gen 2' />
+                                <span class='pokemon_name'>Meowth</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>13</td>
+                        <td class='col_rate time_morning'>-</td>
+                        <td class='col_rate time_day'>-</td>
+                        <td class='col_rate time_night'>30%</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_96.png' 
+                                alt='Drowzee sprite gen 2' />
+                                <span class='pokemon_name'>Drowzee</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>14</td>
+                        <td class='col_rate time_morning'>-</td>
+                        <td class='col_rate time_day'>-</td>
+                        <td class='col_rate time_night'>30%</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_81.png' 
+                                alt='Magnemite sprite gen 2' />
+                                <span class='pokemon_name'>Magnemite</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>15</td>
+                        <td colspan='3' class='col_rate_colspan' >20%</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_17.png' 
+                                alt='Pidgeotto sprite gen 2' />
+                                <span class='pokemon_name'>Pidgeotto</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>16</td>
+                        <td class='col_rate time_morning'>10%</td>
+                        <td class='col_rate time_day'>10%</td>
+                        <td class='col_rate time_night'>-</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_164.png' 
+                                alt='Noctowl sprite gen 2' />
+                                <span class='pokemon_name'>Noctowl</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>16</td>
+                        <td class='col_rate time_morning'>-</td>
+                        <td class='col_rate time_day'>-</td>
+                        <td class='col_rate time_night'>10%</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_19.png' 
+                                alt='Rattata sprite gen 2' />
+                                <span class='pokemon_name'>Rattata</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>16</td>
+                        <td class='col_rate time_morning'>5%</td>
+                        <td class='col_rate time_day'>5%</td>
+                        <td class='col_rate time_night'>-</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_20.png' 
+                                alt='Raticate sprite gen 2' />
+                                <span class='pokemon_name'>Raticate</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>16</td>
+                        <td class='col_rate time_morning'>-</td>
+                        <td class='col_rate time_day'>-</td>
+                        <td class='col_rate time_night'>5%</td>
+                    </tr>
+                
+                    <tr class='grass'>
+                        <td>
+                            <div class='pkmn_cell'>
+                                <img src='/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_97.png' 
+                                alt='Hypno sprite gen 2' />
+                                <span class='pokemon_name'>Hypno</span>
+                            </div>
+                        </td>
+                        <td>Tall grass</td>
+                        <td>16</td>
+                        <td class='col_rate time_morning'>-</td>
+                        <td class='col_rate time_day'>-</td>
+                        <td class='col_rate time_night'>5%</td>
+                    </tr>
+                
+                        <tr class='hidden'>
+                            <td colspan='6' class='empty'>All potential Pokémon encounters are being filtered out by your current settings.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                    </div></div></section>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Fan preservation backup of <strong>Lyra made a website</strong>. Original website, design and content by <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon and all related assets are trademarks of Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

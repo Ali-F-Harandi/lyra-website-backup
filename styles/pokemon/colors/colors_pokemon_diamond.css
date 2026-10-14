@@ -1,0 +1,16 @@
+/* Teal */
+html {
+    --main_a: #D9E2E6;
+    --dark_a: #BFC9D1;
+    --text_a: #000000;
+
+    --main_b: #F0F5F7;
+    --dark_b: #D9E2E6;
+    --text_b: #000000;
+
+    --main_c: #2A6E8C;
+    --light_c: #BFE0EB;
+    --text_c: #FFFFFF;
+
+    --main_opposite: #2A6E8C;
+}

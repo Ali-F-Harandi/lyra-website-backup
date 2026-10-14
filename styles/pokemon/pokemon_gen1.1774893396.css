@@ -1,0 +1,70 @@
+@import url("/lyra-website-backup/styles/pokemon/pokemon.css");
+
+body {
+    background-image: url("/lyra-website-backup/views/pokemon/gen1/images/background_gen1.png");
+}
+
+/* pokemon sprite */
+.pokemon_card img {
+    margin: 3px auto 6px;
+    width: 56px;
+    height: 56px;
+}
+
+#pokedex.small .pokemon_card {
+    padding: 3px;
+}
+
+#pokedex.small img {
+    width: 46px;
+    height: 46px;
+}
+
+/* Pokédex small boxes */
+#pokedex {
+    --box_columns: 4;
+}
+
+/* Version gradients */
+#pokemon_info span.red_blue {
+    background: linear-gradient(to bottom,
+    var(--main_red) 55%,
+    var(--main_blue) 55%
+    );
+}
+
+#pokemon_info span.blue_yellow,
+#pokemon_info span.yellow_blue {
+    background: linear-gradient(to bottom,
+    var(--main_yellow) 55%,
+    var(--main_blue) 55%
+    );
+}
+
+#pokemon_info span.red_yellow,
+#pokemon_info span.yellow_red {
+    background: linear-gradient(to bottom,
+    var(--main_red) 55%,
+    var(--main_yellow) 55%
+    );
+}
+
+#pokemon_info span.red_blue,
+#pokemon_info span.blue_yellow,
+#pokemon_info span.yellow_blue,
+#pokemon_info span.red_yellow,
+#pokemon_info span.yellow_red {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+#pokemon_info div.red_blue {
+    --color_angle: 120deg;
+    border-color: transparent;
+    background-image:
+            linear-gradient(var(--color_angle), var(--light_red) 50%, var(--light_blue) 50%),
+            linear-gradient(var(--color_angle), var(--main_red) 50%, var(--main_blue) 50%);
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+}

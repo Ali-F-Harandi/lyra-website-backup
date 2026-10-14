@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <title>Pokédex tracker - Gen 4</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen4.1774893397.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_diamond.css' />
+                <script>
+                    init_style('gen4');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/'>Return to main menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/fr/pokemon_gen4/pokedex_tracker/diamond_pearl' >
+                            <span lang='fr'>Version française</span>
+                            <img src='/lyra-website-backup/views/images/french_flag.png' alt='French flag' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                                        <header>
+    <h1>Lyra made a website about</h1>
+    <h2>Pokémon Gen 4</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/pokemon_gen4/full_guide'>Full Guide</a>
+    <a href='/lyra-website-backup/pokemon_gen4/pokedex_tracker'>Pokédex tracker</a>
+    <a href='/lyra-website-backup/pokemon_gen4/catch_locations'>Catch locations</a>
+    <a href='/lyra-website-backup/pokemon_gen4/pokemon_info'>Pokémon info</a>
+    <a href='/lyra-website-backup/pokemon_gen4/extra_info'>Extra info</a>
+    <button id='settings_link'>Settings</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex tracker</h1>
+                <ul>
+                    <li>
+                <p>Pokédex displayed: </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>National Pokédex</option><option value='diamond_pearl_dex'>Diamond & Pearl</option><option value='platinum_dex'>Platinum</option><option value='heartgold_soulsilver_dex'>HeartGold & SoulSilver</option><option value='only_new_dex'>New Pokémon only</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Add extra step to capture</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Display current progress</p>
+            </li><li>
+                <p>Pokemon sprites used: </p>
+                <select id='select_pokemon_sprites'><option value='dp_sprites'>Diamond & Pearl</option><option value='plat_sprites'>Platinum</option><option value='hgss_sprites'>HeartGold & SoulSilver</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Small Pokémon sprites</p>
+            </li><li>
+                <p>Box labels: </p>
+                <select id='select_box_names'><option value='boxes_order'>Box number</option><option value='boxes_firstlast'>First & last Pokémon</option><option value='boxes_hidden'>Hide labels</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Catch locations</h1>
+                <ul>
+                    <li>
+                <p>Filter by version: </p>
+                <select id='select_version_filter'><option value='pref_none'>All</option><option value='pref_diamond'>Diamond</option><option value='pref_pearl'>Pearl</option><option value='pref_platinum'>Platinum</option><option value='pref_heartgold'>HeartGold</option><option value='pref_soulsilver'>SoulSilver</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Hide Old Rod and Good Rod data</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon info</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignore info of caught Pokémon</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Website colors</h1>
+                <ul>
+                    <li>
+                <p>Color theme: </p>
+                <select id='select_color_theme'><optgroup label='Gen 4'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamond</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Pearl</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Gen 4 data management</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Export</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Import</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen4_settings from '/lyra-website-backup/scripts/pokemon/gen4/gen4_settings.1763927568.js';
+            const current_settings = new gen4_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('en'); 
+            </script>
+            <main>
+                <h1>Generation 4 - Regional Pokédex</h1>
+            <section id='pokedex'>
+                <p id='pokedex_progress' class='hidden'>
+                <u>Current progress:</u> <span id='nb_progress'>0</span> / 152 Pokémon
+            </p><div class='pokedex_box'><h2 class='box_name_order'>Box 1</h2><h2 class='box_name_firstlast hidden'>001 - 030</h2><div id='pokemon_387' class='pokemon_card' >
+                <p class='pokemon_number' ># 1</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_387.png' 
+                alt='Turtwig gen4' />
+                <p class='pokemon_name'>Turtwig</p>
+            </div><div id='pokemon_388' class='pokemon_card' >
+                <p class='pokemon_number' ># 2</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_388.png' 
+                alt='Grotle gen4' />
+                <p class='pokemon_name'>Grotle</p>
+            </div><div id='pokemon_389' class='pokemon_card' >
+                <p class='pokemon_number' ># 3</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_389.png' 
+                alt='Torterra gen4' />
+                <p class='pokemon_name'>Torterra</p>
+            </div><div id='pokemon_390' class='pokemon_card' >
+                <p class='pokemon_number' ># 4</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_390.png' 
+                alt='Chimchar gen4' />
+                <p class='pokemon_name'>Chimchar</p>
+            </div><div id='pokemon_391' class='pokemon_card' >
+                <p class='pokemon_number' ># 5</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_391.png' 
+                alt='Monferno gen4' />
+                <p class='pokemon_name'>Monferno</p>
+            </div><div id='pokemon_392' class='pokemon_card' >
+                <p class='pokemon_number' ># 6</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_392.png' 
+                alt='Infernape gen4' />
+                <p class='pokemon_name'>Infernape</p>
+            </div><div id='pokemon_393' class='pokemon_card' >
+                <p class='pokemon_number' ># 7</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_393.png' 
+                alt='Piplup gen4' />
+                <p class='pokemon_name'>Piplup</p>
+            </div><div id='pokemon_394' class='pokemon_card' >
+                <p class='pokemon_number' ># 8</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_394.png' 
+                alt='Prinplup gen4' />
+                <p class='pokemon_name'>Prinplup</p>
+            </div><div id='pokemon_395' class='pokemon_card' >
+                <p class='pokemon_number' ># 9</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_395.png' 
+                alt='Empoleon gen4' />
+                <p class='pokemon_name'>Empoleon</p>
+            </div><div id='pokemon_396' class='pokemon_card' >
+                <p class='pokemon_number' ># 10</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_396.png' 
+                alt='Starly gen4' />
+                <p class='pokemon_name'>Starly</p>
+            </div><div id='pokemon_397' class='pokemon_card' >
+                <p class='pokemon_number' ># 11</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_397.png' 
+                alt='Staravia gen4' />
+                <p class='pokemon_name'>Staravia</p>
+            </div><div id='pokemon_398' class='pokemon_card' >
+                <p class='pokemon_number' ># 12</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_398.png' 
+                alt='Staraptor gen4' />
+                <p class='pokemon_name'>Staraptor</p>
+            </div><div id='pokemon_399' class='pokemon_card' >
+                <p class='pokemon_number' ># 13</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_399.png' 
+                alt='Bidoof gen4' />
+                <p class='pokemon_name'>Bidoof</p>
+            </div><div id='pokemon_400' class='pokemon_card' >
+                <p class='pokemon_number' ># 14</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_400.png' 
+                alt='Bibarel gen4' />
+                <p class='pokemon_name'>Bibarel</p>
+            </div><div id='pokemon_401' class='pokemon_card' >
+                <p class='pokemon_number' ># 15</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_401.png' 
+                alt='Kricketot gen4' />
+                <p class='pokemon_name'>Kricketot</p>
+            </div><div id='pokemon_402' class='pokemon_card' >
+                <p class='pokemon_number' ># 16</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_402.png' 
+                alt='Kricketune gen4' />
+                <p class='pokemon_name'>Kricketune</p>
+            </div><div id='pokemon_403' class='pokemon_card' >
+                <p class='pokemon_number' ># 17</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_403.png' 
+                alt='Shinx gen4' />
+                <p class='pokemon_name'>Shinx</p>
+            </div><div id='pokemon_404' class='pokemon_card' >
+                <p class='pokemon_number' ># 18</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_404.png' 
+                alt='Luxio gen4' />
+                <p class='pokemon_name'>Luxio</p>
+            </div><div id='pokemon_405' class='pokemon_card' >
+                <p class='pokemon_number' ># 19</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_405.png' 
+                alt='Luxray gen4' />
+                <p class='pokemon_name'>Luxray</p>
+            </div><div id='pokemon_63' class='pokemon_card' >
+                <p class='pokemon_number' ># 20</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_63.png' 
+                alt='Abra gen4' />
+                <p class='pokemon_name'>Abra</p>
+            </div><div id='pokemon_64' class='pokemon_card' >
+                <p class='pokemon_number' ># 21</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_64.png' 
+                alt='Kadabra gen4' />
+                <p class='pokemon_name'>Kadabra</p>
+            </div><div id='pokemon_65' class='pokemon_card' >
+                <p class='pokemon_number' ># 22</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_65.png' 
+                alt='Alakazam gen4' />
+                <p class='pokemon_name'>Alakazam</p>
+            </div><div id='pokemon_129' class='pokemon_card' >
+                <p class='pokemon_number' ># 23</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_129.png' 
+                alt='Magikarp gen4' />
+                <p class='pokemon_name'>Magikarp</p>
+            </div><div id='pokemon_130' class='pokemon_card' >
+                <p class='pokemon_number' ># 24</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_130.png' 
+                alt='Gyarados gen4' />
+                <p class='pokemon_name'>Gyarados</p>
+            </div><div id='pokemon_406' class='pokemon_card' >
+                <p class='pokemon_number' ># 25</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_406.png' 
+                alt='Budew gen4' />
+                <p class='pokemon_name'>Budew</p>
+            </div><div id='pokemon_315' class='pokemon_card' >
+                <p class='pokemon_number' ># 26</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_315.png' 
+                alt='Roselia gen4' />
+                <p class='pokemon_name'>Roselia</p>
+            </div><div id='pokemon_407' class='pokemon_card' >
+                <p class='pokemon_number' ># 27</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_407.png' 
+                alt='Roserade gen4' />
+                <p class='pokemon_name'>Roserade</p>
+            </div><div id='pokemon_41' class='pokemon_card' >
+                <p class='pokemon_number' ># 28</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_41.png' 
+                alt='Zubat gen4' />
+                <p class='pokemon_name'>Zubat</p>
+            </div><div id='pokemon_42' class='pokemon_card' >
+                <p class='pokemon_number' ># 29</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_42.png' 
+                alt='Golbat gen4' />
+                <p class='pokemon_name'>Golbat</p>
+            </div><div id='pokemon_169' class='pokemon_card' >
+                <p class='pokemon_number' ># 30</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_169.png' 
+                alt='Crobat gen4' />
+                <p class='pokemon_name'>Crobat</p>
+            </div></div>
+                    <div class='pokedex_box'><h2 class='box_name_order'>Box 2</h2><h2 class='box_name_firstlast hidden'>031 - 060</h2><div id='pokemon_74' class='pokemon_card' >
+                <p class='pokemon_number' ># 31</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_74.png' 
+                alt='Geodude gen4' />
+                <p class='pokemon_name'>Geodude</p>
+            </div><div id='pokemon_75' class='pokemon_card' >
+                <p class='pokemon_number' ># 32</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_75.png' 
+                alt='Graveler gen4' />
+                <p class='pokemon_name'>Graveler</p>
+            </div><div id='pokemon_76' class='pokemon_card' >
+                <p class='pokemon_number' ># 33</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_76.png' 
+                alt='Golem gen4' />
+                <p class='pokemon_name'>Golem</p>
+            </div><div id='pokemon_95' class='pokemon_card' >
+                <p class='pokemon_number' ># 34</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_95.png' 
+                alt='Onix gen4' />
+                <p class='pokemon_name'>Onix</p>
+            </div><div id='pokemon_208' class='pokemon_card' >
+                <p class='pokemon_number' ># 35</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_208.png' 
+                alt='Steelix gen4' />
+                <p class='pokemon_name'>Steelix</p>
+            </div><div id='pokemon_408' class='pokemon_card' >
+                <p class='pokemon_number' ># 36</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_408.png' 
+                alt='Cranidos gen4' />
+                <p class='pokemon_name'>Cranidos</p>
+            </div><div id='pokemon_409' class='pokemon_card' >
+                <p class='pokemon_number' ># 37</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_409.png' 
+                alt='Rampardos gen4' />
+                <p class='pokemon_name'>Rampardos</p>
+            </div><div id='pokemon_410' class='pokemon_card' >
+                <p class='pokemon_number' ># 38</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_410.png' 
+                alt='Shieldon gen4' />
+                <p class='pokemon_name'>Shieldon</p>
+            </div><div id='pokemon_411' class='pokemon_card' >
+                <p class='pokemon_number' ># 39</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_411.png' 
+                alt='Bastiodon gen4' />
+                <p class='pokemon_name'>Bastiodon</p>
+            </div><div id='pokemon_66' class='pokemon_card' >
+                <p class='pokemon_number' ># 40</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_66.png' 
+                alt='Machop gen4' />
+                <p class='pokemon_name'>Machop</p>
+            </div><div id='pokemon_67' class='pokemon_card' >
+                <p class='pokemon_number' ># 41</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_67.png' 
+                alt='Machoke gen4' />
+                <p class='pokemon_name'>Machoke</p>
+            </div><div id='pokemon_68' class='pokemon_card' >
+                <p class='pokemon_number' ># 42</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_68.png' 
+                alt='Machamp gen4' />
+                <p class='pokemon_name'>Machamp</p>
+            </div><div id='pokemon_54' class='pokemon_card' >
+                <p class='pokemon_number' ># 43</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_54.png' 
+                alt='Psyduck gen4' />
+                <p class='pokemon_name'>Psyduck</p>
+            </div><div id='pokemon_55' class='pokemon_card' >
+                <p class='pokemon_number' ># 44</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_55.png' 
+                alt='Golduck gen4' />
+                <p class='pokemon_name'>Golduck</p>
+            </div><div id='pokemon_412' class='pokemon_card' >
+                <p class='pokemon_number' ># 45</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_412.png' 
+                alt='Burmy gen4' />
+                <p class='pokemon_name'>Burmy</p>
+            </div><div id='pokemon_413' class='pokemon_card' >
+                <p class='pokemon_number' ># 46</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_413.png' 
+                alt='Wormadam gen4' />
+                <p class='pokemon_name'>Wormadam</p>
+            </div><div id='pokemon_414' class='pokemon_card' >
+                <p class='pokemon_number' ># 47</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_414.png' 
+                alt='Mothim gen4' />
+                <p class='pokemon_name'>Mothim</p>
+            </div><div id='pokemon_265' class='pokemon_card' >
+                <p class='pokemon_number' ># 48</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_265.png' 
+                alt='Wurmple gen4' />
+                <p class='pokemon_name'>Wurmple</p>
+            </div><div id='pokemon_266' class='pokemon_card' >
+                <p class='pokemon_number' ># 49</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_266.png' 
+                alt='Silcoon gen4' />
+                <p class='pokemon_name'>Silcoon</p>
+            </div><div id='pokemon_267' class='pokemon_card' >
+                <p class='pokemon_number' ># 50</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_267.png' 
+                alt='Beautifly gen4' />
+                <p class='pokemon_name'>Beautifly</p>
+            </div><div id='pokemon_268' class='pokemon_card' >
+                <p class='pokemon_number' ># 51</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_268.png' 
+                alt='Cascoon gen4' />
+                <p class='pokemon_name'>Cascoon</p>
+            </div><div id='pokemon_269' class='pokemon_card' >
+                <p class='pokemon_number' ># 52</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_269.png' 
+                alt='Dustox gen4' />
+                <p class='pokemon_name'>Dustox</p>
+            </div><div id='pokemon_415' class='pokemon_card' >
+                <p class='pokemon_number' ># 53</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_415.png' 
+                alt='Combee gen4' />
+                <p class='pokemon_name'>Combee</p>
+            </div><div id='pokemon_416' class='pokemon_card' >
+                <p class='pokemon_number' ># 54</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_416.png' 
+                alt='Vespiquen gen4' />
+                <p class='pokemon_name'>Vespiquen</p>
+            </div><div id='pokemon_417' class='pokemon_card' >
+                <p class='pokemon_number' ># 55</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_417.png' 
+                alt='Pachirisu gen4' />
+                <p class='pokemon_name'>Pachirisu</p>
+            </div><div id='pokemon_418' class='pokemon_card' >
+                <p class='pokemon_number' ># 56</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_418.png' 
+                alt='Buizel gen4' />
+                <p class='pokemon_name'>Buizel</p>
+            </div><div id='pokemon_419' class='pokemon_card' >
+                <p class='pokemon_number' ># 57</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_419.png' 
+                alt='Floatzel gen4' />
+                <p class='pokemon_name'>Floatzel</p>
+            </div><div id='pokemon_420' class='pokemon_card' >
+                <p class='pokemon_number' ># 58</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_420.png' 
+                alt='Cherubi gen4' />
+                <p class='pokemon_name'>Cherubi</p>
+            </div><div id='pokemon_421' class='pokemon_card' >
+                <p class='pokemon_number' ># 59</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_421.png' 
+                alt='Cherrim gen4' />
+                <p class='pokemon_name'>Cherrim</p>
+            </div><div id='pokemon_422' class='pokemon_card' >
+                <p class='pokemon_number' ># 60</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_422.png' 
+                alt='Shellos gen4' />
+                <p class='pokemon_name'>Shellos</p>
+            </div></div>
+                    <div class='pokedex_box'><h2 class='box_name_order'>Box 3</h2><h2 class='box_name_firstlast hidden'>061 - 090</h2><div id='pokemon_423' class='pokemon_card' >
+                <p class='pokemon_number' ># 61</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_423.png' 
+                alt='Gastrodon gen4' />
+                <p class='pokemon_name'>Gastrodon</p>
+            </div><div id='pokemon_214' class='pokemon_card' >
+                <p class='pokemon_number' ># 62</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_214.png' 
+                alt='Heracross gen4' />
+                <p class='pokemon_name'>Heracross</p>
+            </div><div id='pokemon_190' class='pokemon_card' >
+                <p class='pokemon_number' ># 63</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_190.png' 
+                alt='Aipom gen4' />
+                <p class='pokemon_name'>Aipom</p>
+            </div><div id='pokemon_424' class='pokemon_card' >
+                <p class='pokemon_number' ># 64</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_424.png' 
+                alt='Ambipom gen4' />
+                <p class='pokemon_name'>Ambipom</p>
+            </div><div id='pokemon_425' class='pokemon_card' >
+                <p class='pokemon_number' ># 65</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_425.png' 
+                alt='Drifloon gen4' />
+                <p class='pokemon_name'>Drifloon</p>
+            </div><div id='pokemon_426' class='pokemon_card' >
+                <p class='pokemon_number' ># 66</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_426.png' 
+                alt='Drifblim gen4' />
+                <p class='pokemon_name'>Drifblim</p>
+            </div><div id='pokemon_427' class='pokemon_card' >
+                <p class='pokemon_number' ># 67</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_427.png' 
+                alt='Buneary gen4' />
+                <p class='pokemon_name'>Buneary</p>
+            </div><div id='pokemon_428' class='pokemon_card' >
+                <p class='pokemon_number' ># 68</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_428.png' 
+                alt='Lopunny gen4' />
+                <p class='pokemon_name'>Lopunny</p>
+            </div><div id='pokemon_92' class='pokemon_card' >
+                <p class='pokemon_number' ># 69</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_92.png' 
+                alt='Gastly gen4' />
+                <p class='pokemon_name'>Gastly</p>
+            </div><div id='pokemon_93' class='pokemon_card' >
+                <p class='pokemon_number' ># 70</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_93.png' 
+                alt='Haunter gen4' />
+                <p class='pokemon_name'>Haunter</p>
+            </div><div id='pokemon_94' class='pokemon_card' >
+                <p class='pokemon_number' ># 71</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_94.png' 
+                alt='Gengar gen4' />
+                <p class='pokemon_name'>Gengar</p>
+            </div><div id='pokemon_200' class='pokemon_card' >
+                <p class='pokemon_number' ># 72</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_200.png' 
+                alt='Misdreavus gen4' />
+                <p class='pokemon_name'>Misdreavus</p>
+            </div><div id='pokemon_429' class='pokemon_card' >
+                <p class='pokemon_number' ># 73</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_429.png' 
+                alt='Mismagius gen4' />
+                <p class='pokemon_name'>Mismagius</p>
+            </div><div id='pokemon_198' class='pokemon_card' >
+                <p class='pokemon_number' ># 74</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_198.png' 
+                alt='Murkrow gen4' />
+                <p class='pokemon_name'>Murkrow</p>
+            </div><div id='pokemon_430' class='pokemon_card' >
+                <p class='pokemon_number' ># 75</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_430.png' 
+                alt='Honchkrow gen4' />
+                <p class='pokemon_name'>Honchkrow</p>
+            </div><div id='pokemon_431' class='pokemon_card' >
+                <p class='pokemon_number' ># 76</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_431.png' 
+                alt='Glameow gen4' />
+                <p class='pokemon_name'>Glameow</p>
+            </div><div id='pokemon_432' class='pokemon_card' >
+                <p class='pokemon_number' ># 77</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_432.png' 
+                alt='Purugly gen4' />
+                <p class='pokemon_name'>Purugly</p>
+            </div><div id='pokemon_118' class='pokemon_card' >
+                <p class='pokemon_number' ># 78</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_118.png' 
+                alt='Goldeen gen4' />
+                <p class='pokemon_name'>Goldeen</p>
+            </div><div id='pokemon_119' class='pokemon_card' >
+                <p class='pokemon_number' ># 79</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_119.png' 
+                alt='Seaking gen4' />
+                <p class='pokemon_name'>Seaking</p>
+            </div><div id='pokemon_339' class='pokemon_card' >
+                <p class='pokemon_number' ># 80</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_339.png' 
+                alt='Barboach gen4' />
+                <p class='pokemon_name'>Barboach</p>
+            </div><div id='pokemon_340' class='pokemon_card' >
+                <p class='pokemon_number' ># 81</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_340.png' 
+                alt='Whiscash gen4' />
+                <p class='pokemon_name'>Whiscash</p>
+            </div><div id='pokemon_433' class='pokemon_card' >
+                <p class='pokemon_number' ># 82</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_433.png' 
+                alt='Chingling gen4' />
+                <p class='pokemon_name'>Chingling</p>
+            </div><div id='pokemon_358' class='pokemon_card' >
+                <p class='pokemon_number' ># 83</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_358.png' 
+                alt='Chimecho gen4' />
+                <p class='pokemon_name'>Chimecho</p>
+            </div><div id='pokemon_434' class='pokemon_card' >
+                <p class='pokemon_number' ># 84</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_434.png' 
+                alt='Stunky gen4' />
+                <p class='pokemon_name'>Stunky</p>
+            </div><div id='pokemon_435' class='pokemon_card' >
+                <p class='pokemon_number' ># 85</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_435.png' 
+                alt='Skuntank gen4' />
+                <p class='pokemon_name'>Skuntank</p>
+            </div><div id='pokemon_307' class='pokemon_card' >
+                <p class='pokemon_number' ># 86</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_307.png' 
+                alt='Meditite gen4' />
+                <p class='pokemon_name'>Meditite</p>
+            </div><div id='pokemon_308' class='pokemon_card' >
+                <p class='pokemon_number' ># 87</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_308.png' 
+                alt='Medicham gen4' />
+                <p class='pokemon_name'>Medicham</p>
+            </div><div id='pokemon_436' class='pokemon_card' >
+                <p class='pokemon_number' ># 88</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_436.png' 
+                alt='Bronzor gen4' />
+                <p class='pokemon_name'>Bronzor</p>
+            </div><div id='pokemon_437' class='pokemon_card' >
+                <p class='pokemon_number' ># 89</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_437.png' 
+                alt='Bronzong gen4' />
+                <p class='pokemon_name'>Bronzong</p>
+            </div><div id='pokemon_77' class='pokemon_card' >
+                <p class='pokemon_number' ># 90</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_77.png' 
+                alt='Ponyta gen4' />
+                <p class='pokemon_name'>Ponyta</p>
+            </div></div>
+                    <div class='pokedex_box'><h2 class='box_name_order'>Box 4</h2><h2 class='box_name_firstlast hidden'>091 - 120</h2><div id='pokemon_78' class='pokemon_card' >
+                <p class='pokemon_number' ># 91</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_78.png' 
+                alt='Rapidash gen4' />
+                <p class='pokemon_name'>Rapidash</p>
+            </div><div id='pokemon_438' class='pokemon_card' >
+                <p class='pokemon_number' ># 92</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_438.png' 
+                alt='Bonsly gen4' />
+                <p class='pokemon_name'>Bonsly</p>
+            </div><div id='pokemon_185' class='pokemon_card' >
+                <p class='pokemon_number' ># 93</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_185.png' 
+                alt='Sudowoodo gen4' />
+                <p class='pokemon_name'>Sudowoodo</p>
+            </div><div id='pokemon_439' class='pokemon_card' >
+                <p class='pokemon_number' ># 94</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_439.png' 
+                alt='Mime Jr. gen4' />
+                <p class='pokemon_name'>Mime Jr.</p>
+            </div><div id='pokemon_122' class='pokemon_card' >
+                <p class='pokemon_number' ># 95</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_122.png' 
+                alt='Mr. Mime gen4' />
+                <p class='pokemon_name'>Mr. Mime</p>
+            </div><div id='pokemon_440' class='pokemon_card' >
+                <p class='pokemon_number' ># 96</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_440.png' 
+                alt='Happiny gen4' />
+                <p class='pokemon_name'>Happiny</p>
+            </div><div id='pokemon_113' class='pokemon_card' >
+                <p class='pokemon_number' ># 97</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_113.png' 
+                alt='Chansey gen4' />
+                <p class='pokemon_name'>Chansey</p>
+            </div><div id='pokemon_242' class='pokemon_card' >
+                <p class='pokemon_number' ># 98</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_242.png' 
+                alt='Blissey gen4' />
+                <p class='pokemon_name'>Blissey</p>
+            </div><div id='pokemon_173' class='pokemon_card' >
+                <p class='pokemon_number' ># 99</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_173.png' 
+                alt='Cleffa gen4' />
+                <p class='pokemon_name'>Cleffa</p>
+            </div><div id='pokemon_35' class='pokemon_card' >
+                <p class='pokemon_number' ># 100</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_35.png' 
+                alt='Clefairy gen4' />
+                <p class='pokemon_name'>Clefairy</p>
+            </div><div id='pokemon_36' class='pokemon_card' >
+                <p class='pokemon_number' ># 101</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_36.png' 
+                alt='Clefable gen4' />
+                <p class='pokemon_name'>Clefable</p>
+            </div><div id='pokemon_441' class='pokemon_card' >
+                <p class='pokemon_number' ># 102</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_441.png' 
+                alt='Chatot gen4' />
+                <p class='pokemon_name'>Chatot</p>
+            </div><div id='pokemon_172' class='pokemon_card' >
+                <p class='pokemon_number' ># 103</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_172.png' 
+                alt='Pichu gen4' />
+                <p class='pokemon_name'>Pichu</p>
+            </div><div id='pokemon_25' class='pokemon_card' >
+                <p class='pokemon_number' ># 104</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_25.png' 
+                alt='Pikachu gen4' />
+                <p class='pokemon_name'>Pikachu</p>
+            </div><div id='pokemon_26' class='pokemon_card' >
+                <p class='pokemon_number' ># 105</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_26.png' 
+                alt='Raichu gen4' />
+                <p class='pokemon_name'>Raichu</p>
+            </div><div id='pokemon_163' class='pokemon_card' >
+                <p class='pokemon_number' ># 106</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_163.png' 
+                alt='Hoothoot gen4' />
+                <p class='pokemon_name'>Hoothoot</p>
+            </div><div id='pokemon_164' class='pokemon_card' >
+                <p class='pokemon_number' ># 107</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_164.png' 
+                alt='Noctowl gen4' />
+                <p class='pokemon_name'>Noctowl</p>
+            </div><div id='pokemon_442' class='pokemon_card' >
+                <p class='pokemon_number' ># 108</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_442.png' 
+                alt='Spiritomb gen4' />
+                <p class='pokemon_name'>Spiritomb</p>
+            </div><div id='pokemon_443' class='pokemon_card' >
+                <p class='pokemon_number' ># 109</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_443.png' 
+                alt='Gible gen4' />
+                <p class='pokemon_name'>Gible</p>
+            </div><div id='pokemon_444' class='pokemon_card' >
+                <p class='pokemon_number' ># 110</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_444.png' 
+                alt='Gabite gen4' />
+                <p class='pokemon_name'>Gabite</p>
+            </div><div id='pokemon_445' class='pokemon_card' >
+                <p class='pokemon_number' ># 111</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_445.png' 
+                alt='Garchomp gen4' />
+                <p class='pokemon_name'>Garchomp</p>
+            </div><div id='pokemon_446' class='pokemon_card' >
+                <p class='pokemon_number' ># 112</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_446.png' 
+                alt='Munchlax gen4' />
+                <p class='pokemon_name'>Munchlax</p>
+            </div><div id='pokemon_143' class='pokemon_card' >
+                <p class='pokemon_number' ># 113</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_143.png' 
+                alt='Snorlax gen4' />
+                <p class='pokemon_name'>Snorlax</p>
+            </div><div id='pokemon_201' class='pokemon_card' >
+                <p class='pokemon_number' ># 114</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_201.png' 
+                alt='Unown gen4' />
+                <p class='pokemon_name'>Unown</p>
+            </div><div id='pokemon_447' class='pokemon_card' >
+                <p class='pokemon_number' ># 115</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_447.png' 
+                alt='Riolu gen4' />
+                <p class='pokemon_name'>Riolu</p>
+            </div><div id='pokemon_448' class='pokemon_card' >
+                <p class='pokemon_number' ># 116</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_448.png' 
+                alt='Lucario gen4' />
+                <p class='pokemon_name'>Lucario</p>
+            </div><div id='pokemon_194' class='pokemon_card' >
+                <p class='pokemon_number' ># 117</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_194.png' 
+                alt='Wooper gen4' />
+                <p class='pokemon_name'>Wooper</p>
+            </div><div id='pokemon_195' class='pokemon_card' >
+                <p class='pokemon_number' ># 118</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_195.png' 
+                alt='Quagsire gen4' />
+                <p class='pokemon_name'>Quagsire</p>
+            </div><div id='pokemon_278' class='pokemon_card' >
+                <p class='pokemon_number' ># 119</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_278.png' 
+                alt='Wingull gen4' />
+                <p class='pokemon_name'>Wingull</p>
+            </div><div id='pokemon_279' class='pokemon_card' >
+                <p class='pokemon_number' ># 120</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_279.png' 
+                alt='Pelipper gen4' />
+                <p class='pokemon_name'>Pelipper</p>
+            </div></div>
+                    <div class='pokedex_box'><h2 class='box_name_order'>Box 5</h2><h2 class='box_name_firstlast hidden'>121 - 150</h2><div id='pokemon_203' class='pokemon_card' >
+                <p class='pokemon_number' ># 121</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_203.png' 
+                alt='Girafarig gen4' />
+                <p class='pokemon_name'>Girafarig</p>
+            </div><div id='pokemon_449' class='pokemon_card' >
+                <p class='pokemon_number' ># 122</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_449.png' 
+                alt='Hippopotas gen4' />
+                <p class='pokemon_name'>Hippopotas</p>
+            </div><div id='pokemon_450' class='pokemon_card' >
+                <p class='pokemon_number' ># 123</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_450.png' 
+                alt='Hippowdon gen4' />
+                <p class='pokemon_name'>Hippowdon</p>
+            </div><div id='pokemon_298' class='pokemon_card' >
+                <p class='pokemon_number' ># 124</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_298.png' 
+                alt='Azurill gen4' />
+                <p class='pokemon_name'>Azurill</p>
+            </div><div id='pokemon_183' class='pokemon_card' >
+                <p class='pokemon_number' ># 125</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_183.png' 
+                alt='Marill gen4' />
+                <p class='pokemon_name'>Marill</p>
+            </div><div id='pokemon_184' class='pokemon_card' >
+                <p class='pokemon_number' ># 126</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_184.png' 
+                alt='Azumarill gen4' />
+                <p class='pokemon_name'>Azumarill</p>
+            </div><div id='pokemon_451' class='pokemon_card' >
+                <p class='pokemon_number' ># 127</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_451.png' 
+                alt='Skorupi gen4' />
+                <p class='pokemon_name'>Skorupi</p>
+            </div><div id='pokemon_452' class='pokemon_card' >
+                <p class='pokemon_number' ># 128</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_452.png' 
+                alt='Drapion gen4' />
+                <p class='pokemon_name'>Drapion</p>
+            </div><div id='pokemon_453' class='pokemon_card' >
+                <p class='pokemon_number' ># 129</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_453.png' 
+                alt='Croagunk gen4' />
+                <p class='pokemon_name'>Croagunk</p>
+            </div><div id='pokemon_454' class='pokemon_card' >
+                <p class='pokemon_number' ># 130</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_454.png' 
+                alt='Toxicroak gen4' />
+                <p class='pokemon_name'>Toxicroak</p>
+            </div><div id='pokemon_455' class='pokemon_card' >
+                <p class='pokemon_number' ># 131</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_455.png' 
+                alt='Carnivine gen4' />
+                <p class='pokemon_name'>Carnivine</p>
+            </div><div id='pokemon_223' class='pokemon_card' >
+                <p class='pokemon_number' ># 132</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_223.png' 
+                alt='Remoraid gen4' />
+                <p class='pokemon_name'>Remoraid</p>
+            </div><div id='pokemon_224' class='pokemon_card' >
+                <p class='pokemon_number' ># 133</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_224.png' 
+                alt='Octillery gen4' />
+                <p class='pokemon_name'>Octillery</p>
+            </div><div id='pokemon_456' class='pokemon_card' >
+                <p class='pokemon_number' ># 134</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_456.png' 
+                alt='Finneon gen4' />
+                <p class='pokemon_name'>Finneon</p>
+            </div><div id='pokemon_457' class='pokemon_card' >
+                <p class='pokemon_number' ># 135</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_457.png' 
+                alt='Lumineon gen4' />
+                <p class='pokemon_name'>Lumineon</p>
+            </div><div id='pokemon_72' class='pokemon_card' >
+                <p class='pokemon_number' ># 136</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_72.png' 
+                alt='Tentacool gen4' />
+                <p class='pokemon_name'>Tentacool</p>
+            </div><div id='pokemon_73' class='pokemon_card' >
+                <p class='pokemon_number' ># 137</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_73.png' 
+                alt='Tentacruel gen4' />
+                <p class='pokemon_name'>Tentacruel</p>
+            </div><div id='pokemon_349' class='pokemon_card' >
+                <p class='pokemon_number' ># 138</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_349.png' 
+                alt='Feebas gen4' />
+                <p class='pokemon_name'>Feebas</p>
+            </div><div id='pokemon_350' class='pokemon_card' >
+                <p class='pokemon_number' ># 139</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_350.png' 
+                alt='Milotic gen4' />
+                <p class='pokemon_name'>Milotic</p>
+            </div><div id='pokemon_458' class='pokemon_card' >
+                <p class='pokemon_number' ># 140</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_458.png' 
+                alt='Mantyke gen4' />
+                <p class='pokemon_name'>Mantyke</p>
+            </div><div id='pokemon_226' class='pokemon_card' >
+                <p class='pokemon_number' ># 141</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_226.png' 
+                alt='Mantine gen4' />
+                <p class='pokemon_name'>Mantine</p>
+            </div><div id='pokemon_459' class='pokemon_card' >
+                <p class='pokemon_number' ># 142</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_459.png' 
+                alt='Snover gen4' />
+                <p class='pokemon_name'>Snover</p>
+            </div><div id='pokemon_460' class='pokemon_card' >
+                <p class='pokemon_number' ># 143</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_460.png' 
+                alt='Abomasnow gen4' />
+                <p class='pokemon_name'>Abomasnow</p>
+            </div><div id='pokemon_215' class='pokemon_card' >
+                <p class='pokemon_number' ># 144</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_215.png' 
+                alt='Sneasel gen4' />
+                <p class='pokemon_name'>Sneasel</p>
+            </div><div id='pokemon_461' class='pokemon_card' >
+                <p class='pokemon_number' ># 145</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_461.png' 
+                alt='Weavile gen4' />
+                <p class='pokemon_name'>Weavile</p>
+            </div><div id='pokemon_480' class='pokemon_card' >
+                <p class='pokemon_number' ># 146</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_480.png' 
+                alt='Uxie gen4' />
+                <p class='pokemon_name'>Uxie</p>
+            </div><div id='pokemon_481' class='pokemon_card' >
+                <p class='pokemon_number' ># 147</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_481.png' 
+                alt='Mesprit gen4' />
+                <p class='pokemon_name'>Mesprit</p>
+            </div><div id='pokemon_482' class='pokemon_card' >
+                <p class='pokemon_number' ># 148</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_482.png' 
+                alt='Azelf gen4' />
+                <p class='pokemon_name'>Azelf</p>
+            </div><div id='pokemon_483' class='pokemon_card' >
+                <p class='pokemon_number' ># 149</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_483.png' 
+                alt='Dialga gen4' />
+                <p class='pokemon_name'>Dialga</p>
+            </div><div id='pokemon_484' class='pokemon_card' >
+                <p class='pokemon_number' ># 150</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_484.png' 
+                alt='Palkia gen4' />
+                <p class='pokemon_name'>Palkia</p>
+            </div></div>
+                    <div class='pokedex_box'><h2 class='box_name_order'>Box 6</h2><h2 class='box_name_firstlast hidden'>151 - 152</h2><div id='pokemon_490' class='pokemon_card' >
+                <p class='pokemon_number' ># 151</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_490.png' 
+                alt='Manaphy gen4' />
+                <p class='pokemon_name'>Manaphy</p>
+            </div><div id='pokemon_299' class='pokemon_card' >
+                <p class='pokemon_number' ># 155</p>
+                <img src='/lyra-website-backup/views/pokemon/gen4/images/pokedex_hgss/sprite_299.png' 
+                alt='Nosepass gen4' />
+                <p class='pokemon_name'>Nosepass</p>
+            </div></div><div id='hidden_boxes' class='hidden'></div>
+            </section>
+            <script type='module'>
+                import gen4_pokedex from '/lyra-website-backup/scripts/pokemon/gen4/gen4_pokedex.1763926658.js';
+            
+                const pokedex = new gen4_pokedex();
+                pokedex.initialize_tracker();
+            </script>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Fan preservation backup of <strong>Lyra made a website</strong>. Original website, design and content by <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon and all related assets are trademarks of Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

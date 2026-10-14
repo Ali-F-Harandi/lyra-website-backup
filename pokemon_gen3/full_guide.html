@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <title>Full Guide - Gen 3</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen3.1774893397.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_emerald.css' />
+                <script>
+                    init_style('gen3');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/'>Return to main menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/fr/pokemon_gen3/full_guide' >
+                            <span lang='fr'>Version française</span>
+                            <img src='/lyra-website-backup/views/images/french_flag.png' alt='French flag' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra made a website about</h1>
+    <h2>Pokémon Gen 3</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/pokemon_gen3/full_guide'>Full Guide</a>
+    <a href='/lyra-website-backup/pokemon_gen3/pokedex_tracker'>Pokédex tracker</a>
+    <a href='/lyra-website-backup/pokemon_gen3/catch_locations'>Catch locations</a>
+    <a href='/lyra-website-backup/pokemon_gen3/pokemon_info'>Pokémon info</a>
+    <a href='/lyra-website-backup/pokemon_gen3/extra_info'>Extra info</a>
+    <button id='settings_link'>Settings</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex tracker</h1>
+                <ul>
+                    <li>
+                <p>Pokédex displayed: </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>National Pokédex</option><option value='ruby_sapphire_emerald_dex'>Ruby, Sapphire & Emerald</option><option value='firered_leafgreen_dex'>FireRed & LeafGreen</option><option value='only_new_dex'>New Pokémon only</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Add extra step to capture</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Display current progress</p>
+            </li><li>
+                <p>Pokemon sprites used: </p>
+                <select id='select_pokemon_sprites'><option value='rs_sprites'>Ruby & Sapphire</option><option value='frlg_sprites'>FireRed & LeafGreen</option><option value='emerald_sprites'>Emerald</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Small Pokémon sprites</p>
+            </li><li>
+                <p>Box labels: </p>
+                <select id='select_box_names'><option value='boxes_order'>Box number</option><option value='boxes_firstlast'>First & last Pokémon</option><option value='boxes_hidden'>Hide labels</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Catch locations</h1>
+                <ul>
+                    <li>
+                <p>Filter by version: </p>
+                <select id='select_version_filter'><option value='pref_none'>All</option><option value='pref_ruby'>Ruby</option><option value='pref_sapphire'>Sapphire</option><option value='pref_emerald'>Emerald</option><option value='pref_firered'>FireRed</option><option value='pref_leafgreen'>LeafGreen</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Hide Old Rod and Good Rod data</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon info</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignore info of caught Pokémon</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Website colors</h1>
+                <ul>
+                    <li>
+                <p>Color theme: </p>
+                <select id='select_color_theme'><optgroup label='Gen 1'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Red</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Blue</option></optgroup><optgroup label='Gen 2'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Gold</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Silver</option></optgroup><optgroup label='Gen 3'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Emerald</option></optgroup><optgroup label='Gen 4'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamond</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Pearl</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Gen 3 data management</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Export</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Import</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen3_settings from '/lyra-website-backup/scripts/pokemon/gen3/gen3_settings.1763926674.js';
+            const current_settings = new gen3_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('en'); 
+            </script>
+            <main>
+                <h1>Generation 3 - Living Pokédex Guide</h1>
+
+<section id='guide_info'>
+    <article>
+        <h3>Goal and guidelines</h3>
+        <p>
+            The goal of this guide is to help anyone complete a Living Pokédex in <span class='emerald'>Pokémon Emerald</span>. As Gen 3 covers 7 games and can be approached in multiple ways, here are the directions followed when writing it:
+        </p>
+        <ul>
+            <li>The Gen 3 guide, more than the Gen 1 and 2 ones, is meant to be used as a template, not a step-by-step walkthrough. A lot of decisions are influenced by my personal preferences, such as avoiding catching every Pokémon in <span class='xd'>XD: Gale of Darkness</span>. But modifying it to fit each player's own playstyle is hugely encouraged. The <a href='/lyra-website-backup/pokemon_gen3/pokemon_info'>Pokémon info page</a> is here to help in adapting the guide.</li>
+            <li>Obtaining Pokémon in Emerald is usually preferred in order to limit the time spent trading, catching fodder and purifying Pokémon, although other games are still chosen when they are more efficient.</li>
+            <li>Access to in-game events is assumed whenever the Pokémon would be unavailable otherwise.</li>
+            <li>As two advanced playthroughs are necessary to obtain both <span class='h_item'>DeepSea</span> items, the second savefile, required to be either <span class='ruby'>Ruby</span> or <span class='sapphire'>Sapphire</span> for the <span class="colosseum">Colosseum</span> Bonus Disc, can be used to take advantage of the EXP boost for evolutions. This guide chooses Sapphire for capture convenience, but Ruby could be used with very few changes.</li>
+            <li><span class='leafgreen'>LeafGreen</span> is chosen over <span class='firered'>FireRed</span> as it is the only version to have access to <span class='h_pkmn'>Slowpoke</span>, making it mandatory.</li>
+        </ul>
+
+        <h3>Additional information</h3>
+        <p>For the smoothest experience possible, here are some extra details on how to read and use the Living Pokédex guide:</p>
+        <ul>
+            <li>The Pokémon within each area are ordered by rarity (and floor whenever relevant). It is advised to focus on the rare Pokémon first. The areas themselves are loosely organized in the order they are encountered.</li>
+            <li>Trading from FireRed or LeafGreen to a non-remake game requires completing the <span class="h_loc">Sevii Island</span> questline, itself available after catching 60 Pokémon in order to unlock the National Pokédex.</li>
+            <li>More information about Gen 3 and general tips are available on the <a href='/lyra-website-backup/pokemon_gen3/extra_info'>extra info page</a>, such as ways to obtain the elusive <span class='h_pkmn'>Celebi</span>. A bit of extra knowledge can shorten playtime significantly and make the experience much more enjoyable.</li>
+            <li>This checklist and the <a href='/lyra-website-backup/pokemon_gen3/pokedex_tracker'>Pokédex tracker</a> are linked. If a Pokémon is caught in one page, the other page should be refreshed to show the change.</li>
+            <li>The Gen 3 Living Dex is a tough and lengthy challenge, but you can do it! Good luck!</li>
+        </ul>
+    </article>
+</section>
+
+
+            <section id='guide_full'>
+                <h2 class='leafgreen'>Pokémon LeafGreen</h2>
+            <article>
+                <h3>Pallet Town</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_3' />
+            <label for='pkmn_3'>
+                Get <span class='h_pkmn'>Bulbasaur</span> (Starter Pokémon), evolve it into <span class='h_pkmn'>Ivysaur</span> (level 16) then into <span class='h_pkmn'>Venusaur</span> (level 32)
+             - <span class='h_play'>1st playthrough</span></label></li><li><input type='checkbox' id='pkmn_6' />
+            <label for='pkmn_6'>
+                Get <span class='h_pkmn'>Charmander</span> (Starter Pokémon), evolve it into <span class='h_pkmn'>Charmeleon</span> (level 16) then into <span class='h_pkmn'>Charizard</span> (level 36)
+             - <span class='h_play'>2nd playthrough</span></label></li><li><input type='checkbox' id='pkmn_9' />
+            <label for='pkmn_9'>
+                Get <span class='h_pkmn'>Squirtle</span> (Starter Pokémon), evolve it into <span class='h_pkmn'>Wartortle</span> (level 16) then into <span class='h_pkmn'>Blastoise</span> (level 36)
+             - <span class='h_play'>3rd playthrough</span></label>
+                </li>
+            </ul><h3>Route 1</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_16' />
+            <label for='pkmn_16'>
+                Catch <span class='h_pkmn'>Pidgey</span> - 50% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_19' />
+            <label for='pkmn_19'>
+                Catch <span class='h_pkmn'>Rattata</span> - 50% encounter rate
+            </label>
+                </li>
+            </ul><h3>Viridian Forest</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_10' />
+            <label for='pkmn_10'>
+                Catch <span class='h_pkmn'>Caterpie</span> - 40% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_13' />
+            <label for='pkmn_13'>
+                Catch <span class='h_pkmn'>Weedle</span> - 40% encounter rate
+            </label>
+                </li>
+            </ul><h3>Route 3</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_39' />
+            <label for='pkmn_39'>
+                Catch <span class='h_pkmn'>Jigglypuff</span> - 10% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_40' />
+            <label for='pkmn_40'>
+                Catch <span class='h_pkmn'>Jigglypuff</span> and evolve it into <span class='h_pkmn'>Wigglytuff</span> (<span class='h_item'>Moon Stone</span>)
+            </label>
+                </li>
+            </ul><h3>Mt. Moon</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='helix' />
+            <label for='helix'>
+                Pick up the <span class='h_item'>Helix Fossil</span>
+             - <span class='h_play'>1st playthrough</span></label></li><li><input type='checkbox' id='dome' />
+            <label for='dome'>
+                Pick up the <span class='h_item'>Dome Fossil</span>
+             - <span class='h_play'>2nd playthrough</span></label></li><li><input type='checkbox' id='moon1' />
+            <label for='moon1'>
+                Pick up  <span class='h_item'>Moon Stone</span> - 1F, northwest
+            </label></li><li><input type='checkbox' id='moon2' />
+            <label for='moon2'>
+                Pick up  <span class='h_item'>Moon Stone</span> - B2F, in the alcove southeast of the Super Nerd (hidden)
+            </label></li><li><input type='checkbox' id='pkmn_46' />
+            <label for='pkmn_46'>
+                Catch <span class='h_pkmn'>Paras</span> - 100% encounter rate (B1F)
+            </label></li><li><input type='checkbox' id='pkmn_35' />
+            <label for='pkmn_35'>
+                Catch <span class='h_pkmn'>Clefairy</span> - 6% encounter rate (B2F)
+            </label></li><li><input type='checkbox' id='pkmn_36' />
+            <label for='pkmn_36'>
+                Catch <span class='h_pkmn'>Clefairy</span> and evolve it into <span class='h_pkmn'>Clefable</span> (<span class='h_item'>Moon Stone</span>)
+            </label>
+                </li>
+            </ul><h3>Diglett's Cave</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_50' />
+            <label for='pkmn_50'>
+                Catch <span class='h_pkmn'>Diglett</span> - 95% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_51' />
+            <label for='pkmn_51'>
+                Catch <span class='h_pkmn'>Dugtrio</span> - 5% encounter rate
+            </label>
+                </li>
+            </ul><h3>Pewter City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='amber' />
+            <label for='amber'>
+                Pick up the <span class='h_item'>Old Amber</span>
+            </label>
+                </li>
+            </ul><h3>Route 7</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_52' />
+            <label for='pkmn_52'>
+                Catch <span class='h_pkmn'>Meowth</span> - 40% encounter rate
+            </label>
+                </li>
+            </ul><h3>Celadon City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_133' />
+            <label for='pkmn_133'>
+                Get <span class='h_pkmn'>Eevee</span> - <span class='h_loc'>Celadon Mansion</span>
+             - <span class='h_play'>1st playthrough</span></label></li><li><input type='checkbox' id='pkmn_134' />
+            <label for='pkmn_134'>
+                Get <span class='h_pkmn'>Eevee</span> and evolve it into <span class='h_pkmn'>Vaporeon</span> (<span class='h_item'>Water Stone</span>)
+             - <span class='h_play'>2nd playthrough</span></label></li><li><input type='checkbox' id='moon3' />
+            <label for='moon3'>
+                Pick up  <span class='h_item'>Moon Stone</span> - <span class='h_loc'>Rocket Hideout</span> (B2F, west)
+            </label></li><li><input type='checkbox' id='pkmn_233' />
+            <label for='pkmn_233'>
+                Purchase <span class='h_pkmn'>Porygon</span> (<span class='h_loc'>Rocket Game Corner</span>, 6500 coins), give it <span class='h_item'>Up-Grade</span> and evolve it into <span class='h_pkmn'>Porygon2</span> (Trading)
+            </label>
+                </li>
+            </ul><h3>Saffron City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_106' />
+            <label for='pkmn_106'>
+                Get <span class='h_pkmn'>Hitmonlee</span> - <span class='h_loc'>Fighting Dojo</span>
+             - <span class='h_play'>1st playthrough</span></label></li><li><input type='checkbox' id='pkmn_107' />
+            <label for='pkmn_107'>
+                Get <span class='h_pkmn'>Hitmonchan</span> - <span class='h_loc'>Fighting Dojo</span>
+             - <span class='h_play'>2nd playthrough</span></label></li><li><input type='checkbox' id='pkmn_131' />
+            <label for='pkmn_131'>
+                Get <span class='h_pkmn'>Lapras</span> - 7F, next to Rival fight
+            </label>
+                </li>
+            </ul><h3>Pokémon Tower</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_92' />
+            <label for='pkmn_92'>
+                Catch <span class='h_pkmn'>Gastly</span> - 90% encounter rate (3F)
+            </label></li><li><input type='checkbox' id='pkmn_104' />
+            <label for='pkmn_104'>
+                Catch <span class='h_pkmn'>Cubone</span> - 10% encounter rate (7F)
+            </label>
+                </li>
+            </ul><h3>Route 11</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_21' />
+            <label for='pkmn_21'>
+                Catch <span class='h_pkmn'>Spearow</span> - 35% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_96' />
+            <label for='pkmn_96'>
+                Catch <span class='h_pkmn'>Drowzee</span> - 25% encounter rate
+            </label>
+                </li>
+            </ul><h3>Route 12</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_48' />
+            <label for='pkmn_48'>
+                Catch <span class='h_pkmn'>Venonat</span> - 30% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_143' />
+            <label for='pkmn_143'>
+                Catch <span class='h_pkmn'>Snorlax</span> - Unique encounter
+            </label>
+                </li>
+            </ul><h3>Route 18</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_84' />
+            <label for='pkmn_84'>
+                Catch <span class='h_pkmn'>Doduo</span> - 35% encounter rate
+            </label>
+                </li>
+            </ul><h3>Safari Zone</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_29' />
+            <label for='pkmn_29'>
+                Catch <span class='h_pkmn'>Nidoran♀</span> - 20% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_30' />
+            <label for='pkmn_30'>
+                Catch <span class='h_pkmn'>Nidorina</span> - 10% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_31' />
+            <label for='pkmn_31'>
+                Catch <span class='h_pkmn'>Nidorina</span> and evolve it into <span class='h_pkmn'>Nidoqueen</span> (<span class='h_item'>Moon Stone</span>)
+            </label></li><li><input type='checkbox' id='pkmn_32' />
+            <label for='pkmn_32'>
+                Catch <span class='h_pkmn'>Nidoran♂</span> - 5% encounter rate (Area 1 or 3)
+            </label></li><li><input type='checkbox' id='pkmn_33' />
+            <label for='pkmn_33'>
+                Catch <span class='h_pkmn'>Nidorino</span> - 5% encounter rate (Center Area or Area 2 (North))
+            </label></li><li><input type='checkbox' id='pkmn_34' />
+            <label for='pkmn_34'>
+                Catch <span class='h_pkmn'>Nidorino</span> and evolve it into <span class='h_pkmn'>Nidoking</span> (<span class='h_item'>Moon Stone</span>)
+            </label></li><li><input type='checkbox' id='pkmn_102' />
+            <label for='pkmn_102'>
+                Catch <span class='h_pkmn'>Exeggcute</span> - 20% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_103' />
+            <label for='pkmn_103'>
+                Catch <span class='h_pkmn'>Exeggcute</span> and evolve it into <span class='h_pkmn'>Exeggutor</span> (<span class='h_item'>Leaf Stone</span>)
+            </label></li><li><input type='checkbox' id='pkmn_147' />
+            <label for='pkmn_147'>
+                Fish <span class='h_pkmn'>Dratini</span> - 15% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label></li><li><input type='checkbox' id='pkmn_148' />
+            <label for='pkmn_148'>
+                Fish <span class='h_pkmn'>Dratini</span> and evolve it into <span class='h_pkmn'>Dragonair</span> (level 30)
+            </label></li><li><input type='checkbox' id='pkmn_149' />
+            <label for='pkmn_149'>
+                Fish <span class='h_pkmn'>Dratini</span>, evolve it into <span class='h_pkmn'>Dragonair</span> (level 30) then into <span class='h_pkmn'>Dragonite</span> (level 55)
+            </label>
+                </li>
+            </ul><h3>Route 21</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_114' />
+            <label for='pkmn_114'>
+                Catch <span class='h_pkmn'>Tangela</span> - 100% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_98' />
+            <label for='pkmn_98'>
+                Fish <span class='h_pkmn'>Krabby</span> - 80% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label>
+                </li>
+            </ul><h3>Cinnabar Island</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_139' />
+            <label for='pkmn_139'>
+                Revive <span class='h_pkmn'>Omanyte</span> (<span class='h_item'>Helix Fossil</span>) and evolve it into <span class='h_pkmn'>Omastar</span> (level 40)
+             - <span class='h_play'>1st playthrough</span></label></li><li><input type='checkbox' id='pkmn_141' />
+            <label for='pkmn_141'>
+                Revive <span class='h_pkmn'>Kabuto</span> (<span class='h_item'>Dome Fossil</span>) and evolve it into <span class='h_pkmn'>Kabutops</span> (level 40)
+             - <span class='h_play'>2nd playthrough</span></label></li><li><input type='checkbox' id='pkmn_142' />
+            <label for='pkmn_142'>
+                Revive <span class='h_pkmn'>Aerodactyl</span> (<span class='h_item'>Old Amber</span>)
+            </label>
+                </li>
+            </ul><h3>Pokémon Mansion</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='moon4' />
+            <label for='moon4'>
+                Pick up  <span class='h_item'>Moon Stone</span> - 1F, in the rocks northwest of the entrance pillars (hidden)
+            </label></li><li><input type='checkbox' id='pkmn_20' />
+            <label for='pkmn_20'>
+                Catch <span class='h_pkmn'>Raticate</span> - 30% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_88' />
+            <label for='pkmn_88'>
+                Catch <span class='h_pkmn'>Grimer</span> - 30% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_38' />
+            <label for='pkmn_38'>
+                Catch <span class='h_pkmn'>Vulpix</span> (15% encounter rate) and evolve it into <span class='h_pkmn'>Ninetales</span> (<span class='h_item'>Fire Stone</span>)
+            </label></li><li><input type='checkbox' id='pkmn_89' />
+            <label for='pkmn_89'>
+                Catch <span class='h_pkmn'>Muk</span> - 5% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_110' />
+            <label for='pkmn_110'>
+                Catch <span class='h_pkmn'>Koffing</span> (5% encounter rate) and evolve it into <span class='h_pkmn'>Weezing</span> (level 35)
+            </label>
+                </li>
+            </ul><h3>Mount Ember</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_77' />
+            <label for='pkmn_77'>
+                Catch <span class='h_pkmn'>Ponyta</span> - 35% encounter rate (Exterior)
+            </label></li><li><input type='checkbox' id='pkmn_22' />
+            <label for='pkmn_22'>
+                Catch <span class='h_pkmn'>Fearow</span> - 25% encounter rate (Exterior)
+            </label></li><li><input type='checkbox' id='pkmn_78' />
+            <label for='pkmn_78'>
+                Catch <span class='h_pkmn'>Rapidash</span> - 5% encounter rate (Exterior)
+            </label></li><li><input type='checkbox' id='pkmn_126' />
+            <label for='pkmn_126'>
+                Catch <span class='h_pkmn'>Magmar</span> - 5% encounter rate (Exterior)
+            </label></li><li><input type='checkbox' id='pkmn_66' />
+            <label for='pkmn_66'>
+                Catch <span class='h_pkmn'>Machop</span> - 40% encounter rate (Main chamber)
+            </label></li><li><input type='checkbox' id='pkmn_67' />
+            <label for='pkmn_67'>
+                Catch <span class='h_pkmn'>Machoke</span> - 20% encounter rate (Main chamber)
+            </label></li><li><input type='checkbox' id='pkmn_68' />
+            <label for='pkmn_68'>
+                Catch <span class='h_pkmn'>Machoke</span> and evolve it into <span class='h_pkmn'>Machamp</span> (Trading)
+            </label></li><li><input type='checkbox' id='pkmn_146' />
+            <label for='pkmn_146'>
+                Catch <span class='h_pkmn'>Moltres</span> - Unique encounter (Summit)
+            </label></li><li><input type='checkbox' id='pkmn_219' />
+            <label for='pkmn_219'>
+                Catch <span class='h_pkmn'>Magcargo</span> - 10% encounter rate (Ruby path - B3F)
+            </label>
+                </li>
+            </ul><h3>Cape Brink</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_69' />
+            <label for='pkmn_69'>
+                Catch <span class='h_pkmn'>Bellsprout</span> - 30% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_60' />
+            <label for='pkmn_60'>
+                Fish <span class='h_pkmn'>Poliwag</span> - 40% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label></li><li><input type='checkbox' id='pkmn_61' />
+            <label for='pkmn_61'>
+                Fish <span class='h_pkmn'>Poliwhirl</span> - 40% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label></li><li><input type='checkbox' id='pkmn_62' />
+            <label for='pkmn_62'>
+                Fish <span class='h_pkmn'>Poliwhirl</span> and evolve it into <span class='h_pkmn'>Poliwrath</span> (<span class='h_item'>Water Stone</span>)
+            </label></li><li><input type='checkbox' id='pkmn_186' />
+            <label for='pkmn_186'>
+                Fish <span class='h_pkmn'>Poliwhirl</span>, give it <span class='h_item'>King's Rock</span> and evolve it into <span class='h_pkmn'>Politoed</span> (Trading)
+            </label></li><li><input type='checkbox' id='pkmn_124' />
+            <label for='pkmn_124'>
+                Fish <span class='h_pkmn'>Poliwhirl</span> then trade it for <span class='h_pkmn'>Jynx</span> (<span class='h_loc'>Cerulean City</span>)
+            </label>
+                </li>
+            </ul><h3>Berry Forest</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_17' />
+            <label for='pkmn_17'>
+                Catch <span class='h_pkmn'>Pidgeotto</span> - 20% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_18' />
+            <label for='pkmn_18'>
+                Catch <span class='h_pkmn'>Pidgeotto</span> and evolve it into <span class='h_pkmn'>Pidgeot</span> (level 36)
+            </label></li><li><input type='checkbox' id='pkmn_70' />
+            <label for='pkmn_70'>
+                Catch <span class='h_pkmn'>Weepinbell</span> - 20% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_71' />
+            <label for='pkmn_71'>
+                Catch <span class='h_pkmn'>Weepinbell</span> and evolve it into <span class='h_pkmn'>Victreebel</span> (<span class='h_item'>Leaf Stone</span>)
+            </label></li><li><input type='checkbox' id='pkmn_49' />
+            <label for='pkmn_49'>
+                Catch <span class='h_pkmn'>Venomoth</span> - 5% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_97' />
+            <label for='pkmn_97'>
+                Catch <span class='h_pkmn'>Hypno</span> - Unique encounter
+            </label>
+                </li>
+            </ul><h3>Seafoam Islands</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_80' />
+            <label for='pkmn_80'>
+                Catch <span class='h_pkmn'>Slowbro</span> - 15% encounter rate (B3F)
+            </label></li><li><input type='checkbox' id='pkmn_144' />
+            <label for='pkmn_144'>
+                Catch <span class='h_pkmn'>Articuno</span> - Unique encounter (B4F)
+            </label>
+                </li>
+            </ul><h3>Power Plant</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_25' />
+            <label for='pkmn_25'>
+                Catch <span class='h_pkmn'>Pikachu</span> - 25% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_26' />
+            <label for='pkmn_26'>
+                Catch <span class='h_pkmn'>Pikachu</span> and evolve it into <span class='h_pkmn'>Raichu</span> (<span class='h_item'>Thunderstone</span>)
+            </label></li><li><input type='checkbox' id='pkmn_145' />
+            <label for='pkmn_145'>
+                Catch <span class='h_pkmn'>Zapdos</span> - Unique encounter
+            </label>
+                </li>
+            </ul><h3>Route 22</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_56' />
+            <label for='pkmn_56'>
+                Catch <span class='h_pkmn'>Mankey</span> - 45% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_79' />
+            <label for='pkmn_79'>
+                Catch <span class='h_pkmn'>Slowpoke</span> - 100% encounter rate (Surf)
+            </label></li><li><input type='checkbox' id='pkmn_199' />
+            <label for='pkmn_199'>
+                Catch <span class='h_pkmn'>Slowpoke</span>, give it <span class='h_item'>King's Rock</span> and evolve it into <span class='h_pkmn'>Slowking</span> (Trading)
+            </label>
+                </li>
+            </ul><h3>Victory Road</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_95' />
+            <label for='pkmn_95'>
+                Catch <span class='h_pkmn'>Onix</span> - 30% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_208' />
+            <label for='pkmn_208'>
+                Catch <span class='h_pkmn'>Onix</span>, give it <span class='h_item'>Metal Coat</span> and evolve it into <span class='h_pkmn'>Steelix</span> (Trading)
+            </label>
+                </li>
+            </ul><h3>Icefall Cave</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_86' />
+            <label for='pkmn_86'>
+                Catch <span class='h_pkmn'>Seel</span> - 60% encounter rate (Entrance)
+            </label></li><li><input type='checkbox' id='pkmn_87' />
+            <label for='pkmn_87'>
+                Catch <span class='h_pkmn'>Dewgong</span> - 20% encounter rate (Entrance)
+            </label></li><li><input type='checkbox' id='pkmn_220' />
+            <label for='pkmn_220'>
+                Catch <span class='h_pkmn'>Swinub</span> - 50% encounter rate (1F or B1F)
+            </label>
+                </li>
+            </ul><h3>Memorial Pillar</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='coat' />
+            <label for='coat'>
+                Pick up  <span class='h_item'>Metal Coat</span> - Southwest of the memorial
+            </label>
+                </li>
+            </ul><h3>Water Labyrinth</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_175' />
+            <label for='pkmn_175'>
+                Hatch <span class='h_pkmn'>Togepi</span> from the gifted egg
+            </label></li><li><input type='checkbox' id='pkmn_99' />
+            <label for='pkmn_99'>
+                Fish <span class='h_pkmn'>Kingler</span> - 4% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label>
+                </li>
+            </ul><h3>Lost Cave</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_93' />
+            <label for='pkmn_93'>
+                Catch <span class='h_pkmn'>Haunter</span> - 30% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_94' />
+            <label for='pkmn_94'>
+                Catch <span class='h_pkmn'>Haunter</span> and evolve it into <span class='h_pkmn'>Gengar</span> (Trading)
+            </label>
+                </li>
+            </ul><h3>Water Path</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='scale' />
+            <label for='scale'>
+                Pick up  <span class='h_item'>Dragon Scale</span> - Isolated sliver of land south of the southernmost waters
+            </label></li><li><input type='checkbox' id='pkmn_161' />
+            <label for='pkmn_161'>
+                Catch <span class='h_pkmn'>Sentret</span> - 30% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_53' />
+            <label for='pkmn_53'>
+                Catch <span class='h_pkmn'>Persian</span> - 5% encounter rate
+            </label>
+                </li>
+            </ul><h3>Pattern Bush</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_11' />
+            <label for='pkmn_11'>
+                Catch <span class='h_pkmn'>Metapod</span> - 20% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_12' />
+            <label for='pkmn_12'>
+                Catch <span class='h_pkmn'>Metapod</span> and evolve it into <span class='h_pkmn'>Butterfree</span> (level 10)
+            </label></li><li><input type='checkbox' id='pkmn_14' />
+            <label for='pkmn_14'>
+                Catch <span class='h_pkmn'>Kakuna</span> - 5% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_15' />
+            <label for='pkmn_15'>
+                Catch <span class='h_pkmn'>Kakuna</span> and evolve it into <span class='h_pkmn'>Beedrill</span> (level 10)
+            </label>
+                </li>
+            </ul><h3>Sevault Canyon</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='kings2' />
+            <label for='kings2'>
+                Pick up  <span class='h_item'>King's Rock</span> - Behind the 3-rocks formation
+            </label></li><li><input type='checkbox' id='pkmn_105' />
+            <label for='pkmn_105'>
+                Catch <span class='h_pkmn'>Marowak</span> - 10% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_246' />
+            <label for='pkmn_246'>
+                Catch <span class='h_pkmn'>Larvitar</span> - 5% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_247' />
+            <label for='pkmn_247'>
+                Catch a level 20 <span class='h_pkmn'>Larvitar</span> and evolve it into <span class='h_pkmn'>Pupitar</span> (level 30)
+            </label>
+                </li>
+            </ul><h3>Tanoby Chambers</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_201' />
+            <label for='pkmn_201'>
+                Catch <span class='h_pkmn'>Unown</span> - 100% encounter rate
+            </label>
+                </li>
+            </ul><h3>Rocket Warehouse</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='upgrade' />
+            <label for='upgrade'>
+                Pick up  <span class='h_item'>Up-Grade</span> - Northwest
+            </label>
+                </li>
+            </ul><h3>Cerulean Cave</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_47' />
+            <label for='pkmn_47'>
+                Catch <span class='h_pkmn'>Parasect</span> - 25% encounter rate (1F)
+            </label></li><li><input type='checkbox' id='pkmn_82' />
+            <label for='pkmn_82'>
+                Catch <span class='h_pkmn'>Magneton</span> - 20% encounter rate (1F)
+            </label></li><li><input type='checkbox' id='pkmn_57' />
+            <label for='pkmn_57'>
+                Catch <span class='h_pkmn'>Primeape</span> - 11% encounter rate (1F)
+            </label></li><li><input type='checkbox' id='pkmn_64' />
+            <label for='pkmn_64'>
+                Catch <span class='h_pkmn'>Kadabra</span> - 25% encounter rate (B1F)
+            </label></li><li><input type='checkbox' id='pkmn_65' />
+            <label for='pkmn_65'>
+                Catch <span class='h_pkmn'>Kadabra</span> and evolve it into <span class='h_pkmn'>Alakazam</span> (Trading)
+            </label></li><li><input type='checkbox' id='pkmn_150' />
+            <label for='pkmn_150'>
+                Catch <span class='h_pkmn'>Mewtwo</span> - Unique encounter
+            </label>
+                </li>
+            </ul>
+            </article><h2 class='colosseum'>Pokémon Colosseum</h2>
+            <article>
+                <h3>Beginning of the game</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_196' />
+            <label for='pkmn_196'>
+                Get <span class='h_pkmn'>Espeon</span> - Starter Pokémon
+            </label></li><li><input type='checkbox' id='pkmn_197' />
+            <label for='pkmn_197'>
+                Get <span class='h_pkmn'>Umbreon</span> - Starter Pokémon
+            </label>
+                </li>
+            </ul><h3>Phenac City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_297' />
+            <label for='pkmn_297'>
+                Snag <span class='h_pkmn'>Makuhita</span> and evolve it into <span class='h_pkmn'>Hariyama</span> (level 24)
+            </label></li><li><input type='checkbox' id='pkmn_154' />
+            <label for='pkmn_154'>
+                Snag <span class='h_pkmn'>Bayleef</span> and evolve it into <span class='h_pkmn'>Meganium</span> (level 32)
+            </label>
+                </li>
+            </ul><h3>Pyrite Town</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_218' />
+            <label for='pkmn_218'>
+                Snag <span class='h_pkmn'>Slugma</span>
+            </label></li><li><input type='checkbox' id='pkmn_164' />
+            <label for='pkmn_164'>
+                Snag <span class='h_pkmn'>Noctowl</span>
+            </label></li><li><input type='checkbox' id='pkmn_181' />
+            <label for='pkmn_181'>
+                Snag <span class='h_pkmn'>Flaaffy</span> and evolve it into <span class='h_pkmn'>Ampharos</span> (level 30)
+            </label></li><li><input type='checkbox' id='pkmn_189' />
+            <label for='pkmn_189'>
+                Snag <span class='h_pkmn'>Skiploom</span> and evolve it into <span class='h_pkmn'>Jumpluff</span> (level 27)
+            </label></li><li><input type='checkbox' id='pkmn_195' />
+            <label for='pkmn_195'>
+                Snag <span class='h_pkmn'>Quagsire</span>
+            </label></li><li><input type='checkbox' id='pkmn_200' />
+            <label for='pkmn_200'>
+                Snag <span class='h_pkmn'>Misdreavus</span>
+            </label></li><li><input type='checkbox' id='pkmn_162' />
+            <label for='pkmn_162'>
+                Snag <span class='h_pkmn'>Furret</span>
+            </label>
+                </li>
+            </ul><h3>Pyrite Bldg</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_193' />
+            <label for='pkmn_193'>
+                Snag <span class='h_pkmn'>Yanma</span>
+            </label></li><li><input type='checkbox' id='pkmn_223' />
+            <label for='pkmn_223'>
+                Snag <span class='h_pkmn'>Remoraid</span>
+            </label></li><li><input type='checkbox' id='pkmn_226' />
+            <label for='pkmn_226'>
+                Snag <span class='h_pkmn'>Mantine</span>
+            </label></li><li><input type='checkbox' id='pkmn_211' />
+            <label for='pkmn_211'>
+                Snag <span class='h_pkmn'>Qwilfish</span>
+            </label>
+                </li>
+            </ul><h3>Pyrite Cave</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_308' />
+            <label for='pkmn_308'>
+                Snag <span class='h_pkmn'>Meditite</span> and evolve it into <span class='h_pkmn'>Medicham</span> (level 37)
+            </label></li><li><input type='checkbox' id='pkmn_206' />
+            <label for='pkmn_206'>
+                Snag <span class='h_pkmn'>Dunsparce</span>
+            </label></li><li><input type='checkbox' id='pkmn_333' />
+            <label for='pkmn_333'>
+                Snag <span class='h_pkmn'>Swablu</span>
+            </label></li><li><input type='checkbox' id='pkmn_185' />
+            <label for='pkmn_185'>
+                Snag <span class='h_pkmn'>Sudowoodo</span>
+            </label>
+                </li>
+            </ul><h3>Agate Village</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_237' />
+            <label for='pkmn_237'>
+                Snag <span class='h_pkmn'>Hitmontop</span>
+            </label>
+                </li>
+            </ul><h3>Mt. Battle</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_244' />
+            <label for='pkmn_244'>
+                Snag <span class='h_pkmn'>Entei</span>
+            </label>
+                </li>
+            </ul><h3>The Under</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_166' />
+            <label for='pkmn_166'>
+                Snag <span class='h_pkmn'>Ledian</span>
+            </label></li><li><input type='checkbox' id='pkmn_245' />
+            <label for='pkmn_245'>
+                Snag <span class='h_pkmn'>Suicune</span>
+            </label>
+                </li>
+            </ul><h3>The Under Subway</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_207' />
+            <label for='pkmn_207'>
+                Snag <span class='h_pkmn'>Gligar</span>
+            </label></li><li><input type='checkbox' id='pkmn_234' />
+            <label for='pkmn_234'>
+                Snag <span class='h_pkmn'>Stantler</span>
+            </label></li><li><input type='checkbox' id='pkmn_221' />
+            <label for='pkmn_221'>
+                Snag <span class='h_pkmn'>Piloswine</span>
+            </label></li><li><input type='checkbox' id='pkmn_215' />
+            <label for='pkmn_215'>
+                Snag <span class='h_pkmn'>Sneasel</span>
+            </label>
+                </li>
+            </ul><h3>Shadow Pokémon Lab</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_160' />
+            <label for='pkmn_160'>
+                Snag <span class='h_pkmn'>Croconaw</span> and evolve it into <span class='h_pkmn'>Feraligatr</span> (level 30)
+            </label></li><li><input type='checkbox' id='pkmn_190' />
+            <label for='pkmn_190'>
+                Snag <span class='h_pkmn'>Aipom</span>
+            </label></li><li><input type='checkbox' id='pkmn_198' />
+            <label for='pkmn_198'>
+                Snag <span class='h_pkmn'>Murkrow</span>
+            </label></li><li><input type='checkbox' id='pkmn_205' />
+            <label for='pkmn_205'>
+                Snag <span class='h_pkmn'>Forretress</span>
+            </label></li><li><input type='checkbox' id='pkmn_168' />
+            <label for='pkmn_168'>
+                Snag <span class='h_pkmn'>Ariados</span>
+            </label></li><li><input type='checkbox' id='pkmn_210' />
+            <label for='pkmn_210'>
+                Snag <span class='h_pkmn'>Granbull</span>
+            </label></li><li><input type='checkbox' id='pkmn_330' />
+            <label for='pkmn_330'>
+                Snag <span class='h_pkmn'>Vibrava</span> and evolve it into <span class='h_pkmn'>Flygon</span> (level 45)
+            </label></li><li><input type='checkbox' id='pkmn_243' />
+            <label for='pkmn_243'>
+                Snag <span class='h_pkmn'>Raikou</span>
+            </label>
+                </li>
+            </ul><h3>Tower Colosseum</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_192' />
+            <label for='pkmn_192'>
+                Snag <span class='h_pkmn'>Sunflora</span>
+            </label></li><li><input type='checkbox' id='pkmn_225' />
+            <label for='pkmn_225'>
+                Snag <span class='h_pkmn'>Delibird</span>
+            </label></li><li><input type='checkbox' id='pkmn_214' />
+            <label for='pkmn_214'>
+                Snag <span class='h_pkmn'>Heracross</span>
+            </label></li><li><input type='checkbox' id='pkmn_227' />
+            <label for='pkmn_227'>
+                Snag <span class='h_pkmn'>Skarmory</span>
+            </label></li><li><input type='checkbox' id='pkmn_241' />
+            <label for='pkmn_241'>
+                Snag <span class='h_pkmn'>Miltank</span>
+            </label></li><li><input type='checkbox' id='pkmn_359' />
+            <label for='pkmn_359'>
+                Snag <span class='h_pkmn'>Absol</span>
+            </label></li><li><input type='checkbox' id='pkmn_229' />
+            <label for='pkmn_229'>
+                Snag <span class='h_pkmn'>Houndoom</span>
+            </label></li><li><input type='checkbox' id='pkmn_357' />
+            <label for='pkmn_357'>
+                Snag <span class='h_pkmn'>Tropius</span>
+            </label></li><li><input type='checkbox' id='pkmn_376' />
+            <label for='pkmn_376'>
+                Snag <span class='h_pkmn'>Metagross</span>
+            </label></li><li><input type='checkbox' id='pkmn_248' />
+            <label for='pkmn_248'>
+                Snag <span class='h_pkmn'>Tyranitar</span>
+            </label>
+                </li>
+            </ul><h3>Snagem Hideout</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_157' />
+            <label for='pkmn_157'>
+                Snag <span class='h_pkmn'>Quilava</span> and evolve it into <span class='h_pkmn'>Typhlosion</span> (level 36)
+            </label></li><li><input type='checkbox' id='pkmn_235' />
+            <label for='pkmn_235'>
+                Snag <span class='h_pkmn'>Smeargle</span>
+            </label></li><li><input type='checkbox' id='pkmn_217' />
+            <label for='pkmn_217'>
+                Snag <span class='h_pkmn'>Ursaring</span>
+            </label>
+                </li>
+            </ul><h3>Deep Colosseum</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_213' />
+            <label for='pkmn_213'>
+                Snag <span class='h_pkmn'>Shuckle</span>
+            </label>
+                </li>
+            </ul><h3>Miscellaneous</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_176' />
+            <label for='pkmn_176'>
+                Snag <span class='h_pkmn'>Togetic</span> - After 47 Shadow Pokémon snagged
+            </label></li><li><input type='checkbox' id='pkmn_250' />
+            <label for='pkmn_250'>
+                Get <span class='h_pkmn'>Ho-Oh</span> - Purify all 48 Shadow Pokémon then defeat all 100 trainers in Battle Mode
+            </label></li><li><input type='checkbox' id='pkmn_385' />
+            <label for='pkmn_385'>
+                Get <span class='h_pkmn'>Jirachi</span> - Reward from the Bonus Disc (NTSC-U) / Obtained in Pokémon Channel (PAL)
+            </label>
+                </li>
+            </ul>
+            </article><h2 class='xd'>Pokémon XD: Gale of Darkness</h2>
+            <article>
+                <h3>Beginning of the game</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_135' />
+            <label for='pkmn_135'>
+                Get <span class='h_pkmn'>Eevee</span> and evolve it into <span class='h_pkmn'>Jolteon</span> (<span class='h_item'>Thunderstone</span>)
+            </label>
+                </li>
+            </ul><h3>Cipher Lab</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_273' />
+            <label for='pkmn_273'>
+                Snag <span class='h_pkmn'>Seedot</span>
+            </label></li><li><input type='checkbox' id='pkmn_301' />
+            <label for='pkmn_301'>
+                Snag <span class='h_pkmn'>Delcatty</span>
+            </label>
+                </li>
+            </ul><h3>Oasis Poké Spot</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_187' />
+            <label for='pkmn_187'>
+                Catch <span class='h_pkmn'>Hoppip</span> - 50% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_188' />
+            <label for='pkmn_188'>
+                Catch a level 17 <span class='h_pkmn'>Hoppip</span> and evolve it into <span class='h_pkmn'>Skiploom</span> (level 18)
+            </label></li><li><input type='checkbox' id='pkmn_283' />
+            <label for='pkmn_283'>
+                Catch <span class='h_pkmn'>Surskit</span> - 15% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_284' />
+            <label for='pkmn_284'>
+                Catch a level 20 <span class='h_pkmn'>Surskit</span> and evolve it into <span class='h_pkmn'>Masquerain</span> (level 22)
+            </label>
+                </li>
+            </ul><h3>ONBS</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_282' />
+            <label for='pkmn_282'>
+                Snag <span class='h_pkmn'>Ralts</span>, evolve it into <span class='h_pkmn'>Kirlia</span> (level 20) then into <span class='h_pkmn'>Gardevoir</span> (level 30)
+            </label>
+                </li>
+            </ul><h3>Phenac City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_315' />
+            <label for='pkmn_315'>
+                Snag <span class='h_pkmn'>Roselia</span>
+            </label></li><li><input type='checkbox' id='pkmn_337' />
+            <label for='pkmn_337'>
+                Snag <span class='h_pkmn'>Lunatone</span>
+            </label>
+                </li>
+            </ul><h3>Cipher Key Lair</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_335' />
+            <label for='pkmn_335'>
+                Snag <span class='h_pkmn'>Zangoose</span>
+            </label></li><li><input type='checkbox' id='pkmn_59' />
+            <label for='pkmn_59'>
+                Snag <span class='h_pkmn'>Growlithe</span> and evolve it into <span class='h_pkmn'>Arcanine</span> (<span class='h_item'>Fire Stone</span>)
+            </label></li><li><input type='checkbox' id='pkmn_91' />
+            <label for='pkmn_91'>
+                Snag <span class='h_pkmn'>Shellder</span> and evolve it into <span class='h_pkmn'>Cloyster</span> (<span class='h_item'>Water Stone</span>)
+            </label></li><li><input type='checkbox' id='pkmn_24' />
+            <label for='pkmn_24'>
+                Snag <span class='h_pkmn'>Arbok</span>
+            </label>
+                </li>
+            </ul><h3>Citadark Isle</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_85' />
+            <label for='pkmn_85'>
+                Snag <span class='h_pkmn'>Dodrio</span>
+            </label></li><li><input type='checkbox' id='pkmn_83' />
+            <label for='pkmn_83'>
+                Snag <span class='h_pkmn'>Farfetch'd</span>
+            </label></li><li><input type='checkbox' id='pkmn_115' />
+            <label for='pkmn_115'>
+                Snag <span class='h_pkmn'>Kangaskhan</span>
+            </label></li><li><input type='checkbox' id='pkmn_108' />
+            <label for='pkmn_108'>
+                Snag <span class='h_pkmn'>Lickitung</span>
+            </label></li><li><input type='checkbox' id='pkmn_123' />
+            <label for='pkmn_123'>
+                Snag <span class='h_pkmn'>Scyther</span>
+            </label></li><li><input type='checkbox' id='pkmn_242' />
+            <label for='pkmn_242'>
+                Snag <span class='h_pkmn'>Chansey</span> and evolve it into <span class='h_pkmn'>Blissey</span> (Friendship)
+            </label></li><li><input type='checkbox' id='pkmn_125' />
+            <label for='pkmn_125'>
+                Snag <span class='h_pkmn'>Electabuzz</span>
+            </label></li><li><input type='checkbox' id='pkmn_122' />
+            <label for='pkmn_122'>
+                Snag <span class='h_pkmn'>Mr. Mime</span>
+            </label></li><li><input type='checkbox' id='pkmn_373' />
+            <label for='pkmn_373'>
+                Snag <span class='h_pkmn'>Salamence</span>
+            </label></li><li><input type='checkbox' id='pkmn_249' />
+            <label for='pkmn_249'>
+                Snag <span class='h_pkmn'>Lugia</span>
+            </label></li><li><input type='checkbox' id='pkmn_112' />
+            <label for='pkmn_112'>
+                Snag <span class='h_pkmn'>Rhydon</span>
+            </label></li><li><input type='checkbox' id='pkmn_128' />
+            <label for='pkmn_128'>
+                Snag <span class='h_pkmn'>Tauros</span>
+            </label>
+                </li>
+            </ul>
+            </article><h2 class='sapphire'>Pokémon Sapphire</h2>
+            <article>
+                <h3>Route 101</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_254' />
+            <label for='pkmn_254'>
+                Get <span class='h_pkmn'>Treecko</span> (Starter Pokémon), evolve it into <span class='h_pkmn'>Grovyle</span> (level 16) then into <span class='h_pkmn'>Sceptile</span> (level 36)
+             - <span class='h_play'>1st playthrough</span></label></li><li><input type='checkbox' id='pkmn_257' />
+            <label for='pkmn_257'>
+                Get <span class='h_pkmn'>Torchic</span> (Starter Pokémon), evolve it into <span class='h_pkmn'>Combusken</span> (level 16) then into <span class='h_pkmn'>Blaziken</span> (level 36)
+             - <span class='h_play'>2nd playthrough</span></label>
+                </li>
+            </ul><h3>Route 110</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_311' />
+            <label for='pkmn_311'>
+                Catch <span class='h_pkmn'>Plusle</span> - 15% encounter rate
+            </label>
+                </li>
+            </ul><h3>Route 117</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_313' />
+            <label for='pkmn_313'>
+                Catch <span class='h_pkmn'>Volbeat</span> - 18% encounter rate
+            </label>
+                </li>
+            </ul><h3>Abandoned Ship</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='scanner1' />
+            <label for='scanner1'>
+                Pick up  <span class='h_item'>Scanner</span> - In the area after the Dive spot
+            </label>
+                </li>
+            </ul><h3>Slateport City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='dstooth' />
+            <label for='dstooth'>
+                Pick up  <span class='h_item'>Deep Sea Tooth</span> - From Captain Stern, in exchange for the <span class='h_item'>Scanner</span>
+            </label>
+                </li>
+            </ul>
+            </article><h2 class='emerald'>Pokémon Emerald</h2>
+            <article>
+                <h3>Route 101</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_260' />
+            <label for='pkmn_260'>
+                Get <span class='h_pkmn'>Mudkip</span> (Starter Pokémon), evolve it into <span class='h_pkmn'>Marshtomp</span> (level 16) then into <span class='h_pkmn'>Swampert</span> (level 36)
+            </label></li><li><input type='checkbox' id='pkmn_265' />
+            <label for='pkmn_265'>
+                Catch <span class='h_pkmn'>Wurmple</span> - 45% encounter rate
+            </label>
+                </li>
+            </ul><h3>Route 103</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_261' />
+            <label for='pkmn_261'>
+                Catch <span class='h_pkmn'>Poochyena</span> - 60% encounter rate
+            </label>
+                </li>
+            </ul><h3>Route 102</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_280' />
+            <label for='pkmn_280'>
+                Catch <span class='h_pkmn'>Ralts</span> - 4% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_281' />
+            <label for='pkmn_281'>
+                Catch <span class='h_pkmn'>Ralts</span> and evolve it into <span class='h_pkmn'>Kirlia</span> (level 20)
+            </label></li><li><input type='checkbox' id='pkmn_341' />
+            <label for='pkmn_341'>
+                Fish <span class='h_pkmn'>Corphish</span> - 100% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label></li><li><input type='checkbox' id='pkmn_342' />
+            <label for='pkmn_342'>
+                Fish a level 30 <span class='h_pkmn'>Corphish</span> (<span class='h_item'>Super Rod</span>) and evolve it into <span class='h_pkmn'>Crawdaunt</span> (level 30)
+            </label>
+                </li>
+            </ul><h3>Petalburg Woods</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_285' />
+            <label for='pkmn_285'>
+                Catch <span class='h_pkmn'>Shroomish</span> - 15% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_286' />
+            <label for='pkmn_286'>
+                Catch a level 6 <span class='h_pkmn'>Shroomish</span> and evolve it into <span class='h_pkmn'>Breloom</span> (level 23)
+            </label></li><li><input type='checkbox' id='pkmn_266' />
+            <label for='pkmn_266'>
+                Catch <span class='h_pkmn'>Silcoon</span> - 10% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_267' />
+            <label for='pkmn_267'>
+                Catch <span class='h_pkmn'>Silcoon</span> and evolve it into <span class='h_pkmn'>Beautifly</span> (level 10)
+            </label></li><li><input type='checkbox' id='pkmn_268' />
+            <label for='pkmn_268'>
+                Catch <span class='h_pkmn'>Cascoon</span> - 10% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_269' />
+            <label for='pkmn_269'>
+                Catch <span class='h_pkmn'>Cascoon</span> and evolve it into <span class='h_pkmn'>Dustox</span> (level 10)
+            </label></li><li><input type='checkbox' id='pkmn_287' />
+            <label for='pkmn_287'>
+                Catch <span class='h_pkmn'>Slakoth</span> - 5% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_288' />
+            <label for='pkmn_288'>
+                Catch a level 6 <span class='h_pkmn'>Slakoth</span> and evolve it into <span class='h_pkmn'>Vigoroth</span> (level 18)
+            </label></li><li><input type='checkbox' id='pkmn_289' />
+            <label for='pkmn_289'>
+                Catch a level 6 <span class='h_pkmn'>Slakoth</span>, evolve it into <span class='h_pkmn'>Vigoroth</span> (level 18) then into <span class='h_pkmn'>Slaking</span> (level 36)
+            </label>
+                </li>
+            </ul><h3>Route 116</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_290' />
+            <label for='pkmn_290'>
+                Catch <span class='h_pkmn'>Nincada</span> - 20% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_291' />
+            <label for='pkmn_291'>
+                Catch a level 7 <span class='h_pkmn'>Nincada</span> and evolve it into <span class='h_pkmn'>Ninjask</span> (level 20)
+            </label></li><li><input type='checkbox' id='pkmn_292' />
+            <label for='pkmn_292'>
+                Get <span class='h_pkmn'>Shedinja</span> - Evolve <span class='h_pkmn'>Nincada</span> with a free slot in the party
+            </label></li><li><input type='checkbox' id='pkmn_63' />
+            <label for='pkmn_63'>
+                Catch <span class='h_pkmn'>Abra</span> - 10% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_300' />
+            <label for='pkmn_300'>
+                Catch <span class='h_pkmn'>Skitty</span> - 2% encounter rate
+            </label>
+                </li>
+            </ul><h3>Rusturf Tunnel</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_293' />
+            <label for='pkmn_293'>
+                Catch <span class='h_pkmn'>Whismur</span> - 100% encounter rate
+            </label>
+                </li>
+            </ul><h3>Granite Cave</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_296' />
+            <label for='pkmn_296'>
+                Catch <span class='h_pkmn'>Makuhita</span> - 50% encounter rate (1F, Steven's Room)
+            </label></li><li><input type='checkbox' id='pkmn_304' />
+            <label for='pkmn_304'>
+                Catch <span class='h_pkmn'>Aron</span> - 40% encounter rate (B1F or B2F)
+            </label></li><li><input type='checkbox' id='pkmn_299' />
+            <label for='pkmn_299'>
+                Smash rocks to find <span class='h_pkmn'>Nosepass</span> - 30% encounter rate (B2F)
+            </label>
+                </li>
+            </ul><h3>Route 110</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_316' />
+            <label for='pkmn_316'>
+                Catch <span class='h_pkmn'>Gulpin</span> - 15% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_317' />
+            <label for='pkmn_317'>
+                Catch a level 13 <span class='h_pkmn'>Gulpin</span> and evolve it into <span class='h_pkmn'>Swalot</span> (level 26)
+            </label></li><li><input type='checkbox' id='pkmn_312' />
+            <label for='pkmn_312'>
+                Catch <span class='h_pkmn'>Minun</span> - 15% encounter rate
+            </label>
+                </li>
+            </ul><h3>Route 117</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_43' />
+            <label for='pkmn_43'>
+                Catch <span class='h_pkmn'>Oddish</span> - 40% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_314' />
+            <label for='pkmn_314'>
+                Catch <span class='h_pkmn'>Illumise</span> - 18% encounter rate
+            </label>
+                </li>
+            </ul><h3>Route 111</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_343' />
+            <label for='pkmn_343'>
+                Catch <span class='h_pkmn'>Baltoy</span> - 24% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_331' />
+            <label for='pkmn_331'>
+                Catch <span class='h_pkmn'>Cacnea</span> - 6% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_332' />
+            <label for='pkmn_332'>
+                Catch a level 22 <span class='h_pkmn'>Cacnea</span> and evolve it into <span class='h_pkmn'>Cacturne</span> (level 32)
+            </label></li><li><input type='checkbox' id='pkmn_74' />
+            <label for='pkmn_74'>
+                Smash rocks to find <span class='h_pkmn'>Geodude</span> - 100% encounter rate
+            </label>
+                </li>
+            </ul><h3>Route 113</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_327' />
+            <label for='pkmn_327'>
+                Catch <span class='h_pkmn'>Spinda</span> - 70% encounter rate
+            </label>
+                </li>
+            </ul><h3>Route 114</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_270' />
+            <label for='pkmn_270'>
+                Catch <span class='h_pkmn'>Lotad</span> - 30% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_271' />
+            <label for='pkmn_271'>
+                Catch <span class='h_pkmn'>Lombre</span> - 20% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_272' />
+            <label for='pkmn_272'>
+                Catch <span class='h_pkmn'>Lombre</span> and evolve it into <span class='h_pkmn'>Ludicolo</span> (<span class='h_item'>Water Stone</span>)
+            </label></li><li><input type='checkbox' id='pkmn_336' />
+            <label for='pkmn_336'>
+                Catch <span class='h_pkmn'>Seviper</span> - 9% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_274' />
+            <label for='pkmn_274'>
+                Catch <span class='h_pkmn'>Nuzleaf</span> - 1% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_275' />
+            <label for='pkmn_275'>
+                Catch <span class='h_pkmn'>Nuzleaf</span> and evolve it into <span class='h_pkmn'>Shiftry</span> (<span class='h_item'>Leaf Stone</span>)
+            </label>
+                </li>
+            </ul><h3>Meteor Falls</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_41' />
+            <label for='pkmn_41'>
+                Catch <span class='h_pkmn'>Zubat</span> - 80% encounter rate (First area)
+            </label></li><li><input type='checkbox' id='pkmn_371' />
+            <label for='pkmn_371'>
+                Catch <span class='h_pkmn'>Bagon</span> - 25% encounter rate (Small chamber)
+            </label></li><li><input type='checkbox' id='pkmn_372' />
+            <label for='pkmn_372'>
+                Catch a level 30 <span class='h_pkmn'>Bagon</span> and evolve it into <span class='h_pkmn'>Shelgon</span> (level 30)
+            </label></li><li><input type='checkbox' id='pkmn_338' />
+            <label for='pkmn_338'>
+                Catch <span class='h_pkmn'>Solrock</span> - 35% encounter rate (Second area, basement, Steven's cave)
+            </label>
+                </li>
+            </ul><h3>Route 115</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_276' />
+            <label for='pkmn_276'>
+                Catch <span class='h_pkmn'>Taillow</span> - 40% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_277' />
+            <label for='pkmn_277'>
+                Catch <span class='h_pkmn'>Swellow</span> - 10% encounter rate
+            </label>
+                </li>
+            </ul><h3>Fiery Path</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_109' />
+            <label for='pkmn_109'>
+                Catch <span class='h_pkmn'>Koffing</span> - 25% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_324' />
+            <label for='pkmn_324'>
+                Catch <span class='h_pkmn'>Torkoal</span> - 18% encounter rate
+            </label>
+                </li>
+            </ul><h3>Jagged Pass</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_322' />
+            <label for='pkmn_322'>
+                Catch <span class='h_pkmn'>Numel</span> - 55% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_323' />
+            <label for='pkmn_323'>
+                Catch a level 20 <span class='h_pkmn'>Numel</span> and evolve it into <span class='h_pkmn'>Camerupt</span> (level 33)
+            </label></li><li><input type='checkbox' id='pkmn_325' />
+            <label for='pkmn_325'>
+                Catch <span class='h_pkmn'>Spoink</span> - 20% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_326' />
+            <label for='pkmn_326'>
+                Catch a level 20 <span class='h_pkmn'>Spoink</span> and evolve it into <span class='h_pkmn'>Grumpig</span> (level 32)
+            </label>
+                </li>
+            </ul><h3>Lavaridge Town</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_360' />
+            <label for='pkmn_360'>
+                Hatch <span class='h_pkmn'>Wynaut</span> from the gifted egg
+            </label>
+                </li>
+            </ul><h3>Mirage Tower</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_27' />
+            <label for='pkmn_27'>
+                Catch <span class='h_pkmn'>Sandshrew</span> - 50% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_28' />
+            <label for='pkmn_28'>
+                Catch a level 21 <span class='h_pkmn'>Sandshrew</span> and evolve it into <span class='h_pkmn'>Sandslash</span> (level 22)
+            </label></li><li><input type='checkbox' id='pkmn_328' />
+            <label for='pkmn_328'>
+                Catch <span class='h_pkmn'>Trapinch</span> - 50% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_329' />
+            <label for='pkmn_329'>
+                Catch a level 24 <span class='h_pkmn'>Trapinch</span> and evolve it into <span class='h_pkmn'>Vibrava</span> (level 35)
+            </label></li><li><input type='checkbox' id='fossclaw' />
+            <label for='fossclaw'>
+                Pick up  <span class='h_item'>Claw Fossil</span> - At the top; picking it up will permanently destroy the tower
+            </label>
+                </li>
+            </ul><h3>Route 118</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_309' />
+            <label for='pkmn_309'>
+                Catch <span class='h_pkmn'>Electrike</span> - 30% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_310' />
+            <label for='pkmn_310'>
+                Catch <span class='h_pkmn'>Manectric</span> - 10% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_318' />
+            <label for='pkmn_318'>
+                Fish <span class='h_pkmn'>Carvanha</span> - 60% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label></li><li><input type='checkbox' id='pkmn_319' />
+            <label for='pkmn_319'>
+                Fish <span class='h_pkmn'>Sharpedo</span> - 40% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label>
+                </li>
+            </ul><h3>Route 119</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_351' />
+            <label for='pkmn_351'>
+                Get <span class='h_pkmn'>Castform</span> - <span class='h_loc'>Weather Institute</span>
+            </label></li><li><input type='checkbox' id='pkmn_263' />
+            <label for='pkmn_263'>
+                Catch <span class='h_pkmn'>Zigzagoon</span> - 30% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_264' />
+            <label for='pkmn_264'>
+                Catch <span class='h_pkmn'>Linoone</span> - 30% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_349' />
+            <label for='pkmn_349'>
+                Fish <span class='h_pkmn'>Feebas</span> - 50% encounter rate (<span class='h_item'>Any Rod</span> - On 6 random water tiles)
+            </label></li><li><input type='checkbox' id='pkmn_350' />
+            <label for='pkmn_350'>
+                Fish <span class='h_pkmn'>Feebas</span> and evolve it into <span class='h_pkmn'>Milotic</span> (High Beauty)
+            </label>
+                </li>
+            </ul><h3>Route 120</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_262' />
+            <label for='pkmn_262'>
+                Catch <span class='h_pkmn'>Mightyena</span> - 30% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_352' />
+            <label for='pkmn_352'>
+                Catch <span class='h_pkmn'>Kecleon</span> - Unique encounter
+            </label></li><li><input type='checkbox' id='pkmn_183' />
+            <label for='pkmn_183'>
+                Catch <span class='h_pkmn'>Marill</span> - 99% encounter rate (Surf)
+            </label></li><li><input type='checkbox' id='pkmn_184' />
+            <label for='pkmn_184'>
+                Catch a level 17 <span class='h_pkmn'>Marill</span> and evolve it into <span class='h_pkmn'>Azumarill</span> (level 18)
+            </label>
+                </li>
+            </ul><h3>Mt. Pyre</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='incense' />
+            <label for='incense'>
+                Pick up  <span class='h_item'>Sea Incense</span> - 4F, from 6F hole path
+            </label></li><li><input type='checkbox' id='pkmn_37' />
+            <label for='pkmn_37'>
+                Catch <span class='h_pkmn'>Vulpix</span> - 30% encounter rate (Exterior)
+            </label></li><li><input type='checkbox' id='pkmn_353' />
+            <label for='pkmn_353'>
+                Catch <span class='h_pkmn'>Shuppet</span> - 85% encounter rate (Summit)
+            </label></li><li><input type='checkbox' id='pkmn_355' />
+            <label for='pkmn_355'>
+                Catch <span class='h_pkmn'>Duskull</span> - 13% encounter rate (Summit)
+            </label></li><li><input type='checkbox' id='pkmn_356' />
+            <label for='pkmn_356'>
+                Catch a level 30 <span class='h_pkmn'>Duskull</span> and evolve it into <span class='h_pkmn'>Dusclops</span> (level 37)
+            </label></li><li><input type='checkbox' id='pkmn_358' />
+            <label for='pkmn_358'>
+                Catch <span class='h_pkmn'>Chimecho</span> - 2% encounter rate (Summit)
+            </label>
+                </li>
+            </ul><h3>Aqua Hideout</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_101' />
+            <label for='pkmn_101'>
+                Catch <span class='h_pkmn'>Electrode</span> - Fake item
+            </label>
+                </li>
+            </ul><h3>Mossdeep City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='kings1' />
+            <label for='kings1'>
+                Pick up  <span class='h_item'>King's Rock</span> - From kid outside Steven's house
+            </label></li><li><input type='checkbox' id='sun' />
+            <label for='sun'>
+                Pick up  <span class='h_item'>Sun Stone</span> - Mossdeep Space Center
+            </label></li><li><input type='checkbox' id='pkmn_374' />
+            <label for='pkmn_374'>
+                Get <span class='h_pkmn'>Beldum</span> - Steven's house after Hall of Fame
+            </label>
+                </li>
+            </ul><h3>Lilycove City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_120' />
+            <label for='pkmn_120'>
+                Fish <span class='h_pkmn'>Staryu</span> - 15% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label></li><li><input type='checkbox' id='pkmn_121' />
+            <label for='pkmn_121'>
+                Fish <span class='h_pkmn'>Staryu</span> and evolve it into <span class='h_pkmn'>Starmie</span> (<span class='h_item'>Water Stone</span>)
+            </label>
+                </li>
+            </ul><h3>Shoal Cave</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_363' />
+            <label for='pkmn_363'>
+                Catch <span class='h_pkmn'>Spheal</span> - 50% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_364' />
+            <label for='pkmn_364'>
+                Catch a level 32 <span class='h_pkmn'>Spheal</span> and evolve it into <span class='h_pkmn'>Sealeo</span> (level 32)
+            </label></li><li><input type='checkbox' id='pkmn_365' />
+            <label for='pkmn_365'>
+                Catch a level 32 <span class='h_pkmn'>Spheal</span>, evolve it into <span class='h_pkmn'>Sealeo</span> (level 32) then into <span class='h_pkmn'>Walrein</span> (level 44)
+            </label></li><li><input type='checkbox' id='pkmn_320' />
+            <label for='pkmn_320'>
+                Fish <span class='h_pkmn'>Wailmer</span> - 100% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label></li><li><input type='checkbox' id='pkmn_361' />
+            <label for='pkmn_361'>
+                Catch <span class='h_pkmn'>Snorunt</span> - 10% encounter rate (Ice room)
+            </label></li><li><input type='checkbox' id='pkmn_362' />
+            <label for='pkmn_362'>
+                Catch a level 30 <span class='h_pkmn'>Snorunt</span> and evolve it into <span class='h_pkmn'>Glalie</span> (level 42)
+            </label>
+                </li>
+            </ul><h3>Route 129</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_321' />
+            <label for='pkmn_321'>
+                Catch <span class='h_pkmn'>Wailord</span> - 1% encounter rate (Surf)
+            </label>
+                </li>
+            </ul><h3>Route 132</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_116' />
+            <label for='pkmn_116'>
+                Fish <span class='h_pkmn'>Horsea</span> - 15% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label></li><li><input type='checkbox' id='pkmn_117' />
+            <label for='pkmn_117'>
+                Fish a level 30 <span class='h_pkmn'>Horsea</span> (<span class='h_item'>Super Rod</span>) and evolve it into <span class='h_pkmn'>Seadra</span> (level 32)
+            </label></li><li><input type='checkbox' id='pkmn_230' />
+            <label for='pkmn_230'>
+                Fish <span class='h_pkmn'>Horsea</span>, give it <span class='h_item'>Dragon Scale</span>, evolve it into <span class='h_pkmn'>Seadra</span> (level 32) then into <span class='h_pkmn'>Kingdra</span> (Trading)
+            </label>
+                </li>
+            </ul><h3>Route 104</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_278' />
+            <label for='pkmn_278'>
+                Catch <span class='h_pkmn'>Wingull</span> - 95% encounter rate (Surf)
+            </label></li><li><input type='checkbox' id='pkmn_279' />
+            <label for='pkmn_279'>
+                Catch <span class='h_pkmn'>Pelipper</span> - 5% encounter rate (Surf)
+            </label>
+                </li>
+            </ul><h3>Underwater</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_366' />
+            <label for='pkmn_366'>
+                Catch <span class='h_pkmn'>Clamperl</span> - 65% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_367' />
+            <label for='pkmn_367'>
+                Catch <span class='h_pkmn'>Clamperl</span>, give it <span class='h_item'>Deep Sea Tooth</span> and evolve it into <span class='h_pkmn'>Huntail</span> (Trading)
+            </label></li><li><input type='checkbox' id='pkmn_368' />
+            <label for='pkmn_368'>
+                Catch <span class='h_pkmn'>Clamperl</span>, give it <span class='h_item'>Deep Sea Scale</span> and evolve it into <span class='h_pkmn'>Gorebyss</span> (Trading)
+            </label></li><li><input type='checkbox' id='pkmn_170' />
+            <label for='pkmn_170'>
+                Catch <span class='h_pkmn'>Chinchou</span> - 30% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_171' />
+            <label for='pkmn_171'>
+                Catch a level 26 <span class='h_pkmn'>Chinchou</span> and evolve it into <span class='h_pkmn'>Lanturn</span> (level 27)
+            </label></li><li><input type='checkbox' id='pkmn_369' />
+            <label for='pkmn_369'>
+                Catch <span class='h_pkmn'>Relicanth</span> - 5% encounter rate
+            </label>
+                </li>
+            </ul><h3>Abandoned Ship</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_72' />
+            <label for='pkmn_72'>
+                Fish <span class='h_pkmn'>Tentacool</span> - 80% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label></li><li><input type='checkbox' id='pkmn_73' />
+            <label for='pkmn_73'>
+                Fish <span class='h_pkmn'>Tentacruel</span> - 20% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label></li><li><input type='checkbox' id='scanner2' />
+            <label for='scanner2'>
+                Pick up  <span class='h_item'>Scanner</span> - In the area after the Dive spot
+            </label>
+                </li>
+            </ul><h3>Slateport City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='dsscale' />
+            <label for='dsscale'>
+                Pick up  <span class='h_item'>Deep Sea Scale</span> - From Captain Stern, in exchange for the <span class='h_item'>Scanner</span>
+            </label>
+                </li>
+            </ul><h3>Sky Pillar</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_344' />
+            <label for='pkmn_344'>
+                Catch <span class='h_pkmn'>Claydol</span> - 25% encounter rate (1F or 3F)
+            </label></li><li><input type='checkbox' id='pkmn_354' />
+            <label for='pkmn_354'>
+                Catch <span class='h_pkmn'>Banette</span> - 15% encounter rate (1F, 3F or 5F)
+            </label></li><li><input type='checkbox' id='pkmn_334' />
+            <label for='pkmn_334'>
+                Catch <span class='h_pkmn'>Altaria</span> - 6% encounter rate (5F)
+            </label></li><li><input type='checkbox' id='pkmn_384' />
+            <label for='pkmn_384'>
+                Catch <span class='h_pkmn'>Rayquaza</span> - Unique encounter (6F)
+            </label>
+                </li>
+            </ul><h3>Sootopolis City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_129' />
+            <label for='pkmn_129'>
+                Fish <span class='h_pkmn'>Magikarp</span> - 80% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label></li><li><input type='checkbox' id='pkmn_130' />
+            <label for='pkmn_130'>
+                Fish <span class='h_pkmn'>Gyarados</span> - 20% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label>
+                </li>
+            </ul><h3>Ever Grande City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_370' />
+            <label for='pkmn_370'>
+                Fish <span class='h_pkmn'>Luvdisc</span> - 40% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label></li><li><input type='checkbox' id='pkmn_222' />
+            <label for='pkmn_222'>
+                Fish <span class='h_pkmn'>Corsola</span> - 15% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label>
+                </li>
+            </ul><h3>Victory Road</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_75' />
+            <label for='pkmn_75'>
+                Smash rocks to find <span class='h_pkmn'>Graveler</span> - 70% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_76' />
+            <label for='pkmn_76'>
+                Smash rocks to find <span class='h_pkmn'>Graveler</span> and evolve it into <span class='h_pkmn'>Golem</span> (Trading)
+            </label></li><li><input type='checkbox' id='pkmn_305' />
+            <label for='pkmn_305'>
+                Catch <span class='h_pkmn'>Lairon</span> - 25% encounter rate (B1F or B2F)
+            </label></li><li><input type='checkbox' id='pkmn_306' />
+            <label for='pkmn_306'>
+                Catch a level 42 <span class='h_pkmn'>Lairon</span> and evolve it into <span class='h_pkmn'>Aggron</span> (level 42)
+            </label></li><li><input type='checkbox' id='pkmn_303' />
+            <label for='pkmn_303'>
+                Catch <span class='h_pkmn'>Mawile</span> - 5% encounter rate (B1F or B2F)
+            </label></li><li><input type='checkbox' id='pkmn_302' />
+            <label for='pkmn_302'>
+                Catch <span class='h_pkmn'>Sableye</span> - 35% encounter rate (B2F)
+            </label></li><li><input type='checkbox' id='pkmn_42' />
+            <label for='pkmn_42'>
+                Catch <span class='h_pkmn'>Golbat</span> - 100% encounter rate (Surf - B2F)
+            </label></li><li><input type='checkbox' id='pkmn_169' />
+            <label for='pkmn_169'>
+                Catch <span class='h_pkmn'>Golbat</span> and evolve it into <span class='h_pkmn'>Crobat</span> (Friendship)
+            </label></li><li><input type='checkbox' id='pkmn_339' />
+            <label for='pkmn_339'>
+                Fish <span class='h_pkmn'>Barboach</span> - 80% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label></li><li><input type='checkbox' id='pkmn_340' />
+            <label for='pkmn_340'>
+                Fish <span class='h_pkmn'>Whiscash</span> - 20% encounter rate (<span class='h_item'>Super Rod</span>)
+            </label>
+                </li>
+            </ul><h3>Desert Underpass</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='fossroot' />
+            <label for='fossroot'>
+                Pick up  <span class='h_item'>Root Fossil</span>
+            </label></li><li><input type='checkbox' id='pkmn_132' />
+            <label for='pkmn_132'>
+                Catch <span class='h_pkmn'>Ditto</span> - 50% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_294' />
+            <label for='pkmn_294'>
+                Catch <span class='h_pkmn'>Loudred</span> - 16% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_295' />
+            <label for='pkmn_295'>
+                Catch a level 40 <span class='h_pkmn'>Loudred</span> and evolve it into <span class='h_pkmn'>Exploud</span> (level 40)
+            </label>
+                </li>
+            </ul><h3>Rustboro City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_346' />
+            <label for='pkmn_346'>
+                Revive <span class='h_pkmn'>Lileep</span> (<span class='h_item'>Root Fossil</span>) and evolve it into <span class='h_pkmn'>Cradily</span> (level 40)
+            </label></li><li><input type='checkbox' id='pkmn_348' />
+            <label for='pkmn_348'>
+                Revive <span class='h_pkmn'>Anorith</span> (<span class='h_item'>Claw Fossil</span>) and evolve it into <span class='h_pkmn'>Armaldo</span> (level 40)
+            </label>
+                </li>
+            </ul><h3>New Mauville</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_81' />
+            <label for='pkmn_81'>
+                Catch <span class='h_pkmn'>Magnemite</span> - 49% encounter rate
+            </label></li><li><input type='checkbox' id='pkmn_100' />
+            <label for='pkmn_100'>
+                Catch <span class='h_pkmn'>Voltorb</span> - 49% encounter rate
+            </label>
+                </li>
+            </ul><h3>Safari Zone</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_202' />
+            <label for='pkmn_202'>
+                Catch <span class='h_pkmn'>Wobbuffet</span> - 10% encounter rate (Area 1 or 2)
+            </label></li><li><input type='checkbox' id='pkmn_203' />
+            <label for='pkmn_203'>
+                Catch <span class='h_pkmn'>Girafarig</span> - 20% encounter rate (Area 1 or 2)
+            </label></li><li><input type='checkbox' id='pkmn_118' />
+            <label for='pkmn_118'>
+                Fish <span class='h_pkmn'>Goldeen</span> - 80% encounter rate (<span class='h_item'>Super Rod</span> - Area 2 or 3)
+            </label></li><li><input type='checkbox' id='pkmn_119' />
+            <label for='pkmn_119'>
+                Fish <span class='h_pkmn'>Seaking</span> - 20% encounter rate (<span class='h_item'>Super Rod</span> - Area 2 or 3)
+            </label></li><li><input type='checkbox' id='pkmn_111' />
+            <label for='pkmn_111'>
+                Catch <span class='h_pkmn'>Rhyhorn</span> - 30% encounter rate (Area 3)
+            </label></li><li><input type='checkbox' id='pkmn_127' />
+            <label for='pkmn_127'>
+                Catch <span class='h_pkmn'>Pinsir</span> - 5% encounter rate (Area 3)
+            </label></li><li><input type='checkbox' id='pkmn_54' />
+            <label for='pkmn_54'>
+                Catch <span class='h_pkmn'>Psyduck</span> - 95% encounter rate (Surf - Area 3)
+            </label></li><li><input type='checkbox' id='pkmn_55' />
+            <label for='pkmn_55'>
+                Catch <span class='h_pkmn'>Golduck</span> - 5% encounter rate (Surf - Area 3)
+            </label></li><li><input type='checkbox' id='pkmn_44' />
+            <label for='pkmn_44'>
+                Catch <span class='h_pkmn'>Gloom</span> - 15% encounter rate (Area 3 or 4)
+            </label></li><li><input type='checkbox' id='pkmn_45' />
+            <label for='pkmn_45'>
+                Catch <span class='h_pkmn'>Gloom</span> and evolve it into <span class='h_pkmn'>Vileplume</span> (<span class='h_item'>Leaf Stone</span>)
+            </label></li><li><input type='checkbox' id='pkmn_182' />
+            <label for='pkmn_182'>
+                Catch <span class='h_pkmn'>Gloom</span> and evolve it into <span class='h_pkmn'>Bellossom</span> (<span class='h_item'>Sun Stone</span>)
+            </label></li><li><input type='checkbox' id='pkmn_231' />
+            <label for='pkmn_231'>
+                Catch <span class='h_pkmn'>Phanpy</span> - 35% encounter rate (Area 4)
+            </label></li><li><input type='checkbox' id='pkmn_232' />
+            <label for='pkmn_232'>
+                Catch <span class='h_pkmn'>Phanpy</span> and evolve it into <span class='h_pkmn'>Donphan</span> (level 25)
+            </label></li><li><input type='checkbox' id='pkmn_177' />
+            <label for='pkmn_177'>
+                Catch <span class='h_pkmn'>Natu</span> - 15% encounter rate (Area 4)
+            </label></li><li><input type='checkbox' id='pkmn_178' />
+            <label for='pkmn_178'>
+                Catch <span class='h_pkmn'>Xatu</span> - 5% encounter rate (Area 4)
+            </label></li><li><input type='checkbox' id='pkmn_179' />
+            <label for='pkmn_179'>
+                Catch <span class='h_pkmn'>Mareep</span> - 30% encounter rate (Area 5)
+            </label></li><li><input type='checkbox' id='pkmn_180' />
+            <label for='pkmn_180'>
+                Catch <span class='h_pkmn'>Mareep</span> and evolve it into <span class='h_pkmn'>Flaaffy</span> (level 15)
+            </label></li><li><input type='checkbox' id='pkmn_191' />
+            <label for='pkmn_191'>
+                Catch <span class='h_pkmn'>Sunkern</span> - 30% encounter rate (Area 5)
+            </label></li><li><input type='checkbox' id='pkmn_167' />
+            <label for='pkmn_167'>
+                Catch <span class='h_pkmn'>Spinarak</span> - 10% encounter rate (Area 5)
+            </label></li><li><input type='checkbox' id='pkmn_209' />
+            <label for='pkmn_209'>
+                Catch <span class='h_pkmn'>Snubbull</span> - 5% encounter rate (Area 5)
+            </label></li><li><input type='checkbox' id='pkmn_194' />
+            <label for='pkmn_194'>
+                Catch <span class='h_pkmn'>Wooper</span> - 60% encounter rate (Surf - Area 5)
+            </label></li><li><input type='checkbox' id='pkmn_224' />
+            <label for='pkmn_224'>
+                Fish <span class='h_pkmn'>Remoraid</span> (59% encounter rate - <span class='h_item'>Super Rod</span> - Area 5) and evolve it into <span class='h_pkmn'>Octillery</span> (level 25)
+            </label></li><li><input type='checkbox' id='pkmn_163' />
+            <label for='pkmn_163'>
+                Catch <span class='h_pkmn'>Hoothoot</span> - 5% encounter rate (Area 5 or 6)
+            </label></li><li><input type='checkbox' id='pkmn_216' />
+            <label for='pkmn_216'>
+                Catch <span class='h_pkmn'>Teddiursa</span> - 30% encounter rate (Area 6)
+            </label></li><li><input type='checkbox' id='pkmn_165' />
+            <label for='pkmn_165'>
+                Catch <span class='h_pkmn'>Ledyba</span> - 10% encounter rate (Area 6)
+            </label></li><li><input type='checkbox' id='pkmn_204' />
+            <label for='pkmn_204'>
+                Catch <span class='h_pkmn'>Pineco</span> - 5% encounter rate (Area 6)
+            </label></li><li><input type='checkbox' id='pkmn_228' />
+            <label for='pkmn_228'>
+                Catch <span class='h_pkmn'>Houndour</span> - 5% encounter rate (Area 6)
+            </label>
+                </li>
+            </ul><h3>Desert Ruins</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_377' />
+            <label for='pkmn_377'>
+                Catch <span class='h_pkmn'>Regirock</span> - Unique encounter
+            </label>
+                </li>
+            </ul><h3>Island Cave</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_378' />
+            <label for='pkmn_378'>
+                Catch <span class='h_pkmn'>Regice</span> - Unique encounter
+            </label>
+                </li>
+            </ul><h3>Ancient Tomb</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_379' />
+            <label for='pkmn_379'>
+                Catch <span class='h_pkmn'>Registeel</span> - Unique encounter
+            </label>
+                </li>
+            </ul><h3>Marine Cave</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_382' />
+            <label for='pkmn_382'>
+                Catch <span class='h_pkmn'>Kyogre</span> - Unique encounter
+            </label>
+                </li>
+            </ul><h3>Terra Cave</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_383' />
+            <label for='pkmn_383'>
+                Catch <span class='h_pkmn'>Groudon</span> - Unique encounter
+            </label>
+                </li>
+            </ul><h3>Roaming Hoenn</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_380' />
+            <label for='pkmn_380'>
+                Catch <span class='h_pkmn'>Latias</span> - Unique encounter
+            </label>
+                </li>
+            </ul><h3>Southern Island</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_381' />
+            <label for='pkmn_381'>
+                Catch <span class='h_pkmn'>Latios</span> - Unique encounter
+            </label>
+                </li>
+            </ul><h3>Littleroot Town</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_152' />
+            <label for='pkmn_152'>
+                Get <span class='h_pkmn'>Chikorita</span> - After completing the Hoenn Pokédex
+            </label>
+                </li>
+            </ul><h3>Faraway Island</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_151' />
+            <label for='pkmn_151'>
+                Catch <span class='h_pkmn'>Mew</span> - Unique encounter
+            </label>
+                </li>
+            </ul><h3>Birth Island</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_386' />
+            <label for='pkmn_386'>
+                Catch <span class='h_pkmn'>Deoxys</span> - Unique encounter
+            </label>
+                </li>
+            </ul>
+            </article><h2>Miscellaneous</h2>
+            <article>
+                <h3>Eggs</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_1' />
+            <label for='pkmn_1'>
+                Hatch <span class='h_pkmn'>Bulbasaur</span>
+            </label></li><li><input type='checkbox' id='pkmn_2' />
+            <label for='pkmn_2'>
+                Hatch <span class='h_pkmn'>Bulbasaur</span> and evolve it into <span class='h_pkmn'>Ivysaur</span> (level 16)
+            </label></li><li><input type='checkbox' id='pkmn_4' />
+            <label for='pkmn_4'>
+                Hatch <span class='h_pkmn'>Charmander</span>
+            </label></li><li><input type='checkbox' id='pkmn_5' />
+            <label for='pkmn_5'>
+                Hatch <span class='h_pkmn'>Charmander</span> and evolve it into <span class='h_pkmn'>Charmeleon</span> (level 16)
+            </label></li><li><input type='checkbox' id='pkmn_7' />
+            <label for='pkmn_7'>
+                Hatch <span class='h_pkmn'>Squirtle</span>
+            </label></li><li><input type='checkbox' id='pkmn_8' />
+            <label for='pkmn_8'>
+                Hatch <span class='h_pkmn'>Squirtle</span> and evolve it into <span class='h_pkmn'>Wartortle</span> (level 16)
+            </label></li><li><input type='checkbox' id='pkmn_23' />
+            <label for='pkmn_23'>
+                Hatch <span class='h_pkmn'>Ekans</span>
+            </label></li><li><input type='checkbox' id='pkmn_58' />
+            <label for='pkmn_58'>
+                Hatch <span class='h_pkmn'>Growlithe</span>
+            </label></li><li><input type='checkbox' id='pkmn_90' />
+            <label for='pkmn_90'>
+                Hatch <span class='h_pkmn'>Shellder</span>
+            </label></li><li><input type='checkbox' id='pkmn_113' />
+            <label for='pkmn_113'>
+                Hatch <span class='h_pkmn'>Chansey</span>
+            </label></li><li><input type='checkbox' id='pkmn_136' />
+            <label for='pkmn_136'>
+                Hatch <span class='h_pkmn'>Eevee</span> and evolve it into <span class='h_pkmn'>Flareon</span> (<span class='h_item'>Fire Stone</span>)
+            </label></li><li><input type='checkbox' id='pkmn_137' />
+            <label for='pkmn_137'>
+                Hatch <span class='h_pkmn'>Porygon</span>
+            </label></li><li><input type='checkbox' id='pkmn_138' />
+            <label for='pkmn_138'>
+                Hatch <span class='h_pkmn'>Omanyte</span>
+            </label></li><li><input type='checkbox' id='pkmn_140' />
+            <label for='pkmn_140'>
+                Hatch <span class='h_pkmn'>Kabuto</span>
+            </label></li><li><input type='checkbox' id='pkmn_153' />
+            <label for='pkmn_153'>
+                Hatch <span class='h_pkmn'>Chikorita</span> and evolve it into <span class='h_pkmn'>Bayleef</span> (level 16)
+            </label></li><li><input type='checkbox' id='pkmn_155' />
+            <label for='pkmn_155'>
+                Hatch <span class='h_pkmn'>Cyndaquil</span>
+            </label></li><li><input type='checkbox' id='pkmn_156' />
+            <label for='pkmn_156'>
+                Hatch <span class='h_pkmn'>Cyndaquil</span> and evolve it into <span class='h_pkmn'>Quilava</span> (level 14)
+            </label></li><li><input type='checkbox' id='pkmn_158' />
+            <label for='pkmn_158'>
+                Hatch <span class='h_pkmn'>Totodile</span>
+            </label></li><li><input type='checkbox' id='pkmn_159' />
+            <label for='pkmn_159'>
+                Hatch <span class='h_pkmn'>Totodile</span> and evolve it into <span class='h_pkmn'>Croconaw</span> (level 18)
+            </label></li><li><input type='checkbox' id='pkmn_172' />
+            <label for='pkmn_172'>
+                Hatch <span class='h_pkmn'>Pichu</span> from <span class='h_pkmn'>Pikachu</span>,<span class='h_pkmn'> Raichu</span>
+            </label></li><li><input type='checkbox' id='pkmn_173' />
+            <label for='pkmn_173'>
+                Hatch <span class='h_pkmn'>Cleffa</span> from <span class='h_pkmn'>Clefairy</span>,<span class='h_pkmn'> Clefable</span>
+            </label></li><li><input type='checkbox' id='pkmn_174' />
+            <label for='pkmn_174'>
+                Hatch <span class='h_pkmn'>Igglybuff</span> from <span class='h_pkmn'>Jigglypuff</span>,<span class='h_pkmn'> Wigglytuff</span>
+            </label></li><li><input type='checkbox' id='pkmn_212' />
+            <label for='pkmn_212'>
+                Hatch <span class='h_pkmn'>Scyther</span>, give it <span class='h_item'>Metal Coat</span> and evolve it into <span class='h_pkmn'>Scizor</span> (Trading)
+            </label></li><li><input type='checkbox' id='pkmn_236' />
+            <label for='pkmn_236'>
+                Hatch <span class='h_pkmn'>Tyrogue</span> from <span class='h_pkmn'>Hitmonlee</span>,<span class='h_pkmn'> Hitmonchan</span>,<span class='h_pkmn'> Hitmontop</span>
+            </label></li><li><input type='checkbox' id='pkmn_238' />
+            <label for='pkmn_238'>
+                Hatch <span class='h_pkmn'>Smoochum</span> from <span class='h_pkmn'>Jynx</span>
+            </label></li><li><input type='checkbox' id='pkmn_239' />
+            <label for='pkmn_239'>
+                Hatch <span class='h_pkmn'>Elekid</span> from <span class='h_pkmn'>Electabuzz</span>
+            </label></li><li><input type='checkbox' id='pkmn_240' />
+            <label for='pkmn_240'>
+                Hatch <span class='h_pkmn'>Magby</span> from <span class='h_pkmn'>Magmar</span>
+            </label></li><li><input type='checkbox' id='pkmn_252' />
+            <label for='pkmn_252'>
+                Hatch <span class='h_pkmn'>Treecko</span>
+            </label></li><li><input type='checkbox' id='pkmn_253' />
+            <label for='pkmn_253'>
+                Hatch <span class='h_pkmn'>Treecko</span> and evolve it into <span class='h_pkmn'>Grovyle</span> (level 16)
+            </label></li><li><input type='checkbox' id='pkmn_255' />
+            <label for='pkmn_255'>
+                Hatch <span class='h_pkmn'>Torchic</span>
+            </label></li><li><input type='checkbox' id='pkmn_256' />
+            <label for='pkmn_256'>
+                Hatch <span class='h_pkmn'>Torchic</span> and evolve it into <span class='h_pkmn'>Combusken</span> (level 16)
+            </label></li><li><input type='checkbox' id='pkmn_258' />
+            <label for='pkmn_258'>
+                Hatch <span class='h_pkmn'>Mudkip</span>
+            </label></li><li><input type='checkbox' id='pkmn_259' />
+            <label for='pkmn_259'>
+                Hatch <span class='h_pkmn'>Mudkip</span> and evolve it into <span class='h_pkmn'>Marshtomp</span> (level 16)
+            </label></li><li><input type='checkbox' id='pkmn_298' />
+            <label for='pkmn_298'>
+                Hatch <span class='h_pkmn'>Azurill</span> from <span class='h_pkmn'>Marill</span>,<span class='h_pkmn'> Azumarill</span> holding <span class='h_item'>Sea Incense</span>
+            </label></li><li><input type='checkbox' id='pkmn_307' />
+            <label for='pkmn_307'>
+                Hatch <span class='h_pkmn'>Meditite</span>
+            </label></li><li><input type='checkbox' id='pkmn_345' />
+            <label for='pkmn_345'>
+                Hatch <span class='h_pkmn'>Lileep</span>
+            </label></li><li><input type='checkbox' id='pkmn_347' />
+            <label for='pkmn_347'>
+                Hatch <span class='h_pkmn'>Anorith</span>
+            </label></li><li><input type='checkbox' id='pkmn_375' />
+            <label for='pkmn_375'>
+                Hatch <span class='h_pkmn'>Beldum</span> and evolve it into <span class='h_pkmn'>Metang</span> (level 20)
+            </label>
+                </li>
+            </ul><h3>Miscellaneous</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='pkmn_251' />
+            <label for='pkmn_251'>
+                Get <span class='h_pkmn'>Celebi</span> - Absent from Gen 3 (<a href='/lyra-website-backup/pokemon_gen3/extra_info'>extra info</a>)
+            </label>
+                </li>
+            </ul>
+            </article><div id='completion'>
+                <h2>The End</h2>
+            <article>
+                <h3>Lilycove City</h3>
+            <ul>
+                <li>
+                <input type='checkbox' id='diploma' />
+            <label for='diploma'>
+                Go to the <span class='h_loc'>Cove Lily Motel</span> to obtain your hard-earned diploma. You have completed something many trainers started, yet very few had the courage to finish. Congratulations, <strong>Pokémon Master!</strong>
+            </label>
+                </li>
+            </ul>
+            </article>
+            </div>
+            </section>
+            <script type='module'>
+                import pokemon_guide from '/lyra-website-backup/scripts/pokemon/pokemon_guide.1757042520.js';
+                import gen3_pokedex from '/lyra-website-backup/scripts/pokemon/gen3/gen3_pokedex.1757042533.js';
+            
+                const gen3_guide = new pokemon_guide(new gen3_pokedex());
+                gen3_guide.initialize_guide();
+            </script>
+        
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Fan preservation backup of <strong>Lyra made a website</strong>. Original website, design and content by <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon and all related assets are trademarks of Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>

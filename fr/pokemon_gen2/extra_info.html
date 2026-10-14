@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+            <html lang='fr'>
+            <head>
+                <title>Infos supplémentaires - Gen 2</title>
+                <script src='/lyra-website-backup/scripts/core.1763926647.js'></script>
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/core.1790257056.css' />
+                <link rel='stylesheet' href='/lyra-website-backup/styles/pokemon/pokemon_gen2.1774893396.css' />
+                <link id='colors_sheet' rel='stylesheet' href='/lyra-website-backup/styles/pokemon/colors/colors_pokemon_gold.css' />
+                <script>
+                    init_style('gen2');
+                </script>
+                <link rel='icon' type='image/ico' href='/lyra-website-backup/favicon.ico' />
+                <meta charset='UTF-8' />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            </head>
+            <body>
+                <div id='top_bar'>
+                <nav>
+                    <div id='bar_left'>
+
+                    </div>
+                    
+                    <div id='bar_mid'>
+                        <a id='link_main' href='/lyra-website-backup/fr'>Retour au menu</a>
+                    </div>
+                    
+                    <div id='bar_right'>
+                        <a href='/lyra-website-backup/pokemon_gen2/extra_info' >
+                            <span lang='en'>English version</span>
+                            <img src='/lyra-website-backup/views/images/us-uk_flag.png' alt='Drapeau anglais/américain' />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+                <div id='container'>
+                    <header>
+    <h1>Lyra a un site web sur</h1>
+    <h2>Pokémon Gen 2</h2>
+</header>
+<nav>
+    <a href='/lyra-website-backup/fr/pokemon_gen2/full_guide'>Guide complet</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen2/pokedex_tracker'>Pokédex perso</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen2/catch_locations'>Pokémon par zone</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen2/pokemon_info'>Recherche par filtre</a>
+    <a href='/lyra-website-backup/fr/pokemon_gen2/extra_info'>Infos supplémentaires</a>
+    <button id='settings_link'>Préférences</button>
+</nav>
+<section id='settings_menu' class='hidden'>
+                <div>
+                <h1>Pokédex perso</h1>
+                <ul>
+                    <li>
+                <p>Pokédex affiché : </p>
+                <select id='select_pokedex_selection'><option value='national_dex'>Pokédex National</option><option value='regional_dex'>Or, Argent et Cristal</option><option value='only_new_dex'>Nouveaux Pokémon</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_three_state_dex'></div>
+                <p>Ajouter une étape supplémentaire</p>
+            </li><li>
+                <div class='btn_off' id='btn_pokedex_progress_numbers'></div>
+                <p>Afficher le nombre de Pokémon obtenus</p>
+            </li><li>
+                <p>Sprites utilisés : </p>
+                <select id='select_pokemon_sprites'><option value='gold_sprites'>Or</option><option value='silver_sprites'>Argent</option><option value='crystal_sprites'>Cristal</option><option value='crystal_anim_sprites'>Cristal (Animés)</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_small_pokedex'></div>
+                <p>Mini Pokédex</p>
+            </li><li>
+                <p>Nom des boites : </p>
+                <select id='select_box_names'><option value='boxes_order'>Numéro de boite</option><option value='boxes_firstlast'>Premier et dernier Pokémon</option><option value='boxes_hidden'>Masquer les noms</option></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Pokémon par zone</h1>
+                <ul>
+                    <li>
+                <p>Filtrer par version : </p>
+                <select id='select_version_filter'><option value='pref_none'>Toutes</option><option value='pref_gold'>Or</option><option value='pref_silver'>Argent</option><option value='pref_crystal'>Cristal</option></select>
+            </li><li>
+                <div class='btn_off' id='btn_ignore_lowlevel_rods'></div>
+                <p>Masquer la Canne et Super Canne</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Recherche par filtre</h1>
+                <ul>
+                    <li>
+                <div class='btn_off' id='btn_hide_caught_info'></div>
+                <p>Ignorer les Pokémon déjà attrapés</p>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Couleurs du site web</h1>
+                <ul>
+                    <li>
+                <p>Thème de couleurs : </p>
+                <select id='select_color_theme'><optgroup label='1re génération'><option value='pokemon/colors/colors_pokemon_red'>Pokémon Rouge</option><option value='pokemon/colors/colors_pokemon_blue'>Pokémon Bleu</option></optgroup><optgroup label='2e génération'><option value='pokemon/colors/colors_pokemon_gold'>Pokémon Or</option><option value='pokemon/colors/colors_pokemon_silver'>Pokémon Argent</option></optgroup><optgroup label='3e génération'><option value='pokemon/colors/colors_pokemon_emerald'>Pokémon Émeraude</option></optgroup><optgroup label='4e génération'><option value='pokemon/colors/colors_pokemon_diamond'>Pokémon Diamant</option><option value='pokemon/colors/colors_pokemon_pearl'>Pokémon Perle</option></optgroup></select>
+            </li>
+                </ul>
+            </div><div>
+                <h1>Données de la Gen 2</h1>
+                <ul>
+                    <li id='import_export'>
+                <button id='btn_export'>→<br />Exporter</button>
+                <textarea spellcheck='false'></textarea>
+                <button id='btn_import'>←<br />Importer</button>
+            </li>
+                </ul>
+            </div>
+            </section>
+            <script type='module'>
+                
+            import gen2_settings from '/lyra-website-backup/scripts/pokemon/gen2/gen2_settings.1763926670.js';
+            const current_settings = new gen2_settings();
+            
+                current_settings.initialize_link();
+                current_settings.js_pokedex_selection(); current_settings.js_three_state_dex(); current_settings.js_pokedex_progress_numbers(); current_settings.js_pokemon_sprites(); current_settings.js_small_pokedex(); current_settings.js_box_names(); current_settings.js_version_filter(); current_settings.js_ignore_lowlevel_rods(); current_settings.js_hide_caught_info(); current_settings.js_color_theme(); current_settings.js_import_export('fr'); 
+            </script>
+            <main>
+                <h1 xmlns="http://www.w3.org/1999/html">Infos supplémentaires</h1>
+
+<h2>Mécaniques de capture Gen 2</h2>
+<article>
+    <p>La Gen 2 de Pokémon a simplifié le système de capture et l'a rendu plus direct et facile à comprendre pour le joueur. Les mécaniques peuvent donc être séparées en 3 catégories (<strong>Balls</strong>, <strong>Statuts</strong> et <strong>PV</strong>) avec chacune augmentant les chances de capture de manière différente. Il est cependant important de noter que de nombreux bugs existent dans les formules utilisées et qu'en conséquence, certains changements prévus ne fonctionnent pas. Ceux-ci sont indiqués plus bas. Enfin, la majorité des données utilisées proviennent du site <em><a href="https://www.dragonflycave.com/mechanics/gen-ii-capturing" target="_blank">The Cave of Dragonflies</a></em> (anglais).</p>
+    
+    <h3>Balls</h3>
+    <p>Chaque espèce de Pokémon a un taux de capture fixe. Plus le taux est bas, plus le Pokémon est difficile à capturer. Ce taux de capture est ensuite augmenté en fonction de la Ball utilisée. Il est possible de demander à Fargas à <span class='h_loc'>Écorcia</span> de fabriquer des Ball spéciales à partir de <span class='h_item'>Noigrumes</span> trouvés sur la <span class='h_loc'>Route 37</span>, <span class='h_loc'>42</span> et <span class='h_loc'>Écorcia</span>. Ces Ball spéciales ont des prérequis spécifiques qui, si remplis, augmentent grandement le taux de capture ; le taux de capture est inchangé (x1) si non remplis. Il n'est possible de ramasser qu'un type de <span class='h_item'>Noigrume</span> par jour et fabriquer une Ball prend un jour aussi. Dans <strong><span class='gold'>Or</span></strong> et <strong><span class='silver'>Argent</span></strong>, il n'est possible de donner qu'un <span class='h_item'>Noigrume</span> par jour, tandis que dans <strong><span class='gold'>Cristal</span></strong>, vous pouvez donner tous les <span class='h_item'>Noigrumes</span> d'une même couleur en même temps.</p>
+    
+    <table id='gen2_balls'>
+        <tr>
+            <th>Ball</th>
+            <th>Méthode d'obtention</th>
+            <th>Taux de capture</th>
+        </tr>
+        <tr>
+            <td><strong>Poké Ball</strong></td>
+            <td>Achetée</td>
+            <td rowspan='2' >Taux x 1</td>
+        </tr>
+        <tr>
+            <td><strong>Lune Ball</strong><br /><em>(buggée)</em></td>
+            <td><span class='h_item'>Noigrume Jaune</span> (<span class="h_loc">Route 42</span>)</td>
+        </tr>
+        <tr>
+            <td><strong>Copain Ball</strong></td>
+            <td><span class='h_item'>Noigrume Vert</span> (<span class="h_loc">Route 42</span>)</td>
+            <td>Taux x 1, le Pokémon capturé commence avec un bonheur de 200 au lieu de 70</td>
+        </tr>
+        <tr>
+            <td><strong>Super Ball</strong></td>
+            <td>Achetée</td>
+            <td rowspan='2' >Taux x 1,5</td>
+        </tr>
+        <tr>
+            <td><strong>Parc Ball</strong></td>
+            <td>Concours de Capture d'insecte</td>
+        </tr>
+        <tr>
+            <td><strong>Hyper Ball</strong></td>
+            <td>Achetée</td>
+            <td>Taux x 2</td>
+        </tr>
+        <tr>
+            <td><strong>Appât Ball</strong></td>
+            <td><span class='h_item'>Noigrume Bleu</span> (<span class="h_loc">Route 37</span>)</td>
+            <td>Taux x 3 lors de la pêche</td>
+        </tr>
+        <tr>
+            <td><strong>Speed Ball</strong><br /><em>(buggée)</em></td>
+            <td><span class='h_item'>Noigrume Blanc</span> (<span class="h_loc">Écorcia</span>)</td>
+            <td>Taux x 4 si le Pokémon sauvage est <span class='h_pkmn'>Magnéti</span>, <span class='h_pkmn'>Tadmorv</span> ou <span class='h_pkmn'>Saquedeneu</span></td>
+        </tr>
+        <tr>
+            <td><strong>Masse Ball</strong></td>
+            <td><span class='h_item'>Noigrume Noir</span> (<span class="h_loc">Route 37</span>)</td>
+            <td>
+                Taux + 40 si poids du Pokémon sauvage > 409,6 kg<br />
+                Taux + 30 si poids du Pokémon sauvage > 307,2 kg<br />
+                Taux + 20 si poids du Pokémon sauvage > 204,8 kg<br />
+                Taux inchangé si poids du Pokémon sauvage > 102,4 kg<br />
+                Taux - 20 sinon
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Niveau Ball</strong><br /><em>(buggée)</em></td>
+            <td><span class='h_item'>Noigrume Rouge</span> (<span class="h_loc">Route 37</span>)</td>
+            <td>
+                Taux x 8 si niveau du Pokémon du joueur > 4 x niveau du Pokémon sauvage<br />
+                Taux x 4 si niveau du Pokémon du joueur > 2 x niveau du Pokémon sauvage<br />
+                Taux x 2 si niveau du Pokémon du joueur > niveau du Pokémon sauvage<br />
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Love Ball</strong><br /><em>(buggée)</em></td>
+            <td><span class='h_item'>Noigrume Rose</span> (<span class="h_loc">Route 42</span>)</td>
+            <td>Taux x 8 si Pokémon du joueur et sauvage sont de la même espèce et du même sexe</td>
+        </tr>
+        <tr>
+            <td><strong>Master Ball</strong></td>
+            <td>Pendant l'histoire</td>
+            <td>Capture garantie</td>
+        </tr>
+    </table>
+    
+    <h3>Statuts</h3>
+    <p>
+        Certains changements de statut augmentent le taux de capture final. Puisque ce changement est appliqué à la fin du calcul, l'augmentation est fixe. Il n'y a que 2 statuts qui augmentent la chance de capture : le <strong>Sommeil</strong> et le <strong>Gel</strong>, avec une hausse de 3,91 %.
+    </p>
+    
+    <h3>Points de Vie</h3>
+    <p>
+        Dans la Gen 2, baisser les PV d'un Pokémon augmente la probabilité de le capturer de manière significative. La formule est basée sur la différence entre PV max et PV actuels et est linéaire, ce qui veut dire que tout dégât infligé augmente la chance de capture de la même façon. A 1 PV, vous triplez presque la chance de capture de base (sans prendre en compte les autres facteurs).
+    </p>
+    
+    <h3>Liste des bugs</h3>
+    <ul>
+        <li>La <strong>Lune Ball</strong> multiplie par 4 le taux de capture d'un Pokémon qui évolue grâce à un <span class='h_item'>Anti-Brûle</span> au lieu d'une <span class='h_item'>Pierre Lune</span>.</li>
+        <li>La <strong>Speed Ball</strong> était supposée augmenter le taux de capture pour tous les Pokémon pouvant fuir, obtenus dans <em>3 tableaux différents</em> (10 %, 50 % et 100 %  de chance de fuite). À la place, elle augmente le taux de capture des <em>3 premiers Pokémon du premier tableau</em> (<span class='h_pkmn'>Magnéti</span>, <span class='h_pkmn'>Tadmorv</span> et <span class='h_pkmn'>Saquedeneu</span>).</li>
+        <li>Dans <strong><span class='crystal'>Cristal</span></strong>, la <strong>Masse Ball</strong> prend en compte les mauvaises données, ce qui l'amène à augmenter par erreur le taux de capture de <span class='h_pkmn'>Kadabra</span>, <span class='h_pkmn'>Tauros</span> and <span class='h_pkmn'>Héliatronc</span> de 40.</li>
+        <li>La <strong>Niveau Ball</strong> passe outre la formule de capture, nullifiant au passage tous les changements de taux provenant du <strong>statut</strong> et des <strong>PV</strong>.</li>
+        <li>La <strong>Love Ball</strong> requiert que les deux Pokémon en combat soient de la même espèce, ce qui n'est pas clairement expliqué dans le jeu mais prévu. Elle requiert aussi que les deux Pokémon soient du <em>même sexe</em>, ce qui n'est clairement pas prévu.</li>
+        <li>Bien que la <strong>Brûlure</strong>, l'<strong>Empoisonnement</strong> et la <strong>Paralysie</strong> étaient censés augmenter le taux de capture final par 5/256 (contre 10/256 pour le <strong>Sommeil</strong> et le <strong>Gel</strong>), leur vérification est toujours fausse. Ils n'ont donc aucun impact sur les chances de capture.
+    </ul>
+    
+    <h3>Stratégie de capture</h3>
+    
+    <p>Tout comme les mécaniques, la stratégie utilisée est beaucoup plus simple :</p>
+    <ul>
+        <li><strong>Points de Vie :</strong> Baisser les PV d'un Pokémon est toujours utile et le plus important. Utiliser la nouvelle capacité <span class='h_move'>Faux-Chage</span> est fortement recommendé, puisqu'elle ne peut pas mettre KO la cible.</li>
+        <li><strong>Statuts :</strong> Endormir un Pokémon sauvage est une augmentation de 3,91 % des chances de capture. Essayez toujours d'endormir un Pokémon rare ou légendaire. Pour les Pokémon communs, l'augmentation est marginale et vous pouvez ignorer le changement de statut. La meilleure capacité pour endormir un Pokémon est <span class='h_move'>Spore</span> (100 % de chance), mais il en existe d'autres telles que <span class='h_move'>Grobisou</span> et <span class='h_move'>Poudre Dodo</span> (75 % de chance), <span class='h_move'>Hypnose</span> (60 % de chance) ou <span class='h_move'>Berceuse</span> (55 % de chance).</li>
+        <li><strong>Balls :</strong> Utilisez toujours une <span class='h_item'>Hyper Ball</span> si possible. Afin d'économiser de l'argent, vous pouvez utiliser une <span class='h_item'>Super Ball</span> ou une <span class='h_item'>Poké Ball</span> sur les Pokémon communs, tout que vous les affaiblissez avant. Il n'existe que 4 Pokémon pour lesquels une Ball spéciale est utile : <span class='h_pkmn'>Lugia</span> (<span class='h_item'>Masse Ball</span>, taux de capture x7.67), <span class='h_pkmn'>Ronflex</span> (<span class='h_item'>Masse Ball</span>, taux de capture x2.6), <span class='h_pkmn'>Nosferalto</span> et <span class='h_pkmn'>Leveinard</span> (<span class='h_item'>Copain Ball</span>, bonheur de départ à 200).</li>
+        <li><strong>Extra :</strong> Afin d'empêcher certains Pokémon de fuir (comme les Bêtes Légendaires), utiliser un Pokémon rapide qui connait <span class='h_item'>Regard Noir</span> est sage.</li>
+    </ul>
+</article>
+
+<h2>Astuces supplémentaires</h2>
+<article>
+    <h3>Élevage</h3>
+    <p>La probabilité d'obtenir un <strong>Oeuf Pokémon</strong> est dépendante de l'<strong>espèce</strong> et du <strong>dresseur d'origine</strong>, et est calculée <strong>tous les 256 pas</strong>. Dans la Gen 2 cependant, il est plus difficile d'avoir un Oeuf, puisque la probabilité va de 31,25 % pour des Pokémon de la même espèce et de dresseurs différents à 3,91 % pour des Pokémon d'espèce différentes et du même dresseur. Puisque vous utiliserez sûrement un <span class='h_pkmn'>Métamorph</span> pour votre élevage, il est recommandé que celui-ci provienne d'un <strong>autre dresseur</strong> afin d'augmenter vos chances d'obtenir un Oeuf à <strong>11,72 %</strong>.</p>
+    <h3>Bonus d'expérience</h3>
+    <p>Utiliser un Pokémon d'un <strong>dresseur différent</strong> vous confère un <strong>bonus</strong> en combat équivalent à <strong>50 %</strong> de l'expérience obtenue. Puisqu'il a de nombreux Pokémon à évoluer dans un Pokédex Vivant, attraper des Pokémon dans une version différente que celle utilisée pour monter de niveau est d'une grande aide pour les Pokémon qui évoluent à un niveau <strong>supérieur à 30</strong> avec une <strong>courbe d'expérience lente</strong>. Notez que l'expérience manquante doit être assez significative pour compenser le temps perdu à échanger.</p>
+    <h3>Technique du Repousse</h3>
+    <p>Les objets <span class='h_item'>Repousse</span> et <span class='h_item'>Super Repousse</span> empêchent les rencontres aléatoires contre les Pokémon d'un <strong>niveau plus bas que votre premier Pokémon non-KO</strong>. Utiliser l'un de ces objets tout en ayant votre premier Pokémon à un niveau spécifique vous permet d'empêcher certaines rencontres tout en gardant la possibilité de rencontre ceux à un <strong>niveau similaire ou supérieur</strong>. Une technique très utile pour augmenter les chances de rencontrer les Pokémon rares tels que <span class='h_pkmn'>Leveinard</span> ou les Bêtes Légendaires.</p>
+</article>
+
+<h2>Emplacement des objets clés</h2>
+<article>
+    <h3>Super Bonbons</h3>
+    <ul>
+        <li><span class='h_loc'>Route 27</span> - Sud-est des <span class='h_loc'>Chutes Tohjo</span></li>
+        <li><span class='h_loc'>Route 28</span> - <em>(Caché)</em> Coin nord-est</li>
+        <li><span class='h_loc'>Route 34</span> - <em>(Caché)</em> Derrière la barrière côté ouest, au nord des arbres</li>
+        <li><span class='h_loc'>Mauville</span> - De l'autre côté du lac est</li>
+        <li><span class='h_loc'>Tour Ferraille</span> - 4e étage, devant le pillier central</li>
+        <li><span class='h_loc'>Phare</span> - 4e étage, est de la pièce périphérique</li>
+        <li><span class='h_loc'>Tourb'Îles</span> - <em>(Caché)</em> 1er sous-sol, nord-est de l'échelle en hauteur</li>
+        <li><span class='h_loc'>Mont Creuset</span> - 1er étage, coin sud-ouest</li>
+        <li><span class='h_loc'>Lac Colère</span> - Au bout du chemin ouest, inaccessible le mercredi</li>
+        <li><span class='h_loc'>Carmin sur Mer</span> - Donné par le Directeur du Fan club Pokémon </li>
+        <li><span class='h_loc'>Cramois'Île</span> - <em>(Caché)</em> Nord de l'île</li>
+    </ul>
+    
+    <h3>CS et CT importantes</h3>
+    <ul>
+        <li><span class='h_item'>CS01 (Coupe)</span> - <span class='h_loc'>Bois aux Chênes</span></li>
+        <li><span class='h_item'>CS02 (Vol)</span> - <span class='h_loc'>Irisia</span></li>
+        <li><span class='h_item'>CS03 (Surf)</span> - <span class='h_loc'>Rosalia</span></li>
+        <li><span class='h_item'>CS04 (Force)</span> - <span class='h_loc'>Oliville</span></li>
+        <li><span class='h_item'>CS05 (Flash)</span> - <span class='h_loc'>Tour Chétiflor</span></li>
+        <li><span class='h_item'>CS06 (Siphon)</span> - <span class='h_loc'>Repaire Rocket</span></li>
+        <li><span class='h_item'>CS07 (Cascade)</span> - <span class='h_loc'>Route de Glace</span></li>
+        <li><span class='h_item'>CT02 (Coup d'Boule)</span> - <span class='h_loc'>Bois aux Chênes → Centre Commercial de Doublonville</span></li>
+        <li><span class='h_item'>CT08 (Eclate-Roc)</span> - <span class='h_loc'>Route 36 → Centre Commercial de Doublonville</span></li>
+    </ul>
+    
+    <h3>Cannes à pêche</h3>
+    <ul>
+        <li><span class="h_item">Canne</span> - <span class="h_loc">Route 32</span></li>
+        <li><span class="h_item">Super Canne</span> - <span class="h_loc">Oliville</span></li>
+        <li><span class="h_item">Méga Canne</span> - <span class="h_loc">Route 12</span></li>
+    </ul>
+</article>
+
+<h2>Essaims</h2>
+<article>
+    <p>Le système d'<strong>Essaims de Pokémon</strong> a été introduit dans la Gen 2. Il existe 6 Pokémon extrèmement rares dans le monde. Ces Pokémon n'apparaissent que dans <strong>une seule zone</strong> (mis à part pour Qwilfish, qui apparait dans 3 zones) et avec une <strong>chance de rencontre de 1%</strong> (sauf pour Qwilfish et Remoraid, avec 10%). Chaque jour de manière aléatoire, un dresseur peut vous appeler pour vous prévenir de l'apparition d'un <strong>essaim</strong>, ce qui veut dire que l'un des 6 Pokémon a maintenant un taux de rencontre plus élevé. Pour que ce dresseur vous appelle, vous devez avoir son numéro enregistré dans le <span class='h_item'>Pokématos</span>. Un seul essaim peut apparaitre par jour, et celui-ci dure jusqu'à minuit.<p>
+        
+    <table id='gen2_swarms'>
+        <tr>
+            <th>Pokémon</th>
+            <th>Zone</th>
+            <th>Taux</th>
+            <th>Appelé par</th>
+            <th>Dans Cristal</th>
+        </tr>
+        <tr>
+            <td class='pkmn_cell'>
+                <img src="/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_183.png" alt="Marill sprite gen 2">
+                Marill
+            </td>
+            <td><a href='/lyra-website-backup/fr/pokemon_gen2/catch_locations/mt_mortar_ent'>Mont Creuset (entrée)</a></td>
+            <td>40%</td>
+            <td>Montagnard Martin (<span class='h_loc'>Route 45</span>)</td>
+            <td>Non</td>
+        </tr>
+        <tr>
+            <td class='pkmn_cell'>
+                <img src="/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_193.png" alt="Yanma sprite gen 2">
+                Yanma
+            </td>
+            <td><a href='/lyra-website-backup/fr/pokemon_gen2/catch_locations/route_35'>Route 35</a></td>
+            <td>30%</td>
+            <td>Scout Hans (<span class='h_loc'>Route 35</span>)</td>
+            <td><span class='crystal'>Oui</span></td>
+        </tr>
+        <tr>
+            <td class='pkmn_cell'>
+                <img src="/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_206.png" alt="Insolourdo sprite gen 2">
+                Insolourdo
+            </td>
+            <td><a href='/lyra-website-backup/fr/pokemon_gen2/catch_locations/dark_cave_r31'>Antre Noire (Route 31)</a></td>
+            <td>40%</td>
+            <td>Montagnard Mario (<span class='h_loc'>Route 33</span>)</td>
+            <td><span class='crystal'>Oui</span></td>
+        </tr>
+        <tr>
+            <td class='pkmn_cell'>
+                <img src="/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_209.png" alt="Snubbull sprite gen 2">
+                Snubbull
+            </td>
+            <td><a href='/lyra-website-backup/fr/pokemon_gen2/catch_locations/route_38'>Route 38</a></td>
+            <td>30%</td>
+            <td>Écolier Vincent (<span class='h_loc'>Route 38</span>)</td>
+            <td>Non</td>
+        </tr>
+        <tr>
+            <td class='pkmn_cell'>
+                <img src="/lyra-website-backup/views/pokemon/gen2/images/pokedex_crystal/sprite_211.png" alt="Qwilfish sprite gen 2">
+                Qwilfish
+            </td>
+            <td><a href='/lyra-website-backup/fr/pokemon_gen2/catch_locations/route_32'>Route 32</a></td>
+            <td>100%</td>
+            <td>Pêcheur Lazare (<span class='h_loc'>Route 32</span>)</td>
+            <td><span class='crystal'>Oui</span></td>
+        </tr>
+        <tr>
+            <td class='pkmn_cell'>
+                <img src="/lyra-website-backup/views/pokemon/gen2/images/pokedex_silver/sprite_223.png" alt="Remoraid sprite gen 2">
+                Remoraid
+            </td>
+            <td><a href='/lyra-website-backup/fr/pokemon_gen2/catch_locations/route_44'>Route 44</a></td>
+            <td>100%</td>
+            <td>Pêcheur Justin (<span class='h_loc'>Route 44</span>)</td>
+            <td>Non</td>
+        </tr>
+    </table>
+</article>
+
+<h2>Arbres Coup d'Boule</h2>
+<article>
+
+    <p>Dans <strong><span class='gold'>Or</span></strong> et <strong><span class='silver'>Argent</span></strong>, il existe 2 catégories d'arbres qu'il est possible de secouer, dépendants de la zone dans laquelle ils se trouvent. Chaque catégorie a les mêmes rencontres, quell que soit la zone. Dans Cristal, le nombre de catégories passe à 6, avec certaines n'étant possibles que dans une seule zone. Par soucis de clarté, toutes les catégories d'arbre sont rangées dans un groupe spécifique dans la page de <a href='/lyra-website-backup/fr/pokemon_gen2/catch_locations'>Pokémon par zone</a>, avec les catégories C étant celles <strong><span class='crystal'>exclusives à Cristal</span></strong>.
+    
+    <ul>
+        <li><strong>Arbres Coup d'Boule A</strong> - <span class='h_loc'>Écorcia</span>, <span class='h_loc'>Bois aux Chênes</span>, <span class='h_loc'>Lac Colère</span>, <span class='h_loc'>Route 26</span>, <span class='h_loc'>27</span>, <span class='h_loc'>34</span>, <span class='h_loc'>35</span>, <span class='h_loc'>36</span>, <span class='h_loc'>37</span>, <span class='h_loc'>38</span>, <span class='h_loc'>39</span></li>
+        <li><strong>Arbres Coup d'Boule B</strong> - <span class='h_loc'>Route 29</span>, <span class='h_loc'>30</span>, <span class='h_loc'>31</span>, <span class='h_loc'>32</span>, <span class='h_loc'>33</span>, <span class='h_loc'>42</span>, <span class='h_loc'>43</span>, <span class='h_loc'>44</span></li>
+        <li><strong><span class='crystal'>Arbres Coup d'Boule C1</span></strong> - <span class='h_loc'>Écorcia</span>, <span class='h_loc'>Route 33</span>, <span class='h_loc'>42</span></li>
+        <li><strong><span class='crystal'>Arbres Coup d'Boule C2</span></strong> - <span class='h_loc'>Bois aux Chênes</span></li>
+        <li><strong><span class='crystal'>Arbres Coup d'Boule C3</span></strong> - <span class='h_loc'>Lac Colère</span>, <span class='h_loc'>Route 43</span></li>
+        <li><strong><span class='crystal'>Arbres Coup d'Boule C4</span></strong> - <span class='h_loc'>Route 26</span>, <span class='h_loc'>27</span>, <span class='h_loc'>32</span></li>
+        <li><strong><span class='crystal'>Arbres Coup d'Boule C5</span></strong> - <span class='h_loc'>Route 29</span>, <span class='h_loc'>30</span>, <span class='h_loc'>31</span>, <span class='h_loc'>34</span>, <span class='h_loc'>35</span>, <span class='h_loc'>36</span>, <span class='h_loc'>37</span>, <span class='h_loc'>38</span>, <span class='h_loc'>39</span></li>
+        <li><strong><span class='crystal'>Arbres Coup d'Boule C6</span></strong> - <span class='h_loc'>Route 44</span></li>
+    </ul>
+    <p>
+        Chaque arbre peut être commun ou rare. La rareté de chaque arbre est calculée à partir de votre numéro ID. Voici le lien d'un <a href='http://37.97.147.73/Headbutt%20Grid.htm' target='_blank'>Outil de calcul</a> qui vous permet de trouver la rareté de chaque arbre selon votre ID personnel.
+    </p>
+</article>
+
+<h2>Évènements journaliers</h2>
+<article>
+    <p>Bien qu'il existe de nombreux évènements spécifiques à chaque jour de la semaine, voici la liste de ceux pertinents au défi du Pokédex Vivant :</p>
+    
+    <h3>Concours de Capture d'insecte</h3>
+    <ul>
+        <li>Chaque <strong>mardi</strong>, <strong>jeudi</strong> et <strong>samedi</strong>, vous pouvez participer au Concours de Capture d'insecte au <span class='h_loc'>Parc Naturel</span>.</li>
+        <li>L'objectif est d'attraper le meilleur Pokémon dans le parc. Seul un Pokémon peut être présenté, et celui-ci peut être gardé après le concours.</li>
+        <li>La récompense de la première place est une <span class='h_item'>Pierresoleil</span> ; c'est le seul moyen de l'obtenir.</li>
+        <li>Le score est la somme de plusieurs facteurs, y compris les stats et PV actuels. Pour avoir la meilleure chance de gagner, attrapez soit un <span class='h_pkmn'>Insécateur</span> soit un <span class='h_pkmn'>Scarabrute</span> (niveau 14 de préférence) sans lui infliger de dégâts tout en vous assurant que Topdresseur Nick ne participe pas (vous pouvez le voir côté ouest du parc).</li>
+    </ul>
+    
+    <h3>Bonheur</h3>
+    <ul>
+        <li>Le Coiffeur dans le <span class='h_loc'>Souterrain</span> de <span class='h_loc'>Doublonville</span> est ouvert tous les jours sauf le <strong>lundi</strong>.</li>
+        <li>Tous les jours <strong>entre 15h et 16h</strong>, Nina Chen à <span class='h_loc'>Bourg Palette</span> propose de masser l'un de vos Pokémon.</li>
+        <li>A <span class='h_loc'>Doublonville</span>, dans une maison au nord de la Boutique de Vélo se trouve une femme qui évolue le bonheur du premier Pokémon de votre équipe. Afin d'évoluer grace au bonheur, la valeur du Pokémon doit être à 220, ce qui correspond au message "J'ai le sentiment qu'il te fait vraiment, vraiment confiance." (valeur entre 200 et 249).</li>
+    </ul>
+    
+    <h3>Autre</h3>
+    <ul>
+        <li>Tous les <strong>lundis</strong>, entre 20 h et 4 h le jour d'après, une Pierre Lune peut être obtenue au <span class='h_loc'>Square du Mont Sélénite</span>.</li>
+        <li>Tous les <strong>vendredis</strong>, un <span class='h_pkmn'>Lokhlass</span> unique apparait dans l'eau au 2e sous-sol des <span class='h_loc'>Caves Jumelles</span>.</li>
+    </ul>
+</article>
+
+<h2><a id='extra_stones'>Pierres d'évolution</a></h2>
+<article>
+    <p>Les pierres permettant l'évolution de certains Pokémon sont beaucoup plus difficiles à obtenir dans la Gen 2 :</p>
+
+    <ul>
+        <li><span class='h_item'>Pierres élémentaires :</span> Sur la <span class='h_loc'>Route 25</span>, le grand-père de Léo vous donne une pierre de chaque type (ainsi qu'une <span class='h_item'>Pierre Stase</span>) si vous lui montez certains Pokémon spécifiques.</li>
+        <li><span class='h_item'>Pierre Lune :</span> Une seule tous les lundis en visitant le <span class='h_loc'>Square du Mont Sélénite</span> de 20h à 4h.</li>
+        <li><span class='h_item'>Pierresoleil :</span> Prix de la première place du <strong>Concours de Capture d'insecte</strong>.</li>
+    </ul>
+    <p>
+        La manière prévue pour obtenir des <span class='h_item'>pierres élémentaires</span> étant principalement grâce au Cadeau Mystère (un système utilisant le port infrarouge de la GBC), il n'est possible d'obtenir qu'une seule pierre de chaque type en jeu. <strong><span class='crystal'>Cristal</span></strong> a ajouté le fait que certains dresseurs donnent des pierres s'ils sont battus.
+    </p>
+    <p>
+        Puisque obtenir des pierres est aussi difficile et aléatoire, la manière la plus simple dans la Gen 2 d'évoluer des Pokémon à l'aide de pierres est de les transférer temporairement dans une version Gen 1, d'acheter la pierre requise dans le <span class='h_loc'>Centre commercial de Céladopole</span> et de l'utiliser.
+    </p>
+</article>
+
+<h2>Obtenir Celebi</h2>
+<article>
+    <p>Le Pokémon Mythique <span class='h_pkmn'>Celebi</span> ne peut être obtenu que dans <strong><span class='crystal'>Cristal</span></strong> et est lié à un évènement unique qui commence en <strong>sortant</strong> du <span class="h_loc">Centre Pokémon de Doublonville</span>. La manière d'accéder à l'évènement est différente entre la version Console Virtuelle et la cartouche.</p>
+
+    <ul>
+        <li><strong>Console Virtuelle:</strong> L'évènement devient accessible après être entré au <strong>Panthéon</strong>.</li>
+        <li><strong>Cartouche:</strong> L'évènement n'est sorti qu'au Japon, mais a quand même été traduit. Il est possible de débloquer l'évènement à n'importe quel moment en activant le code GameShark <strong>010B3CBE</strong>, puis sauvegarder la partie et désactiver le code.</li>
+    </ul>
+</article>
+            </main>
+                </div>
+            
+<footer id='archive_credit'>
+    <p>Sauvegarde de pr&eacute;servation du site <strong>Lyra a un site web</strong>. Site, design et contenu originaux par <a href='https://www.youtube.com/@Lyra' target='_blank'>Lyra</a> &mdash; <a href='https://lyra-made-a.website/'>lyra-made-a.website</a>.</p>
+    <p>Pok&eacute;mon et tous les &eacute;l&eacute;ments associ&eacute;s sont des marques de Nintendo / Creatures Inc. / GAME FREAK inc.</p>
+</footer>
+</body>
+            </html>
